@@ -1,7 +1,7 @@
 ---
 title: "echo \"Hello World\""
 date: 2018-01-05T13:04:24-04:00
-draft: true
+draft: false
 ---
 
 Hola, soy Donkeysharp... en forma de github pages
