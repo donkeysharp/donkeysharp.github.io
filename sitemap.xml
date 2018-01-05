@@ -3,12 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://blog.donkeysharp.xyz/blog/echo-hello-world/</loc>
+    <lastmod>2018-01-05T13:04:24-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.donkeysharp.xyz/blog/</loc>
+    <lastmod>2018-01-05T13:04:24-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://blog.donkeysharp.xyz/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://blog.donkeysharp.xyz/</loc>
+    <lastmod>2018-01-05T13:04:24-04:00</lastmod>
     <priority>0</priority>
   </url>
   
