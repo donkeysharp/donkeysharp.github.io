@@ -6,20 +6,32 @@
     <description>Recent content on Donkeysharp - Blog Personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 05 Jan 2018 13:04:24 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 09 Mar 2018 23:15:16 -0400</lastBuildDate>
     
 	<atom:link href="http://blog.donkeysharp.xyz/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>echo &#34;Hello World&#34;</title>
-      <link>http://blog.donkeysharp.xyz/blog/echo-hello-world/</link>
+      <title>Mis Configuraciones De Escritorio en Debian</title>
+      <link>http://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</link>
+      <pubDate>Fri, 09 Mar 2018 23:15:16 -0400</pubDate>
+      
+      <guid>http://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</guid>
+      <description>En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+Sistema Operativo: GNU/Linux - Debian Stretch
+Dektop Manager: xfce4
+Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas. Algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.
+ Gnome file roller para comprimir archivos file-roller Font Viewer para la instalación de fuentes gnome-font-viewer Google Chrome Terminal multiplexer tmux Terminal music player mocp Vim editor, para edición por línea de comandos y servidores vim SublimeText3 editor de texto que uso para casi todo.</description>
+    </item>
+    
+    <item>
+      <title>Primer Post - echo &#34;Hello World&#34;</title>
+      <link>http://blog.donkeysharp.xyz/blog/primer-post---echo-hello-world/</link>
       <pubDate>Fri, 05 Jan 2018 13:04:24 -0400</pubDate>
       
-      <guid>http://blog.donkeysharp.xyz/blog/echo-hello-world/</guid>
-      <description>Hola, soy Donkeysharp&amp;hellip; en forma de github pages
-Este es un proyecto el cual quiero retomar fuera del contenido de mi antiguo blog que en su mayoría era orientado a tecnologías Microsoft. Desde que dejé de usar estas tecnologías &amp;mdash;que aún me impresionan un montón como C#&amp;mdash; han habido cosas que tuve la suerte de conocer de las cuales deseo compartir algunas experiencias que tuve o voy investigando.
-Espero tener una sección de pensamientos fuera de cosas técnicas o de alguna forma relacionada pero más como una opinión &amp;mdash; que es algo que nunca hice.</description>
+      <guid>http://blog.donkeysharp.xyz/blog/primer-post---echo-hello-world/</guid>
+      <description>Hola, soy Sergio Guillen Mantilla&amp;hellip; en forma de github pages 😄
+Este es un proyecto el cual retomaré distinto del contenido de mi antiguo blog que en su mayoría era orientado a tecnologías Microsoft. Desde que dejé de usar estas tecnologías &amp;mdash;que aún me impresionan un montón como C#&amp;mdash; tuve la suerte de conocer otras tecnologías de las cuales deseo compartir algunas experiencias que tuve o una que otra cosa que voy investigando.</description>
     </item>
     
   </channel>
