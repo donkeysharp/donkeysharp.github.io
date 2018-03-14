@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Donkeysharp - Blog Personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Fri, 09 Mar 2018 23:15:16 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 14 Mar 2018 00:32:43 -0400</lastBuildDate>
     
 	<atom:link href="http://blog.donkeysharp.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mi Entorno De Desarrollo En Sublime Text (Parte 1)</title>
+      <link>http://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</link>
+      <pubDate>Wed, 14 Mar 2018 00:32:43 -0400</pubDate>
+      
+      <guid>http://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</guid>
+      <description>Hola, en temas de desarrollo o edición de texto la mayor parte del tiempo &amp;mdash;por no decir todo&amp;mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
+Los casos en los que no uso Sublime Text son: edición en un servidor; edición por línea de comandos; no cuenta con artist-mode como en Emacs.</description>
+    </item>
     
     <item>
       <title>Mis Configuraciones De Escritorio en Debian</title>
