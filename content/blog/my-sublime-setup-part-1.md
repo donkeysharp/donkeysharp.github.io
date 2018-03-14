@@ -1,12 +1,14 @@
 ---
 title: "Mi Entorno De Desarrollo En Sublime Text (Parte 1)"
-date: 2018-03-11T22:38:43-04:00
-draft: true
+date: 2018-03-14T00:32:43-04:00
+draft: false
 ---
 
-Hola, en temas de desarrollo o edición de texto la mayor parte del tiempo &mdash;por no decir todo&mdash; utilizo Sublime Text 3 (desde ahora ST) como entorno de desarrollo. Los casos en los que no uso SublimeText son: edición en un servidor; edición por línea de comandos; no cuenta con [*artist-mode*](https://www.emacswiki.org/emacs/ArtistMode) como en Emacs.
+Hola, en temas de desarrollo o edición de texto la mayor parte del tiempo &mdash;por no decir todo&mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
 
-Algo que adoro de ST es la gran capacidad de extensibilidad que este cuenta y la cantidad significate de plugins open-source disponibles. En este post deseo mostrar: como habilitar ST para poder instalar plugins con facilidad; los plugins que utilizo y algunas configuraciones del editor que hacen mi vida más simple.
+Los casos en los que no uso Sublime Text son: edición en un servidor; edición por línea de comandos; no cuenta con [*artist-mode*](https://www.emacswiki.org/emacs/ArtistMode) como en Emacs.
+
+Algo que adoro de Sublime Text (desde ahora ST) es la capacidad de extensibilidad que este cuenta y la cantidad significate de plugins open-source disponibles. En este post deseo mostrar: como habilitar ST para poder instalar plugins con facilidad; los plugins que utilizo; y algunas configuraciones del editor que hacen mi vida más simple.
 
 ST por defecto tiene una interfaz de usuario elegante que soporta un gran número de lenguajes de programación para el *highlighting* de la sintaxis; búsqueda rápida de archivos en un proyecto o directorio; un conjunto de comandos para manipular el texto y la configuración del editor como tal; es posible mejorar esta funcionalidad por defecto con los famosos *plugins*. Estos plugins son &mdash;en su mayoría&mdash; proyectos open-source que cumplen un propósito en específico como: trabajo avanzado con archivos; control de versiones; intellisense y otros.
 
@@ -59,3 +61,89 @@ Ya sabiendo estos comandos instalar un plugin es algo tan simple como escribir `
 * [**SublimeLinter-php**](https://packagecontrol.io/packages/SublimeLinter-php) - Plugin que da soporte a "linting" (no se como traducirlo a español) para php. Este utiliza el ejecutable `php`
 * [**TerminalView**](https://packagecontrol.io/packages/TerminalView) - Plugin que da soporte a una terminal unix dentro del mismo editor
 * [**Theme - Brogrammer**](https://packagecontrol.io/packages/Theme%20-%20Brogrammer) - Plugin que da soporte al tema "Brogrammer" que lo combino con el tema Agila
+
+## Las Configuraciones Que Utilizo
+Sublime Text cuenta con un conjunto grande de configuraciones que nos permiten cambiar el comportamiento del editor como tal. Además de tener configuraciones que afectan a nivel general, es posible tener configuraciones específicas a nivel de sintaxis.
+
+### Configuraciones Generales
+Personalmente la mayoría de las configuraciones por defecto me es suficiente pero tengo un par de configuraciones que permiten tener el editor en el estado que yo deseo.
+
+Para poder cambiar las configuraciones vamos a `Menu Preferences > Settings` lo cual abrirá una nueva ventana dividida en dos paneles: configuraciones por defecto y configuraciones personalizadas.
+
+Tanto configuraciones por defecto o personalizadas son representadas en un documento JSON. Para modificar simplemente copiamos la configuración del panel izquierdo al derecho y establecemos el valor que se desee.
+
+Las configuraciones personalizadas que utilizo son las siguientes:
+
+{{< highlight json >}}
+{
+    "color_scheme": "Packages/Theme - Brogrammer/brogrammer.tmTheme",
+    "ensure_newline_at_eof_on_save": true,
+    "font_face": "Noto Mono Regular",
+    "font_options":
+    [
+        "no_bold",
+        "subpixel_antialias"
+    ],
+    "font_size": 11,
+    "rulers":
+    [
+        80
+    ],
+    "tab_size": 4,
+    "theme": "Agila.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true
+}
+{{< /highlight >}}
+
+Basicamente estas configuraciones extras me permiten los siguiente (en orden):
+
+* Utilizar el esquema de color llamado `brogrammer`
+* Siempre crear una nueva linea al final del archivo despues de guardar
+* Fuente que reemplaza Droid Sans Mono en Debian Stretch
+* Configuraciones de la fuente
+* Tamaño de la fuente
+* Poner una línea vertical en el editor para saber la cantidad de caracteres que se escribieron &mdash; que en mi caso son 80 caracteres
+* Establecer la longitud de una tabulación a 4 espacios
+* El tema del editor es `Agila`
+* Traducir una tabulación a espacios
+* Eliminar los espacios al final de una línea
+
+### Configuraciones Específicas
+Como mencioné anteriormente es posible tener configuraciones específicas por sintaxis. Tal vez para algunos se preguntan ¿por qué tener configuraciones específicas por sintaxis?, pues un ejemplo responde esta pregunta: Tal vez en general se desea que la longitud de una tabulación sea de 4 caracteres pero en el caso de archivos javascript esta sea de 2 caracteres.
+
+Para poder establecer configuraciones específicas a una sintaxis es necesario tener un archivo abierto con la sintaxis que se desea personalizar, luego ir a `Menu Preferences > Settings - Syntax Specific`, que abrirá una nueva ventana con dos paneles de la misma forma que las configuraciones generales.
+
+La mayoría de las veces uso esta opción para solamente cambiar la longitud de una tabulación:
+
+{{< highlight json >}}
+{
+    "tab_size": 2
+}
+
+{{< /highlight >}}
+
+Pero un caso donde uso algo diferente a esto es para archivos de tipo Markdown:
+
+{{<highlight json>}}
+{
+    "word_wrap": true,
+    "wrap_width": 80,
+}
+{{</highlight>}}
+
+El cual me indica que cada linea será cortada cuando se llegue a un límite `wrap_width` que en mi caso es de 80 caracteres.
+
+En esta imagen muestro como luce Sublime Text después de aplicar estas configuraciones que se adecuan a mi gusto y caso de uso además de uno que otro plugin visible:
+
+![](/img/st-custom.png)
+<center><a href="/img/st-custom.png" target="_blank">Ver</a></center>
+
+## Comentarios Finales
+Respecto a los plugins muchos de los ya mencionados dejaron de subir nuevas versiones ya desde hace un tiempo. Dependiendo de la importancia de algún plugin esto no suele ser un problema grande en mi experiencia que ya son más de 4 años que voy usando Sublime Text desde su versión 2 y ahora la 3.
+
+El plugin TerminalView es algo que desee que existiera en ST desde que vaaaaarios años atrás vi que mi amigo [@jhtan](https://twitter.com/jhtan) logró tener embebida una terminal unix en Emacs. Ya con este plugin disponible soy feliz, pero el problema que tengo &mdash;que aún no logré solucionar&mdash; es la compatibilidad de TerminalView + tmux + custom keymap.
+
+En esta primera parte relacionada a configuraciones de Sublime Text hice énfasis en los plugins que tengo instalados y configuraciones personales (generales o específicas). En la segunda parte mostraré algunos comandos que utilizo la mayor parte del tiempo y el keymap que hice que es una mezcla del keymap de Emacs más algunas opciones que son mi "contribución" que tal vez para algunos les parezcan incomodas. :)
+
+Espero les haya sido de utilidad.
