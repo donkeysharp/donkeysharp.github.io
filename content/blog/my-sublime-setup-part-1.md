@@ -96,7 +96,7 @@ Las configuraciones personalizadas que utilizo son las siguientes:
 }
 {{< /highlight >}}
 
-Basicamente estas configuraciones extras me permiten los siguiente (en orden):
+Básicamente estas configuraciones extras me permiten lo siguiente (en orden):
 
 * Utilizar el esquema de color llamado `brogrammer`
 * Siempre crear una nueva linea al final del archivo despues de guardar
