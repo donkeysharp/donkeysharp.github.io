@@ -12,7 +12,7 @@ title               = "Donkeysharp - Blog Personal"
 pygmentsuseclasses  = true
 # disqusshortname     = "donkeysharp_blog" # Comment out to disable Disqus.
 pluralizelisttitles = false
-googleAnalytics     = "UA-123-45"
+googleAnalytics     = "UA-112385104-1"
 enableEmoji         = true
 
 [permalinks]
