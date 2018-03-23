@@ -1,5 +1,5 @@
 ---
-title: "Gocho - Compartir Archivos En Una Red Local"
+title: "Gocho, Compartir Archivos En Una Red Local"
 date: 2018-03-21T22:22:46-04:00
 draft: true
 ---

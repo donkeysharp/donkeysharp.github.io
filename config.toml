@@ -34,7 +34,7 @@ dateform               = "Jan 2, 2006"
 dateformfull           = "Mon Jan 2 2006 15:04:05 MST"
 description            = "Don't panic"
 email                  = ""
-extracssfiles          = [ "/css/override.css" ]       # In your `static` directory, add/remove files as necessary.
+extracssfiles          = [ "/css/override.css", "/css/monokai.css" ]       # In your `static` directory, add/remove files as necessary.
 faviconfile            = "img/leaf.ico"
 github                 = "//github.com/donkeysharp"
 instagram              = "//instagram.com/donkeysharp"
@@ -43,7 +43,7 @@ noshowreadtime         = true                         # if true, don't show "<x>
 selfintro              = ""                            # appears in the site header when set to a non-empty string
 twitter                = "//twitter.com/donkeysharp"
 
-highlightjs            = true
+highlightjs            = false
 # highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
 # highlightjsStyle     = "darcula"
 
