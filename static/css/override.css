@@ -21,7 +21,8 @@ section.main .content .markdown tbody tr:nth-child(even) th {
   background-color: #fff;
 }
 
-section.main .content .markdown p code {
+section.main .content .markdown p code,
+section.main .content .markdown ul code {
   border: 1px #D0D0D0 solid;
   color: #d72b3f;
   padding: 1px;
