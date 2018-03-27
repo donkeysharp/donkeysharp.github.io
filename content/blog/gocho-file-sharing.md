@@ -61,4 +61,55 @@ Ya que esta aplicación la tengo orientada para el contexto de una red local, al
 
 Investigando un poco sobre el cómo estos juegos hacian posible mostrar las partidas ya existentes en la red sin tener que especificar una dirección IP o algo similar, me llevó al concepto de [multicast](https://en.wikipedia.org/wiki/Multicast).
 
-En palabras simples, Multicast es un método que permite enviar información a nodos interesados en una red, es decir,
+En palabras simples, Multicast es un método que permite enviar información a nodos interesados en una red.
+
+Por ejemplo, si deseo enviar el mensaje "hola mundo" a computadoras interesadas en recibir este mensaje sin que yo tenga que saber a qué máquinas específicamente, la idea sería la siguiente:
+
+* *Mi Computadora*: Enviar datagrama UDP con mensaje "hola mundo" a alguna [dirección IP reservada para multicast](https://en.wikipedia.org/wiki/Multicast_address#IPv4) ej. 239.6.6.6:1234
+* *Computadora Interesada 1*: Escuchar por datagramas UDP en 239.6.6.6:1234
+* *Computadora Interesada 2*: Escuchar por datagramas UDP en 239.6.6.6:1234
+* *Computadora Interesada n*: Escuchar por datagramas UDP en 239.6.6.6:1234
+
+De este modo Multicast permite que cualquier máquina que desee compartir algo simplemente enviará su información de nodo (identificador, dirección IP, puerto) por multicast y otras máquinas interesadas, además de compartir podrán saber que otras máquinas estan compartiendo algo.
+
+Ya viendo un poco la implementación de esto, podemos ver algunos trozos de código que utilicé en Gocho.
+
+[pkg/node/net.go](https://github.com/donkeysharp/gocho/blob/master/pkg/node/net.go)
+
+Donde existe la función  `announceNode` que básicamente envía un paquete multicast.
+
+{{< highlight go >}}
+func announceNode(nodeInfo *NodeInfo) {
+    address, err := net.ResolveUDPAddr("udp", MULTICAST_ADDRESS)
+    // error handling
+
+    conn, err := net.DialUDP("udp", nil, address)
+    // error handling
+
+    for {
+        ...
+        conn.Write([]byte(message))
+        time.Sleep(ANNOUNCE_INTERVAL_SEC * time.Second)
+    }
+}
+{{< /highlight >}}
+
+Y una función `listenForNodes` que escucha los mensajes multicast.
+
+{{< highlight go >}}
+func listenForNodes(nodeList *list.List) {
+    address, err := net.ResolveUDPAddr("udp", MULTICAST_ADDRESS)
+    // error handling
+    conn, err := net.ListenMulticastUDP("udp", nil, address)
+    // error handling
+
+    conn.SetReadBuffer(MULTICAST_BUFFER_SIZE)
+
+    for {
+        packet := make([]byte, MULTICAST_BUFFER_SIZE)
+        size, udpAddr, err := conn.ReadFromUDP(packet)
+        ...
+    }
+}
+{{< /highlight >}}
+
