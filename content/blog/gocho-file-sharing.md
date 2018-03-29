@@ -139,6 +139,18 @@ La decisión de tener este formato fue la de ahorrar la mayor cantidad de bytes 
 
 En el futuro es posible que existan más comandos diferentes al de anunciar nodo (`0x01`). Es por eso que se dejó un byte reservado para ello.
 
+## Diseño de la aplicación
+Esta sección habla un poco más de la implementación ya habiendo conocido los problemas (mencionados arriba). Para poder seguir esta sección hace referencia al [código fuente](https://github.com/donkeysharp/gocho) de la aplicación.
+### Estructura del Código
+La estructura de código del proyecto Gocho está basada en este [artículo](https://peter.bourgon.org/go-best-practices-2016/#repository-structure) en el que se plantea una esctructura para proyectos en Go. Esta estructura es bastante utilizada en diferentes proyectos, entre ellos algunos proyectos bastante conocidos como [Kubernetes](https://github.com/kubernetes/kubernetes) o [Docker](https://github.com/moby/moby).
+
+El proyecto incluye un archivo `Makefile` el cual indica los pasos necesarios para poder construir o desarrollar el proyecto.
+
+### Componentes del Servicio
+
+### El Dashboard
+### El Índice de Archivos Compartidos
+
 ## Comentarios Finales
 Hay varias cosas que deseo mejorar de Gocho. Al ser un proyecto open-source sientanse libres de abrir un issue o mejor contribuir con algo de código (bugfixing, nuevos features, documentación, etc.)
 
