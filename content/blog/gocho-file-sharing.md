@@ -135,3 +135,8 @@ Un hexdump de un mensaje en el que se anuncia un nodo luce de la siguiente forma
 La decisión de tener este formato fue la de ahorrar la mayor cantidad de bytes posibles. De hecho, si no utilizara el formato JSON se ahorrarían unos cuantos bytes más.
 
 En el futuro es posible que existan más comandos diferentes al de anunciar nodo (`0x01`). Es por eso que se dejó un byte reservado para ello.
+
+## Comentarios Finales
+Hay varias cosas que deseo mejorar de Gocho. Al ser un proyecto open-source sientanse libres de abrir un issue o mejor contribuir con algo de código (bugfixing, nuevos features, documentación, etc.)
+
+Esta es la primera vez que trabajo en una aplicación, la cual envia y recibe información de varias máquinas o nodos al mismo tiempo y hayan diferentes cosas que sincronizar. Personalmente fue &mdash;y espero siga siendo&mdash; una experiencia educativa.
