@@ -62,6 +62,11 @@ Ya sabiendo estos comandos instalar un plugin es algo tan simple como escribir `
 * [**TerminalView**](https://packagecontrol.io/packages/TerminalView) - Plugin que da soporte a una terminal unix dentro del mismo editor
 * [**Theme - Brogrammer**](https://packagecontrol.io/packages/Theme%20-%20Brogrammer) - Plugin que da soporte al tema "Brogrammer" que lo combino con el tema Agila
 
+El plugin TerminalView es algo que he deseado que existiera en ST desde que vaaaaarios años atrás vi que mi amigo [@jhtan](https://twitter.com/jhtan) logró tener embebida una terminal unix en Emacs. Ya con este plugin disponible soy feliz, pero el problema que tengo &mdash;que aún no logré solucionar&mdash; es la compatibilidad de TerminalView + tmux + custom keymap.
+
+![](/img/sublime-terminal.gif)
+<center><a href="/img/sublime-terminal.gif" target="_blank">Ver</a></center>
+
 ## Las Configuraciones Que Utilizo
 Sublime Text cuenta con un conjunto grande de configuraciones que nos permiten cambiar el comportamiento del editor como tal. Además de tener configuraciones que afectan a nivel general, es posible tener configuraciones específicas a nivel de sintaxis.
 
@@ -141,8 +146,6 @@ En esta imagen muestro como luce Sublime Text después de aplicar estas configur
 
 ## Comentarios Finales
 Respecto a los plugins muchos de los ya mencionados dejaron de subir nuevas versiones ya desde hace un tiempo. Dependiendo de la importancia de algún plugin esto no suele ser un problema grande en mi experiencia que ya son más de 4 años que voy usando Sublime Text desde su versión 2 y ahora la 3.
-
-El plugin TerminalView es algo que desee que existiera en ST desde que vaaaaarios años atrás vi que mi amigo [@jhtan](https://twitter.com/jhtan) logró tener embebida una terminal unix en Emacs. Ya con este plugin disponible soy feliz, pero el problema que tengo &mdash;que aún no logré solucionar&mdash; es la compatibilidad de TerminalView + tmux + custom keymap.
 
 En esta primera parte relacionada a configuraciones de Sublime Text hice énfasis en los plugins que tengo instalados y configuraciones personales (generales o específicas). En la segunda parte mostraré algunos comandos que utilizo la mayor parte del tiempo y el keymap que hice que es una mezcla del keymap de Emacs más algunas opciones que son mi "contribución" que tal vez para algunos les parezcan incomodas. :)
 
