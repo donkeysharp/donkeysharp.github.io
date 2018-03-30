@@ -6,10 +6,21 @@
     <description>Recent content in Blog on Donkeysharp - Blog Personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 14 Mar 2018 00:32:43 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 29 Mar 2018 22:22:46 -0400</lastBuildDate>
     
 	<atom:link href="http://blog.donkeysharp.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gocho, Compartir Archivos En Una Red Local</title>
+      <link>http://blog.donkeysharp.xyz/blog/gocho-compartir-archivos-en-una-red-local/</link>
+      <pubDate>Thu, 29 Mar 2018 22:22:46 -0400</pubDate>
+      
+      <guid>http://blog.donkeysharp.xyz/blog/gocho-compartir-archivos-en-una-red-local/</guid>
+      <description>Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado Gocho. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.
+Ver
+Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo.</description>
+    </item>
     
     <item>
       <title>Mi Entorno De Desarrollo En Sublime Text (Parte 1)</title>
