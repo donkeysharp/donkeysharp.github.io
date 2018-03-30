@@ -1,7 +1,7 @@
 ---
 title: "Gocho, Compartir Archivos En Una Red Local"
-date: 2018-03-21T22:22:46-04:00
-draft: true
+date: 2018-03-30T22:22:46-04:00
+draft: false
 ---
 
 Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado [Gocho](https://github.com/donkeysharp/gocho). Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.
