@@ -28,7 +28,9 @@ Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir u
       <pubDate>Wed, 14 Mar 2018 00:32:43 -0400</pubDate>
       
       <guid>http://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</guid>
-      <description>Hola, en temas de desarrollo o edición de texto la mayor parte del tiempo &amp;mdash;por no decir todo&amp;mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
+      <description>Update
+2018-04-28 Otra forma de instalar paquetes
+ En temas de desarrollo o edición de texto la mayor parte del tiempo &amp;mdash;por no decir todo&amp;mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
 Los casos en los que no uso Sublime Text son: edición en un servidor; edición por línea de comandos; no cuenta con artist-mode como en Emacs.</description>
     </item>
     
