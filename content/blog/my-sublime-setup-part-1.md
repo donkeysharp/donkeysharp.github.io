@@ -4,7 +4,11 @@ date: 2018-03-14T00:32:43-04:00
 draft: false
 ---
 
-Hola, en temas de desarrollo o edición de texto la mayor parte del tiempo &mdash;por no decir todo&mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
+> **Update**
+>
+> *2018-04-28* Otra forma de instalar paquetes
+
+En temas de desarrollo o edición de texto la mayor parte del tiempo &mdash;por no decir todo&mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
 
 Los casos en los que no uso Sublime Text son: edición en un servidor; edición por línea de comandos; no cuenta con [*artist-mode*](https://www.emacswiki.org/emacs/ArtistMode) como en Emacs.
 
@@ -41,6 +45,7 @@ Ya sabiendo estos comandos instalar un plugin es algo tan simple como escribir `
 * [**Colorsublime**](https://packagecontrol.io/packages/Colorsublime) - Plugin que facilita la visualización de temas.
 * [**Compare Side-By-Side**](https://packagecontrol.io/packages/Compare%20Side-By-Side) - Plugin que muestra la diferencia gráfica entre dos archivos (lo uso como alternativa rápida a meld, [Ver mi anterior post](/blog/mis-configuraciones-de-escritorio-en-debian/))
 * [**DocBlockr**](https://packagecontrol.io/packages/DocBlockr) - Plugin que autocompleta los doc comments que soporta diferentes lenguajes de programación
+* [**DocBlockr Python**](https://github.com/adambullmer/sublime_docblockr_python) - Basado en DocBlockr, este paquete da soporte específico a Python
 * [**Dockerfile Syntax Highlighting**](https://packagecontrol.io/packages/Dockerfile%20Syntax%20Highlighting) - Plugin que permite el highlighting de Dockerfiles
 * [**Git**](https://packagecontrol.io/packages/Git) - Plugin que realiza la integración con un repositorio git (commit, revert, blame, etc.). Personalmente para la parte de commits, merges, conflictos utilizo la línea de comandos pero para tareas que no causen mucho impacto como el blame este plugin me cae como anillo al dedo
 * [**GitGutter**](https://packagecontrol.io/packages/GitGutter) - Plugin que muestra información de modificación (en la barra de número de línea) de un archivo en un repositorio git. Una de las características que me es de mucha utilidad es el deshacer cambios en un bloque específico de código
@@ -50,6 +55,7 @@ Ya sabiendo estos comandos instalar un plugin es algo tan simple como escribir `
 * [**JSX**](https://packagecontrol.io/packages/JSX) - Plugin que facilita el trabajo con código que usa JSX
 * [**Laravel Blade Highlighter**](https://packagecontrol.io/packages/Laravel%20Blade%20Highlighter) - Plugin que da soporte a la sintaxis de templates Blade utilizados en Laravel
 * [**Loremipsum**](https://packagecontrol.io/packages/LoremIpsum) - Plugin bastante sencillo que permite insetar cadenas del tipo `LoremIpsum` en el archivo que se esté editando
+* [**Markdown Live Preview**](https://packagecontrol.io/packages/MarkdownLivePreview) - Poder editar archivos Markdown y poder ver el preview en otro panel dentro del mismo editor (es bastante chévere)
 * [**NASM x86 Assembly**](https://packagecontrol.io/packages/NASM%20x86%20Assembly) - Plugin que da soporte al highlighting de código assembler
 * [**nginx**](https://packagecontrol.io/packages/nginx) - Plugin que da soporte al highlighting de archivos de configuración de nginx
 * [**Pretty JSON**](https://packagecontrol.io/packages/Pretty%20JSON) - Plugin para verificar y dar formato a texto con formato JSON. Personalmente es uno de los plugins que más utilizo ya que al consumir diferentes REST APIs este me ayuda con responses en un formato de una línea
@@ -59,13 +65,18 @@ Ya sabiendo estos comandos instalar un plugin es algo tan simple como escribir `
 * [**SublimeLinter**](https://packagecontrol.io/packages/SublimeLinter) - Plugin que cuenta como framework base para otros linters e.g. pylint, phplint, jslint, etc.
 * [**SublimeLinter-eslint**](https://packagecontrol.io/packages/SublimeLinter-eslint) - Plugin que da soporte a eslint en ST
 * [**SublimeLinter-php**](https://packagecontrol.io/packages/SublimeLinter-php) - Plugin que da soporte a "linting" (no se como traducirlo a español) para php. Este utiliza el ejecutable `php`
+* [**Tag**](https://github.com/titoBouzout/Tag) - Paquete con utilidades para tags XML, HTML, JSX, etc.
 * [**TerminalView**](https://packagecontrol.io/packages/TerminalView) - Plugin que da soporte a una terminal unix dentro del mismo editor
 * [**Theme - Brogrammer**](https://packagecontrol.io/packages/Theme%20-%20Brogrammer) - Plugin que da soporte al tema "Brogrammer" que lo combino con el tema Agila
 
-El plugin TerminalView es algo que he deseado que existiera en ST desde que vaaaaarios años atrás vi que mi amigo [@jhtan](https://twitter.com/jhtan) logró tener embebida una terminal unix en Emacs. Ya con este plugin disponible soy feliz, pero el problema que tengo &mdash;que aún no logré solucionar&mdash; es la compatibilidad de TerminalView + tmux + custom keymap.
+El plugin "TerminalView" es algo que he deseado que existiera en ST desde que vaaaaarios años atrás vi que mi amigo [@jhtan](https://twitter.com/jhtan) logró tener embebida una terminal unix en Emacs. Ya con este plugin disponible soy feliz, pero el problema que tengo &mdash;que aún no logré solucionar&mdash; es la compatibilidad de TerminalView + tmux + custom keymap.
 
 ![](/img/sublime-terminal.gif)
 <center><a href="/img/sublime-terminal.gif" target="_blank">Ver</a></center>
+
+En el caso del plugin "Tag", este no se encuentra disponible en el repositorio de Package Control. 
+
+Para instalar un paquete sin Package Control solo debemos saber el directorio en el cual se instalan paquetes y clonar el repositorio del paquete en este directorio. Para ello vamos al menú `Preferences > Browse Packages`. Ya sabiendo el directorio solo debemos clonar el repositorio de los paquetes que deseemos instalar.
 
 ## Las Configuraciones Que Utilizo
 Sublime Text cuenta con un conjunto grande de configuraciones que nos permiten cambiar el comportamiento del editor como tal. Además de tener configuraciones que afectan a nivel general, es posible tener configuraciones específicas a nivel de sintaxis.
