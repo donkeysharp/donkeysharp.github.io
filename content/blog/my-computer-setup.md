@@ -4,6 +4,10 @@ date: 2018-03-09T23:15:16-04:00
 draft: false
 ---
 
+> **Update**
+>
+> *2018-04-28* Added more packages I use and new settings I do (reinstalled machine)
+
 En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
 
 *Sistema Operativo:* GNU/Linux - Debian Stretch
@@ -11,25 +15,26 @@ En esta entrada explico las aplicaciones y configuraciones que uso para mi máqu
 *Dektop Manager:* xfce4
 
 ## Aplicaciones usadas frecuentemente
-Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas. Algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.
+Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.
 
 * Gnome file roller para comprimir archivos `file-roller`
 * Font Viewer para la instalación de fuentes `gnome-font-viewer`
 * Google Chrome
-* Terminal multiplexer `tmux`
 * Terminal music player `mocp`
 * Vim editor, para edición por línea de comandos y servidores `vim`
-* SublimeText3 editor de texto que uso para casi todo.
-* htop visor de procesos basado en ncurses `htop`
-* Emacs editor de texto que uso para algunas cosas
 * Build essentials `build-essential`
+* SublimeText3 editor de texto que uso para casi todo.
+* Emacs editor de texto que uso para algunas cosas `emacs`
 * Redshift para cambiar la temperatura del monitor `redshift`
 * Kazam para grabar el escritorio `kazam`
+* Kupfer similar a Spotlight para búsquedas rápidas `kupfer`
 * Shutter para screenshots `shutter`
+* Editor de gráficos vectoriales `inkscape`
 * Gnome Hex Editor `ghex`
 * Meld para comparar diferencias entre dos archivos `meld`
 * Armagetron, juego basado en Tron `armagetronad`
 * DOSBox emulador de juegos antiguos de DOS `dosbox`
+* Drivers faltantes `firmware-linux-free` `firmware-linux-nonfree`
 * Ristretto Image viewer
 * Ettercap para investigación de ataques MITM, pensé en usar Bettercap pero no soy un fanático de Ruby
 * Transmission cliente bit torrent `transmission`
@@ -39,10 +44,23 @@ Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerl
 * VLC Media Player `vlc`
 * Evince como visor de pdf `evince`
 * xCHM visor de archivos .chm `xchm`
+* Utildad para manejar discos `gparted`
+* Información del hardware `hardinfo`
 * Docker Community Edition
-* NodeJS 6.x
+* NodeJs
 
-Por supuesto hay otras aplicaciones que utilizo, pero las instalo cuando es necesario.
+Esta es otra lista de aplicaciones que utilizo con más frecuencia específicamente en línea de comandos:
+
+* Terminal multiplexer `tmux`
+* htop visor de procesos basado en ncurses `htop`
+* Tracer de llamadas al sistema `strace`
+* Cliente HTTP `curl`
+* Utilidades de DNS `dnsutils`
+* Instalar `sudo`
+* Compresores `zip`
+* `sudo`
+
+Obviamente hay otros paquetes para cosas bastante específicas los cuales los instalando cuando es necesario.
 
 ## Escritorio
 Uso xfce4 con dos panels ambos en la parte superior. El primero contiene el menú de aplicación con el logo de Debian; un separador transparente que se extiende; las ventanas abiertas; otro separador transparente que se extiende. El segundo panel tiene estos items: las áreas de trabajo con dos files y dos áreas en cada fila; el visor de uso de CPU; el área de notificaciones; plugin de PulseAudio para cambiar el volumen; finalmente el plugin de fecha mostrando la fecha arriba y la hora abajo.
@@ -61,6 +79,9 @@ Para mis configuraciones de apariencia utilizo lo siguiente:
 
 ![](/img/thunar.png)
 <center><a href="/img/thunar.png" target="_blank">Ver</a></center>
+
+### Tweaks Extra
+El "Switcher de Ventanas" (alt + tab) de xfce4 que viene en Debian Stretch no me agrada por el tamaño gigante de preview de ventana. Personalmente prefiero tener solo los íconos pequeños sin nombre de la ventana, para ello son solo un par de cambios a realizar: ir a `Settings > Window Manager Tweaks` y en el tab `Cycling` deseleccionar `Cycle through windows in a list` y finalmente en el tab `Compositor` deseleccionar `Show windows preview in place of icons when cycling`.
 
 ### Hotkeys
 Tengo algunos hotkeys que uso en xfce4 para tareas comunes. Para configurar los hotkeys de xfce4 voy a `Settings > Keyboard > Application Shortcuts tab`. Mis hotkeys son los siguientes:
