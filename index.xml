@@ -27,7 +27,11 @@ Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir u
       <link>https://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</link>
       <pubDate>Wed, 14 Mar 2018 00:32:43 -0400</pubDate>
       
+<<<<<<< HEAD
       <guid>https://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</guid>
+=======
+      <guid>http://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</guid>
+>>>>>>> 9170b2fc0e81d07a97451f81faf4b3e1d6e140bd
       <description>Update
 2018-04-28 Otra forma de instalar paquetes
  En temas de desarrollo o edición de texto la mayor parte del tiempo &amp;mdash;por no decir todo&amp;mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
@@ -39,7 +43,11 @@ Los casos en los que no uso Sublime Text son: edición en un servidor; edición 
       <link>https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</link>
       <pubDate>Fri, 09 Mar 2018 23:15:16 -0400</pubDate>
       
+<<<<<<< HEAD
       <guid>https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</guid>
+=======
+      <guid>http://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</guid>
+>>>>>>> 9170b2fc0e81d07a97451f81faf4b3e1d6e140bd
       <description>Update
 2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
  En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
