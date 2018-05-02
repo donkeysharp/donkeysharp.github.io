@@ -28,7 +28,9 @@ Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir u
       <pubDate>Wed, 14 Mar 2018 00:32:43 -0400</pubDate>
       
       <guid>https://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</guid>
-      <description>Hola, en temas de desarrollo o edición de texto la mayor parte del tiempo &amp;mdash;por no decir todo&amp;mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
+      <description>Update
+2018-04-28 Otra forma de instalar paquetes
+ En temas de desarrollo o edición de texto la mayor parte del tiempo &amp;mdash;por no decir todo&amp;mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
 Los casos en los que no uso Sublime Text son: edición en un servidor; edición por línea de comandos; no cuenta con artist-mode como en Emacs.</description>
     </item>
     
@@ -38,11 +40,12 @@ Los casos en los que no uso Sublime Text son: edición en un servidor; edición 
       <pubDate>Fri, 09 Mar 2018 23:15:16 -0400</pubDate>
       
       <guid>https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</guid>
-      <description>En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+      <description>Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+ En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
 Sistema Operativo: GNU/Linux - Debian Stretch
 Dektop Manager: xfce4
-Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas. Algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.
- Gnome file roller para comprimir archivos file-roller Font Viewer para la instalación de fuentes gnome-font-viewer Google Chrome Terminal multiplexer tmux Terminal music player mocp Vim editor, para edición por línea de comandos y servidores vim SublimeText3 editor de texto que uso para casi todo.</description>
+Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.</description>
     </item>
     
     <item>
