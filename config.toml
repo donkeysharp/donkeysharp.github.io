@@ -1,4 +1,4 @@
-baseurl             = "http://blog.donkeysharp.xyz"
+baseurl             = "https://blog.donkeysharp.xyz"
 builddrafts         = false
 canonifyurls        = true
 contentdir          = "content"
