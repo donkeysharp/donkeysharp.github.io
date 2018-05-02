@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Donkeysharp - Blog Personal</title>
+    <link>https://blog.donkeysharp.xyz/</link>
+    <description>Recent content on Donkeysharp - Blog Personal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Thu, 29 Mar 2018 22:22:46 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.donkeysharp.xyz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gocho, Compartir Archivos En Una Red Local</title>
+      <link>https://blog.donkeysharp.xyz/blog/gocho-compartir-archivos-en-una-red-local/</link>
+      <pubDate>Thu, 29 Mar 2018 22:22:46 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/blog/gocho-compartir-archivos-en-una-red-local/</guid>
+      <description>Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado Gocho. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.
+Ver
+Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo.</description>
+    </item>
+    
+    <item>
+      <title>Mi Entorno De Desarrollo En Sublime Text (Parte 1)</title>
+      <link>https://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</link>
+      <pubDate>Wed, 14 Mar 2018 00:32:43 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/blog/mi-entorno-de-desarrollo-en-sublime-text-parte-1/</guid>
+      <description>Update
+2018-04-28 Otra forma de instalar paquetes
+ En temas de desarrollo o edición de texto la mayor parte del tiempo &amp;mdash;por no decir todo&amp;mdash; utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
+Los casos en los que no uso Sublime Text son: edición en un servidor; edición por línea de comandos; no cuenta con artist-mode como en Emacs.</description>
+    </item>
+    
+    <item>
+      <title>Mis Configuraciones De Escritorio en Debian</title>
+      <link>https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</link>
+      <pubDate>Fri, 09 Mar 2018 23:15:16 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/</guid>
+      <description>Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+ En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+Sistema Operativo: GNU/Linux - Debian Stretch
+Dektop Manager: xfce4
+Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.</description>
+    </item>
+    
+    <item>
+      <title>Primer Post - echo &#34;Hello World&#34;</title>
+      <link>https://blog.donkeysharp.xyz/blog/primer-post---echo-hello-world/</link>
+      <pubDate>Fri, 05 Jan 2018 13:04:24 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/blog/primer-post---echo-hello-world/</guid>
+      <description>Hola, soy Sergio Guillen Mantilla&amp;hellip; en forma de github pages 😄
+Este es un proyecto el cual retomaré distinto del contenido de mi antiguo blog que en su mayoría era orientado a tecnologías Microsoft. Desde que dejé de usar estas tecnologías &amp;mdash;que aún me impresionan un montón como C#&amp;mdash; tuve la suerte de conocer otras tecnologías de las cuales deseo compartir algunas experiencias que tuve o una que otra cosa que voy investigando.</description>
+    </item>
+    
+  </channel>
+</rss>

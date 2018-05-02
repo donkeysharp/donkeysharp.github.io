@@ -1,0 +1,39 @@
+.markdown ul {
+  padding-left: 30px;
+  text-align: justify;
+}
+.markdown table tr th {
+  font-weight: bold;
+}
+
+.markdown table thead {
+  background-color: #f7f7f7;
+
+}
+
+section.main .content .markdown tbody tr:nth-child(odd) td,
+section.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #fff;
+}
+
+section.main .content .markdown tbody tr:nth-child(even) td,
+section.main .content .markdown tbody tr:nth-child(even) th {
+  background-color: #fff;
+}
+
+section.main .content .markdown p code,
+section.main .content .markdown ul code {
+  border: 1px #D0D0D0 solid;
+  color: #d72b3f;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+section.main .content .highlight .chroma code {
+  background-color: transparent;
+  overflow-x: scroll;
+}
+
+section.main .content .highlight .chroma {
+  background-color: #272822;
+}
