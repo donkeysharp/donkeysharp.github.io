@@ -72,7 +72,7 @@ Donde:
 - `-L` indicador de Local Port Forwarding
 - `puertoA` puerto de nuestra computadora donde será expuesto el servicio remoto (MySQL)
 - `host_privado` la dirección IP del host al cual no podemos llegar públicamente pero si a través del servidor público
-- `puertoB` puerto TCP del servicio que el `host_privado` esta exponiendo
+- `puertoB` puerto TCP del servicio que el `host_privado` está exponiendo
 
 En nuestro ejemplo sería algo similar a:
 
@@ -88,7 +88,7 @@ ssh -nNT -L 3307:10.100.1.23:3306 root@ip_droplet
 
 Ahora imaginemos el caso en que yo en mi red local de casa, universidad o trabajo existe gente que desea acceder al servidor de base de datos. La respuesta simple es que ellos podrían aplicar el mismo procedimiento y tener acceso a MySQL desde sus máquinas locales.
 
-En el supuesto caso que existiera la restricción de que ellos no tengan y no deban tener acceso al servidor público, una solución es que yo exponga el servicio de MySQL en la red local utilizando Local Port Forwarding y otras máquinas en mi red local puedan conectarse a mi computadora como si yo estuviera exponiendo un servicio MySQL pero en realidad estoy exponiendo el servicio MySQL que esta corriendo en una red privada en algún lugar del mundo.
+En el supuesto caso que existiera la restricción de que ellos no tengan y no deban tener acceso al servidor público, una solución es que yo exponga el servicio de MySQL en la red local utilizando Local Port Forwarding y otras máquinas en mi red local puedan conectarse a mi computadora como si yo estuviera exponiendo un servicio MySQL pero en realidad estoy exponiendo el servicio MySQL que está corriendo en una red privada en algún lugar del mundo.
 
 El diagrama muestra lo que deseo consguir:
 
@@ -108,13 +108,101 @@ ssh -nNT -L 192.168.1.100:3306:10.100.1.23:3306 root@ip_droplet
 ```
 De este modo las demás máquinas en nuestra red local podrán conectarse a `192.168.1.100:3306` y así acceder al servicio de MySQL.
 
-### Reproduciendo el ejemplo en nuestro servidor público
-Una ventaja que MySQL por defecto no expone su puerto `3306` a ninguna red por seguridad. Entonces si instalamos MySQL en nuestro servidor público el puerto `3306` no será expuesto al público y este lo podríamos considerar como si estuviera en una "red privada" y poder aplicar lo aprendido.
+## Reproduciendo el ejemplo en nuestro servidor público
+Una ventaja que MySQL tiene por defecto es el de no exponer su puerto `3306` a ninguna red por seguridad, es decir, solo está disponible localmente. Entonces si instalamos MySQL en nuestro servidor público el puerto `3306` no será expuesto al público y este lo podríamos considerar como si estuviera en una "red privada" y poder aplicar lo aprendido.
 
-Para instalar MySQL ejecutamos los siguiente:
+En nuestro servidor instalamos MySQL con el siguiente comando:
 
 ```
-$ apt install mysql-server
+$ sudo apt install mysql-server
 ```
 
+Ahora lo que haremos es percatarnos que MySQL no expone el puert `3306` al público.
 
+Para ello existen diferentes alternativas:
+
+### Utilizando `netstat` internamente**
+Verificaremos que existe un socket abierto en el puerto `3306` pero utilizando la dirección `127.0.0.1`, es decir, solo localmente.
+
+```
+$ netstat -tlpn
+```
+
+Veremos una salida similar a:
+
+```
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      2722/mysqld
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      784/sshd
+tcp6       0      0 :::22                   :::*                    LISTEN      784/sshd
+
+```
+
+Y efectivamente nos percatamos que MySQL esta expuesto solo internamente al ver esto en el resultado anterior: `127.0.0.1:3306`
+
+### Utilizando `nmap` externamente**
+Para poder ver desde cualquier otro lado si el puerto `3306` esta expuesto al público utilizamos la herramienta [nmap](https://nmap.org/):
+
+```
+$ nmap -Pn ip_servidor -p 3306
+```
+
+Esperamos una respuesta similar a la siguiente:
+
+```
+Starting Nmap 7.40 ( https://nmap.org ) at 2018-08-18 23:24 -04
+Nmap scan report for 142.93.204.171
+Host is up (0.12s latency).
+PORT     STATE  SERVICE
+3306/tcp closed mysql
+```
+
+`3306/tcp closed mysql` indica que no podemos acceder desde afuera al puerto `3306` en nuestro servidor.
+
+### Aplicando Local Port Forwarding
+
+Ahora nos preguntamos ¿Cómo acceder desde afuera a MySQL?. Existen varias respuestas para esa pregunta pero en este post utilizaremos SSH con Local Port Forwarding para mapear un puerto local (nuestra PC o laptop) con un puerto que es accesible internamente dentro del servidor.
+
+```
+ssh -nNT -L 3306:localhost:3306 root@ip_servidor
+```
+
+De este modo si verificamos en nuestra PC o laptop, el puerto `3306` debería estar abierto y apuntando a través de un tunel SSH al puerto `3306` disponible solo internamente.
+
+Para verificar, ejecutamos lo siguiente en nuestro dispositivo local:
+
+```
+$ netstat -tlpn
+```
+
+Esperando una salida similar a:
+
+```
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      23193/ssh
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
+```
+
+Donde `127.0.0.1:3306` nos indica que efectivamente `3306` localmente está abierto y se conecta a través de un canal seguro a MySQL instalado en el servidor que solo podía ser accedido internamente.
+
+Algo más para completar esta sección es permitir a máquinas en nuestra red local acceder al puerto `3306` que a su vez esta mapeado por un canal seguro con MySQL instalado en el servidor. Para ello solo adicionamos un parámetro extra a nuestro tunel SSH.
+
+```
+$ ssh -nNT -L 192.168.1.20:3306:localhost:3306 root@ip_servidor
+```
+
+Y al ejecutar netstat localmente veremos algo como:
+
+```
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 192.1681.1.20:3306      0.0.0.0:*               LISTEN      23193/ssh
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
+```
+
+## Comentarios Finales
+En esta primera parte vimos como exponer en nuestra máquina local o red local un servicio que se encuentra disponible en una red privada en un datacenter en otro lado del mundo utilizando Local Port Forwarding.
+
+Personalmente yo utilizo esta técnica bastante para acceder a base de datos o cualquier otro servicio interno en una nube privada en caso de no existir una VPN, lo cual facilita bastante el trabajo y nos evita tener que exponer puertos de servicios que no deben ser públicos.
+
+En la segunda parte de esta serie de entradas veremos como utilizar SSH para publicar servicios en nuestra máquina local a internet mediante un servidor público.
