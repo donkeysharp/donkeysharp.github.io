@@ -4,34 +4,34 @@ date: 2018-08-11T10:44:57-04:00
 draft: true
 ---
 
-El otro día cenando con mi amigo Francisco, él me comentaba que tiene un proyecto personal en mente y lo que desea conseguir. Escuchando sus preguntas la primera herramienta que pasó por mi cabeza para resolver esos problemas fue utilizar la herramienta OpenSSH.
+El otro día cenando con mi amigo Francisco, él me comentaba que tiene un proyecto personal en mente y lo que desea conseguir. Escuchando sus preguntas la primera herramienta que pasó por mi cabeza para resolver algunos de sus problemas fue utilizar OpenSSH.
 
 Esta entrada la hago principalmente para mi amigo Francisco pero la redactaré de forma general para que el benficio sea general.
 
 ## Qué es SSH?
-[SSH](https://es.wikipedia.org/wiki/Secure_Shell) significa Secure Shell y es un protocolo para administrar servicios en una red mediante un canal cifrado (he ahí el porqué de "Secure" :wink:). Algunas de las tareas más comunes que se pueden realizar con este protocolo es la de poder iniciar sesión en un servidor o máquina en una red o la ejecución remota de comandos.
+[SSH](https://es.wikipedia.org/wiki/Secure_Shell) significa Secure Shell y es un protocolo para administrar servicios en una red mediante un canal cifrado (he ahí el porqué de "Secure" :wink:). Algunas de las tareas más comunes que se pueden realizar con este protocolo es la de poder iniciar sesión en un servidor o la ejecución remota de comandos.
 
-Al ser SSH solamente un protocolo necesitamos una herramienta que implemente este protocolo. La más utilizada es [OpenSSH](https://es.wikipedia.org/wiki/OpenSSH) y es la herramienta que utilizaremos para esta guía. OpenSSH u otras implementaciones vienen por defecto en sistemas Unix-like (OSX, OpenBSD, FreeBSD, Linux, etc.) y en el caso de Windows personalmente yo instalo [Git Bash](https://git-scm.com/downloads) ya que es una terminal Unix-like en Windows. Otros prefieren utilizar PuTTY.
+Al ser SSH solamente un protocolo necesitamos una herramienta que implemente dicho protocolo. La más utilizada es [OpenSSH](https://es.wikipedia.org/wiki/OpenSSH) y es la herramienta que utilizaremos para esta guía. OpenSSH u otras implementaciones vienen por defecto en sistemas Unix-like (OSX, OpenBSD, FreeBSD, Linux, etc.) y en el caso de Windows personalmente yo instalo [Git Bash](https://git-scm.com/downloads) ya que es una terminal Unix-like en Windows. Otros prefieren utilizar PuTTY.
 
 ## Ensuciandono las manos
-Para esta guía si bien podríamos probarlo con una máquina virtual o una PC con Linux instalada en una red local, o incluso en la misma máquina local prefiero hacerlo en un entorno más real para probar mi punto, es por eso que crearé un servidor público.
+Para esta guía si bien podríamos probarlo con una máquina virtual o una PC con Linux instalada en una red local o incluso en la misma máquina local, prefiero hacerlo en un entorno un poco más real para probar mi punto, es por eso que crearé un servidor público.
 
 ### Creando un servidor público
-> **Importante** Si bien esta sección utilizo DigitalOcean, pueden utilizar cualquier servidor público que probablemente tengan u otros cloud providers e.g. [AWS](https://aws.amazon.com/free), [Vultr](https://www.vultr.com/promo25b?service=promo25b), [Linode](https://welcome.linode.com/), etc. La idea es tener un servidor que pueda ser accedido desde internet.
+> **Importante** Si bien en esta sección utilizo DigitalOcean, pueden utilizar cualquier servidor público que probablemente tengan u otros cloud providers e.g. [AWS](https://aws.amazon.com/free), [Vultr](https://www.vultr.com/promo25b?service=promo25b), [Linode](https://welcome.linode.com/), etc. La idea es tener un servidor que pueda ser accedido desde internet.
 
-Para esto voy a utilizar el cloud provider DigitalOcean que además de vender servidor virtuales públicos, este tiene una política de cobrar por hora, es decir que una máquina que nos costaría 5 USD al mes, si la utilizamos solo un par de horas, nos costará aproximadamente entre 0.007 a 0.014 centavos de USD. Pueden ver los precios en esta [página](https://www.digitalocean.com/pricing/).
+Para esto voy a utilizar el cloud provider DigitalOcean que además de vender servidor virtuales públicos y otros servicios, este tiene una política de cobrar por hora, es decir que una máquina que nos costaría 5 USD al mes si la tenemos corriendo todo el tiempo, pero si la utilizamos solo un par de horas, nos costará aproximadamente entre 0.007 a 0.014 centavos de USD. Pueden ver los precios en esta [página](https://www.digitalocean.com/pricing/).
 
 El proceso de creación de un servidor en DigitalOcean es bastante simple, solo un par de clicks y saber elegir la distribución Linux y la cantidad de recursos a asignar. Yo elegiré Debian 9 x64 con 1GB de memoria y me costará 0.007 USD la hora.
 
-Les recomiendo que al momento de crear el droplet para esta guía, lo [asocien con una llave SSH](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/).
+Les recomiendo que al momento de crear el droplet, lo [asocien con una llave SSH](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/).
 
 Este [link](https://www.digitalocean.com/docs/droplets/how-to/create/) muestra como crear un droplet en DigitalOcean.
 
 ### Iniciando sesión por SSH
 <!-- TODO: Make a post for cloudinit on digitalocean -->
-Por defecto DigitalOcean permite por defecto acceder a los servidores con usuario `root` lo cual es considerado una [mala práctica en términos de seguridad](https://unix.stackexchange.com/questions/82626/why-is-root-login-via-ssh-so-bad-that-everyone-advises-to-disable-it).
+Por defecto DigitalOcean permite por defecto acceder a los servidores con usuario `root` lo cual es considerado una [mala práctica en términos de seguridad](https://unix.stackexchange.com/questions/82626/why-is-root-login-via-ssh-so-bad-that-everyone-advises-to-disable-it), para un servidor real les recomiendo deshabilitar el login para el usuario root.
 
-Para poder iniciar sesión la forma de hacerlo es en el siguiente formato:
+Para poder iniciar sesión, la forma de hacerlo es en el siguiente formato:
 
 ```
 $ ssh usuario@servidor
@@ -46,7 +46,7 @@ $ ssh root@ip_droplet
 Una vez conectados al servidor remoto podemos hacer distintas cosas: ejecutar comandos, configurarlo, instalar/desinstalar paquetes, etc. Ya con esto podemos comenzar a jugar un poco con algunas de las cosas divertidas que podemos hacer con SSH.
 
 ### Local Port Forwarding
-Los explicaré con un ejemplo: imaginemos que tenemos un servidor público, y detrás de este existe una red privada donde pueden haber servidores de base de datos, servicios disponibles solo en la red privada, etc. Entonces al estar estos en una red privada no hay una forma directa de acceder a ellos desde internet. Algunas opciones para poder acceder a servicios detrás de una red privada es utilizando una VPN o utilizar Local Port Forwading.
+Los explicaré con un ejemplo: imaginemos que tenemos un servidor público, y detrás de este existe una red privada donde pueden haber servidores de base de datos, servicios disponibles solo en la red privada, etc. Entonces al estar estos en una red privada no hay una forma directa de acceder a ellos desde internet. Algunas opciones para poder acceder a servicios detrás de una red privada es utilizando una VPN o utilizar Local Port Forwading. Local Port Forwarding nos permite crear un tunel entre un servicio privado con nuestra máquina a través de un servidor público.
 
 Veamos la siguiente configuración:
 
@@ -80,21 +80,21 @@ En nuestro ejemplo sería algo similar a:
 ssh -nNT -L 3306:10.100.1.23:3306 root@ip_droplet
 ```
 
-Es importante saber que si tuvieramos instalado MySQL en nuestra computadora local habría un conflicto por el puerto `3306` entonces como este puede ser cualquier puerto podemos utilizar otro puerto:
+Es importante saber que si tuvieramos instalado MySQL en nuestra computadora local habría un conflicto por el puerto `3306` entonces como este puede ser cualquier puerto podemos utilizar algo como:
 
 ```
 ssh -nNT -L 3307:10.100.1.23:3306 root@ip_droplet
 ```
 
-Ahora imaginemos el caso en que yo en mi red local de casa, universidad o trabajo existe gente que desea acceder al servidor de base de datos. La respuesta simple es que ellos podrían aplicar el mismo procedimiento y tener acceso a MySQL desde sus máquinas locales.
+Ahora imaginemos el caso que en la red local de casa, universidad o trabajo existe gente que desea acceder al servidor de base de datos. La respuesta simple es que ellos podrían aplicar el mismo procedimiento y tener acceso a MySQL desde sus máquinas locales.
 
 En el supuesto caso que existiera la restricción de que ellos no tengan y no deban tener acceso al servidor público, una solución es que yo exponga el servicio de MySQL en la red local utilizando Local Port Forwarding y otras máquinas en mi red local puedan conectarse a mi computadora como si yo estuviera exponiendo un servicio MySQL pero en realidad estoy exponiendo el servicio MySQL que está corriendo en una red privada en algún lugar del mundo.
 
-El diagrama muestra lo que deseo consguir:
+El diagrama muestra lo que se desea conseguir:
 
 ![](/img/ssh_guide_2.png)
 
-Para poder conseguir esto solo adicionamos un pequeño cambio a la ejecución previa y debemos ejecutar en el siguiente formato:
+Para esto solo adicionamos un pequeño cambio a la ejecución previa y debemos ejecutar en el siguiente formato:
 
 ```
 ssh -nNT -L ip_local:puertoA:host_privado:puertoB usuario@servidor
@@ -189,14 +189,14 @@ Donde `127.0.0.1:3306` nos indica que efectivamente `3306` localmente está abie
 Algo más para completar esta sección es permitir a máquinas en nuestra red local acceder al puerto `3306` que a su vez esta mapeado por un canal seguro con MySQL instalado en el servidor. Para ello solo adicionamos un parámetro extra a nuestro tunel SSH.
 
 ```
-$ ssh -nNT -L 192.168.1.20:3306:localhost:3306 root@ip_servidor
+$ ssh -nNT -L 192.168.1.100:3306:localhost:3306 root@ip_servidor
 ```
 
 Y al ejecutar netstat localmente veremos algo como:
 
 ```
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
-tcp        0      0 192.1681.1.20:3306      0.0.0.0:*               LISTEN      23193/ssh
+tcp        0      0 192.1681.1.100:3306     0.0.0.0:*               LISTEN      23193/ssh
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
 ```
 
@@ -205,4 +205,4 @@ En esta primera parte vimos como exponer en nuestra máquina local o red local u
 
 Personalmente yo utilizo esta técnica bastante para acceder a base de datos o cualquier otro servicio interno en una nube privada en caso de no existir una VPN, lo cual facilita bastante el trabajo y nos evita tener que exponer puertos de servicios que no deben ser públicos.
 
-En la segunda parte de esta serie de entradas veremos como utilizar SSH para publicar servicios en nuestra máquina local a internet mediante un servidor público.
+En la segunda parte de esta serie de entradas, veremos como utilizar SSH para publicar servicios en nuestra máquina local a internet mediante un servidor público.
