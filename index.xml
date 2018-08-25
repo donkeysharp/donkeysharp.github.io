@@ -6,10 +6,21 @@
     <description>Recent content on Donkeysharp - Blog Personal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 29 Mar 2018 22:22:46 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 25 Aug 2018 11:40:05 -0400</lastBuildDate>
     
 	<atom:link href="https://blog.donkeysharp.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Debian Day 2018</title>
+      <link>https://blog.donkeysharp.xyz/blog/debian-day-2018/</link>
+      <pubDate>Sat, 25 Aug 2018 11:40:05 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/blog/debian-day-2018/</guid>
+      <description>Desde hace unos años he asistido a los Debian Days organizados acá en la ciudad de La Paz. Este año se llevó a cabo en la UMSA en la Carrera de Informática.
+Este año me encantó la organización de este evento, realmente se rajaron muchach@os!!!, muchas felicidades. Núcleo Linux, Virus, Enmaskarado, Dx, La Otra Red, #r00tHouse y todos los que no mencioné.
+Siempre han habido charlas interesantes, encontrarse con los amigos y en general ese cariño que se tiene a la distribución Debian.</description>
+    </item>
     
     <item>
       <title>Gocho, Compartir Archivos En Una Red Local</title>
