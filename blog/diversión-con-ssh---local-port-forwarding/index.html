@@ -43,13 +43,13 @@ Qué es SSH? SSH significa Secure Shell y es un protocolo para administrar servi
 
 
     
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2018-08-28%2009%3a12%3a13.686036507%20-0400%20-04%20m%3d%2b0.063315716">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2018-08-28%2009%3a12%3a13.686036507%20-0400%20-04%20m%3d%2b0.063315716">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2018-08-28%2009%3a12%3a13.686036507%20-0400%20-04%20m%3d%2b0.063315716">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2018-08-28%2010%3a53%3a09.526020309%20-0400%20-04%20m%3d%2b0.060489418">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2018-08-28%2010%3a53%3a09.526020309%20-0400%20-04%20m%3d%2b0.060489418">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2018-08-28%2010%3a53%3a09.526020309%20-0400%20-04%20m%3d%2b0.060489418">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2018-08-28%2009%3a12%3a13.686036507%20-0400%20-04%20m%3d%2b0.063315716">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2018-08-28%2010%3a53%3a09.526020309%20-0400%20-04%20m%3d%2b0.060489418">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2018-08-28%2009%3a12%3a13.686036507%20-0400%20-04%20m%3d%2b0.063315716">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2018-08-28%2010%3a53%3a09.526020309%20-0400%20-04%20m%3d%2b0.060489418">
     
 
 
@@ -188,7 +188,7 @@ Qué es SSH? SSH significa Secure Shell y es un protocolo para administrar servi
 
 <p>Al ser SSH solamente un protocolo necesitamos una herramienta que implemente dicho protocolo. La más utilizada es <a href="https://es.wikipedia.org/wiki/OpenSSH" target="_blank">OpenSSH</a> y es la herramienta que utilizaremos para esta guía. OpenSSH u otras implementaciones vienen por defecto en sistemas Unix-like (OSX, OpenBSD, FreeBSD, Linux, etc.) y en el caso de Windows personalmente yo instalo <a href="https://git-scm.com/downloads" target="_blank">Git Bash</a> ya que es una terminal Unix-like en Windows. Otros prefieren utilizar PuTTY.</p>
 
-<h2 id="ensuciandono-las-manos">Ensuciandono las manos</h2>
+<h2 id="ensuciandonos-las-manos">Ensuciandonos las manos</h2>
 
 <p>Para esta guía si bien podríamos probarlo con una máquina virtual o una PC con Linux instalada en una red local o incluso en la misma máquina local, prefiero hacerlo en un entorno un poco más real para probar mi punto, es por eso que crearé un servidor público.</p>
 
@@ -226,7 +226,7 @@ Qué es SSH? SSH significa Secure Shell y es un protocolo para administrar servi
 
 <h3 id="local-port-forwarding">Local Port Forwarding</h3>
 
-<p>Los explicaré con un ejemplo: imaginemos que tenemos un servidor público, y detrás de este existe una red privada donde pueden haber servidores de base de datos, servicios disponibles solo en la red privada, etc. Entonces al estar estos en una red privada no hay una forma directa de acceder a ellos desde internet. Algunas opciones para poder acceder a servicios detrás de una red privada es utilizando una VPN o utilizar Local Port Forwading. Local Port Forwarding nos permite crear un tunel entre un servicio privado con nuestra máquina a través de un servidor público.</p>
+<p>Explicaré el concepto mediante un ejemplo: imaginemos que se tiene un servidor público y detrás de este existe una red privada donde pueden haber servidores de base de datos, servicios disponibles solo en la red privada, etc. Entonces al estar estos en una red privada no hay una forma directa de acceder a ellos desde internet. Algunas opciones para poder acceder a servicios detrás de una red privada es utilizando una VPN o utilizar Local Port Forwading. Local Port Forwarding nos permite crear un túnel entre un servicio privado con nuestra máquina a través de un servidor público.</p>
 
 <p>Veamos la siguiente configuración:</p>
 
@@ -346,7 +346,7 @@ PORT     STATE  SERVICE
 <pre><code>ssh -nNT -L 3306:localhost:3306 root@ip_servidor
 </code></pre>
 
-<p>De este modo si verificamos en nuestra PC o laptop, el puerto <code>3306</code> debería estar abierto y apuntando a través de un tunel SSH al puerto <code>3306</code> disponible solo internamente.</p>
+<p>De este modo si verificamos en nuestra PC o laptop, el puerto <code>3306</code> debería estar abierto y apuntando a través de un túnel SSH al puerto <code>3306</code> disponible solo internamente.</p>
 
 <p>Para verificar, ejecutamos lo siguiente en nuestro dispositivo local:</p>
 
@@ -362,7 +362,7 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      
 
 <p>Donde <code>127.0.0.1:3306</code> nos indica que efectivamente <code>3306</code> localmente está abierto y se conecta a través de un canal seguro a MySQL instalado en el servidor que solo podía ser accedido internamente.</p>
 
-<p>Algo más para completar esta sección es permitir a máquinas en nuestra red local acceder al puerto <code>3306</code> que a su vez esta mapeado por un canal seguro con MySQL instalado en el servidor. Para ello solo adicionamos un parámetro extra a nuestro tunel SSH.</p>
+<p>Algo más para completar esta sección es permitir a máquinas en nuestra red local acceder al puerto <code>3306</code> que a su vez esta mapeado por un canal seguro con MySQL instalado en el servidor. Para ello solo adicionamos un parámetro extra a nuestro túnel SSH.</p>
 
 <pre><code>$ ssh -nNT -L 192.168.1.100:3306:localhost:3306 root@ip_servidor
 </code></pre>
