@@ -1,7 +1,7 @@
 ---
 title: "Diversión con SSH (Parte 1)"
-date: 2018-08-11T10:44:57-04:00
-draft: true
+date: 2018-08-28T08:30:57-04:00
+draft: false
 ---
 
 El otro día cenando con mi amigo Francisco, él me comentaba que tiene un proyecto personal en mente y lo que desea conseguir. Escuchando sus preguntas la primera herramienta que pasó por mi cabeza para resolver algunos de sus problemas fue utilizar OpenSSH.
