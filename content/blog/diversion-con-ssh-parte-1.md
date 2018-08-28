@@ -13,7 +13,7 @@ Esta entrada la hago principalmente para mi amigo Francisco pero la redactaré d
 
 Al ser SSH solamente un protocolo necesitamos una herramienta que implemente dicho protocolo. La más utilizada es [OpenSSH](https://es.wikipedia.org/wiki/OpenSSH) y es la herramienta que utilizaremos para esta guía. OpenSSH u otras implementaciones vienen por defecto en sistemas Unix-like (OSX, OpenBSD, FreeBSD, Linux, etc.) y en el caso de Windows personalmente yo instalo [Git Bash](https://git-scm.com/downloads) ya que es una terminal Unix-like en Windows. Otros prefieren utilizar PuTTY.
 
-## Ensuciandono las manos
+## Ensuciandonos las manos
 Para esta guía si bien podríamos probarlo con una máquina virtual o una PC con Linux instalada en una red local o incluso en la misma máquina local, prefiero hacerlo en un entorno un poco más real para probar mi punto, es por eso que crearé un servidor público.
 
 ### Creando un servidor público
@@ -46,7 +46,7 @@ $ ssh root@ip_droplet
 Una vez conectados al servidor remoto podemos hacer distintas cosas: ejecutar comandos, configurarlo, instalar/desinstalar paquetes, etc. Ya con esto podemos comenzar a jugar un poco con algunas de las cosas divertidas que podemos hacer con SSH.
 
 ### Local Port Forwarding
-Los explicaré con un ejemplo: imaginemos que tenemos un servidor público, y detrás de este existe una red privada donde pueden haber servidores de base de datos, servicios disponibles solo en la red privada, etc. Entonces al estar estos en una red privada no hay una forma directa de acceder a ellos desde internet. Algunas opciones para poder acceder a servicios detrás de una red privada es utilizando una VPN o utilizar Local Port Forwading. Local Port Forwarding nos permite crear un tunel entre un servicio privado con nuestra máquina a través de un servidor público.
+Explicaré el concepto mediante un ejemplo: imaginemos que se tiene un servidor público y detrás de este existe una red privada donde pueden haber servidores de base de datos, servicios disponibles solo en la red privada, etc. Entonces al estar estos en una red privada no hay una forma directa de acceder a ellos desde internet. Algunas opciones para poder acceder a servicios detrás de una red privada es utilizando una VPN o utilizar Local Port Forwading. Local Port Forwarding nos permite crear un túnel entre un servicio privado con nuestra máquina a través de un servidor público.
 
 Veamos la siguiente configuración:
 
@@ -168,7 +168,7 @@ Ahora nos preguntamos ¿Cómo acceder desde afuera a MySQL?. Existen varias resp
 ssh -nNT -L 3306:localhost:3306 root@ip_servidor
 ```
 
-De este modo si verificamos en nuestra PC o laptop, el puerto `3306` debería estar abierto y apuntando a través de un tunel SSH al puerto `3306` disponible solo internamente.
+De este modo si verificamos en nuestra PC o laptop, el puerto `3306` debería estar abierto y apuntando a través de un túnel SSH al puerto `3306` disponible solo internamente.
 
 Para verificar, ejecutamos lo siguiente en nuestro dispositivo local:
 
@@ -186,7 +186,7 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      
 
 Donde `127.0.0.1:3306` nos indica que efectivamente `3306` localmente está abierto y se conecta a través de un canal seguro a MySQL instalado en el servidor que solo podía ser accedido internamente.
 
-Algo más para completar esta sección es permitir a máquinas en nuestra red local acceder al puerto `3306` que a su vez esta mapeado por un canal seguro con MySQL instalado en el servidor. Para ello solo adicionamos un parámetro extra a nuestro tunel SSH.
+Algo más para completar esta sección es permitir a máquinas en nuestra red local acceder al puerto `3306` que a su vez esta mapeado por un canal seguro con MySQL instalado en el servidor. Para ello solo adicionamos un parámetro extra a nuestro túnel SSH.
 
 ```
 $ ssh -nNT -L 192.168.1.100:3306:localhost:3306 root@ip_servidor
