@@ -1,5 +1,5 @@
 ---
-title: "Diversión con SSH (Parte 1)"
+title: "Diversión con SSH - Local Port Forwarding"
 date: 2018-08-28T08:30:57-04:00
 draft: false
 ---
