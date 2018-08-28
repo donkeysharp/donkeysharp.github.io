@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.donkeysharp.xyz/blog/diversi%C3%B3n-con-ssh-parte-1/</loc>
+    <lastmod>2018-08-28T08:30:57-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.donkeysharp.xyz/blog/debian-day-2018/</loc>
     <lastmod>2018-08-25T11:40:05-04:00</lastmod>
   </url>
@@ -29,7 +34,7 @@
   
   <url>
     <loc>https://blog.donkeysharp.xyz/blog/</loc>
-    <lastmod>2018-08-25T11:40:05-04:00</lastmod>
+    <lastmod>2018-08-28T08:30:57-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -40,7 +45,7 @@
   
   <url>
     <loc>https://blog.donkeysharp.xyz/</loc>
-    <lastmod>2018-08-25T11:40:05-04:00</lastmod>
+    <lastmod>2018-08-28T08:30:57-04:00</lastmod>
     <priority>0</priority>
   </url>
   
