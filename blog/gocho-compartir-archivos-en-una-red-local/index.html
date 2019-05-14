@@ -18,8 +18,10 @@ Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir u
 Ver
 Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.donkeysharp.xyz/blog/gocho-compartir-archivos-en-una-red-local/" /><meta property="article:published_time" content="2018-03-29T22:22:46-04:00"/>
+<meta property="og:url" content="https://blog.donkeysharp.xyz/blog/gocho-compartir-archivos-en-una-red-local/" />
+<meta property="article:published_time" content="2018-03-29T22:22:46-04:00"/>
 <meta property="article:modified_time" content="2018-03-29T22:22:46-04:00"/>
+
 
 <title>
 
@@ -43,13 +45,13 @@ Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir u
 
 
     
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2018-08-28%2010%3a53%3a09.535424224%20-0400%20-04%20m%3d%2b0.069893312">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2018-08-28%2010%3a53%3a09.535424224%20-0400%20-04%20m%3d%2b0.069893312">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2018-08-28%2010%3a53%3a09.535424224%20-0400%20-04%20m%3d%2b0.069893312">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2019-05-13%2022%3a10%3a00.20768411%20-0400%20-04%20m%3d%2b0.127733114">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2019-05-13%2022%3a10%3a00.20768411%20-0400%20-04%20m%3d%2b0.127733114">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2019-05-13%2022%3a10%3a00.20768411%20-0400%20-04%20m%3d%2b0.127733114">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2018-08-28%2010%3a53%3a09.535424224%20-0400%20-04%20m%3d%2b0.069893312">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2019-05-13%2022%3a10%3a00.20768411%20-0400%20-04%20m%3d%2b0.127733114">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2018-08-28%2010%3a53%3a09.535424224%20-0400%20-04%20m%3d%2b0.069893312">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2019-05-13%2022%3a10%3a00.20768411%20-0400%20-04%20m%3d%2b0.127733114">
     
 
 
@@ -221,10 +223,10 @@ Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir u
     <span class="s">&#34;net/http&#34;</span>
 <span class="p">)</span>
 
-<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// Simple static webserver:
 </span><span class="c1"></span>    <span class="nx">directory</span> <span class="o">:=</span> <span class="s">&#34;some/directory&#34;</span>
-    <span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nx">FileServer</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">Dir</span><span class="p">(</span><span class="s">&#34;/home/myuser/some/directory&#34;</span><span class="p">))))</span>
+    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nf">FileServer</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">Dir</span><span class="p">(</span><span class="s">&#34;/home/myuser/some/directory&#34;</span><span class="p">))))</span>
 <span class="p">}</span></code></pre></div>
 
 <p>Solo tuve que compilar este archivo; poner el binario que llamé <code>http</code> en algún directorio que se encuentre en mi <code>PATH</code> de ejecución y voila! ya contaba con algo más robusto que pueda aguantar más descargas y no tenga que montar todo un servicio.</p>
@@ -270,33 +272,33 @@ Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir u
 
 <p>La función <code>announceNode</code> básicamente envía un paquete multicast.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nx">announceNode</span><span class="p">(</span><span class="nx">nodeInfo</span> <span class="o">*</span><span class="nx">NodeInfo</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">address</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">ResolveUDPAddr</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="nx">MULTICAST_ADDRESS</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">announceNode</span><span class="p">(</span><span class="nx">nodeInfo</span> <span class="o">*</span><span class="nx">NodeInfo</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">address</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ResolveUDPAddr</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="nx">MULTICAST_ADDRESS</span><span class="p">)</span>
     <span class="c1">// error handling
 </span><span class="c1"></span>
-    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">DialUDP</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
+    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">DialUDP</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
     <span class="c1">// error handling
 </span><span class="c1"></span>
     <span class="k">for</span> <span class="p">{</span>
         <span class="o">...</span>
-        <span class="nx">conn</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">message</span><span class="p">))</span>
-        <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">ANNOUNCE_INTERVAL_SEC</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+        <span class="nx">conn</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">message</span><span class="p">))</span>
+        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">ANNOUNCE_INTERVAL_SEC</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
 <p>La función <code>listenForNodes</code> que escucha los mensajes multicast.</p>
 
-<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nx">listenForNodes</span><span class="p">(</span><span class="nx">nodeList</span> <span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">List</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">address</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">ResolveUDPAddr</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="nx">MULTICAST_ADDRESS</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">listenForNodes</span><span class="p">(</span><span class="nx">nodeList</span> <span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">List</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">address</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ResolveUDPAddr</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="nx">MULTICAST_ADDRESS</span><span class="p">)</span>
     <span class="c1">// error handling
-</span><span class="c1"></span>    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">ListenMulticastUDP</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
+</span><span class="c1"></span>    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ListenMulticastUDP</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
     <span class="c1">// error handling
 </span><span class="c1"></span>
-    <span class="nx">conn</span><span class="p">.</span><span class="nx">SetReadBuffer</span><span class="p">(</span><span class="nx">MULTICAST_BUFFER_SIZE</span><span class="p">)</span>
+    <span class="nx">conn</span><span class="p">.</span><span class="nf">SetReadBuffer</span><span class="p">(</span><span class="nx">MULTICAST_BUFFER_SIZE</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="p">{</span>
         <span class="nx">packet</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">MULTICAST_BUFFER_SIZE</span><span class="p">)</span>
-        <span class="nx">size</span><span class="p">,</span> <span class="nx">udpAddr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nx">ReadFromUDP</span><span class="p">(</span><span class="nx">packet</span><span class="p">)</span>
+        <span class="nx">size</span><span class="p">,</span> <span class="nx">udpAddr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">ReadFromUDP</span><span class="p">(</span><span class="nx">packet</span><span class="p">)</span>
         <span class="o">...</span>
     <span class="p">}</span>
 <span class="p">}</span></code></pre></div>

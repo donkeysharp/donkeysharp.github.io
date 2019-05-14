@@ -3,7 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.donkeysharp.xyz/blog/diversi%C3%B3n-con-ssh---local-port-forwarding/</loc>
+    <loc>https://blog.donkeysharp.xyz/blog/automatizando-setup-post-instalaci%C3%B3n-en-mis-m%C3%A1quinas-debian/</loc>
+    <lastmod>2019-05-13T21:45:39-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.donkeysharp.xyz/blog/</loc>
+    <lastmod>2019-05-13T21:45:39-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.donkeysharp.xyz/</loc>
+    <lastmod>2019-05-13T21:45:39-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.donkeysharp.xyz/blog/diversi%C3%B3n-con-ssh-local-port-forwarding/</loc>
     <lastmod>2018-08-28T08:30:57-04:00</lastmod>
   </url>
   
@@ -28,24 +45,12 @@
   </url>
   
   <url>
-    <loc>https://blog.donkeysharp.xyz/blog/primer-post---echo-hello-world/</loc>
+    <loc>https://blog.donkeysharp.xyz/blog/primer-post-echo-hello-world/</loc>
     <lastmod>2018-01-05T13:04:24-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.donkeysharp.xyz/blog/</loc>
-    <lastmod>2018-08-28T08:30:57-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.donkeysharp.xyz/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.donkeysharp.xyz/</loc>
-    <lastmod>2018-08-28T08:30:57-04:00</lastmod>
     <priority>0</priority>
   </url>
   
