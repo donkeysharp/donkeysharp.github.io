@@ -1,7 +1,7 @@
 ---
-title: "Automatizando setup post-instalación en mis computadoras Debian"
-date: 2019-05-01T22:45:39-04:00
-draft: true
+title: "Automatizando setup post-instalación en mis máquinas Debian"
+date: 2019-05-13T21:45:39-04:00
+draft: false
 ---
 
 Hola, hace un tiempo [publiqué sobre el setup inicial]({{< ref "/blog/my-computer-setup.md" >}}) que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
