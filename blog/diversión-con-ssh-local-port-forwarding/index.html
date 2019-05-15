@@ -45,13 +45,13 @@ Qué es SSH? SSH significa Secure Shell y es un protocolo para administrar servi
 
 
     
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2019-05-13%2022%3a10%3a00.169422207%20-0400%20-04%20m%3d%2b0.089471228">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2019-05-13%2022%3a10%3a00.169422207%20-0400%20-04%20m%3d%2b0.089471228">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2019-05-13%2022%3a10%3a00.169422207%20-0400%20-04%20m%3d%2b0.089471228">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2019-05-14%2021%3a28%3a37.897526869%20-0400%20-04%20m%3d%2b0.061521596">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2019-05-14%2021%3a28%3a37.897526869%20-0400%20-04%20m%3d%2b0.061521596">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2019-05-14%2021%3a28%3a37.897526869%20-0400%20-04%20m%3d%2b0.061521596">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2019-05-13%2022%3a10%3a00.169422207%20-0400%20-04%20m%3d%2b0.089471228">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2019-05-14%2021%3a28%3a37.897526869%20-0400%20-04%20m%3d%2b0.061521596">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2019-05-13%2022%3a10%3a00.169422207%20-0400%20-04%20m%3d%2b0.089471228">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2019-05-14%2021%3a28%3a37.897526869%20-0400%20-04%20m%3d%2b0.061521596">
     
 
 
@@ -283,11 +283,11 @@ Qué es SSH? SSH significa Secure Shell y es un protocolo para administrar servi
 <p>Donde</p>
 
 <ul>
-<li><code>ip_local</code> es la dirección IP de nuestra máquina en la red local privada, de no estar seguros cual es esta simplemente podemos poner el valor <code>0.0.0.0</code> para exponer por cualquier interfaz de red.</li>
-</ul>
+<li><p><code>ip_local</code> es la dirección IP de nuestra máquina en la red local privada, de no estar seguros cual es esta simplemente podemos poner el valor <code>0.0.0.0</code> para exponer por cualquier interfaz de red.</p>
 
 <pre><code>ssh -nNT -L 192.168.1.100:3306:10.100.1.23:3306 root@ip_droplet
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>De este modo las demás máquinas en nuestra red local podrán conectarse a <code>192.168.1.100:3306</code> y así acceder al servicio de MySQL.</p>
 

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Sergio Guillen Mantilla">
+<meta name="description" content="Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
+Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones.">
+
+<meta property="og:title" content="Automatizando setup post-instalación en mis máquinas Debian" />
+<meta property="og:description" content="Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
+Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/automatizando-setup-post-instalacion-en-maquinas-debian/" />
+<meta property="article:published_time" content="2019-05-13T21:45:39-04:00"/>
+<meta property="article:modified_time" content="2019-05-13T21:45:39-04:00"/>
+
+
+<title>
+
+
+     Automatizando setup post-instalación en mis máquinas Debian 
+
+</title>
+<link rel="canonical" href="https://blog.donkeysharp.xyz/automatizando-setup-post-instalacion-en-maquinas-debian/">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2019-05-14%2021%3a28%3a37.912225066%20-0400%20-04%20m%3d%2b0.076219748">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2019-05-14%2021%3a28%3a37.912225066%20-0400%20-04%20m%3d%2b0.076219748">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2019-05-14%2021%3a28%3a37.912225066%20-0400%20-04%20m%3d%2b0.076219748">
+    
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2019-05-14%2021%3a28%3a37.912225066%20-0400%20-04%20m%3d%2b0.076219748">
+    
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2019-05-14%2021%3a28%3a37.912225066%20-0400%20-04%20m%3d%2b0.076219748">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://blog.donkeysharp.xyz/img/leaf.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="es">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://blog.donkeysharp.xyz/"><img class="avatar" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" srcset="https://blog.donkeysharp.xyz/img/donkeysharp.png 1x"></a>
+            
+            <a href="https://blog.donkeysharp.xyz/"><div class="name">Sergio Guillen Mantilla</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://blog.donkeysharp.xyz/blog/"><span>{ Blog }</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/donkeysharp" target="_blank" rel="noopener"><img class="icon" src="https://blog.donkeysharp.xyz/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/donkeysharp" target="_blank" rel="noopener"><img class="icon" src="https://blog.donkeysharp.xyz/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/donkeysharp" target="_blank" rel="noopener"><img class="icon" src="https://blog.donkeysharp.xyz/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Automatizando setup post-instalación en mis máquinas Debian
+
+</div>
+
+                    <div class="initials"><a href="https://blog.donkeysharp.xyz">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon May 13 2019 21:45:39 -04'>May 13, 2019</div>
+                    
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Hola, hace un tiempo <a href="https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/" target="_blank">publiqué sobre el setup inicial</a> que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.</p>
+
+<p>Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones. Hasta ahora me funcionó, pero al volverse repetitivo me animé en automatizar todo este proceso tanto de instalación y configuración de ciertas aplicaciones como el manejo de la apariencia del escritorio (con el setup que siempre utilizo).</p>
+
+<h2 id="la-idea">La Idea</h2>
+
+<p>Si bien podría haber hecho este proyecto utilizando un simple script Bash, me animé por utilizar Bash + <a href="https://docs.ansible.com/" target="_blank">Ansible</a> a modo de practicar y divertirme 😄.</p>
+
+<p>Lo que tenía en mente al momento de iniciar este proyecto fue que ni bien termine la instalación del sistema operativo (en mi caso la distribución Debian), solo tendría que ejecutar un comando y &ldquo;mágicamente&rdquo; todas las apliaciones, configuraciones, etc. sobre mi <a href="https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/" target="_blank">setup personal</a> se aplicarían.</p>
+
+<h2 id="analizando-el-proyecto">Analizando el Proyecto</h2>
+
+<p>Este proyecto lo publiqué en <a href="https://github.com/sguillen-proyectos/fresh-install-setup/" target="_blank">Github</a> si desean ver el código fuente.</p>
+
+<p>Al ser este un proyecto que utiliza Ansible, existe cierta convención en cuestión a árbol de directorios, nombres de archivos, etc. Decidí utilizar la siguiente estructura:</p>
+
+<pre><code>├── init-setup.sh
+├── inventory
+├── README.md
+├── roles
+│   ├── chrome
+│   ├── common
+│   ├── docker
+│   ├── dotenvs
+│   │   ├── tasks
+│   │   └── templates
+│   ├── games
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── mysql
+│   │   ├── files
+│   │   └── tasks
+│   ├── node
+│   ├── php7
+│   ├── virtualbox
+│   ├── vscode
+│   └── xfce4
+├── setup-playbook.yml
+└── update-desktop-layout.sh
+</code></pre>
+
+<p>En Ansible lo que se denominaría como el programa principal es el <code>playbook</code> el cual se encarga de ejecutar diferentes tareas en contra de uno o más servidores, en este caso, el programa principal de Ansible sería el archivo <code>setup-playbook.yml</code>. Como se puede ver este archivo tiene una sección llamada <code>roles</code>.</p>
+
+<blockquote>
+<p><strong>Nota:</strong> En Ansible lo que se denomina <code>role</code> llega a ser una pieza de código reutilizable (como un módulo). Esto nos permite tener el proyecto mejor organizado y cuenta con una estructura interna de directorios como se ve en el árbol de directorios de arriba.</p>
+</blockquote>
+
+<p>Dividí el proyecto en diferentes roles, cada uno para un diferente propósito como ser: una aplicación específica o un grupo de aplicaciones incluidas sus configuraciones. Por ejemplo, en el role <code>common</code> instala todas las utilidades de escritorio y las utilidades de línea de comandos que utilizo día a día. Y en general hay roles para cosas específicas que utilizo, Docker, herramientas y tecnologías de desarrollo de software y otros. Si tienen más curiosidad pueden revisar el repo 😄.</p>
+
+<p>Siguiendo con la explicación, dentro de Ansible existe un concepto bastante importante que es el <code>inventory</code>, el cual indica todos los servidores en los que se aplicarán las tareas especificada en los roles. Este proyecto tiene un archivo llamado <code>inventory</code> con opciones particulares, ya que todas las tareas no se ejecutarán en contra de varios servidores, sino en contra de uno solo y es la misma máquina local.</p>
+
+<pre><code>[local]
+localhost ansible_connection=local
+</code></pre>
+
+<p>Lo explico: <code>[local]</code> es el grupo de servidores, yo lo denominé <code>local</code> pero podría llamarse cualquier cosa, lo importante es que si se cambiase de nombre, este nombre también debería reflejarse en <code>setup-playbook.yml</code> en <code>hosts: local</code>. Luego la siguientes líneas indican el hostname que en este caso es <code>localhost</code> y <code>ansible_connection=local</code> que indica que será una ejecución local y de ese modo evitar el proceso de autenticación por SSH que Ansible realiza en cada ejecución hacia la misma máquina.</p>
+
+<p>Finalmente el script <code>init-setup.sh</code> es un wizard el cual pregunta por ciertas opciones antes de realizar todo el proceso de instalación y configuración. Este llegaría a ser el comando &ldquo;mágico&rdquo; que se encarga de todo:</p>
+
+<pre><code>wget https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh &amp;&amp; bash init-setup.sh
+</code></pre>
+
+<h2 id="qué-gano-con-esto">¿Qué gano con esto?</h2>
+
+<p>Bueno, primero aprendí un par de cosas que no sabía sobre Ansible, me divertí y lo más importante para mí (además que era el objetivo de este proyecto) es que ahora me ahorro todo el tiempo de configuración manual que realizaba en un sistema operativo recién instalado.</p>
+
+<p>Si bien ya tenía mi <a href="https://blog.donkeysharp.xyz/blog/mis-configuraciones-de-escritorio-en-debian/" target="_blank">guía</a> de qué paquetes instalar y que configuraciones realizar, eso me tomaba entre una a dos horas, ahora todo este tiempo de setup esta principalmente condicionado a la velocidad de internet.</p>
+
+<p>Algo en este proyecto que es bastante útil para mí, es que logré uniformizar mis configuraciones de escritorio (en este caso Xfce4), ya que en muchas ocaciones el &ldquo;estilizar&rdquo; mi escritorio es en lo que más perdía mi tiempo.</p>
+
+<h2 id="comentarios-finales">Comentarios Finales</h2>
+
+<p>Si bien este proyecto solo esta orientado para mi setup personal, decidí compartirlo por si la idea de automatizar el environment le sirve a alguna de las personas que lean esta entrada.</p>
+
+<p>Durante el tiempo que invertí para realizar este proyecto sucedieron varias cosas divertidas y que me hicieron renegar de las cuales aprendí algo nuevo. Escribiré sobre esa serie de eventos desafortunados en una siguiente entrada.</p>
+
+<p>Happy Hacking!</p>
+
+                <br>
+		<p class="back-to-posts"><a href="https://blog.donkeysharp.xyz/blog/">Ver entradas</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
+

@@ -13,10 +13,10 @@
     
     <item>
       <title>Automatizando setup post-instalación en mis máquinas Debian</title>
-      <link>https://blog.donkeysharp.xyz/blog/automatizando-setup-post-instalaci%C3%B3n-en-mis-m%C3%A1quinas-debian/</link>
+      <link>https://blog.donkeysharp.xyz/automatizando-setup-post-instalacion-en-maquinas-debian/</link>
       <pubDate>Mon, 13 May 2019 21:45:39 -0400</pubDate>
       
-      <guid>https://blog.donkeysharp.xyz/blog/automatizando-setup-post-instalaci%C3%B3n-en-mis-m%C3%A1quinas-debian/</guid>
+      <guid>https://blog.donkeysharp.xyz/automatizando-setup-post-instalacion-en-maquinas-debian/</guid>
       <description>Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
 Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones.</description>
     </item>
