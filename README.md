@@ -15,7 +15,7 @@ This repository uses [Cocoa Theme](https://themes.gohugo.io/theme/cocoa/) as a g
 ## Development
 Hugo includes a development server, to start it run:
 
-    $ hugo serve --watch
+    $ hugo serve --watch -D
 
 Which makes the blog available at `http://localhost:1313` and when a change is done it will be reflected instantly on the already mentioned URL.
 
