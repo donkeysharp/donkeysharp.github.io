@@ -6,7 +6,12 @@ draft: true
 
 Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
 
-La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de `bit.ly` hacia un video MP4 en Dropbox que después fue dado de baja, este video que fue viral no solo por SMS sino en redes sociales y medios de comunicación locales, mostraba la llamada que en la que [un dirigente local habla](https://www.eldeber.com.bo/157244_video-que-registra-una-llamada-entre-evo-morales-y-un-dirigente-fue-encontrado-en-el-desbloqueo-en-t) con [Evo Morales](https://es.wikipedia.org/wiki/Evo_Morales).
+La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de `bit.ly` hacia un video MP4 en Dropbox que después fue dado de baja.
+
+![](/img/vid-analysis-link-video.png)
+<!-- video con el link del video original -->
+
+Este video que fue viral no solo por SMS sino en redes sociales y medios de comunicación locales, mostraba la llamada que en la que [un dirigente local habla](https://www.eldeber.com.bo/157244_video-que-registra-una-llamada-entre-evo-morales-y-un-dirigente-fue-encontrado-en-el-desbloqueo-en-t) con [Evo Morales](https://es.wikipedia.org/wiki/Evo_Morales).
 
 Corrieron rumores de que el video era un malware o era utilizado para hacer tracking de las personas que lo abriesen, la verdad no suelo tirar mucha bola a eso, pero esta vez me interesó porque días atrás Facebook habia notificado una falla de seguridad de Stack Buffer Overflow que posiblemente podría generar RCE en la aplicación de Whatsapp justamente con un video MP4 malicioso!. Este es el [link](https://www.facebook.com/security/advisories/cve-2019-11931) de la alerta de seguridad.
 
@@ -61,7 +66,7 @@ Tagged date                              : UTC 2019-11-21 12:31:59
 
 Visualmente esa información es clave-valor pero gran parte de esas cadenas no se encontraba cuando utilicé `strings` lo cual me lleva a la conclusión que el formato es en su mayoría binario y que los números en esta salida no estan representados como una cadena ASCII sino en bytes similar a un paquete IP.
 
-> **Nota:** un paquete IP es binario en el sentido que el puerto y otros flags no estan en modo texto ASCII sino encapsulados en bytes. Por ejemplo la ip 10.0.1.11 se representa en 4 bytes como 0A 00 01 0B
+> **Nota:** un paquete IP es binario en el sentido que la IP y otros flags no estan en modo texto ASCII sino encapsulados en bytes. Por ejemplo la ip 10.0.1.11 (9 bytes en ASCII) se representa en 4 bytes como 0A 00 01 0B
 
 En este punto sentí que estaba pateando oxigeno y que no llegaría a ningún lado. Lo siguiente que hice es buscar si había ya algún exploit o tutorial de como explotar este CVE y efectivamente con la ayuda de Google llegue a este repositorio en [Github](https://github.com/kasif-dekel/whatsapp-rce-patched).
 
@@ -101,9 +106,65 @@ Como se ve en la salida un monton de info que no entendía xD, pero algo que si 
 El atom `meta` tiene un tamaño de 117 bytes pero dentro de este atom hay un atom hijo sin nombre que tiene un tamaño de 6943 bytes que es mayor a los 117 bytes del padre y bueno esa da una pista.
 
 ```
-         Atom  @ 152 of size: 6943, ends @ 7095					 ~
+         Atom  @ 152 of size: 6943, ends @ 7095 				 ~
 ```
 
 En el post posteriormente hace referencia a 33 bytes y 1.6GB del size del atom y bueno ahí me perdí y eso era efectivamente la clave para entender el error.
 
 Lo siguiente ya lo había procrastinado suficiente era leer las especificaciones de un archivo MP4. De los archivos que conseguí ninguno era al nivel que quería, es decir, a nivel de bytes. Por suerte, una vez más el post hace referencia a dos documentos: la especificación en el sitio de [Apple Developers](https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html) y otra especificación un [poco más rebuscada](http://xhelmboyx.tripod.com/formats/mp4-layout.txt) y es donde se llega a entender completamente este error.
+
+### El formato MP4
+Como resumen super corto tras leer la especificación se puede decir que Mp4 esta organizado jerárquicamente en bloques llamados Atom (lo que mencioné arriba) y cada Atom tiene una cabecera de 8 bytes, 4 bytes definen el tamaño del Atom y los otros 4 bytes (generalmente en ASCII) representan el tipo del Atom.
+
+Ahora existen varios tipos de Atoms pero los que se muestran en el post son los siguientes:
+
+- `moov` que representa lo que es "Movie Data" que puede tener otros Atoms. Basicamente el contenido de este atom es información de la película e.g. cuando se creó, duración, etc.
+- `meta` otro atom que encapsula información de Metadata
+- `hdlr` un atom que es considerado el handler y viene dentro del atom `meta`, este atom define toda la estructura que tendrá toda la metadata dentro del atom `meta`
+
+La siguiente imagen muestra la representación gráfica de los atoms en forma de caja:
+
+![](/img/vid-analysis-atom-representation.png)
+
+Pero obviamente como se puede entender este formato a nivel binario? Esta parte me tomó un poco de tiempo pero al final utilizando `mediainfo-gui` y un editor hexadecimál fue algo mucho mas simple.
+
+Un atom tiene una cabezera de 8 bytes donde los primeros 4 bytes indican el tamaño del atom y los siguientes 4 bytes el tipo de atom e.g. `moov`, `meta`, `hdlr` entre otros y luego vienen N bytes que son el contenido del atom, donde N es el tamaño del atom especificado en los primeros 4 bytes - 8 bytes.
+
+Un ejemplo:
+
+Un atom de 794 bytes de tamaño de tipo `moov` se representaría como:
+
+```
+00 00 03 1A 6D 6F 6F 76 XX XX XX ... 786 bytes ... XX XX
+```
+
+ahora entendamos un poco más estos bytes: según la especificación los primeros 4 bytes son el tamaño, los siguientes 4 bytes son el tipo de atom y el resto es el cuerpo.
+
+Los primeros 4 bytes se pueden representar como `0x0000031A` o `0x31A` que en decimal es `794`.
+
+Los siguientes 4 bytes dicen que es el tipo de atom que es texto ASCII entonces, solo es convertir los siguientes bytes a su caracter en ASCII y tendremos:
+
+```
+6D -> m
+6F -> o
+6F -> o
+76 -> v
+```
+
+Ahora el contenido de este atom (los restante 786 bytes) pueden ser otros atoms identificados de la misma forma y en base a la especificación del formato MP4.
+
+Por ejemplo, hay un atom llamado `mdta` que es basicamente el nombre de key en la metadata (este atom tiene el key `com.android.version` que mencioné más arriba). Al igual que otro atom se lo representa con un header de 8 bytes, y en este caso el contenido:
+
+```
+00 00 00 1B 6D 64 74 61 63 6F 6D 2E 61 6E 64 72 6F 69 64 2E 76 65 72 73 69 6F 6E
+```
+
+Donde:
+- `0x0000001B` representa el tamaño que en decimal es 27 bytes
+- `6D 64 74 61` representa `mdta` el tipo del atom
+- `63 6F 6D 2E 61 6E 64 72 6F 69 64 2E 76 65 72 73 69 6F 6E` convirtiendo a ASCII representa `com.android.version`
+
+
+Para no hacer muy larga la lectura en este video muestro con más detalle cómo interpretar a nivel hexadecimal este formato junto a `mediainfo-gui`.
+
+### Entendiendo el bug
