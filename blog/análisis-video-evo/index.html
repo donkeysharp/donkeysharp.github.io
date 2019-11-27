@@ -10,15 +10,15 @@
 <meta name="referrer" content="no-referrer">
 <meta name="author" content="Sergio Guillen Mantilla">
 <meta name="description" content="Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
-La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly hacia un video MP4 en Dropbox que después fue dado de baja.">
+La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly a un video MP4 en Dropbox que después fue dado de baja.">
 
 <meta property="og:title" content="Análisis Video Evo" />
 <meta property="og:description" content="Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
-La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly hacia un video MP4 en Dropbox que después fue dado de baja." />
+La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly a un video MP4 en Dropbox que después fue dado de baja." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.donkeysharp.xyz/blog/an%C3%A1lisis-video-evo/" />
-<meta property="article:published_time" content="2019-11-26T13:08:36-04:00" />
-<meta property="article:modified_time" content="2019-11-26T13:08:36-04:00" />
+<meta property="article:published_time" content="2019-11-26T13:08:36-04:00"/>
+<meta property="article:modified_time" content="2019-11-26T13:08:36-04:00"/>
 
 
 <title>
@@ -43,13 +43,13 @@ La anterior semana una gran cantidad de clientes de un ISP local recibieron un S
 
 
     
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2019-11-26%2023%3a56%3a19.368057208%20-0400%20-04%20m%3d%2b0.051543125">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2019-11-26%2023%3a56%3a19.368057208%20-0400%20-04%20m%3d%2b0.051543125">
-    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2019-11-26%2023%3a56%3a19.368057208%20-0400%20-04%20m%3d%2b0.051543125">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2019-11-27%2008%3a59%3a43.349596497%20-0400%20-04%20m%3d%2b0.124986387">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2019-11-27%2008%3a59%3a43.349596497%20-0400%20-04%20m%3d%2b0.124986387">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2019-11-27%2008%3a59%3a43.349596497%20-0400%20-04%20m%3d%2b0.124986387">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2019-11-26%2023%3a56%3a19.368057208%20-0400%20-04%20m%3d%2b0.051543125">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2019-11-27%2008%3a59%3a43.349596497%20-0400%20-04%20m%3d%2b0.124986387">
     
-        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2019-11-26%2023%3a56%3a19.368057208%20-0400%20-04%20m%3d%2b0.051543125">
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2019-11-27%2008%3a59%3a43.349596497%20-0400%20-04%20m%3d%2b0.124986387">
     
 
 
@@ -186,7 +186,7 @@ La anterior semana una gran cantidad de clientes de un ISP local recibieron un S
 
 <p>Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.</p>
 
-<p>La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de <code>bit.ly</code> hacia un video MP4 en Dropbox que después fue dado de baja.</p>
+<p>La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de <code>bit.ly</code> a un video MP4 en Dropbox que después fue dado de baja.</p>
 
 <p><img src="https://blog.donkeysharp.xyz/img/vid-analysis-link-video.png" alt="" />
 <!-- video con el link del video original --></p>
@@ -195,7 +195,7 @@ La anterior semana una gran cantidad de clientes de un ISP local recibieron un S
 
 <p>Corrieron rumores de que el video era un malware o era utilizado para hacer tracking de las personas que lo abriesen, la verdad no suelo tirar mucha bola a eso, pero esta vez me interesó porque días atrás Facebook habia notificado una falla de seguridad de Stack Buffer Overflow que posiblemente podría generar RCE en la aplicación de Whatsapp justamente con un video MP4 malicioso!. Este es el <a href="https://www.facebook.com/security/advisories/cve-2019-11931" target="_blank">link</a> de la alerta de seguridad.</p>
 
-<p>Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video efectivamente era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos <a href="https://twitter.com/lorddemon" target="_blank">Gonzalo</a> y <a href="https://twitter.com/crhystamil" target="_blank">Cristhian</a> me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.</p>
+<p>Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos <a href="https://twitter.com/lorddemon" target="_blank">Gonzalo</a> y <a href="https://twitter.com/crhystamil" target="_blank">Cristhian</a> me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.</p>
 
 <h2 id="el-video">El video</h2>
 
@@ -278,7 +278,9 @@ AtomicParsley version: 0.9.6 (utf8)
 Segmentation fault
 </code></pre>
 
-<p>Como se ve en la salida un monton de info que no entendía xD, pero algo que si mencionaban en el post es la posición en bytes y que MP4 es una estructura jerárquica y la estructura básica de de MP4 es el &ldquo;Atom&rdquo; (existen diferentes tipos de atoms), entonces el size del atom padre es el total de todos los bytes en los hijos y lo que se resalta y es mencionado en el post es lo siguiente:</p>
+<p>Como se ve en la salida un montón de info que no entendía xD, pero algo que si mencionaban en el post de Hack A Day es la posición en bytes y que MP4 es una estructura jerárquica y la estructura básica de de MP4 es el &ldquo;Atom&rdquo; (existen diferentes tipos de atoms). Más adelante hablaré con más detalle sobre los Atoms.</p>
+
+<p>Cada atom tiene una cabecera que indica el size del atom. Al ser una estructura jerárquica un atom puede contener otros atoms dentro. Al ser así, el tamaño de un atom padre es el total de todos los bytes de los atom hijos y lo que se resalta y es mencionado en el post es lo siguiente:</p>
 
 <p>El atom <code>meta</code> tiene un tamaño de 117 bytes pero dentro de este atom hay un atom hijo sin nombre que tiene un tamaño de 6943 bytes que es mayor a los 117 bytes del padre y bueno eso da una pista.</p>
 
@@ -287,11 +289,11 @@ Segmentation fault
 
 <p>En el post posteriormente hace referencia a 33 bytes y 1.6GB del size del atom y bueno ahí me perdí y eso era efectivamente la clave para entender el error.</p>
 
-<p>Lo siguiente en hacer &ndash;ya lo había procrastinado suficiente&ndash; era leer las especificaciones de un archivo MP4. De los archivos que conseguí ninguno era al nivel que quería, es decir, a nivel de bytes. Por suerte, una vez más el post hace referencia a dos documentos: la especificación en el sitio de <a href="https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html" target="_blank">Apple Developers</a> y otra especificación un <a href="http://xhelmboyx.tripod.com/formats/mp4-layout.txt" target="_blank">poco más rebuscada</a> y es donde se llega a entender completamente este error.</p>
+<p>Lo siguiente en hacer &ndash;ya lo había procrastinado suficiente&ndash; era leer las especificaciones de un archivo MP4. De los archivos que conseguí ninguno era al nivel que quería, es decir, a nivel de bytes. Por suerte, una vez más el post de Hack A Day hace referencia a dos documentos: la especificación en el sitio de <a href="https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html" target="_blank">Apple Developers</a> y otra especificación un <a href="http://xhelmboyx.tripod.com/formats/mp4-layout.txt" target="_blank">poco más rebuscada</a> y es donde se llega a entender completamente este error.</p>
 
 <h2 id="el-formato-mp4">El formato MP4</h2>
 
-<p>Como resumen super corto tras leer la especificación se puede decir que Mp4 esta organizado jerárquicamente en bloques llamados Atom (lo que mencioné arriba) y cada Atom tiene una cabecera de 8 bytes, 4 bytes definen el tamaño del Atom y los otros 4 bytes (generalmente en ASCII) representan el tipo del Atom.</p>
+<p>Como resumen super corto tras leer la especificación se puede decir que Mp4 está organizado jerárquicamente en bloques llamados Atom (lo que mencioné arriba) y cada Atom tiene una cabecera de 8 bytes, 4 bytes definen el tamaño del Atom y los otros 4 bytes (generalmente en ASCII) representan el tipo del Atom.</p>
 
 <p>Ahora existen varios tipos de Atoms pero los que se muestran en el post son los siguientes:</p>
 
