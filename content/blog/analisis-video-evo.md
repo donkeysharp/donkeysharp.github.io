@@ -1,5 +1,5 @@
 ---
-title: "Analisis Video Evo"
+title: "Análisis Video Evo"
 date: 2019-11-26T13:08:36-04:00
 draft: true
 ---
@@ -163,7 +163,9 @@ Donde:
 - `6D 64 74 61` representa en ASCII `mdta` el tipo del atom
 - `63 6F 6D 2E 61 6E 64 72 6F 69 64 2E 76 65 72 73 69 6F 6E` convirtiendo a ASCII representa `com.android.version`
 
-Para no hacer muy largo el post he creado un video donde muestro con más detalle cómo interpretar a nivel hexadecimal este formato utilizando `mediainfo-gui`. [Link]()
+Para no hacer muy largo el post he creado un video donde muestro con más detalle cómo interpretar a nivel hexadecimal este formato utilizando `mediainfo-gui`.
+
+{{< youtube JbvDRA7RGxs >}}
 
 ### Entendiendo el bug
 En el anterior video se ve como entender y navegar por los diferentes atoms tanto como el visualizador de atoms `mediainfo-gui` como también a nivel hexadecimal. En esta parte utilizando el conocimiento adquirido hasta ahora se verá cómo el bug reportado en el CVE puede utilizarse.
@@ -244,4 +246,4 @@ En serio que fue una experiencia buena en cuanto a aprendizaje y ver este tipo d
 
 Otra cosa aprendida que para este tipo de análisis, al igual que al analizar protocolos de red es necesario leer el RFC, en el caso de formatos es necesario leer la especificación del formato de algún archivo. Hay un ezine llamado `Paged Out` que en una de sus secciones habla de técnicas de hacer reversing a formatos de archivos, se los recomiendo. [Link](https://pagedout.institute/download/PagedOut_001_beta1.pdf).
 
-Finalmente agradecer nuevamente a Elvin por compartir ese post de Hack A Day que fue clave para este análisis y a Gonzalo y Cris por animarme a hacerlo, les debo una cerveza :smile:.
+Finalmente agradecer nuevamente a Elvin por compartir ese post de Hack A Day que fue clave para este análisis y a Gonzalo y Cris por animarme a hacerlo, les debo una cerveza a los tres :smile:.
