@@ -41,10 +41,7 @@ Para ver si encuentro algo interesante ejecuté el comando `strings` contra el v
 $ strings evo-telefono.mp4
 ```
 
-La siguiente idea fue utilizar una herramienta que puede ver la metadata de diferentes formatos que se llama `mediainfo` y `mediainfo-gui`. Para esta primera etapa del análisis utilicé `mediainfo` porque no entendía muy bien la forma en como se presentaba con `mediainfo-gui` (ver imagen), pero esta gui más adelante fue de mucha más utilidad.
-
-![](/img/vid-analysis-mediainfo-gui.png)
-<!-- Imagen de mediainfo gui en estructura de árbol -->
+La siguiente idea fue utilizar una herramienta que puede ver la metadata de diferentes formatos que se llama `mediainfo` y `mediainfo-gui`. Para esta primera etapa del análisis utilicé `mediainfo` porque no entendía muy bien la forma en como se presentaba con `mediainfo-gui`, pero esta gui más adelante fue de mucha más utilidad.
 
 Utilizando `mediainfo` contra el video `evo-telefono.mp4` obtuve la siguiente salida, pondré solo ciertas partes pero dejo este [gist](https://gist.github.com/donkeysharp/ecdfb633e2a75844019985cc61904c3c) con la salida completa del comando.
 
@@ -124,7 +121,7 @@ Ahora existen varios tipos de Atoms pero los que se muestran en el post son los 
 
 La siguiente imagen muestra la representación gráfica de los atoms en forma de caja:
 
-![](/img/vid-analysis-atom-representation.png)
+![](https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/art/metadata_atom.jpg)
 
 ¿Pero cómo se puede entender este formato a nivel binario? Esta parte me tomó un poco de tiempo pero al final utilizando `mediainfo-gui` y un editor hexadecimál fue algo mucho más simple.
 
@@ -169,14 +166,14 @@ Donde:
 Para no hacer muy largo el post he creado un video donde muestro con más detalle cómo interpretar a nivel hexadecimal este formato utilizando `mediainfo-gui`. [Link]()
 
 ### Entendiendo el bug
-En el anterior video se ve como entender y navegar por los diferentes atoms tanto como el visualizador de atoms `mediainfo-gui` como también a nivel hexadecimal. En esta parte utilizando el conocimiento adquirido hasta ahora se verá cómo el bug reportado en el CVE puede ser explotado.
+En el anterior video se ve como entender y navegar por los diferentes atoms tanto como el visualizador de atoms `mediainfo-gui` como también a nivel hexadecimal. En esta parte utilizando el conocimiento adquirido hasta ahora se verá cómo el bug reportado en el CVE puede utilizarse.
 
 > Parte de [CVE-2019-11931](https://www.facebook.com/security/advisories/cve-2019-11931):
 > The issue was present in parsing the elementary stream metadata of an MP4 file and could result in a DoS or RCE
 
 Este CVE y la forma como causar el overflow justamente dice que esta en la metadata, es decir, en el Atom `meta`. En el post de Hack A Day hace referencia a dos especificaciones del formato mp4. El link de Apple Developers indica que después de definir el atom de tipo `meta` como hijo se debería definir un atom de tipo `hdlr` y si vemos en el hexadecimal, sucede exactamente eso desde el offset `8C` como muestra las siguientes imágenes.
 
-![](/img/vid-analysis-atom-meta-def.png)
+![](/img/vid-analysis-mediainfo-gui.png)
 <!-- Imagen de mediainfo resaltando el atom meta -->
 
 ![](/img/vid-analysis-atom-meta-hex.png)
