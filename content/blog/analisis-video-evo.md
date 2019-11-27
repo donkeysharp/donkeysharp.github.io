@@ -6,7 +6,7 @@ draft: false
 
 Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
 
-La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de `bit.ly` hacia un video MP4 en Dropbox que después fue dado de baja.
+La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de `bit.ly` a un video MP4 en Dropbox que después fue dado de baja.
 
 ![](/img/vid-analysis-link-video.png)
 <!-- video con el link del video original -->
@@ -15,7 +15,7 @@ Este video que fue viral no solo por SMS sino en redes sociales y medios de comu
 
 Corrieron rumores de que el video era un malware o era utilizado para hacer tracking de las personas que lo abriesen, la verdad no suelo tirar mucha bola a eso, pero esta vez me interesó porque días atrás Facebook habia notificado una falla de seguridad de Stack Buffer Overflow que posiblemente podría generar RCE en la aplicación de Whatsapp justamente con un video MP4 malicioso!. Este es el [link](https://www.facebook.com/security/advisories/cve-2019-11931) de la alerta de seguridad.
 
-Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video efectivamente era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos [Gonzalo](https://twitter.com/lorddemon) y [Cristhian](https://twitter.com/crhystamil) me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.
+Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos [Gonzalo](https://twitter.com/lorddemon) y [Cristhian](https://twitter.com/crhystamil) me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.
 
 ## El video
 El video justamente era un archivo mp4 llamado `evo-telefono.mp4` con este sha512 `a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246`. Primeramente verificar que efectivamente es un mp4 viendo los [magic numbers](https://asecuritysite.com/forensics/magic) del fichero. Generalmente los magic numbers de cualquier archivo son los primeros bytes de un archivo.
@@ -98,7 +98,10 @@ AtomicParsley version: 0.9.6 (utf8)
 Segmentation fault
 ```
 
-Como se ve en la salida un monton de info que no entendía xD, pero algo que si mencionaban en el post es la posición en bytes y que MP4 es una estructura jerárquica y la estructura básica de de MP4 es el "Atom" (existen diferentes tipos de atoms), entonces el size del atom padre es el total de todos los bytes en los hijos y lo que se resalta y es mencionado en el post es lo siguiente:
+Como se ve en la salida un montón de info que no entendía xD, pero algo que si mencionaban en el post de Hack A Day es la posición en bytes y que MP4 es una estructura jerárquica y la estructura básica de de MP4 es el "Atom" (existen diferentes tipos de atoms). Más adelante hablaré con más detalle sobre los Atoms.
+
+
+Cada atom tiene una cabecera que indica el size del atom. Al ser una estructura jerárquica un atom puede contener otros atoms dentro. Al ser así, el tamaño de un atom padre es el total de todos los bytes de los atom hijos y lo que se resalta y es mencionado en el post es lo siguiente:
 
 El atom `meta` tiene un tamaño de 117 bytes pero dentro de este atom hay un atom hijo sin nombre que tiene un tamaño de 6943 bytes que es mayor a los 117 bytes del padre y bueno eso da una pista.
 
@@ -108,10 +111,10 @@ El atom `meta` tiene un tamaño de 117 bytes pero dentro de este atom hay un ato
 
 En el post posteriormente hace referencia a 33 bytes y 1.6GB del size del atom y bueno ahí me perdí y eso era efectivamente la clave para entender el error.
 
-Lo siguiente en hacer --ya lo había procrastinado suficiente-- era leer las especificaciones de un archivo MP4. De los archivos que conseguí ninguno era al nivel que quería, es decir, a nivel de bytes. Por suerte, una vez más el post hace referencia a dos documentos: la especificación en el sitio de [Apple Developers](https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html) y otra especificación un [poco más rebuscada](http://xhelmboyx.tripod.com/formats/mp4-layout.txt) y es donde se llega a entender completamente este error.
+Lo siguiente en hacer --ya lo había procrastinado suficiente-- era leer las especificaciones de un archivo MP4. De los archivos que conseguí ninguno era al nivel que quería, es decir, a nivel de bytes. Por suerte, una vez más el post de Hack A Day hace referencia a dos documentos: la especificación en el sitio de [Apple Developers](https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html) y otra especificación un [poco más rebuscada](http://xhelmboyx.tripod.com/formats/mp4-layout.txt) y es donde se llega a entender completamente este error.
 
 ## El formato MP4
-Como resumen super corto tras leer la especificación se puede decir que Mp4 esta organizado jerárquicamente en bloques llamados Atom (lo que mencioné arriba) y cada Atom tiene una cabecera de 8 bytes, 4 bytes definen el tamaño del Atom y los otros 4 bytes (generalmente en ASCII) representan el tipo del Atom.
+Como resumen super corto tras leer la especificación se puede decir que Mp4 está organizado jerárquicamente en bloques llamados Atom (lo que mencioné arriba) y cada Atom tiene una cabecera de 8 bytes, 4 bytes definen el tamaño del Atom y los otros 4 bytes (generalmente en ASCII) representan el tipo del Atom.
 
 Ahora existen varios tipos de Atoms pero los que se muestran en el post son los siguientes:
 
