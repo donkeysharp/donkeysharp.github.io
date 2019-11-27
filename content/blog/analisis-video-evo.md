@@ -1,7 +1,7 @@
 ---
 title: "Análisis Video Evo"
 date: 2019-11-26T13:08:36-04:00
-draft: true
+draft: false
 ---
 
 Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
