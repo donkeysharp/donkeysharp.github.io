@@ -13,20 +13,20 @@
     
     <item>
       <title>Análisis De Video En Busca De Supuesto Malware</title>
-      <link>https://blog.donkeysharp.xyz/analisis-video-evo/</link>
+      <link>https://blog.donkeysharp.xyz/blog/analisis-video-evo/</link>
       <pubDate>Tue, 26 Nov 2019 13:08:36 -0400</pubDate>
       
-      <guid>https://blog.donkeysharp.xyz/analisis-video-evo/</guid>
+      <guid>https://blog.donkeysharp.xyz/blog/analisis-video-evo/</guid>
       <description>Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
 La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly a un video MP4 en Dropbox que después fue dado de baja.</description>
     </item>
     
     <item>
       <title>Automatizando setup post-instalación en mis máquinas Debian</title>
-      <link>https://blog.donkeysharp.xyz/automatizando-setup-post-instalacion-en-maquinas-debian/</link>
+      <link>https://blog.donkeysharp.xyz/blog/automatizando-setup-post-instalacion-en-maquinas-debian/</link>
       <pubDate>Mon, 13 May 2019 21:45:39 -0400</pubDate>
       
-      <guid>https://blog.donkeysharp.xyz/automatizando-setup-post-instalacion-en-maquinas-debian/</guid>
+      <guid>https://blog.donkeysharp.xyz/blog/automatizando-setup-post-instalacion-en-maquinas-debian/</guid>
       <description>Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
 Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones.</description>
     </item>
