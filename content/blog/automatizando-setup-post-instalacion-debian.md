@@ -1,6 +1,6 @@
 ---
 title: "Automatizando setup post-instalación en mis máquinas Debian"
-url: automatizando-setup-post-instalacion-en-maquinas-debian
+url: blog/automatizando-setup-post-instalacion-en-maquinas-debian
 date: 2019-05-13T21:45:39-04:00
 draft: false
 ---
