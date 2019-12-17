@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="author" content="Sergio Guillen Mantilla">
+<meta name="description" content="Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
+La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly a un video MP4 en Dropbox que después fue dado de baja.">
+
+<meta property="og:title" content="Análisis De Video En Busca De Supuesto Malware" />
+<meta property="og:description" content="Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
+La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly a un video MP4 en Dropbox que después fue dado de baja." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/analisis-video-evo/" />
+<meta property="article:published_time" content="2019-11-26T13:08:36-04:00"/>
+<meta property="article:modified_time" content="2019-11-26T13:08:36-04:00"/>
+
+
+<title>
+
+
+     Análisis De Video En Busca De Supuesto Malware 
+
+</title>
+<link rel="canonical" href="https://blog.donkeysharp.xyz/analisis-video-evo/">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/reset.css?t=2019-12-17%2014%3a13%3a14.374697502%20-0400%20-04%20m%3d%2b0.031961248">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/pygments.css?t=2019-12-17%2014%3a13%3a14.374697502%20-0400%20-04%20m%3d%2b0.031961248">
+    <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css?t=2019-12-17%2014%3a13%3a14.374697502%20-0400%20-04%20m%3d%2b0.031961248">
+    
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/override.css?t=2019-12-17%2014%3a13%3a14.374697502%20-0400%20-04%20m%3d%2b0.031961248">
+    
+        <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/monokai.css?t=2019-12-17%2014%3a13%3a14.374697502%20-0400%20-04%20m%3d%2b0.031961248">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://blog.donkeysharp.xyz/img/leaf.ico"
+
+>
+
+
+
+
+
+
+
+
+</head>
+
+
+<body lang="es">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://blog.donkeysharp.xyz/"><img class="avatar" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" srcset="https://blog.donkeysharp.xyz/img/donkeysharp.png 1x"></a>
+            
+            <a href="https://blog.donkeysharp.xyz/"><div class="name">Sergio Guillen Mantilla</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-blog"><a href="https://blog.donkeysharp.xyz/blog/"><span>{ Blog }</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+        
+            <a href="//github.com/donkeysharp" target="_blank" rel="noopener"><img class="icon" src="https://blog.donkeysharp.xyz/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/donkeysharp" target="_blank" rel="noopener"><img class="icon" src="https://blog.donkeysharp.xyz/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="//instagram.com/donkeysharp" target="_blank" rel="noopener"><img class="icon" src="https://blog.donkeysharp.xyz/img/instagram.svg" alt="instagram" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Análisis De Video En Busca De Supuesto Malware
+
+</div>
+
+                    <div class="initials"><a href="https://blog.donkeysharp.xyz">ad</a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Tue Nov 26 2019 13:08:36 -04'>Nov 26, 2019</div>
+                    
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p>Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.</p>
+
+<p>La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de <code>bit.ly</code> a un video MP4 en Dropbox que después fue dado de baja.</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/vid-analysis-link-video.png" alt="" />
+<!-- video con el link del video original --></p>
+
+<p>Este video que fue viral no solo por SMS sino en redes sociales y medios de comunicación locales, mostraba la llamada que en la que <a href="https://www.eldeber.com.bo/157244_video-que-registra-una-llamada-entre-evo-morales-y-un-dirigente-fue-encontrado-en-el-desbloqueo-en-t" target="_blank">un dirigente local habla</a> con <a href="https://es.wikipedia.org/wiki/Evo_Morales" target="_blank">Evo Morales</a>.</p>
+
+<p>Corrieron rumores de que el video era un malware o era utilizado para hacer tracking de las personas que lo abriesen, la verdad no suelo tirar mucha bola a eso, pero esta vez me interesó porque días atrás Facebook habia notificado una falla de seguridad de Stack Buffer Overflow que posiblemente podría generar RCE en la aplicación de Whatsapp justamente con un video MP4 malicioso!. Este es el <a href="https://www.facebook.com/security/advisories/cve-2019-11931" target="_blank">link</a> de la alerta de seguridad.</p>
+
+<p>Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos <a href="https://twitter.com/lorddemon" target="_blank">Gonzalo</a> y <a href="https://twitter.com/crhystamil" target="_blank">Cristhian</a> me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.</p>
+
+<h2 id="el-video">El video</h2>
+
+<p>El video justamente era un archivo mp4 llamado <code>evo-telefono.mp4</code> con este sha512 <code>a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246</code>. Primeramente verificar que efectivamente es un mp4 viendo los <a href="https://asecuritysite.com/forensics/magic" target="_blank">magic numbers</a> del fichero. Generalmente los magic numbers de cualquier archivo son los primeros bytes de un archivo.</p>
+
+<p>En el caso de un mp4 los bytes deberían ser: <code>00 00 00 (18 o 1C) 66 74 79 70 6D 70 34 32</code> y al correr:</p>
+
+<pre><code>$ hexdump -C evo-telefono.mp4 | head -n1
+00000000  00 00 00 1c 66 74 79 70  6d 70 34 32 00 00 00 01  |....ftypmp42....|
+</code></pre>
+
+<p>Efectivamente tiene esos magic numbers que identifican a un mp4. Una forma más simple de verificar es utilizando el comando <code>file</code>:</p>
+
+<pre><code>$ file evo-telefono.mp4
+evo-telefono.mp4: ISO Media, MP4 v2 [ISO 14496-14]
+</code></pre>
+
+<h2 id="primeras-ideas">Primeras ideas</h2>
+
+<p>Para ver si encuentro algo interesante ejecuté el comando <code>strings</code> contra el video y ver si encontraba alguna cadena ASCII interesante, como la vulnerabilidad explica que el error radica en la metadata del archivo, entonces imaginé que la estructura era algo interno como &ldquo;clave-valor&rdquo; todo en ASCII, esa suposición la descarté al no encontrar nada interesante usando <code>strings</code>.</p>
+
+<pre><code>$ strings evo-telefono.mp4
+</code></pre>
+
+<p>La siguiente idea fue utilizar una herramienta que puede ver la metadata de diferentes formatos que se llama <code>mediainfo</code> y <code>mediainfo-gui</code>. Para esta primera etapa del análisis utilicé <code>mediainfo</code> porque no entendía muy bien la forma en como se presentaba con <code>mediainfo-gui</code>, pero esta gui más adelante fue de mucha más utilidad.</p>
+
+<p>Utilizando <code>mediainfo</code> contra el video <code>evo-telefono.mp4</code> obtuve la siguiente salida, pondré solo ciertas partes pero dejo este <a href="https://gist.github.com/donkeysharp/ecdfb633e2a75844019985cc61904c3c" target="_blank">gist</a> con la salida completa del comando.</p>
+
+<pre><code>$ mediainfo evo-telefono.mp4
+General
+Complete name                            : evo-telefono.mp4
+Format                                   : MPEG-4
+Format profile                           : Base Media / Version 2
+Codec ID                                 : mp42 (isom/mp41/mp42)
+File size                                : 6.41 MiB
+Duration                                 : 1 min 2 s
+Overall bit rate                         : 857 kb/s
+Encoded date                             : UTC 2019-11-21 12:31:56
+Tagged date                              : UTC 2019-11-21 12:31:59
+
+...
+</code></pre>
+
+<p>Visualmente esa información es clave-valor pero gran parte de esas cadenas no se encontraba cuando utilicé <code>strings</code> lo cual me lleva a la conclusión que el formato es en su mayoría binario y que los números en esta salida no estan representados como una cadena ASCII sino en bytes similar a un paquete IP o TCP.</p>
+
+<blockquote>
+<p><strong>Nota:</strong> un paquete IP es binario en el sentido que la IP y otros flags no estan en modo texto ASCII sino encapsulados en bytes. Por ejemplo la ip 10.0.1.11 (9 bytes en ASCII) se representa en 4 bytes como 0A 00 01 0B</p>
+</blockquote>
+
+<p>En este punto sentí que estaba pateando oxígeno y que no llegaría a ningún lado. Lo siguiente que hice es buscar si había ya algún exploit o tutorial de como explotar este CVE y efectivamente con la ayuda de Google llegue a este repositorio en <a href="https://github.com/kasif-dekel/whatsapp-rce-patched" target="_blank">Github</a>.</p>
+
+<p>Este repo tenía un mp4 llamado <code>poc.mp4</code> que en teoría explotaba esta vulnerabilidad y junto a este archivo la librería dinámica de Whatsapp <code>libwhatsapp.so</code> y un programa en C que invoca esta librería dinámicamente usando <code>dlfcn.h</code> (espero hacer un post sobre dlfcn.h en el futuro, súper interesante). Lo más importante de este repositorio que me ayudó fue tener una muestra de algo que sí causa este error.</p>
+
+<p>Lo primero que hice fue ejecutar nuevamente <code>mediainfo</code> contra <code>poc.mp4</code> y ver las diferencias entre <code>evo-telefono.mp4</code> y <code>poc.mp4</code>, tristemente fue más frustrante ya que lo único diferente era un nuevo tag llamado <code>com.android.version</code> con el valor de <code>9</code> en ASCII y bueno, ya me quedé sin ideas. Al inicio pense que junto a este tag viendo el hexadecimal tal vez había un shellcode, buscando opcodes comunes y eso, pero realmente sentía que la estrategia que estaba utilizando era bastante &ldquo;naive&rdquo; y no estaba entendiendo el formato MP4 como tal y bueno, creo que ese era el siguiente paso. La mayoría de los archivos tiene una especificación de como están estructurados, ya sea en texto plano en un formato como json o xml o en binario como el caso de MP4. Busqué en Google los spec files, le dí una leida super rápida a lo que encontré para ver si mencionaba cosas como bytes y cosas así y no encontré uno como tal y bueno ahí pausé por un día este análisis para descansar.</p>
+
+<h2 id="entendiendo-el-formato-mp4-y-la-vulnerabilidad">Entendiendo el formato MP4 y la vulnerabilidad</h2>
+
+<p>Horas después que pausé, mi amigo <a href="https://twitter.com/ElvinMollinedo" target="_blank">Elvin</a> envió este <a href="https://hackaday.com/2019/11/22/this-week-in-security-more-whatsapp-nextcry-hover-to-crash-and-android-permissions-bypass/" target="_blank">link de Hack A Day</a> que da un resumen de la vulnerabilidad y somo esta siendo explotada, muchísimas gracias por compartirlo fue uno de los recursos más importantes para esta investigación. La verdad cuando lo leí no entendí ciertos detalles que justamente eran los más importantes, no entendía aún la estructura de un archivo mp4.</p>
+
+<p><strong>Desde acá</strong> todos los pasos que sigo son solamente con el archivo <code>poc.mp4</code> y al final aplicaré lo aprendido a <code>evo-telefono.mp4</code>.</p>
+
+<p>Lo primero que hice es tratar de reproducir el único paso que menciona en el post de Hack A Day con la herramienta <code>AtomicParsley</code> contra <code>poc.mp4</code>. Al ejecutarlo me salió un <code>Segmentation Fault</code> pero lo mismo con <code>evo-telefono.mp4</code>, al parecer es más un error de la herramienta que ya anda descontinuada.</p>
+
+<pre><code>$ AtomicParsley poc.mp4 -T
+
+Atom ftyp @ 0 of size: 24, ends @ 24
+Atom moov @ 24 of size: 794, ends @ 818
+     Atom mvhd @ 32 of size: 108, ends @ 140
+     Atom meta @ 140 of size: 117, ends @ 257
+         Atom  @ 152 of size: 6943, ends @ 7095					 ~
+
+ ~ denotes an unknown atom
+------------------------------------------------------
+Total size: 7095 bytes; 4 atoms total.
+Media data: 0 bytes; 7095 bytes all other atoms (100.000% atom overhead).
+Total free atom space: 0 bytes; 0.000% waste.
+------------------------------------------------------
+AtomicParsley version: 0.9.6 (utf8)
+------------------------------------------------------
+Segmentation fault
+</code></pre>
+
+<p>Como se ve en la salida un montón de info que no entendía xD, pero algo que si mencionaban en el post de Hack A Day es la posición en bytes y que MP4 es una estructura jerárquica y la estructura básica de de MP4 es el &ldquo;Atom&rdquo; (existen diferentes tipos de atoms). Más adelante hablaré con más detalle sobre los Atoms.</p>
+
+<p>Cada atom tiene una cabecera que indica el size del atom. Al ser una estructura jerárquica un atom puede contener otros atoms dentro. Al ser así, el tamaño de un atom padre es el total de todos los bytes de los atom hijos y lo que se resalta y es mencionado en el post es lo siguiente:</p>
+
+<p>El atom <code>meta</code> tiene un tamaño de 117 bytes pero dentro de este atom hay un atom hijo sin nombre que tiene un tamaño de 6943 bytes que es mayor a los 117 bytes del padre y bueno eso da una pista.</p>
+
+<pre><code>         Atom  @ 152 of size: 6943, ends @ 7095 				 ~
+</code></pre>
+
+<p>En el post posteriormente hace referencia a 33 bytes y 1.6GB del size del atom y bueno ahí me perdí y eso era efectivamente la clave para entender el error.</p>
+
+<p>Lo siguiente en hacer &ndash;ya lo había procrastinado suficiente&ndash; era leer las especificaciones de un archivo MP4. De los archivos que conseguí ninguno era al nivel que quería, es decir, a nivel de bytes. Por suerte, una vez más el post de Hack A Day hace referencia a dos documentos: la especificación en el sitio de <a href="https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html" target="_blank">Apple Developers</a> y otra especificación un <a href="http://xhelmboyx.tripod.com/formats/mp4-layout.txt" target="_blank">poco más rebuscada</a> y es donde se llega a entender completamente este error.</p>
+
+<h2 id="el-formato-mp4">El formato MP4</h2>
+
+<p>Como resumen super corto tras leer la especificación se puede decir que Mp4 está organizado jerárquicamente en bloques llamados Atom (lo que mencioné arriba) y cada Atom tiene una cabecera de 8 bytes, 4 bytes definen el tamaño del Atom y los otros 4 bytes (generalmente en ASCII) representan el tipo del Atom.</p>
+
+<p>Ahora existen varios tipos de Atoms pero los que se muestran en el post son los siguientes:</p>
+
+<ul>
+<li><code>moov</code> que representa lo que es &ldquo;Movie Data&rdquo; que puede tener otros Atoms. Basicamente el contenido de este atom es información de la película e.g. cuando se creó, duración, etc.</li>
+<li><code>meta</code> otro atom que encapsula información de Metadata</li>
+<li><code>hdlr</code> un atom que es considerado el handler y viene dentro del atom <code>meta</code>, este atom define toda la estructura que tendrá toda la metadata dentro del atom <code>meta</code></li>
+</ul>
+
+<p>La siguiente imagen muestra la representación gráfica de los atoms en forma de caja:</p>
+
+<p><img src="https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/art/metadata_atom.jpg" alt="" /></p>
+
+<p>¿Pero cómo se puede entender este formato a nivel binario? Esta parte me tomó un poco de tiempo pero al final utilizando <code>mediainfo-gui</code> y un editor hexadecimál fue algo mucho más simple.</p>
+
+<p>Un atom tiene una cabecera de 8 bytes donde los primeros 4 bytes indican el tamaño del atom y los siguientes 4 bytes el tipo de atom e.g. <code>moov</code>, <code>meta</code>, <code>hdlr</code> entre otros y luego vienen N bytes que son el contenido del atom, donde N es el tamaño del atom especificado en los primeros 4 bytes restando 8 bytes (la cabecera).</p>
+
+<p>Un ejemplo:</p>
+
+<p>Un atom de 794 bytes de tamaño de tipo <code>moov</code> se representaría como:</p>
+
+<pre><code>00 00 03 1A 6D 6F 6F 76 XX XX XX ... 786 bytes ... XX XX
+</code></pre>
+
+<p>Según la especificación los primeros 4 bytes son el tamaño, los siguientes 4 bytes son el tipo de atom y el resto es el cuerpo.</p>
+
+<p>Los primeros 4 bytes se pueden representar como <code>0x0000031A</code> o <code>0x31A</code> que en decimal es <code>794</code>.</p>
+
+<p>Los siguientes 4 bytes indican el tipo de atom que es texto ASCII, entonces solo es convertir los siguientes bytes a su caracter en ASCII y tendremos:</p>
+
+<pre><code>6D -&gt; m
+6F -&gt; o
+6F -&gt; o
+76 -&gt; v
+</code></pre>
+
+<p>Ahora el contenido de este atom (los restante 786 bytes) pueden ser otros atoms identificados de la misma forma y en base a la especificación del formato MP4.</p>
+
+<blockquote>
+<p>Existen casos especiales de algunos Atoms que tienen un formato especial. Un ejemplo de estos atoms especiales es que después del header no definimos directamente otro atom, es posible que algunos bytes esten reservados con algún propósito (flags, etc) y luego de estos bytes reservados recién es posible definir atoms hijos. <strong>Recuerden</strong> este párrafo ya que verán es la llave al éxito.</p>
+</blockquote>
+
+<p>Siguiendo con ejemplos en <code>poc.mp4</code>, hay un atom llamado <code>mdta</code> que es basicamente el nombre de key en la metadata (este atom tiene el key <code>com.android.version</code> que mencioné más arriba). Al igual que otro atom se lo representa con un header de 8 bytes y luego el contenido:</p>
+
+<pre><code>00 00 00 1B 6D 64 74 61 63 6F 6D 2E 61 6E 64 72 6F 69 64 2E 76 65 72 73 69 6F 6E
+</code></pre>
+
+<p>Donde:
+- <code>0x0000001B</code> representa el tamaño que en decimal es 27 bytes
+- <code>6D 64 74 61</code> representa en ASCII <code>mdta</code> el tipo del atom
+- <code>63 6F 6D 2E 61 6E 64 72 6F 69 64 2E 76 65 72 73 69 6F 6E</code> convirtiendo a ASCII representa <code>com.android.version</code></p>
+
+<p>Para no hacer muy largo el post he creado un video donde muestro con más detalle cómo interpretar a nivel hexadecimal este formato utilizando <code>mediainfo-gui</code>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/JbvDRA7RGxs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h3 id="entendiendo-el-bug">Entendiendo el bug</h3>
+
+<p>En el anterior video se ve como entender y navegar por los diferentes atoms tanto como el visualizador de atoms <code>mediainfo-gui</code> como también a nivel hexadecimal. En esta parte utilizando el conocimiento adquirido hasta ahora se verá cómo el bug reportado en el CVE puede utilizarse.</p>
+
+<blockquote>
+<p>Parte de <a href="https://www.facebook.com/security/advisories/cve-2019-11931" target="_blank">CVE-2019-11931</a>:
+The issue was present in parsing the elementary stream metadata of an MP4 file and could result in a DoS or RCE</p>
+</blockquote>
+
+<p>Este CVE y la forma como causar el overflow justamente dice que esta en la metadata, es decir, en el Atom <code>meta</code>. En el post de Hack A Day hace referencia a dos especificaciones del formato mp4. El link de Apple Developers indica que después de definir el atom de tipo <code>meta</code> como hijo se debería definir un atom de tipo <code>hdlr</code> y si vemos en el hexadecimal, sucede exactamente eso desde el offset <code>8C</code> como muestra las siguientes imágenes.</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/vid-analysis-mediainfo-gui.png" alt="" />
+<!-- Imagen de mediainfo resaltando el atom meta --></p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/vid-analysis-atom-meta-hex.png" alt="" />
+<!-- imagen de ghex mostrando lo mismo en hexdecimal --></p>
+
+<pre><code>header size   meta type     header size   hdlr type
+-----------   -----------   -----------  -----------
+00 00 00 75   6d 65 74 61   00 00 00 21  68 64 6c 72 ...
+0x00000075    meta          0x00000021   hdlr
+0x75 o 117    meta          0x21 o 33    hdlr
+</code></pre>
+
+<p>Lo que se ve en <code>mediainfo-gui</code> y en el hexadecimal tiene mucho sentido, pero si recordamos la salida de la aplicación <code>AtomicParsley</code> no sale en ningún momento el atom <code>hdlr</code> que efectivamente esta definido y en lugar de eso muestra un error de que un atom <em>sin nombre</em> tiene tamaño de 6943 bytes (mayor a los 117 de su atom padre <code>meta</code>).</p>
+
+<pre><code>$ AtomicParsley poc.mp4 -T
+
+Atom ftyp @ 0 of size: 24, ends @ 24
+Atom moov @ 24 of size: 794, ends @ 818
+     Atom mvhd @ 32 of size: 108, ends @ 140
+     Atom meta @ 140 of size: 117, ends @ 257
+         Atom  @ 152 of size: 6943, ends @ 7095	&lt;&lt;&lt;&lt;&lt;&lt; atom sin nombre
+
+ ~ denotes an unknown atom
+------------------------------------------------------
+Total size: 7095 bytes; 4 atoms total.
+Media data: 0 bytes; 7095 bytes all other atoms (100.000% atom overhead).
+Total free atom space: 0 bytes; 0.000% waste.
+------------------------------------------------------
+AtomicParsley version: 0.9.6 (utf8)
+------------------------------------------------------
+Segmentation fault
+</code></pre>
+
+<p>Todos los atoms en la salida muestran su tipo <code>ftyp</code>, <code>moov</code>, <code>mvhd</code>, <code>meta</code> y dentro de <code>meta</code> este atom desconocido con un tamaño que es basicamente el resto del tamaño de <code>poc.mp4</code> que pesa 7095 bytes, ya que si se hacen cuentas sumando el tamaño de del atom <code>ftyp</code> (24), <code>mvhd</code> (108), el header de <code>meta</code> (8)resulta  <code>24 + 108 + 8 = 148</code> pero <code>7095 - 148 = 6947</code> que son 4 bytes extras de los 6943 que da en la salida de <code>AtomicParsley</code>.</p>
+
+<p><strong>Qué son estos 4 bytes?</strong></p>
+
+<p>Se ve que en <code>mediainfo-gui</code> todo se muestra bien, como si nada hubiera pasado y el formato esta correcto. Sin embargo, en <code>AtomicParsley</code> muestra un atom sin ningún tipo y tenemos un excedente en 4 bytes haciendo sumas y restas con la salida de <code>AtomicParsley</code>.</p>
+
+<p>Lo que sucede y logré deducir es lo siguiente, si vemos el tipo de archivo de <code>poc.mp4</code> suando el comando <code>file</code> se ve que es <code>ISO Media, MP4 v2 [ISO 14496-14]</code>. Pasa que el formato mp4 esta en base al estándar <code>ISO 14496-14</code> que es la continuación de otro estándar llamado <code>ISO 14496-12</code> y lo más interesante viene aca: en el post de Hack A Day menciona dos links de especificaciones el de <a href="https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html" target="_blank">Apple Developers</a> y uno un <a href="http://xhelmboyx.tripod.com/formats/mp4-layout.txt" target="_blank">poco más rebuscado</a>. En el segundo link indica claramente que es la especificación del estándar <code>ISO/IEC 14496-12</code> y justamente en este es donde indica que el atom <code>meta</code> despúes del header de 8 bytes tiene 4 bytes reservados (3 para flags y 1 para versión) y después de estos 4 bytes recién se pueden definir otros atoms hijo.</p>
+
+<p>De ser así y volviendo a analizar el hexadecimal se tiene lo siguiente:</p>
+
+<pre><code>                            4 bytes
+header size   meta type     reservados   header size  type inválido
+-----------   -----------   -----------  -----------  -----------
+00 00 00 75   6d 65 74 61   00 00 00 21  68 64 6c 72  00 00 00 00 ...
+</code></pre>
+
+<p>Sabiendo eso, los 4 bytes hacen que la definición del atom hijo se recorra y tenga la cabecera <code>68 64 6c 72  00 00 00 00</code> donde <code>0x68646c72</code> es el size y <code>00 00 00 00</code> es el type que en ASCII que no es nada válido y justamente eso explica el porqué del fallo de la aplicación <code>AtomicParsley</code>. Ahora si se convierte <code>0x68646c72</code> a decimal se obtiene el valor de 1751411826 es decir, el tamaño de ese atom desconocido sería de todo esa gran cantidad de bytes que llega a ser 1.6GB (igual que en el post de Hack A Day).</p>
+
+<p>Sabiendo esto, ya pude reproducir con confianza el archivo <code>poc.mp4</code> xD.</p>
+
+<p>Lo que deduzco es lo siguiente: la librería <code>libwhatsapp.so</code> (<a href="https://github.com/kasif-dekel/whatsapp-rce-patched" target="_blank">repo</a>) posiblemente esta obedeciendo el estándar <code>ISO 14496-12</code> y no el <code>ISO 14496-14</code> o simplemente fue un error de desarrollo ya que en el update actual de Whatsapp esto no sucede. Ahora relacionado a la aplicación <code>AtomicParsley</code> muy probable que suceda lo mismo ya que esta si tuvo problemas con ese atom desconocido.</p>
+
+<h2 id="analizando-el-archivo-evo-telefono-mp4">Analizando el archivo <code>evo-telefono.mp4</code></h2>
+
+<p>La verdad hasta este punto estaba feliz por lo mucho que había aprendido, pero faltaba el objetivo principal que era analizar si este archivo tenía algo malicioso específicamente por este CVE.</p>
+
+<p>De entrada puedo decir que <strong>NO</strong> (al menos no con este CVE).</p>
+
+<p>Las razón es la siguiente: para poder causar este error se necesita tener definido el atom <code>meta</code> el cual no se define dentro de ningún atom en el video <code>evo-telefono.mp4</code>. De todos modos es la primera vez que analizo un archivo a este nivel y bueno, en algunos grupos de chat mencionaron Pegasus y eso, no estaría de más darle una revisada a eso 😄.</p>
+
+<h2 id="comentarios-finales">Comentarios Finales</h2>
+
+<p>En serio que fue una experiencia buena en cuanto a aprendizaje y ver este tipo de vectores de ataque que se aprovechan de este tipo de detalles.</p>
+
+<p>Otra cosa aprendida que para este tipo de análisis, al igual que al analizar protocolos de red es necesario leer el RFC, en el caso de formatos es necesario leer la especificación del formato de algún archivo. Hay un ezine llamado <code>Paged Out</code> que en una de sus secciones habla de técnicas de hacer reversing a formatos de archivos, se los recomiendo. <a href="https://pagedout.institute/download/PagedOut_001_beta1.pdf" target="_blank">Link</a>.</p>
+
+<p>Finalmente agradecer nuevamente a Elvin por compartir ese post de Hack A Day que fue clave para este análisis y a Gonzalo y Cris por animarme a hacerlo, les debo una cerveza a los tres 😄.</p>
+
+                <br>
+		<p class="back-to-posts"><a href="https://blog.donkeysharp.xyz/blog/">Ver entradas</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
+
