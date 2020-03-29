@@ -1,60 +1,67 @@
-baseurl             = "https://blog.donkeysharp.xyz"
-builddrafts         = false
-canonifyurls        = true
-contentdir          = "content"
-languageCode        = "es"
-defaultContentLanguage = "es"
-layoutdir           = "layouts"
-publishdir          = "public"
-theme               = "cocoa"
-author              = "Donkeysharp"
-title               = "Donkeysharp - Blog Personal"
-pygmentsuseclasses  = true
-# disqusshortname     = "donkeysharp_blog" # Comment out to disable Disqus.
+baseurl = "https://blog.donkeysharp.xyz"
+languageCode = "en"
+title = "Sergio Guillen"
+theme = "beautifulhugo"
+DefaultContentLanguage = "en"
+metaDataFormat = "yaml"
+enableEmoji = true
 pluralizelisttitles = false
-googleAnalytics     = "UA-112385104-1"
-enableEmoji         = true
+googleAnalytics = "UA-112385104-1"
+canonifyurls = true
 
-[permalinks]
-blog  = "blog/:slug/"
+[languages]
+  [languages.es]
+    contentDir = "content/es"
+    languageName = "Español"
+  [languages.en]
+    contentDir = "content/en"
+    languageName = "English"
+
+[Params]
+  navbarTitle  = "Donkeysharp"
+  subtitle = ":() { :|:& }; :"
+  displayTitleOnHeading = true
+  logo = "img/donkeysharp.png"
+  commit = false
+  rss = true
+  comments = true
+  homeTitle = "Personal Blog"
+  readingTime = true
+  useHLJS = true
+  socialShare = false
+  delayDisqus = true
+  showRelatedPosts = true
+  languageIcon = "img/flags/en.png"
+[languages.es.params]
+  homeTitle = "Blog Personal"
+  languageIcon = "img/flags/es.png"
+
+[Author]
+  name = "Sergio Guillen"
+  github = "donkeysharp"
+  twitter = "donkeysharp"
+  instagram = "donkeysharp"
 
 [[menu.main]]
-name                   = "{ Blog }"
-weight                 = -120
-identifier             = "blog"
-url                    = "/blog/"
+  name = "Blog"
+  url = ""
+  weight = 1
+[[languages.es.menu.main]]
+  name   = "Blog"
+  url    = ""
+  weight = 1
 
-[params]
-include_rss            = true                          # include RSS <link> tag in <head> and show RSS icon
-latestpostscount       = 5                             # how many posts to display on the home page
-i18n_flags             = true                          # whether to display small country flags for available translations
-author                 = "Sergio Guillen Mantilla"
-cachebuster            = true                          # add the current unix timestamp in query string for cache busting css assets
-dateform               = "Jan 2, 2006"
-dateformfull           = "Mon Jan 2 2006 15:04:05 MST"
-description            = "Don't panic"
-email                  = ""
-extracssfiles          = [ "/css/override.css", "/css/monokai.css" ]       # In your `static` directory, add/remove files as necessary.
-faviconfile            = "img/leaf.ico"
-github                 = "//github.com/donkeysharp"
-instagram              = "//instagram.com/donkeysharp"
-lang                   = "es"
-noshowreadtime         = true                         # if true, don't show "<x> minutes read" in posts
-selfintro              = ""                            # appears in the site header when set to a non-empty string
-twitter                = "//twitter.com/donkeysharp"
-
-highlightjs            = false
-# highlightjslanguages = ["go"]                        # additional languages not included in the "common" set
-# highlightjsStyle     = "darcula"
+[[menu.main]]
+  name = "About me"
+  url = "about/"
+  weight = 2
+[[languages.es.menu.main]]
+  name   = "Sobre mí"
+  url    = "about/"
+  weight = 2
 
 
-avatar                 = "img/donkeysharp.png" # path to image in static dir e.g img/avatar.png (do not use in the same time as gravatar)
-# gravatar             = ""                # gravatar hash. see https://en.gravatar.com/site/implement/hash/. do not use in the same time as avatar
-
-# The following are DEPRECATED.
-gatracker              = "XYZ" # use googleAnalytics instead
-initials               = "ad"  # displayed on single post page; deprecated in v0.3.0.
-
+# This makes links to open in another tab
 [blackfriday]
 plainIDAnchors = true
 hrefTargetBlank = true
