@@ -7,7 +7,7 @@ Most of the info used here was obtained by reading Hugo's documentation or some 
 in case I forgot something :smile:.
 
 ## Cloning
-This repository uses [Cocoa Theme](https://themes.gohugo.io/theme/cocoa/) as a git sub-module. In order to fully clone this repository make sure to use the recursive option of cloning, choose one of the next depending on your version of Git.
+This repository uses [Beautiful Hugo theme](https://github.com/halogenica/beautifulhugo) as a git sub-module. In order to fully clone this repository make sure to use the recursive option of cloning, choose one of the next depending on your version of Git.
 
 ```
 $ git clone --recurse-submodules https://github.com/donkeysharp/donkeysharp.github.io.git
@@ -26,13 +26,13 @@ $ git worktree add -B master public origin/master
 Hugo includes a development server, to start it run:
 
 ```
-$ hugo serve --watch -D
+$ hugo server --watch -D
 ```
 
 Which makes the blog available at `http://localhost:1313` and when a change is done it will be reflected instantly on the already mentioned URL.
 
 ## Create A New Post
-It's possible to create a new post by just adding the markdown file on `content/blog/` directory with the next format:
+It's possible to create a new post by just adding the markdown file on `content/{en|es}/post/` directory with the next format:
 
 ```
 ---
@@ -47,11 +47,11 @@ Post body
 Or just simply use Hugo's command for this
 
 ```
-$ hugo new blog/some-new-post.md
+$ hugo new content/{en|es}/post/some-new-post.md
 ```
 
 ## Configuring Site
-All settings are in the `config.toml` file. Depending the chosen theme there will be different settings. For example most of the settings here came from [Cocoa Theme documentation](https://github.com/nishanths/cocoa-hugo-theme/blob/master/exampleSite/config.toml)
+All settings are in the `config.toml` file. Depending the chosen theme there will be different settings. For example most of the settings here came from [Beautiful Hugo Theme documentation](https://github.com/halogenica/beautifulhugo/blob/master/exampleSite/config.toml)
 
 
 ## Publish Site
