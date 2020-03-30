@@ -9,6 +9,8 @@ pluralizelisttitles = false
 googleAnalytics = "UA-112385104-1"
 canonifyurls = true
 
+paginate = 5
+
 [languages]
   [languages.es]
     contentDir = "content/es"
