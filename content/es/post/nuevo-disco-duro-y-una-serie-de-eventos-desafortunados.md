@@ -1,11 +1,11 @@
 ---
 title: "Nuevo Disco Duro Y Una Serie De Eventos Desafortunados"
-url: nuevo-disco-duro-y-una-serie-de-eventos-desafortunados
+url: es/post/nuevo-disco-duro-y-una-serie-de-eventos-desafortunados
 date: 2019-05-14T19:52:52-04:00
 draft: true
 ---
 
-En mi anterior [post]({{< ref "/blog/automatizando-setup-post-instalacion-debian.md" >}}) mencioné un proyecto que hice para automatizar todo mi environment después de una instalación de Debian, hasta ahora me ha funcionando bien con una nueva instalación que hice. La verdad me siento a gusto con los resultados.
+En mi anterior [post]({{< ref "post/automatizando-setup-post-instalacion-debian.md" >}}) mencioné un proyecto que hice para automatizar todo mi environment después de una instalación de Debian, hasta ahora me ha funcionando bien con una nueva instalación que hice. La verdad me siento a gusto con los resultados.
 
 En esta entrada quiero compartir algunas experiencias (eventos desafortunados) por los que pasé durante el desarrollo de este proyecto, la mayoría de estas experiencias fueron descuidos míos que cuando me dí cuenta: aparte de renegar un poco, terminé matandome de risa por el descuido que me hizo perder mucho tiempo.
 

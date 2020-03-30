@@ -1,11 +1,11 @@
 ---
 title: "Automatizando setup post-instalación en mis máquinas Debian"
-url: blog/automatizando-setup-post-instalacion-en-maquinas-debian
+url: es/post/automatizando-setup-post-instalacion-en-maquinas-debian
 date: 2019-05-13T21:45:39-04:00
 draft: false
 ---
 
-Hola, hace un tiempo [publiqué sobre el setup inicial]({{< ref "/blog/my-computer-setup.md" >}}) que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
+Hola, hace un tiempo [publiqué sobre el setup inicial]({{< ref "post/my-computer-setup.md" >}}) que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
 
 Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones. Hasta ahora me funcionó, pero al volverse repetitivo me animé en automatizar todo este proceso tanto de instalación y configuración de ciertas aplicaciones como el manejo de la apariencia del escritorio (con el setup que siempre utilizo).
 
@@ -13,7 +13,7 @@ Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía 
 ## La Idea
 Si bien podría haber hecho este proyecto utilizando un simple script Bash, me animé por utilizar Bash + [Ansible](https://docs.ansible.com/) a modo de practicar y divertirme :smile:.
 
-Lo que tenía en mente al momento de iniciar este proyecto fue que ni bien termine la instalación del sistema operativo (en mi caso la distribución Debian), solo tendría que ejecutar un comando y "mágicamente" todas las apliaciones, configuraciones, etc. sobre mi [setup personal]({{< ref "/blog/my-computer-setup.md" >}}) se aplicarían.
+Lo que tenía en mente al momento de iniciar este proyecto fue que ni bien termine la instalación del sistema operativo (en mi caso la distribución Debian), solo tendría que ejecutar un comando y "mágicamente" todas las apliaciones, configuraciones, etc. sobre mi [setup personal]({{< ref "post/my-computer-setup.md" >}}) se aplicarían.
 
 ## Analizando el Proyecto
 Este proyecto lo publiqué en [Github](https://github.com/sguillen-proyectos/fresh-install-setup/) si desean ver el código fuente.
@@ -70,7 +70,7 @@ wget https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/ma
 ## ¿Qué gano con esto?
 Bueno, primero aprendí un par de cosas que no sabía sobre Ansible, me divertí y lo más importante para mí (además que era el objetivo de este proyecto) es que ahora me ahorro todo el tiempo de configuración manual que realizaba en un sistema operativo recién instalado.
 
-Si bien ya tenía mi [guía]({{< ref "blog/my-computer-setup.md" >}}) de qué paquetes instalar y que configuraciones realizar, eso me tomaba entre una a dos horas, ahora todo este tiempo de setup esta principalmente condicionado a la velocidad de internet.
+Si bien ya tenía mi [guía]({{< ref "post/my-computer-setup.md" >}}) de qué paquetes instalar y que configuraciones realizar, eso me tomaba entre una a dos horas, ahora todo este tiempo de setup esta principalmente condicionado a la velocidad de internet.
 
 Algo en este proyecto que es bastante útil para mí, es que logré uniformizar mis configuraciones de escritorio (en este caso Xfce4), ya que en muchas ocaciones el "estilizar" mi escritorio es en lo que más perdía mi tiempo.
 

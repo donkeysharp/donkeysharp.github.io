@@ -14,7 +14,7 @@ En esta entrada explico las aplicaciones y configuraciones que uso para mi máqu
 
 *Dektop Manager:* xfce4
 
-## Aplicaciones usadas frecuentemente
+### Aplicaciones usadas frecuentemente
 Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.
 
 * Gnome file roller para comprimir archivos `file-roller`
@@ -62,7 +62,7 @@ Esta es otra lista de aplicaciones que utilizo con más frecuencia específicame
 
 Obviamente hay otros paquetes para cosas bastante específicas los cuales los instalando cuando es necesario.
 
-## Escritorio
+### Escritorio
 Uso xfce4 con dos panels ambos en la parte superior. El primero contiene el menú de aplicación con el logo de Debian; un separador transparente que se extiende; las ventanas abiertas; otro separador transparente que se extiende. El segundo panel tiene estos items: las áreas de trabajo con dos files y dos áreas en cada fila; el visor de uso de CPU; el área de notificaciones; plugin de PulseAudio para cambiar el volumen; finalmente el plugin de fecha mostrando la fecha arriba y la hora abajo.
 
 El primer panel tiene un fondo negro mientras que el otro usa el estilo por defecto del sistema para evitar colisión en colores de fuente.
@@ -70,7 +70,7 @@ El primer panel tiene un fondo negro mientras que el otro usa el estilo por defe
 ![](/img/debian-desktop.png)
 <center><a href="/img/debian-desktop.png" target="_blank">Ver</a></center>
 
-### Apariencia
+#### Apariencia
 Para mis configuraciones de apariencia utilizo lo siguiente:
 
 * Iconos `Numix Light` que vienen en el paquete `numix-icon-theme`
@@ -80,10 +80,10 @@ Para mis configuraciones de apariencia utilizo lo siguiente:
 ![](/img/thunar.png)
 <center><a href="/img/thunar.png" target="_blank">Ver</a></center>
 
-### Tweaks Extra
+#### Tweaks Extra
 El "Switcher de Ventanas" (alt + tab) de xfce4 que viene en Debian Stretch no me agrada por el tamaño gigante de preview de ventana. Personalmente prefiero tener solo los íconos pequeños sin nombre de la ventana, para ello son solo un par de cambios a realizar: ir a `Settings > Window Manager Tweaks` y en el tab `Cycling` deseleccionar `Cycle through windows in a list` y finalmente en el tab `Compositor` deseleccionar `Show windows preview in place of icons when cycling`.
 
-### Hotkeys
+#### Hotkeys
 Tengo algunos hotkeys que uso en xfce4 para tareas comunes. Para configurar los hotkeys de xfce4 voy a `Settings > Keyboard > Application Shortcuts tab`. Mis hotkeys son los siguientes:
 
 Hotkey | Comando | Descripción
@@ -99,11 +99,11 @@ Hotkey | Comando | Descripción
 **Otras hotkeys:** Este no es un hotkey de xfce4 pero lo uso con mucha frecuencia `ctrl + shift + space` para lanzar kupfer.
 
 
-## Terminal
-### Tema
+### Terminal
+#### Tema
 Para la terminal uso la que viene por defecto `xfce4-terminal` con [estas configuraciones](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-terminalrc) en `~/.config/xfce4/terminal/terminalrc`.
 
-### Prompt
+#### Prompt
 Por defecto la terminal bash tiene un prompt simple como `usuario@host:directorio-actual`. En mi caso que uso bastantes repositorios git, este prompt por defecto no es suficiente ya que quiero ver en el prompt si hay cambios, conflictos, etc. Podria correr `git status` pero con un prompt personalizado podría ahorrarme ese paso :wink:. [Este es el script](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-custom_prompt.sh) que llamo desde mi archivo `.bashrc`, que basicamente muestra hora, directorio actual y la información del repositorio en caso de estar usando uno. Gracias a [Mike Stewart](https://twitter.com/mdrmike_) que es el autor original de este script.
 
 Intente utilizar `zsh` y sus frameworks pero no me sentia comodo y me fue difícil acostumbrarme a este, así que la forma más simple fue tener un prompt personalizado. Afortunadamente habian muchos recursos disponibles para ello, así que no fue un dolor.
@@ -111,15 +111,15 @@ Intente utilizar `zsh` y sus frameworks pero no me sentia comodo y me fue difíc
 ![](/img/terminal.png)
 <center><a href="/img/terminal.png" target="_blank">Ver</a></center>
 
-## Configuración
-### Configuración de Tmux
+### Configuración
+#### Configuración de Tmux
 Utilizo tmux desde Debian Wheezy pero cuando cambié a Debian Jessie tuve algunos problemas con el directorio al crear nuevos panels. Este es el [.tmux.conf](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-tmux-conf) que uso.
 
-### Configuración de MOC Player
+#### Configuración de MOC Player
 Como esta es una herramienta de línea de comandos pienso que entra en esta sección. Hay dos archivos que tengo `.moc/config` y el tema que uso, ambos pueden ser encontrados en mi [gist](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-moc_config_file).
 
 ![](/img/mocp.png)
 <center><a href="/img/mocp.png" target="_blank">Ver</a></center>
 
-## Comentarios Finales
+### Comentarios Finales
 Si bien estas configuraciones son bastante personalizadas para mi caso, hice esta entrada con el propósito de tener algo que leer por si olvido y lo compartí en caso le sea de utilidad a algún lector.

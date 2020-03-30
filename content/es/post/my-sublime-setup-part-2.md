@@ -4,7 +4,7 @@ date: 2018-03-14T21:51:58-04:00
 draft: true
 ---
 
-Hola, en [la primera parte]({{< ref "blog/my-sublime-setup-part-1.md" >}}) donde muestro mi entorno en Sublime Text, me enfoqué en tres partes:
+Hola, en [la primera parte]({{< ref "post/my-sublime-setup-part-1.md" >}}) donde muestro mi entorno en Sublime Text, me enfoqué en tres partes:
 
 * Instalar plugins
 * Comandos comúnes para el trabajo con plugins
