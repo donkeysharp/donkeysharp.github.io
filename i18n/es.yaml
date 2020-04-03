@@ -1,3 +1,5 @@
+- id: dateFormat
+  translation: "Jan 2, 2006"
 - id: translationsLabel
   translation: "También en: "
 - id: poweredBy # Accepts HTML

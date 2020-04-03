@@ -19,7 +19,13 @@ Corrieron rumores de que el video era un malware o era utilizado para hacer trac
 Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos [Gonzalo](https://twitter.com/lorddemon) y [Cristhian](https://twitter.com/crhystamil) me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.
 
 ## El video
-El video justamente era un archivo mp4 llamado `evo-telefono.mp4` con este sha512 `a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246`. Primeramente verificar que efectivamente es un mp4 viendo los [magic numbers](https://asecuritysite.com/forensics/magic) del fichero. Generalmente los magic numbers de cualquier archivo son los primeros bytes de un archivo.
+El video justamente era un archivo mp4 llamado `evo-telefono.mp4` con este sha512:
+
+```plaintext
+a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246
+```
+
+Primeramente verificar que efectivamente es un mp4 viendo los [magic numbers](https://asecuritysite.com/forensics/magic) del fichero. Generalmente los magic numbers de cualquier archivo son los primeros bytes de un archivo.
 
 En el caso de un mp4 los bytes deberían ser: `00 00 00 (18 o 1C) 66 74 79 70 6D 70 34 32` y al correr:
 
