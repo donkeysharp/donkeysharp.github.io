@@ -14,7 +14,7 @@ In this post I show the applications and settings I commonly use for my local de
 
 *Dektop Manager:* xfce4
 
-### Frequently Used Applications
+## Frequently Used Applications
 <!-- Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales. -->
 
 This is the list of application I frequently use and try to have them installed after I have a fresh computer. Some applications are general purpose and others are related with programming, things I investigate, my job and personal projects.
@@ -64,7 +64,7 @@ This is another list of application I use frequently in the terminal.
 
 Of course there are other packets for specific very specific things that I install when required.
 
-### Desktop
+## Desktop
 I use XFCE4 with two panels both on the top section of the screen. The first one contains the applications menu with the Debian logo; a separator with transparency enabled that extends; list of opened windos; another transparent separator that extends. The second panel has these items: workspace areas four workspace area in two rows (2x2); a CPU usage viewr; notification are; plugin for PulseAudio; and the date-time plugin.
 
 First panel has a dark background while the other uses the style that comes by default.
@@ -72,7 +72,7 @@ First panel has a dark background while the other uses the style that comes by d
 ![](/img/debian-desktop.png)
 <center><a href="/img/debian-desktop.png" target="_blank">View</a></center>
 
-#### Look and feel
+### Look and feel
 For my look and feel settings I use the next:
 
 * `Numix Light` icons that are installed with `numix-icon-theme`
@@ -82,10 +82,10 @@ For my look and feel settings I use the next:
 ![](/img/thunar.png)
 <center><a href="/img/thunar.png" target="_blank">Ver</a></center>
 
-#### Extra Tweaks
+### Extra Tweaks
 I don't like the Windows Switcher (alt + tab) that comes with XFCE4 by default, it is too big with a preview of each window. I prefer to have small icons without the name of the window or things like that. With a couple of changes I can get that by going to: `Settings > Window Manager Tweaks` and select the `Cycling` tab and unselect `Cycle through windows in a list` and finally in the `Compositor` tab unselect `Show windows preview in place of icons when cylcing`.
 
-#### Hotkeys
+### Hotkeys
 <!-- Tengo algunos hotkeys que uso en xfce4 para tareas comunes. Para configurar los hotkeys de xfce4 voy a `Settings > Keyboard > Application Shortcuts tab`. Mis hotkeys son los siguientes: -->
 
 I have some hotkeys configure in XFCE4 for common tasks I do. To configure hotkeys in XFCE4 go to `Settings > Keyboard > Application Shortcuts tab`. My common hotkeys are:
@@ -103,11 +103,11 @@ Hotkey | Comando | Descripción
 **Other hotkeys:** This is not an XFCE4 hotkey but I use it frequently `ctrl + shift + space` that launches Kupfer.
 
 
-### Terminal
-#### Theme
+## Terminal
+### Theme
 I use `xfce4-terminal` with the next [settings](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-terminalrc) in ~/.config/xfce4/terminal/terminalrc`.
 
-#### Prompt
+### Prompt
 
 By default Bash comes with a prompt similar to `usuario@host:directorio-actual`. In my case I use a lot of Git repositories, this default prompt is not good enough for me as I need to check the current branch, if there are conflicts or unstaged changes, etc. Of course I can run `git status` but the prompt can help me with that :wink:. [This is the script](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-custom_prompt.sh) I export in `.bashrc`, that basically shows repository information, current directory and the time. Thanks to [Mike Stewart](https://twitter.com/mdrmike_) who is the original author of that script.
 
@@ -116,16 +116,16 @@ I tried to use `zsh` and its frameworks but I didn't feel comfortable and it was
 ![](/img/terminal.png)
 <center><a href="/img/terminal.png" target="_blank">View</a></center>
 
-### Dot env settings
-#### Tmux settings
+## Dot env settings
+### Tmux settings
 
 I started using Tmux sing Debian Wheezy but when I upgraded to Debian Jessie I had some problems with the current working directory when creating new panels. This is the [.tmux.conf](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-tmux-conf) I use.
 
-#### MOC Player Settings
+### MOC Player Settings
 Because MOC is a CLI tool I think it fits in this section. I use two files `.moc/config` and another one for the theme. Both can be found [here](https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-moc_config_file).
 
 ![](/img/mocp.png)
 <center><a href="/img/mocp.png" target="_blank">View</a></center>
 
-### Final Comments
+## Final Comments
 Although this configurations are more for my personal usage, I wrote this post with the purpose to read if I forget something and shared in case it is useful for a reader.
