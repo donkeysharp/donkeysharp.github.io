@@ -1,5 +1,6 @@
 ---
 title: "Mi Entorno De Desarrollo En Sublime Text (Parte 1)"
+url: post/entorno-de-desarrollo-en-sublime-text
 date: 2018-03-14T00:32:43-04:00
 draft: false
 ---
@@ -74,7 +75,7 @@ El plugin "TerminalView" es algo que he deseado que existiera en ST desde que va
 ![](/img/sublime-terminal.gif)
 <center><a href="/img/sublime-terminal.gif" target="_blank">Ver</a></center>
 
-En el caso del plugin "Tag", este no se encuentra disponible en el repositorio de Package Control. 
+En el caso del plugin "Tag", este no se encuentra disponible en el repositorio de Package Control.
 
 Para instalar un paquete sin Package Control solo debemos saber el directorio en el cual se instalan paquetes y clonar el repositorio del paquete en este directorio. Para ello vamos al menú `Preferences > Browse Packages`. Ya sabiendo el directorio solo debemos clonar el repositorio de los paquetes que deseemos instalar.
 

@@ -1,6 +1,6 @@
 ---
 title: "Análisis De Video En Busca De Supuesto Malware"
-url: es/post/analisis-video-evo
+url: post/analisis-video-evo
 date: 2019-11-26T13:08:36-04:00
 draft: false
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Automatizando setup post-instalación en mis máquinas Debian"
-url: es/post/automatizando-setup-post-instalacion-en-maquinas-debian
+url: post/automatizando-setup-post-instalacion-debian
 date: 2019-05-13T21:45:39-04:00
 draft: false
 ---
@@ -64,7 +64,7 @@ Lo explico: `[local]` es el grupo de servidores, yo lo denominé `local` pero po
 Finalmente el script `init-setup.sh` es un wizard el cual pregunta por ciertas opciones antes de realizar todo el proceso de instalación y configuración. Este llegaría a ser el comando "mágico" que se encarga de todo:
 
 ```
-wget https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh && bash init-setup.sh
+bash <(wget -q -O- https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh)
 ```
 
 ## ¿Qué gano con esto?

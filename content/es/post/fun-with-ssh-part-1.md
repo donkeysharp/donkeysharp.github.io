@@ -1,6 +1,7 @@
 ---
 title: "Diversión con SSH - Local Port Forwarding"
 date: 2018-08-28T08:30:57-04:00
+url: post/diversion-con-ssh-parte-1
 draft: false
 ---
 

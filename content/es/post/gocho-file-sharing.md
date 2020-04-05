@@ -1,5 +1,6 @@
 ---
 title: "Gocho, Compartir Archivos En Una Red Local"
+url: post/gocho-compartir-archivos-red-local
 date: 2018-03-29T22:22:46-04:00
 draft: false
 ---

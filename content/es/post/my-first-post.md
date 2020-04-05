@@ -1,5 +1,6 @@
 ---
 title: "Primer Post - echo \"Hello World\""
+url: post/mi-primer-post
 date: 2018-01-05T13:04:24-04:00
 draft: false
 ---
