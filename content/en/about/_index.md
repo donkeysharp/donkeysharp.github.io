@@ -1,17 +1,10 @@
 ---
 title: About me
-# subtitle: Why you'd want to go on a date with me
-# subtitle: Porqué quieres salir conmigo
 comments: false
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hi! my name is Sergio Guillen. I'm passionate about Software Development, GNU/Linux, FOSS, Cloud Technologies and Hacker Culture. I am very curious and love understanding how things work under-the-hood, starting from libraries, frameworks and tools I use on a daily basis to more specialized things such as operating systems, network protocols, binary executables, hardware, etc.
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+In the last years I moved from software development to cloud infrastructure and embracing the DevOps culture. I'm always trying to improve development and deployment processes so it can be simpler to release new versions of a software in shorter periods of time and improve the way cloud infrastructure is managed.
 
-What else do you need?
-
-### my history
-
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+In my free time I collaborate to different technology communities which gives me the opportunity to learn more from others and to share what I know.

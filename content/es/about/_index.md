@@ -1,26 +1,10 @@
 ---
-# title: About me
 title: Sobre mí
-# subtitle: Why you'd want to go on a date with me
-# subtitle: Porqué quieres salir conmigo
 comments: false
 ---
 
-<!-- My name is Inigo Montoya. I have the following qualities: -->
-Mi nombre es Inigo Montoya. Tengo las siguientes cualidades:
+¡Hola! Me llamo Sergio Guillén. Me apasiona el Desarrollo de Software, GNU/Linux, FOSS, Tecnologías Cloud y Cultura Hacker. Tengo mucha curiosidad y me encanta entender cómo funcionan las cosas, desde librerías, frameworks y herramientas que uso a diario hasta cosas más especializadas, como sistemas operativos, protocolos de red, ejecutables binarios, hardware, etc.
 
-<!-- - I rock a great mustache
-- I'm extremely loyal to my family -->
+En los últimos años pasé del desarrollo de software a infraestructura en la nube y adoptar la cultura DevOps. Siempre trato de mejorar los procesos de desarrollo y despligue para que sea más sencillo lanzar nuevas versiones de un software en períodos más cortos y mejorar la forma en que se gestiona la infraestructura en la nube.
 
-- Tengo un gran bigote
-- Soy extremadamente fiel a mi familia
-
-<!-- What else do you need? -->
-Qué más necesitas?
-
-<!-- ### my history -->
-### Mi historia
-
-<!-- To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions. -->
-
-Para ser honest, tengo algunos problemas al recordarlo en este instande, por qué no solo miramos [esta película](http://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) que responderá **todas** tus pregutas.
+En mi tiempo libre colaboro con diferentes comunidades tecnológicas, lo que me da la oportunidad de aprender más de los demás y compartir lo que sé.
