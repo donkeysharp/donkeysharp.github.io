@@ -20,7 +20,7 @@ paginate = 5
     languageName = "English"
 
 [Params]
-  navbarTitle  = "Donkeysharp"
+  navbarTitle  = "DONKEYSHARP"
   subtitle = ":() { :|:& }; :"
   displayTitleOnHeading = true
   logo = "img/donkeysharp.png"
