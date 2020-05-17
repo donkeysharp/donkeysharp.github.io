@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Mis Configuraciones De Escritorio en Debian - Sergio Guillen</title>
+  <meta name="description" content="Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+ En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+Sistema Operativo: GNU/Linux - Debian Stretch
+Dektop Manager: xfce4
+Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.">
+  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sergio Guillen",
+    
+    "url": "https:\/\/blog.donkeysharp.xyz"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.donkeysharp.xyz"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/es\/post\/configuracion-de-escritorio-debian\/",
+          "name": "Mis configuraciones de escritorio en debian"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "Mis Configuraciones De Escritorio en Debian",
+  "description" : "Update\n2018-04-28 Added more packages I use and new settings I do (reinstalled machine)\n En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.\nSistema Operativo: GNU\/Linux - Debian Stretch\nDektop Manager: xfce4\nAplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.",
+  "inLanguage" : "es",
+  "wordCount":  957 ,
+  "datePublished" : "2018-03-09T23:15:16",
+  "dateModified" : "2018-03-09T23:15:16",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/es\/post\/configuracion-de-escritorio-debian\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Mis Configuraciones De Escritorio en Debian" />
+<meta property="og:description" content="Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+ En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+Sistema Operativo: GNU/Linux - Debian Stretch
+Dektop Manager: xfce4
+Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.">
+<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sergio Guillen" />
+
+  <meta name="twitter:title" content="Mis Configuraciones De Escritorio en Debian" />
+  <meta name="twitter:description" content="Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+ En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+Sistema …">
+  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@donkeysharp" />
+  <meta name="twitter:creator" content="@donkeysharp" />
+  <meta name="generator" content="Hugo 0.57.2" />
+  <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Conmuta navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog.donkeysharp.xyz/es/">DONKEYSHARP</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://blog.donkeysharp.xyz/es">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Sobre mí" href="https://blog.donkeysharp.xyz/es/about/">Sobre mí</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://blog.donkeysharp.xyz/en" lang="en" title="English">
+                    <img src="https://blog.donkeysharp.xyz/img/flags/en.png" />
+                  </a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz/es/">
+            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Mis Configuraciones De Escritorio en Debian</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Mar 9, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutos
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  &nbsp;&bull;&nbsp;También en: <a href="https://blog.donkeysharp.xyz/post/my-computer-setup/" lang="en">English</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<blockquote>
+<p><strong>Update</strong></p>
+
+<p><em>2018-04-28</em> Added more packages I use and new settings I do (reinstalled machine)</p>
+</blockquote>
+
+<p>En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.</p>
+
+<p><em>Sistema Operativo:</em> GNU/Linux - Debian Stretch</p>
+
+<p><em>Dektop Manager:</em> xfce4</p>
+
+<h2 id="aplicaciones-usadas-frecuentemente">Aplicaciones usadas frecuentemente</h2>
+
+<p>Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.</p>
+
+<ul>
+<li>Gnome file roller para comprimir archivos <code>file-roller</code></li>
+<li>Font Viewer para la instalación de fuentes <code>gnome-font-viewer</code></li>
+<li>Google Chrome</li>
+<li>Terminal music player <code>mocp</code></li>
+<li>Vim editor, para edición por línea de comandos y servidores <code>vim</code></li>
+<li>Build essentials <code>build-essential</code></li>
+<li>SublimeText3 editor de texto que uso para casi todo.</li>
+<li>Emacs editor de texto que uso para algunas cosas <code>emacs</code></li>
+<li>Redshift para cambiar la temperatura del monitor <code>redshift</code></li>
+<li>Kazam para grabar el escritorio <code>kazam</code></li>
+<li>Kupfer similar a Spotlight para búsquedas rápidas <code>kupfer</code></li>
+<li>Shutter para screenshots <code>shutter</code></li>
+<li>Editor de gráficos vectoriales <code>inkscape</code></li>
+<li>Gnome Hex Editor <code>ghex</code></li>
+<li>Meld para comparar diferencias entre dos archivos <code>meld</code></li>
+<li>Armagetron, juego basado en Tron <code>armagetronad</code></li>
+<li>DOSBox emulador de juegos antiguos de DOS <code>dosbox</code></li>
+<li>Drivers faltantes <code>firmware-linux-free</code> <code>firmware-linux-nonfree</code></li>
+<li>Ristretto Image viewer</li>
+<li>Ettercap para investigación de ataques MITM, pensé en usar Bettercap pero no soy un fanático de Ruby</li>
+<li>Transmission cliente bit torrent <code>transmission</code></li>
+<li>Wireshark para interceptar paquetes de red <code>wireshark</code></li>
+<li>Slack messaging, personalmente uso la versión web gran parte del tiempo, pero cuando necesito compartir mi escritorio es cuando uso la versión de escritorio (descargar de su sitio)</li>
+<li>Pavu Controller para configuraciones de audio <code>pavucontrol</code></li>
+<li>VLC Media Player <code>vlc</code></li>
+<li>Evince como visor de pdf <code>evince</code></li>
+<li>xCHM visor de archivos .chm <code>xchm</code></li>
+<li>Utildad para manejar discos <code>gparted</code></li>
+<li>Información del hardware <code>hardinfo</code></li>
+<li>Docker Community Edition</li>
+<li>NodeJs</li>
+</ul>
+
+<p>Esta es otra lista de aplicaciones que utilizo con más frecuencia específicamente en línea de comandos:</p>
+
+<ul>
+<li>Terminal multiplexer <code>tmux</code></li>
+<li>htop visor de procesos basado en ncurses <code>htop</code></li>
+<li>Tracer de llamadas al sistema <code>strace</code></li>
+<li>Cliente HTTP <code>curl</code></li>
+<li>Utilidades de DNS <code>dnsutils</code></li>
+<li>Instalar <code>sudo</code></li>
+<li>Compresores <code>zip</code></li>
+<li><code>sudo</code></li>
+</ul>
+
+<p>Obviamente hay otros paquetes para cosas bastante específicas los cuales los instalando cuando es necesario.</p>
+
+<h2 id="escritorio">Escritorio</h2>
+
+<p>Uso xfce4 con dos panels ambos en la parte superior. El primero contiene el menú de aplicación con el logo de Debian; un separador transparente que se extiende; las ventanas abiertas; otro separador transparente que se extiende. El segundo panel tiene estos items: las áreas de trabajo con dos files y dos áreas en cada fila; el visor de uso de CPU; el área de notificaciones; plugin de PulseAudio para cambiar el volumen; finalmente el plugin de fecha mostrando la fecha arriba y la hora abajo.</p>
+
+<p>El primer panel tiene un fondo negro mientras que el otro usa el estilo por defecto del sistema para evitar colisión en colores de fuente.</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/debian-desktop.png" alt="" />
+<center><a href="https://blog.donkeysharp.xyz/img/debian-desktop.png" target="_blank">Ver</a></center></p>
+
+<h3 id="apariencia">Apariencia</h3>
+
+<p>Para mis configuraciones de apariencia utilizo lo siguiente:</p>
+
+<ul>
+<li>Iconos <code>Numix Light</code> que vienen en el paquete <code>numix-icon-theme</code></li>
+<li>Tema de ventanas <code>Adwaita</code></li>
+<li>Fuente por defecto: Sans (10) con antialias en <code>Slight</code> y DPI en <code>101</code></li>
+</ul>
+
+<p><img src="https://blog.donkeysharp.xyz/img/thunar.png" alt="" />
+<center><a href="https://blog.donkeysharp.xyz/img/thunar.png" target="_blank">Ver</a></center></p>
+
+<h3 id="tweaks-extra">Tweaks Extra</h3>
+
+<p>El &ldquo;Switcher de Ventanas&rdquo; (alt + tab) de xfce4 que viene en Debian Stretch no me agrada por el tamaño gigante de preview de ventana. Personalmente prefiero tener solo los íconos pequeños sin nombre de la ventana, para ello son solo un par de cambios a realizar: ir a <code>Settings &gt; Window Manager Tweaks</code> y en el tab <code>Cycling</code> deseleccionar <code>Cycle through windows in a list</code> y finalmente en el tab <code>Compositor</code> deseleccionar <code>Show windows preview in place of icons when cycling</code>.</p>
+
+<h3 id="hotkeys">Hotkeys</h3>
+
+<p>Tengo algunos hotkeys que uso en xfce4 para tareas comunes. Para configurar los hotkeys de xfce4 voy a <code>Settings &gt; Keyboard &gt; Application Shortcuts tab</code>. Mis hotkeys son los siguientes:</p>
+
+<table>
+<thead>
+<tr>
+<th>Hotkey</th>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>win_key + f</code></td>
+<td><code>thunar</code></td>
+<td>Abrir manejador de archivos Thunar</td>
+</tr>
+
+<tr>
+<td><code>win_key + t</code></td>
+<td><code>/usr/bin/xfce4-terminal</code></td>
+<td>Abrir una nueva terminal</td>
+</tr>
+
+<tr>
+<td><code>win_key + n</code></td>
+<td><code>mocp --next</code></td>
+<td>Ir a la siguiente canción en MOC player</td>
+</tr>
+
+<tr>
+<td><code>win_key + b</code></td>
+<td><code>mocp --previous</code></td>
+<td>Ir a la anterior canción en MOC player</td>
+</tr>
+
+<tr>
+<td><code>win_key + o</code></td>
+<td><code>mocp --pause</code></td>
+<td>Pausar la canción actual en MOC player</td>
+</tr>
+
+<tr>
+<td><code>win_key + p</code></td>
+<td><code>mocp --unpause</code></td>
+<td>Reanudar reproducción en MOC player</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Otras hotkeys:</strong> Este no es un hotkey de xfce4 pero lo uso con mucha frecuencia <code>ctrl + shift + space</code> para lanzar kupfer.</p>
+
+<h2 id="terminal">Terminal</h2>
+
+<h3 id="tema">Tema</h3>
+
+<p>Para la terminal uso la que viene por defecto <code>xfce4-terminal</code> con <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-terminalrc" target="_blank">estas configuraciones</a> en <code>~/.config/xfce4/terminal/terminalrc</code>.</p>
+
+<h3 id="prompt">Prompt</h3>
+
+<p>Por defecto la terminal bash tiene un prompt simple como <code>usuario@host:directorio-actual</code>. En mi caso que uso bastantes repositorios git, este prompt por defecto no es suficiente ya que quiero ver en el prompt si hay cambios, conflictos, etc. Podria correr <code>git status</code> pero con un prompt personalizado podría ahorrarme ese paso 😉. <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-custom_prompt.sh" target="_blank">Este es el script</a> que llamo desde mi archivo <code>.bashrc</code>, que basicamente muestra hora, directorio actual y la información del repositorio en caso de estar usando uno. Gracias a <a href="https://twitter.com/mdrmike_" target="_blank">Mike Stewart</a> que es el autor original de este script.</p>
+
+<p>Intente utilizar <code>zsh</code> y sus frameworks pero no me sentia comodo y me fue difícil acostumbrarme a este, así que la forma más simple fue tener un prompt personalizado. Afortunadamente habian muchos recursos disponibles para ello, así que no fue un dolor.</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/terminal.png" alt="" />
+<center><a href="https://blog.donkeysharp.xyz/img/terminal.png" target="_blank">Ver</a></center></p>
+
+<h2 id="configuración">Configuración</h2>
+
+<h3 id="configuración-de-tmux">Configuración de Tmux</h3>
+
+<p>Utilizo tmux desde Debian Wheezy pero cuando cambié a Debian Jessie tuve algunos problemas con el directorio al crear nuevos panels. Este es el <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-tmux-conf" target="_blank">.tmux.conf</a> que uso.</p>
+
+<h3 id="configuración-de-moc-player">Configuración de MOC Player</h3>
+
+<p>Como esta es una herramienta de línea de comandos pienso que entra en esta sección. Hay dos archivos que tengo <code>.moc/config</code> y el tema que uso, ambos pueden ser encontrados en mi <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-moc_config_file" target="_blank">gist</a>.</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/mocp.png" alt="" />
+<center><a href="https://blog.donkeysharp.xyz/img/mocp.png" target="_blank">Ver</a></center></p>
+
+<h2 id="comentarios-finales">Comentarios Finales</h2>
+
+<p>Si bien estas configuraciones son bastante personalizadas para mi caso, hice esta entrada con el propósito de tener algo que leer por si olvido y lo compartí en caso le sea de utilidad a algún lector.</p>
+
+
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/es/post/mi-primer-post/" data-toggle="tooltip" data-placement="top" title="Primer Post - echo &#34;Hello World&#34;">&larr; Artículo anterior</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://blog.donkeysharp.xyz/es/post/entorno-de-desarrollo-en-sublime-text/" data-toggle="tooltip" data-placement="top" title="Mi Entorno De Desarrollo En Sublime Text (Parte 1)">Artículo siguiente &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center footer-links">
+      
+          <li>
+            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+      
+      <li>
+        <a target="_blank" href="" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <p class="credits copyright text-muted">
+      
+        
+          Sergio Guillen
+        
+      
+      &bull;
+      
+        2019
+      
+    </p>
+    
+    <p class="credits theme-by text-muted">
+      Creado con <a target="_" href="https://gohugo.io">Hugo</a>.
+&nbsp;&bull;&nbsp;
+Tema <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+
+      
+    </p>
+  </div>
+</div>
+</div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
+<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

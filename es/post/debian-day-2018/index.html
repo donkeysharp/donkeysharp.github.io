@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Debian Day 2018 - Sergio Guillen</title>
+  <meta name="description" content="Desde hace unos años he asistido a los Debian Days organizados acá en la ciudad de La Paz. Este año se llevó a cabo en la UMSA en la Carrera de Informática.
+Este año me encantó la organización de este evento, realmente se rajaron muchach@os!!!, muchas felicidades. Núcleo Linux, Virus, Enmaskarado, Dx, La Otra Red, #r00tHouse y todos los que no mencioné.
+Siempre han habido charlas interesantes, encontrarse con los amigos y en general ese cariño que se tiene a la distribución Debian.">
+  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sergio Guillen",
+    
+    "url": "https:\/\/blog.donkeysharp.xyz"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.donkeysharp.xyz"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/es\/post\/debian-day-2018\/",
+          "name": "Debian day 2018"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "Debian Day 2018",
+  "description" : "Desde hace unos años he asistido a los Debian Days organizados acá en la ciudad de La Paz. Este año se llevó a cabo en la UMSA en la Carrera de Informática.\nEste año me encantó la organización de este evento, realmente se rajaron muchach@os!!!, muchas felicidades. Núcleo Linux, Virus, Enmaskarado, Dx, La Otra Red, #r00tHouse y todos los que no mencioné.\nSiempre han habido charlas interesantes, encontrarse con los amigos y en general ese cariño que se tiene a la distribución Debian.",
+  "inLanguage" : "es",
+  "wordCount":  856 ,
+  "datePublished" : "2018-08-25T11:40:05",
+  "dateModified" : "2018-08-25T11:40:05",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/es\/post\/debian-day-2018\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Debian Day 2018" />
+<meta property="og:description" content="Desde hace unos años he asistido a los Debian Days organizados acá en la ciudad de La Paz. Este año se llevó a cabo en la UMSA en la Carrera de Informática.
+Este año me encantó la organización de este evento, realmente se rajaron muchach@os!!!, muchas felicidades. Núcleo Linux, Virus, Enmaskarado, Dx, La Otra Red, #r00tHouse y todos los que no mencioné.
+Siempre han habido charlas interesantes, encontrarse con los amigos y en general ese cariño que se tiene a la distribución Debian.">
+<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/es/post/debian-day-2018/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sergio Guillen" />
+
+  <meta name="twitter:title" content="Debian Day 2018" />
+  <meta name="twitter:description" content="Desde hace unos años he asistido a los Debian Days organizados acá en la ciudad de La Paz. Este año se llevó a cabo en la UMSA en la Carrera de Informática.
+Este año me encantó la organización de este …">
+  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@donkeysharp" />
+  <meta name="twitter:creator" content="@donkeysharp" />
+  <meta name="generator" content="Hugo 0.57.2" />
+  <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Conmuta navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog.donkeysharp.xyz/es/">DONKEYSHARP</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://blog.donkeysharp.xyz/es">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Sobre mí" href="https://blog.donkeysharp.xyz/es/about/">Sobre mí</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://blog.donkeysharp.xyz/en" lang="en" title="English">
+                    <img src="https://blog.donkeysharp.xyz/img/flags/en.png" />
+                  </a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz/es/">
+            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Debian Day 2018</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Aug 25, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutos
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>Desde hace unos años he asistido a los Debian Days organizados acá en la ciudad de La Paz. Este año se llevó a cabo en la UMSA en la Carrera de Informática.</p>
+
+<p>Este año me encantó la organización de este evento, realmente se rajaron muchach@os!!!, muchas felicidades. <a href="https://twitter.com/nucleognulinux" target="_blank">Núcleo Linux</a>, <a href="https://twitter.com/alexandroqc" target="_blank">Virus</a>, <a href="https://twitter.com/LooperLane" target="_blank">Enmaskarado</a>, Dx, <a href="https://lapaz.laotrared.net/" target="_blank">La Otra Red</a>, <a href="https://www.hacklab.org.bo/" target="_blank">#r00tHouse</a> y todos los que no mencioné.</p>
+
+<p>Siempre han habido charlas interesantes, encontrarse con los amigos y en general ese cariño que se tiene a la distribución Debian. Si bien no todos los asistentes, organizadores, etc. utilizan Debian directamente, existe ese cariño por el Software Libre y el compartir conocimiento que es lo que hacen de este tipo de eventos que sean un éxito aparte de ser super divertidos.</p>
+
+<p>Un buen &ldquo;milestone&rdquo; para este tipo de eventos desde mi punto de vista fue  que pudo hacerse <a href="https://www.youtube.com/watch?v=NkffNNpYtxU" target="_blank">livestream</a> de todo el evento. Entre las personas conectadas vi a amig@s de otras partes del país lo cual hace más accesible este tipo de eventos a las personas que no puedan asisitir físicamente.</p>
+
+<p>Durante mi charla cuando mostraba la terminal o mi editor de texto constantemente preguntaba si se podía visualizar lo que mostraba y con poco tamaño de letra muchos de atrás gritaban que se veía todo normal lo cual me parecía extraño ya que incluso a mí &mdash;que estaba al frente cerca de la proyección&mdash; me fue un poco dificultoso ver lo que mostraba en el proyector. Ya cuando terminaron las charlas pude notar que los muchachos habían puesto una pantalla grande para las personas que se sentaban atrás, ambos: proyector y pantalla estaban sincronizados lo cual me parece bastante bueno ya que se super preocuparon en los asistentes que se sentaron atrás.</p>
+
+<p>Ni que decir del sistema de sonido, la música después de la charlas, todo super. <a href="https://twitter.com/LooperLane" target="_blank">Enmaskarado</a> aparte de ser un gran hacker es un super DJ. Su remix de la canción del Software Libre le salió genial.</p>
+
+<p>Y no podía faltar la torta y la canción de Feliz Cumpleaños para Debian.</p>
+
+<p>Finalmente siguiendo con la tradición que nuestro querido amigo Tuchin (Q.E.P.D.) nos dejó es la de nombrar al Caballero Debian del siguiente año quien será el que coordine la organización del evento el 2019. Nuestro amigo <a href="https://twitter.com/linuxgeniero" target="_blank">Gino</a> es el nuevo Caballero Debian para el 2019.</p>
+
+<blockquote class="twitter-tweet"><p lang="es" dir="ltr">La torta :D<br>Gracias a todos ustedes por participar del evento y sigamos creciendo<a href="https://twitter.com/hashtag/DebianDay?src=hash&amp;ref_src=twsrc%5Etfw">#DebianDay</a> <a href="https://twitter.com/hashtag/LaPaz?src=hash&amp;ref_src=twsrc%5Etfw">#LaPaz</a> <a href="https://t.co/ig7TRRRFBX">pic.twitter.com/ig7TRRRFBX</a></p>&mdash; Núcleo GNU/Linux (@nucleognulinux) <a href="https://twitter.com/nucleognulinux/status/1033160277150318592?ref_src=twsrc%5Etfw">August 25, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<h2 id="un-resumen-sobre-las-charlas">Un resumen sobre las charlas</h2>
+
+<blockquote class="twitter-tweet"><p lang="es" dir="ltr">Te presentamos nuestro cronograma para el <a href="https://twitter.com/hashtag/DebianDay?src=hash&amp;ref_src=twsrc%5Etfw">#DebianDay</a> 😍😎 <a href="https://t.co/tXoaWbG227">pic.twitter.com/tXoaWbG227</a></p>&mdash; Núcleo GNU/Linux (@nucleognulinux) <a href="https://twitter.com/nucleognulinux/status/1032641409281667073?ref_src=twsrc%5Etfw">August 23, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>Si bien no pude estar en el evento desde un inicio, pude ver todo desde <strong>&ldquo;Debate JS: React vs Vue vs Angular&rdquo;</strong>.</p>
+
+<p>En el debate que hubo sobre frameworks/librerías para frontend &mdash;que estuvo interesante aunque no mencionaron el reconciliation algorithm de ReactJS&mdash;, uno de los exponentes no logró asistir físicamente y hubo una transmisión por hangouts. En algunos eventos que fuí donde intentaron transmitir una charla por streaming realmente no fue buena experiencia, internet lento, delay extremo, etc. Pero en este caso el delay prácticamente no se hizo notar y el debate pudo llevarse sin mucha complicación. Felicidades a los organizadores por preveer ese aspecto.</p>
+
+<p>Luego dí una charla llamada <strong>&ldquo;Jugando con HuGo&rdquo;</strong> en la cual pude mostrar como manejo este blog, las tecnologías, servicios, problemas que tuve, etc. Tristemente el dios de las demos no estuvo de mi lado y la demostración falló. La razón: olvide poner la opción <code>--recurse-submodules</code> al clonar el repositorio donde manejo mi blog. Prometo hacer una entrada respecto a la charla que hice. Nuevamente lo siento por la demo fallida. Las diapositivas las pueden encontrar en este <a href="https://slides.com/sergioguillen/jugando-con-hugo/live" target="_blank">link</a>.</p>
+
+<p>Luego vino la charla de <a href="https://twitter.com/yamilurbina" target="_blank">Yamil Urbina</a> <strong>Kubernetes para aplicaciones de alta demanda</strong> que siempre muestra cosas interesantes y en esta oportunidad mostró el poder de Kubernetes y una breve explicada sobre las piezas fundamentales de <a href="https://kubernetes.io/" target="_blank">Kubernetes</a> y la flexibilidad que este tiene. Algo que me gustó de esta charla aparte de la demo, fue la respuesta a una pregunta relacionada a la curva de aprendizaje y la manera en como Yamil la respondió que básicamente nos muestra como ir evolucionando de a poco y no dar un salto grande directamente. Pueden ver la pregunta y respuesta en este <a href="https://youtu.be/NkffNNpYtxU?t=12494" target="_blank">link</a>.</p>
+
+<p>La charla de Alan Corini <strong>Latex para la elaboración de Tesis</strong> que mostró un poco el poder de LaTex y la gran facilidad que nos ofrece para la elaboración de Tesis o cualquier otro documento científico. La verdad me alegra mucho que haya gente que promueva esta tecnología en el ámbito académico ya que tristemente cuando desarrollé mi tesis tuve que hacer en paquetes de ofimática como Libre Office que no está mal, pero me sentía un poco obligado ya que en la biblioteca de la UMSA te obligan a presentar tu Tesis en formato <code>docx</code>. Espero eso cambie en el futuro.</p>
+
+<p>Finalmente hubo una charla sorpresa de Lizet Coaquira sobre Java y JBoss, donde mostró su entorno de desarrollo, algunas experiencias que tuvo desde su inicio en el empresa donde trabaja actualmente y finalmente con el tiempo como llegó a ser lider de desarrollo.</p>
+
+
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/" data-toggle="tooltip" data-placement="top" title="Gocho, Compartir Archivos En Una Red Local">&larr; Artículo anterior</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/" data-toggle="tooltip" data-placement="top" title="Diversión con SSH - Local Port Forwarding">Artículo siguiente &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center footer-links">
+      
+          <li>
+            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+      
+      <li>
+        <a target="_blank" href="" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <p class="credits copyright text-muted">
+      
+        
+          Sergio Guillen
+        
+      
+      &bull;
+      
+        2019
+      
+    </p>
+    
+    <p class="credits theme-by text-muted">
+      Creado con <a target="_" href="https://gohugo.io">Hugo</a>.
+&nbsp;&bull;&nbsp;
+Tema <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+
+      
+    </p>
+  </div>
+</div>
+</div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
+<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

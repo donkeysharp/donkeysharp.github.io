@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Fun with SSH - Local Port Forwarding - Sergio Guillen</title>
+  <meta name="description" content="The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind that would solve some of the challenges he has was OpenSSH.
+What is SSH? SSH is a short for Secure Shell, it&rsquo;s a protocol to manage services inside a network using a secure channel.">
+  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sergio Guillen",
+    
+    "url": "https:\/\/blog.donkeysharp.xyz"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.donkeysharp.xyz"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/post\/fun-with-ssh-part-1\/",
+          "name": "Fun with s s h local port forwarding"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "Fun with SSH - Local Port Forwarding",
+  "description" : "The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind that would solve some of the challenges he has was OpenSSH.\nWhat is SSH? SSH is a short for Secure Shell, it\x26rsquo;s a protocol to manage services inside a network using a secure channel.",
+  "inLanguage" : "en",
+  "wordCount":  1580 ,
+  "datePublished" : "2018-08-28T08:30:57",
+  "dateModified" : "2018-08-28T08:30:57",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/post\/fun-with-ssh-part-1\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Fun with SSH - Local Port Forwarding" />
+<meta property="og:description" content="The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind that would solve some of the challenges he has was OpenSSH.
+What is SSH? SSH is a short for Secure Shell, it&rsquo;s a protocol to manage services inside a network using a secure channel.">
+<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/post/fun-with-ssh-part-1/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sergio Guillen" />
+
+  <meta name="twitter:title" content="Fun with SSH - Local Port Forwarding" />
+  <meta name="twitter:description" content="The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind …">
+  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@donkeysharp" />
+  <meta name="twitter:creator" content="@donkeysharp" />
+  <meta name="generator" content="Hugo 0.57.2" />
+  <link rel="alternate" href="https://blog.donkeysharp.xyz/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog.donkeysharp.xyz">DONKEYSHARP</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://blog.donkeysharp.xyz/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About me" href="https://blog.donkeysharp.xyz/about/">About me</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="https://blog.donkeysharp.xyz/es" lang="es" title="Español">
+                    <img src="https://blog.donkeysharp.xyz/img/flags/es.png" />
+                  </a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz">
+            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Fun with SSH - Local Port Forwarding</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on August 28, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;8&nbsp;minutes
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  &nbsp;&bull;&nbsp;Also in: <a href="https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/" lang="es">Español</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind that would solve some of the challenges he has was OpenSSH.</p>
+
+<h2 id="what-is-ssh">What is SSH?</h2>
+
+<p><a href="https://es.wikipedia.org/wiki/Secure_Shell" target="_blank">SSH</a> is a short for Secure Shell, it&rsquo;s a protocol to manage services inside a network using a secure channel. One of the most common tasks that can be done using this protocol is to log into a server and remotely execute commands in this server.</p>
+
+<p>SSH is the protocol and we need a tool that implements this protocol. The most used tool for this protocol is <a href="https://es.wikipedia.org/wiki/OpenSSH" target="_blank">OpenSSH</a> and the one we&rsquo;ll be using for this guide. OpenSSH and other implementations come by default in Unix-like systems and in the case of Windows I personally use <a href="https://git-scm.com/downloads" target="_blank">Git Bash</a> because it&rsquo;s Unix-like terminal in Windows. Others prefer using PuTTU.</p>
+
+<h2 id="let-s-do-it">Let&rsquo;s do it</h2>
+
+<p>Although I could test everything in this guide using a virtual machine or a Linux PC in our local network, I preffer doing it in a more real environment to prove my point. I will create a public server.</p>
+
+<h3 id="creating-a-public-server">Creating a public server</h3>
+
+<blockquote>
+<p><strong>Important</strong> I will use DigitalOcean for this post, of course you can use other cloud providers e.g. <a href="https://aws.amazon.com/free" target="_blank">AWS</a>, <a href="https://www.vultr.com/promo25b?service=promo25b" target="_blank">Vultr</a>, <a href="https://welcome.linode.com/" target="_blank">Linode</a>, etc. The idea is to have a server that can be accessed from the Internet.</p>
+</blockquote>
+
+<p>Something I like about DigitalOcean is that it charges you for the hours used i.e. a machine that is running for a complete month will cost 5 USD (the cheapest) but if we only have it running for an hour it will cost 0.007 cents. You can the check its <a href="https://www.digitalocean.com/pricing/" target="_blank">pricing page</a>.</p>
+
+<p>Creating a server in DigitalOcean is very simple, just a couple of clicks, choosing the Linux distribution and resources to assign to the machine. I will choose Debian9 x64 with 1GB of memory that will cost 0.007 USD per hour.</p>
+
+<p>I recommend you to assign an <a href="https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/" target="_blank">SSH Key</a> when creating the server.</p>
+
+<p>This <a href="https://www.digitalocean.com/docs/droplets/how-to/create/" target="_blank">link</a> shows how to create a server.</p>
+
+<h3 id="starting-session-via-ssh">Starting session via SSH</h3>
+
+<!-- TODO: Make a post for cloudinit on digitalocean -->
+
+<p>By default DigitalOcean allows yout to access the servers with a <code>root</code> user, which is considered a <a href="https://unix.stackexchange.com/questions/82626/why-is-root-login-via-ssh-so-bad-that-everyone-advises-to-disable-it" target="_blank">bad practice</a> in terms of security. For a real server I recommend you to disable <code>root</code> login.</p>
+
+<p>To log into a server run:</p>
+
+<pre><code>$ ssh usuario@servidor
+</code></pre>
+
+<p>For the case of DigitalOcean run:</p>
+
+<pre><code>$ ssh root@ip_droplet
+</code></pre>
+
+<p>Once connected we can do different things: run commands, configure the server, install/uninstall packages, etc. Now with this we can start to play and see some funny things we can do with SSH.</p>
+
+<h3 id="local-port-forwarding">Local Port Forwarding</h3>
+
+<p>I will explain the concept with an example: let&rsquo;s suppose we have a public server and behind it there is a private network that can have different private servers such as a database server. So as these servers are in a private network there is not a simple way to access these services. Some options to access these private services is to use a VPM or Local Port Forwarding. Local Porta Forwarding allows us to create a tunnel between a private service with our local machine via a public server that can access these private services.</p>
+
+<p>Let&rsquo;s check the next scenario:</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/ssh_guide_1.png" alt="" /></p>
+
+<p>In the picture there is a MySQL database server in a private network with address <code>10.100.1.23</code> and its port is <code>3306</code> and there is a public server with IP address <code>152.190.23.56</code>.</p>
+
+<p>In case we want to access the private database server we need to be in the private network (something that is not true) because we are in our house&rsquo;s local network. Fortunately the public server <code>152.190.23.56</code> has access to the private network and it also can be accessed from the Internet.</p>
+
+<p>What we will do is to use this SSH&rsquo;s feature called Local Port Forwarding to create a secure channel through the public server <code>152.190.23.56</code> between the port <code>3306</code> in my local computer and the port <code>3306</code> in the private database server <code>10.100.1.23</code>.</p>
+
+<p>The execution format is as follows:</p>
+
+<pre><code>ssh -nNT -L portA:private_host:portB user@server
+</code></pre>
+
+<p>Where:</p>
+
+<ul>
+<li><code>-n</code> avoids STDIN input i.e. avoids setting up a terminal session</li>
+<li><code>-N</code> do not execute a remote command</li>
+<li><code>-T</code> disable the option to display a remote terminal</li>
+<li><code>-L</code> Local Port Forwarding option</li>
+<li><code>portA</code> port in our local machine where the remote service will be exposed e.g. MySQL</li>
+<li><code>private_host</code> the private ip address of a server that can be accessed via a public server</li>
+<li><code>portB</code> remote service&rsquo;s port that is running in <code>private_host</code></li>
+</ul>
+
+<p>For our example it would be something like:</p>
+
+<pre><code>ssh -nNT -L 3306:10.100.1.23:3306 root@ip_droplet
+</code></pre>
+
+<p>It is important to note that in case we have MySQL installed in our local machine it would be a port conflict. In that case we can use something like.</p>
+
+<pre><code>ssh -nNT -L 3307:10.100.1.23:3306 root@ip_droplet
+</code></pre>
+
+<p>Let&rsquo;s suppose the case that users in our local network need to access this private service as well, the simplest solution would be these users to follow the same procedure but let&rsquo;s add the constraint that they don&rsquo;t have permissions to access the public server. In this case the solution would be that I do the same procedure but I expose my local port inside the local network so any user can connecto to my local ip address which in turn will connect to the remote private database server.</p>
+
+<p>Next diagram shows what we want to accomplish:</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/ssh_guide_2.png" alt="" /></p>
+
+<p>In order to get this scenario working we only need at add an extra option to the execution:</p>
+
+<pre><code>ssh -nNT -L local_ip:portA:private_host:portB user@server
+</code></pre>
+
+<p>Donde</p>
+
+<ul>
+<li><p><code>local_ip</code> is our machine&rsquo;s local network IP address, in case we are in different networks and not sure of the our IP address we set it to <code>0.0.0.0</code> that will expose it in all the networks that are connected to.</p>
+
+<pre><code>ssh -nNT -L 192.168.1.100:3306:10.100.1.23:3306 root@ip_droplet
+</code></pre></li>
+</ul>
+
+<p>From the previous run all machines in our local network can connect to <code>192.168.1.100:3306</code> and that way they will access the MySQL server which is in a remote private network.</p>
+
+<h2 id="reproducing-the-example-in-our-public-server">Reproducing the example in our public server</h2>
+
+<p>One of the defaults behaviors in MuSQL is that it does not expose the <code>3306</code> to any network i.e. it is only available locally. So if we install MySQL in our public server the port <code>3306</code> will not be exposed to the Internet and we could consider it to be in a &ldquo;private network&rdquo; and apply what we learned so far.</p>
+
+<p>Once in the server we install MySQL by running:</p>
+
+<pre><code>$ sudo apt install mysql-server
+</code></pre>
+
+<p>We want to make sure that MySQL is not exposing the <code>3306</code> port to the Internet.</p>
+
+<p>For that purpose we have two options:</p>
+
+<h3 id="use-netstat-internally">Use <code>netstat</code> internally</h3>
+
+<p>We will check that there is an open socket in port <code>3306</code> but this one is using address <code>127.0.0.1</code> i.e. only available to the same machine.</p>
+
+<pre><code>$ netstat -tlpn
+</code></pre>
+
+<p>The output will be similar to:</p>
+
+<pre><code>Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      2722/mysqld
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      784/sshd
+tcp6       0      0 :::22                   :::*                    LISTEN      784/sshd
+
+</code></pre>
+
+<p>And as expected we see that MySQL is exposing the <code>3306</code> only for the same machine and not accessible from any network (public or private).</p>
+
+<h3 id="using-nmap-externally">Using <code>nmap</code> externally</h3>
+
+<p>In order to check if port <code>3306</code> is open to the public we use <a href="https://nmap.org/" target="_blank">nmap</a>:</p>
+
+<pre><code>$ nmap -Pn server_ip -p 3306
+</code></pre>
+
+<p>And the output will be something like:</p>
+
+<pre><code>Starting Nmap 7.40 ( https://nmap.org ) at 2018-08-18 23:24 -04
+Nmap scan report for 142.93.204.171
+Host is up (0.12s latency).
+PORT     STATE  SERVICE
+3306/tcp closed mysql
+</code></pre>
+
+<p><code>3306/tcp closed mysql</code> says that we cannot access this port from the outside.</p>
+
+<h3 id="using-local-port-forwarding">Using Local Port Forwarding</h3>
+
+<p>Now the question is: How can we access MySQL from outside?. There are different answers to this question but this post will use Local Port Forwarding to map a port from our local machine with a port that can only be accessed internally from the public server.</p>
+
+<pre><code>ssh -nNT -L 3306:localhost:3306 root@server_ip
+</code></pre>
+
+<p>This way we check in our computer that port <code>3306</code> should be open. To verify we run the next in our local machine.</p>
+
+<pre><code>$ netstat -tlpn
+</code></pre>
+
+<p>With an output similar to:</p>
+
+<pre><code>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      23193/ssh
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
+</code></pre>
+
+<p>Where <code>127.0.0.1:3306</code> says that port <code>3306</code> is only available for our local machine using a secure channel to the remote&rsquo;s server internal MySQL server.</p>
+
+<p>In addition we can make other machines in our local network to access our machine which in turn can access remote&rsquo;s internal MySQL server. We do that by running:</p>
+
+<pre><code>$ ssh -nNT -L 192.168.1.100:3306:localhost:3306 root@server_ip
+</code></pre>
+
+<p>To verify that it is available in our internal network we run:</p>
+
+<pre><code>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 192.1681.1.100:3306     0.0.0.0:*               LISTEN      23193/ssh
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
+</code></pre>
+
+<h2 id="final-comments">Final Comments</h2>
+
+<p>In this first part we checked how to expose from our local computer a service that can be only accessed privately from a public server using Local Port Forwarding.</p>
+
+<p>Personally I use this technique a lot in order to access database servers or any other private service inside a private cloud in case there is no VPN, this makes my work simpler and prevents us from exposing private services to the public.</p>
+
+<p>In the next part of this posts, I will show how to expose services from our local machine or local network to the Internet by using a public server.</p>
+
+
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/post/gocho-file-sharing/" data-toggle="tooltip" data-placement="top" title="Gocho, Sharing files in a local network">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/" data-toggle="tooltip" data-placement="top" title="Automating post-installation setup in my personal Debian machines">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center footer-links">
+      
+          <li>
+            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+      
+      <li>
+        <a target="_blank" href="" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <p class="credits copyright text-muted">
+      
+        
+          Sergio Guillen
+        
+      
+      &bull;
+      
+        2019
+      
+    </p>
+    
+    <p class="credits theme-by text-muted">
+      Powered by <a target="_" href="https://gohugo.io">Hugo</a>.
+&nbsp;&bull;&nbsp;
+Theme <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+
+      
+    </p>
+  </div>
+</div>
+</div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
+<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

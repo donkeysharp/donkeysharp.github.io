@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Gocho, Sharing files in a local network - Sergio Guillen</title>
+  <meta name="description" content="Hey,during my free time I was working a side project called Gocho. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will auto-discover other nodes. In this post I will explain what this application is all about, why I wrote it and some challenges that came up duting the development.
+View
+Why I wrote this app? First I wanted to share a directory in a local network without the need of others having to ask for my local ip address or the port where I published the files.">
+  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sergio Guillen",
+    
+    "url": "https:\/\/blog.donkeysharp.xyz"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.donkeysharp.xyz"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/post\/gocho-file-sharing\/",
+          "name": "Gocho, sharing files in a local network"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "Gocho, Sharing files in a local network",
+  "description" : "Hey,during my free time I was working a side project called Gocho. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will auto-discover other nodes. In this post I will explain what this application is all about, why I wrote it and some challenges that came up duting the development.\nView\nWhy I wrote this app? First I wanted to share a directory in a local network without the need of others having to ask for my local ip address or the port where I published the files.",
+  "inLanguage" : "en",
+  "wordCount":  2143 ,
+  "datePublished" : "2018-03-29T22:22:46",
+  "dateModified" : "2018-03-29T22:22:46",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/post\/gocho-file-sharing\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Gocho, Sharing files in a local network" />
+<meta property="og:description" content="Hey,during my free time I was working a side project called Gocho. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will auto-discover other nodes. In this post I will explain what this application is all about, why I wrote it and some challenges that came up duting the development.
+View
+Why I wrote this app? First I wanted to share a directory in a local network without the need of others having to ask for my local ip address or the port where I published the files.">
+<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/post/gocho-file-sharing/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sergio Guillen" />
+
+  <meta name="twitter:title" content="Gocho, Sharing files in a local network" />
+  <meta name="twitter:description" content="Hey,during my free time I was working a side project called Gocho. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will …">
+  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@donkeysharp" />
+  <meta name="twitter:creator" content="@donkeysharp" />
+  <meta name="generator" content="Hugo 0.57.2" />
+  <link rel="alternate" href="https://blog.donkeysharp.xyz/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog.donkeysharp.xyz">DONKEYSHARP</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://blog.donkeysharp.xyz/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About me" href="https://blog.donkeysharp.xyz/about/">About me</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="https://blog.donkeysharp.xyz/es" lang="es" title="Español">
+                    <img src="https://blog.donkeysharp.xyz/img/flags/es.png" />
+                  </a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz">
+            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Gocho, Sharing files in a local network</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 29, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;11&nbsp;minutes
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  &nbsp;&bull;&nbsp;Also in: <a href="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/" lang="es">Español</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>Hey,during my free time I was working a side project called <a href="https://github.com/donkeysharp/gocho" target="_blank">Gocho</a>. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will auto-discover other nodes. In this post I will explain what this application is all about, why I wrote it and some challenges that came up duting the development.</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/gocho-dashboard.gif" alt="" />
+<center><a href="https://blog.donkeysharp.xyz/img/gocho-dashboard.gif" target="_blank">View</a></center></p>
+
+<h2 id="why-i-wrote-this-app">Why I wrote this app?</h2>
+
+<p>First I wanted to share a directory in a local network without the need of others having to ask for my local ip address or the port where I published the files. Also I wanted something that is simple to execute in most common operating systems (Windows, OSX and GNU/Linux) without the need to install some dependencies.</p>
+
+<p>When I start a project like this I always want to learn something new. In this case I wanted to learn <a href="https://golang.org/" target="_blank">Go</a> since last year (2017). Although I did one thing or another with this language they were just small experiments. I wrote a small project called <a href="https://github.com/donkeysharp/golondrina" target="_blank">Golondrina</a>; <a href="https://github.com/donkeysharp/eazy-panel" target="_blank">EazyPanel</a>), and this idea seemed to be a good use case to use this programming language (I will elaborate on that below).</p>
+
+<h2 id="why-go">Why Go?</h2>
+
+<!-- Si alguien ya ejecutó la aplicación es fácil notar que no es algo de otro mundo. Gocho podría haber sido desarrollado en otros lenguajes como: C/C++, Python, Ruby, Java, CSharp, etc. pero tenía algunas observaciones preliminares: -->
+
+<p>If some of you already tested the application it&rsquo;s easy to see that it&rsquo;s not something from another world. Gocho could have been developed in other programming laguages such as C/C++, Python, Ruby, Java, CSharp, etc. but I had some some observations of those otions:</p>
+
+<ul>
+<li>Python/Ruby - It&rsquo;s important to have the installer installed by default and Windows does not have it.</li>
+<li>Java/CSharp - it&rsquo;s important to have the virtual machines already installed in the operating system (JVM or NetCore). It will not always be the case that those are installed by default.</li>
+<li>C/C++ - It would be the obvious choice, but found some observations: first is that by default these programming languages are dynamically linked, which could cause in some cases the need to install the libraries required  (unless I use the static flag during compilation of course) and the second problem is that even I can read C/C++ I don&rsquo;t feel ready enough to start writing something like this.</li>
+<li>Go - It is compiled statically by default (everything in a single binary) and the final result does not require an interpreter, virtual machine or similar to be installed previously.</li>
+</ul>
+
+<p>With that list &mdash;a little bit biased 😉&mdash; Go matches with the needs I have.</p>
+
+<p>Something else about Go is the simplicity I have to create binaries for different platforms. For instance Gocho is available for different platforms without extra complications. <a href="https://github.com/donkeysharp/gocho/releases" target="_blank">Releases Gocho</a></p>
+
+<h2 id="some-issues-i-found">Some issues I found</h2>
+
+<h3 id="issue-1-sharing-files">Issue #1: Sharing files</h3>
+
+<p>In the company where I work there a big diversity in terms of operating systems. Some use Windows, OSX and others GNU/Linux. In order to share files, there is a &ldquo;Shared folder&rdquo; that I couldn&rsquo;t make it to work same as others (I use GNU/Linux). When I tried to accessI got some errors to instert domain and credentials; even if I input the correct values &mdash;that were supposed to be the correct ones&mdash; I wasn&rsquo;t able to access shared files.</p>
+
+<p>Some guys share information such as videos, courses, etc. by setting up a web server <code>httpd</code> in their local machines or in my case I just started <code>python -m SimpleHTTPServer</code> in the directory that I wanted to share. I found an issue with <code>SimpleHTTPServer</code>, with few people trying to download the same file, this server only could handle one download at a time.</p>
+
+<p>My next try was to bring up something better that <code>SimpleHTTPServer</code> without the need to setup something big such as <code>httpd</code>. I had the luck to see a code snippet in Go&rsquo;s documentation for the <code>net/http</code> module that starts a file sharing server that could support multiple downloads at the same time. Lucky me!</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// Simple static webserver:
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">directory</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;some/directory&#34;</span>
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">FileServer</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Dir</span>(<span style="color:#e6db74">&#34;/home/myuser/some/directory&#34;</span>))))
+}</code></pre></div>
+
+<p>I just had to compile this code; move the final binary to some directory in the <code>PATH</code> and voila! I had a simple solution that could handle more concurrent download without the need to mount a complex service.</p>
+
+<p>So far I just have a small binary that allows me to share a directory and that it can handle multiple concurrent downloads &mdash;something simpler to setup compared to a service such as <code>httpd</code> or <code>nginx</code> but better than <code>SimpleHTTPServer</code>.</p>
+
+<p>If we make numbers, just compiling this binary for different operating systems would have been enough. But I wanted to go further.</p>
+
+<h3 id="issue-2-where-are-the-shared-files">Issue #2: Where are the shared files?</h3>
+
+<p>Another thing I noticedis that everytime a user shares something in the local network, user must communicate (somehow) other users how to access the resources this user is sharing. The most common way is by sending to a chat the IP address and the port where shared files are.</p>
+
+<p>Since the beginning I&rsquo;m thinking this application will only work on a local network and something that quickly came up to my mind was these old LAN games such as StarCraft. When you played StarCraft a user created a game and other players could join the game without knowing the IP address of the machine that created the game. The game automatically shows all the games available in the network and a user can connect to it automatically.</p>
+
+<p>Doing some research about how this games could detect all avaialable games in a network without the need to specify an IP address, took me to the concept of <a href="https://en.wikipedia.org/wiki/Multicast" target="_blank">multicast</a>.</p>
+
+<p>In small words, Multicast is a network feature that allows a computer sending information to the network so other nodes in the network can receive these information.</p>
+
+<p>For instance, if I want to send a &ldquo;Hello world&rdquo; to other computers that are interested in receiving thismessage and wihtout me having to know which computers, the idea is the next:</p>
+
+<ul>
+<li><em>My Computer</em>: Send an UDP datagram with a &ldquo;Hello world&rdquo; mesage to  the <a href="https://en.wikipedia.org/wiki/Multicast_address#IPv4" target="_blank">reserved Multicast IP range</a> e.g. 239.6.6.6:1234</li>
+<li><em>Interested computer 1</em>: Listen for UDP datagrams in 239.6.6.6:1234</li>
+<li><em>Interested computer 2</em>: Listen for UDP datagrams in 239.6.6.6:1234</li>
+<li><em>Interested computer N</em>: Listen for UDP datagrams in 239.6.6.6:1234</li>
+</ul>
+
+<p>This way Multicast allows whoever computer that wants to share something, it only needs its own information (identifier, IP address, port, etc) via Multicast and interested machines will be able to get this information.</p>
+
+<p>Knowing this, Gocho in addition to  just sharing a directory, it will be able to meet other Gocho nodes that are currently sharing something.</p>
+
+<p>Now regarding implementation, we can check some code snippets I used for Gocho.</p>
+
+<p><a href="https://github.com/donkeysharp/gocho/blob/master/pkg/node/net.go" target="_blank">pkg/node/net.go</a></p>
+
+<p>The <code>announceNode</code> function sends a Multicast packet.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">announceNode</span>(<span style="color:#a6e22e">nodeInfo</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">NodeInfo</span>) {
+    <span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUDPAddr</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#a6e22e">MULTICAST_ADDRESS</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>
+    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">DialUDP</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">address</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#f92672">...</span>
+        <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#a6e22e">message</span>))
+        <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">ANNOUNCE_INTERVAL_SEC</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+    }
+}</code></pre></div>
+
+<p>The <code>listenForNodes</code> function will listen for Multicast messages.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">listenForNodes</span>(<span style="color:#a6e22e">nodeList</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">List</span>) {
+    <span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUDPAddr</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#a6e22e">MULTICAST_ADDRESS</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ListenMulticastUDP</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">address</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>
+    <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">SetReadBuffer</span>(<span style="color:#a6e22e">MULTICAST_BUFFER_SIZE</span>)
+
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#a6e22e">packet</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#a6e22e">MULTICAST_BUFFER_SIZE</span>)
+        <span style="color:#a6e22e">size</span>, <span style="color:#a6e22e">udpAddr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">ReadFromUDP</span>(<span style="color:#a6e22e">packet</span>)
+        <span style="color:#f92672">...</span>
+    }
+}</code></pre></div>
+
+<p>Therefore most of the &ldquo;magic&rdquo; that Gocho has relies on Multicast. With Multicast a computer can announce itself and at the same time discover other nodes.</p>
+
+<h3 id="issue-3-message-format">Issue #3: Message format</h3>
+
+<p>Now that we can communicate between nodes, I knew that was convenient to identify the packets that Gocho sends to other nodes. Basically the packet (this initial version) must follow next format:</p>
+
+<ol>
+<li>The first 4 bytes must be <code>0x60</code>, <code>0x0d</code>, <code>0xf0</code>, <code>0x0d</code> or <code>0x600df00d</code> (Good Food), which is the header tha identifies a Gocho message.</li>
+<li>The next byte specifies the command, currently there is only one command which is <code>0x01</code> that specifies that a node is announcing. The information of the node is in the payload.</li>
+<li>Finally the rest of the content is the payload. For this purpose I decided to use the JSON format.</li>
+</ol>
+
+<p>This is the hexadecimal representation of a message from a node that is announcing itself:</p>
+
+<pre><code>00000000  60 0d f0 0d 01 7b 22 6e  6f 64 65 49 64 22 3a 22  |`....{&quot;nodeId&quot;:&quot;|
+00000010  6e 6f 64 6f 2d 73 65 72  67 69 6f 22 2c 22 69 70  |nodo-sergio&quot;,&quot;ip|
+00000020  41 64 64 72 65 73 73 22  3a 22 22 2c 22 77 65 62  |Address&quot;:&quot;&quot;,&quot;web|
+00000030  50 6f 72 74 22 3a 22 35  30 30 30 22 7d           |Port&quot;:&quot;5000&quot;}|
+</code></pre>
+
+<p>I decided to use this kind of format to reduce the usage of bytes as much as possible. In fact, if it wouldn&rsquo;t use JSON format more bytes would be saved.</p>
+
+<p>In the future it is possible that more commands exists other than the announce node command (<code>0x01</code>). That&rsquo;s the reason one byte is reserved for that.</p>
+
+<h2 id="application-design">Application design</h2>
+
+<!-- Esta sección habla un poco más de la implementación ya habiendo conocido los problemas mencionados arriba. Para poder seguir esta sección hago referencia al [código fuente](https://github.com/donkeysharp/gocho) de la aplicación. -->
+
+<p>Now that we now the issues and solutions that were given, this section describes a bit more some implementation details.</p>
+
+<h3 id="code-structure">Code structure</h3>
+
+<p>The code structure of this project is based on this <a href="https://peter.bourgon.org/go-best-practices-2016/#repository-structure" target="_blank">article</a> that shows a nice code structure for Go projects. This structure is used in different projects such as <a href="https://github.com/kubernetes/kubernetes" target="_blank">Kubernetes</a> or <a href="https://github.com/moby/moby" target="_blank">Docker</a>.</p>
+
+<p>This project includes a <code>Makefile</code> that has all the required steps to build and develop the project and also the multi-architecture binary build process.</p>
+
+<h3 id="service-components">Service components</h3>
+
+<p>In the previous section I mentioned the code structure that was used. This section I will focus on the components inside the directory <code>pkg</code>, specially in <code>pkg/node</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>pkg/info</code></td>
+<td>Application information such as name and versoin.</td>
+</tr>
+
+<tr>
+<td><code>pkg/cmds</code></td>
+<td>All the CLI logic, flags, options, etc e.g. <code>gocho start [options]</code> or <code>gocho configure</code>.</td>
+</tr>
+
+<tr>
+<td><code>pkg/config</code></td>
+<td>All the configuration logic such as default values or loading setings from <code>.gocho.conf</code> file are defined in this component.</td>
+</tr>
+
+<tr>
+<td>&lt;!&ndash; <code>pkg/node</code></td>
+<td>La lógica principal de la aplicación radica en este directorio. El cómo se tiene un dashboard web embebido; el formato de los paquetes; el mecanismo de auto-discovery (multicast) y el índice de archivos que muestra el contenido del directorio compartido. &ndash;&gt;</td>
+</tr>
+
+<tr>
+<td><code>pkg/node</code></td>
+<td>Application&rsquo;s main logic is here. Things such as the embeded dashboard; the packet&rsquo;s format; the auto-discovery feature using Multicast and the index of files in the shared directory.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="a-bit-about-some-data-structure-and-logic-used">A bit about some data structure and logic used</h3>
+
+<p>Application needs to store the information of other nodes, for this purpose I decided to use a linked list due to its simplicity to delete or add elements.</p>
+
+<p>As more nodes are getting announced in a network, it is possible that some parts of the code (from any node) will execute some parts of the code at the same time. In order to avoid concurrency problems: mainly in the linked list that stores nodes&rsquo; information, I used a <a href="https://golang.org/pkg/sync/#Mutex" target="_blank">Mutex</a> that will help us manage this kind of behaviors that could lead us to unexpected results.</p>
+
+<p>Something important here is that there are timeouts set by default that constantly check the linked list. Basically these timeouts allow us to free resources when a node stops announcing itself after some time.</p>
+
+<h3 id="the-dashboard">The Dashboard</h3>
+
+<p>For the dashboar ddevelopment I only used <a href="https://reactjs.org/" target="_blank">React</a>. Maybe some of you will make question about why I didn&rsquo;t use Redux or React-Router? The answer is simple, as the final bundle with the required static files will be embedded in the binary, it will be better to have it as reduced and simple as possible.</p>
+
+<p>All the components and code for the UI are in <code>ui</code> directory. The structure used for this project is the one that is created by default using <a href="https://github.com/facebook/create-react-app" target="_blank">Create React App</a>.</p>
+
+<p>The same for styles, I could have used some CSS processor such as SASS, but I decided to keep things simple. All styles are in this <a href="https://github.com/donkeysharp/gocho/blob/master/ui/src/App.css" target="_blank">file</a> which is ~184 lines of code.</p>
+
+<p>To generate the javascript bundle just run the next command</p>
+
+<pre><code class="language-bash">$ make dist
+</code></pre>
+
+<p>The previous command uses the Creat React App scripts to generate the final bundle and embed it into the binary. I make use of <a href="https://blog.golang.org/generate" target="_blank">Go Generate</a>.</p>
+
+<p><a href="https://github.com/donkeysharp/gocho/blob/master/cmd/gocho/gocho.go" target="_blank">This files</a> has a comment:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#75715e">//go:generate go-bindata -o ../../assets/assets_gen.go -pkg assets ../../ui/build/...
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;github.com/donkeysharp/gocho/pkg/cmds&#34;</span>
+    <span style="color:#e6db74">&#34;os&#34;</span>
+)
+<span style="color:#f92672">...</span></code></pre></div>
+
+<p>That specifies where the bundle is and that will be embedded in to binary.</p>
+
+<h3 id="the-shared-files-web-index">The shared files web index</h3>
+
+<p>This is one of the features where I got more fund. As I mentioned on <em>Issye #1</em>, Go shows an example to share a directory via web. The problem with that web index does not have any styles, cannot be extended and the <code>..</code> directory does not exist.</p>
+
+<p>In order to customize this existing code I used the <a href="https://en.wikipedia.org/wiki/Interceptor_pattern" target="_blank">Interceptor Pattern</a> and a custom middleware that adds the icons, custom HTML code and the <code>..</code> directory to go up one level.</p>
+
+<p>All the logic used to customize <code>net/http.FileServer</code> is in this file <a href="https://github.com/donkeysharp/gocho/blob/master/pkg/node/index.go" target="_blank">index.go</a>.</p>
+
+<h2 id="final-comments">Final comments</h2>
+
+<p>There are some many things that I wish to improve in <a href="https://github.com/donkeysharp/gocho" target="_blank">Gocho</a>. Because it is an Open Source project feel free to open an issue or contribute some bug fix or feature.</p>
+
+
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/post/my-computer-setup/" data-toggle="tooltip" data-placement="top" title="My desktop setup in Debian">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://blog.donkeysharp.xyz/post/fun-with-ssh-part-1/" data-toggle="tooltip" data-placement="top" title="Fun with SSH - Local Port Forwarding">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center footer-links">
+      
+          <li>
+            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+      
+      <li>
+        <a target="_blank" href="" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <p class="credits copyright text-muted">
+      
+        
+          Sergio Guillen
+        
+      
+      &bull;
+      
+        2019
+      
+    </p>
+    
+    <p class="credits theme-by text-muted">
+      Powered by <a target="_" href="https://gohugo.io">Hugo</a>.
+&nbsp;&bull;&nbsp;
+Theme <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+
+      
+    </p>
+  </div>
+</div>
+</div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
+<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

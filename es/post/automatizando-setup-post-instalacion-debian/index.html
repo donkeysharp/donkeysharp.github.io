@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Automatizando setup post-instalación en mis máquinas Debian - Sergio Guillen</title>
+  <meta name="description" content="Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
+Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones.">
+  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sergio Guillen",
+    
+    "url": "https:\/\/blog.donkeysharp.xyz"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.donkeysharp.xyz"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/es\/post\/automatizando-setup-post-instalacion-debian\/",
+          "name": "Automatizando setup post instalación en mis máquinas debian"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "Automatizando setup post-instalación en mis máquinas Debian",
+  "description" : "Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.\nBásicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones.",
+  "inLanguage" : "es",
+  "wordCount":  856 ,
+  "datePublished" : "2019-05-13T21:45:39",
+  "dateModified" : "2019-05-13T21:45:39",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/es\/post\/automatizando-setup-post-instalacion-debian\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Automatizando setup post-instalación en mis máquinas Debian" />
+<meta property="og:description" content="Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
+Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones.">
+<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/es/post/automatizando-setup-post-instalacion-debian/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sergio Guillen" />
+
+  <meta name="twitter:title" content="Automatizando setup post-instalación en mis máquinas Debian" />
+  <meta name="twitter:description" content="Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses …">
+  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@donkeysharp" />
+  <meta name="twitter:creator" content="@donkeysharp" />
+  <meta name="generator" content="Hugo 0.57.2" />
+  <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Conmuta navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog.donkeysharp.xyz/es/">DONKEYSHARP</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://blog.donkeysharp.xyz/es">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Sobre mí" href="https://blog.donkeysharp.xyz/es/about/">Sobre mí</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://blog.donkeysharp.xyz/en" lang="en" title="English">
+                    <img src="https://blog.donkeysharp.xyz/img/flags/en.png" />
+                  </a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz/es/">
+            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Automatizando setup post-instalación en mis máquinas Debian</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el May 13, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutos
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  &nbsp;&bull;&nbsp;También en: <a href="https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/" lang="en">English</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>Hola, hace un tiempo <a href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/" target="_blank">publiqué sobre el setup inicial</a> que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.</p>
+
+<p>Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones. Hasta ahora me funcionó, pero al volverse repetitivo me animé en automatizar todo este proceso tanto de instalación y configuración de ciertas aplicaciones como el manejo de la apariencia del escritorio (con el setup que siempre utilizo).</p>
+
+<h2 id="la-idea">La Idea</h2>
+
+<p>Si bien podría haber hecho este proyecto utilizando un simple script Bash, me animé por utilizar Bash + <a href="https://docs.ansible.com/" target="_blank">Ansible</a> a modo de practicar y divertirme 😄.</p>
+
+<p>Lo que tenía en mente al momento de iniciar este proyecto fue que ni bien termine la instalación del sistema operativo (en mi caso la distribución Debian), solo tendría que ejecutar un comando y &ldquo;mágicamente&rdquo; todas las apliaciones, configuraciones, etc. sobre mi <a href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/" target="_blank">setup personal</a> se aplicarían.</p>
+
+<h2 id="analizando-el-proyecto">Analizando el Proyecto</h2>
+
+<p>Este proyecto lo publiqué en <a href="https://github.com/sguillen-proyectos/fresh-install-setup/" target="_blank">Github</a> si desean ver el código fuente.</p>
+
+<p>Al ser este un proyecto que utiliza Ansible, existe cierta convención en cuestión a árbol de directorios, nombres de archivos, etc. Decidí utilizar la siguiente estructura:</p>
+
+<pre><code>├── init-setup.sh
+├── inventory
+├── README.md
+├── roles
+│   ├── chrome
+│   ├── common
+│   ├── docker
+│   ├── dotenvs
+│   │   ├── tasks
+│   │   └── templates
+│   ├── games
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── mysql
+│   │   ├── files
+│   │   └── tasks
+│   ├── node
+│   ├── php7
+│   ├── virtualbox
+│   ├── vscode
+│   └── xfce4
+├── setup-playbook.yml
+└── update-desktop-layout.sh
+</code></pre>
+
+<p>En Ansible lo que se denominaría como el programa principal es el <code>playbook</code> el cual se encarga de ejecutar diferentes tareas en contra de uno o más servidores, en este caso, el programa principal de Ansible sería el archivo <code>setup-playbook.yml</code>. Como se puede ver este archivo tiene una sección llamada <code>roles</code>.</p>
+
+<blockquote>
+<p><strong>Nota:</strong> En Ansible lo que se denomina <code>role</code> llega a ser una pieza de código reutilizable (como un módulo). Esto nos permite tener el proyecto mejor organizado y cuenta con una estructura interna de directorios como se ve en el árbol de directorios de arriba.</p>
+</blockquote>
+
+<p>Dividí el proyecto en diferentes roles, cada uno para un diferente propósito como ser: una aplicación específica o un grupo de aplicaciones incluidas sus configuraciones. Por ejemplo, en el role <code>common</code> instala todas las utilidades de escritorio y las utilidades de línea de comandos que utilizo día a día. Y en general hay roles para cosas específicas que utilizo, Docker, herramientas y tecnologías de desarrollo de software y otros. Si tienen más curiosidad pueden revisar el repo 😄.</p>
+
+<p>Siguiendo con la explicación, dentro de Ansible existe un concepto bastante importante que es el <code>inventory</code>, el cual indica todos los servidores en los que se aplicarán las tareas especificada en los roles. Este proyecto tiene un archivo llamado <code>inventory</code> con opciones particulares, ya que todas las tareas no se ejecutarán en contra de varios servidores, sino en contra de uno solo y es la misma máquina local.</p>
+
+<pre><code>[local]
+localhost ansible_connection=local
+</code></pre>
+
+<p>Lo explico: <code>[local]</code> es el grupo de servidores, yo lo denominé <code>local</code> pero podría llamarse cualquier cosa, lo importante es que si se cambiase de nombre, este nombre también debería reflejarse en <code>setup-playbook.yml</code> en <code>hosts: local</code>. Luego la siguientes líneas indican el hostname que en este caso es <code>localhost</code> y <code>ansible_connection=local</code> que indica que será una ejecución local y de ese modo evitar el proceso de autenticación por SSH que Ansible realiza en cada ejecución hacia la misma máquina.</p>
+
+<p>Finalmente el script <code>init-setup.sh</code> es un wizard el cual pregunta por ciertas opciones antes de realizar todo el proceso de instalación y configuración. Este llegaría a ser el comando &ldquo;mágico&rdquo; que se encarga de todo:</p>
+
+<pre><code>bash &lt;(wget -q -O- https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh)
+</code></pre>
+
+<h2 id="qué-gano-con-esto">¿Qué gano con esto?</h2>
+
+<p>Bueno, primero aprendí un par de cosas que no sabía sobre Ansible, me divertí y lo más importante para mí (además que era el objetivo de este proyecto) es que ahora me ahorro todo el tiempo de configuración manual que realizaba en un sistema operativo recién instalado.</p>
+
+<p>Si bien ya tenía mi <a href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/" target="_blank">guía</a> de qué paquetes instalar y que configuraciones realizar, eso me tomaba entre una a dos horas, ahora todo este tiempo de setup esta principalmente condicionado a la velocidad de internet.</p>
+
+<p>Algo en este proyecto que es bastante útil para mí, es que logré uniformizar mis configuraciones de escritorio (en este caso Xfce4), ya que en muchas ocaciones el &ldquo;estilizar&rdquo; mi escritorio es en lo que más perdía mi tiempo.</p>
+
+<h2 id="comentarios-finales">Comentarios Finales</h2>
+
+<p>Si bien este proyecto solo esta orientado para mi setup personal, decidí compartirlo por si la idea de automatizar el environment le sirve a alguna de las personas que lean esta entrada.</p>
+
+<p>Durante el tiempo que invertí para realizar este proyecto sucedieron varias cosas divertidas y que me hicieron renegar de las cuales aprendí algo nuevo. Escribiré sobre esa serie de eventos desafortunados en una siguiente entrada.</p>
+
+<p>Happy Hacking!</p>
+
+
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/" data-toggle="tooltip" data-placement="top" title="Diversión con SSH - Local Port Forwarding">&larr; Artículo anterior</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://blog.donkeysharp.xyz/es/post/analisis-video-evo/" data-toggle="tooltip" data-placement="top" title="Análisis De Video En Busca De Supuesto Malware">Artículo siguiente &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center footer-links">
+      
+          <li>
+            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+      
+      <li>
+        <a target="_blank" href="" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <p class="credits copyright text-muted">
+      
+        
+          Sergio Guillen
+        
+      
+      &bull;
+      
+        2019
+      
+    </p>
+    
+    <p class="credits theme-by text-muted">
+      Creado con <a target="_" href="https://gohugo.io">Hugo</a>.
+&nbsp;&bull;&nbsp;
+Tema <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+
+      
+    </p>
+  </div>
+</div>
+</div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
+<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

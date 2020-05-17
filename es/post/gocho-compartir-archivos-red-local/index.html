@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Gocho, Compartir Archivos En Una Red Local - Sergio Guillen</title>
+  <meta name="description" content="Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado Gocho. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.
+Ver
+Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo.">
+  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sergio Guillen",
+    
+    "url": "https:\/\/blog.donkeysharp.xyz"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.donkeysharp.xyz"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/es\/post\/gocho-compartir-archivos-red-local\/",
+          "name": "Gocho, compartir archivos en una red local"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "Gocho, Compartir Archivos En Una Red Local",
+  "description" : "Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado Gocho. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.\nVer\nPor qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU\/Linux) sin tener que instalar ningún requisito previo.",
+  "inLanguage" : "es",
+  "wordCount":  2267 ,
+  "datePublished" : "2018-03-29T22:22:46",
+  "dateModified" : "2018-03-29T22:22:46",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/es\/post\/gocho-compartir-archivos-red-local\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Gocho, Compartir Archivos En Una Red Local" />
+<meta property="og:description" content="Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado Gocho. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.
+Ver
+Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo.">
+<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sergio Guillen" />
+
+  <meta name="twitter:title" content="Gocho, Compartir Archivos En Una Red Local" />
+  <meta name="twitter:description" content="Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado Gocho. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. …">
+  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@donkeysharp" />
+  <meta name="twitter:creator" content="@donkeysharp" />
+  <meta name="generator" content="Hugo 0.57.2" />
+  <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Conmuta navegación</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog.donkeysharp.xyz/es/">DONKEYSHARP</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://blog.donkeysharp.xyz/es">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Sobre mí" href="https://blog.donkeysharp.xyz/es/about/">Sobre mí</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="https://blog.donkeysharp.xyz/en" lang="en" title="English">
+                    <img src="https://blog.donkeysharp.xyz/img/flags/en.png" />
+                  </a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz/es/">
+            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Gocho, Compartir Archivos En Una Red Local</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Mar 29, 2018
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;11&nbsp;minutos
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  &nbsp;&bull;&nbsp;También en: <a href="https://blog.donkeysharp.xyz/post/gocho-file-sharing/" lang="en">English</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        
+
+<p>Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado <a href="https://github.com/donkeysharp/gocho" target="_blank">Gocho</a>. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.</p>
+
+<p><img src="https://blog.donkeysharp.xyz/img/gocho-dashboard.gif" alt="" />
+<center><a href="https://blog.donkeysharp.xyz/img/gocho-dashboard.gif" target="_blank">Ver</a></center></p>
+
+<h2 id="por-qué-lo-hice">Por qué lo hice?</h2>
+
+<p>Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo.</p>
+
+<p>Este tipo de proyectos siempre los hago a modo de aprender algo nuevo. En este caso ya desde el año pasado (2017) tenía ganas de hacer algo con <a href="https://golang.org/" target="_blank">Go</a>. Si bien hice uno que otro experimento a modo de aprender (<a href="https://github.com/donkeysharp/golondrina" target="_blank">Golondrina</a>; <a href="https://github.com/donkeysharp/eazy-panel" target="_blank">EazyPanel</a>), esta aplicación me pareció un buen caso de uso para este lenguaje en específico (lo elaboro más adelante).</p>
+
+<h2 id="por-qué-go">Por qué Go?</h2>
+
+<p>Si alguien ya ejecutó la aplicación es fácil notar que no es algo de otro mundo. Gocho podría haber sido desarrollado en otros lenguajes como: C/C++, Python, Ruby, Java, CSharp, etc. pero tenía algunas observaciones preliminares:</p>
+
+<ul>
+<li>Python/Ruby - es importante tener los intérpretes instalados, en Windows no vienen por defecto.</li>
+<li>Java/CSharp - es importante tener las máquinas virtuales respectivas instaladas (JVM o NetCore). No siempre se dá el caso que ya venga instalado por defecto en el sistema operativo.</li>
+<li>C/C++ - sería la opción más obvia, pero un par de problemas que encontré sería que por defecto son dinámicamente enlazados, lo cual causaría en algún caso la instalación de librerias necesarias (a menos que use el flag de estáticamente enlazados) y el segundo problema es que a pesar que se leer C/C++ no me siento en la confianza de lanzarme a hacer algo</li>
+<li>Go - estáticamente compilado por defecto (todo en un binario), el binario resultante no require que exista la instalación previa de alguna librería, intérprete, máquina virtual y otros.</li>
+</ul>
+
+<p>Con esta lista &mdash;un poco parcializada 😉&mdash; Go cumple con las necesidades que tengo.</p>
+
+<p>Algo no mencionado es la facilidad con la que puedo crear binarios para diferentes plataformas. Por ejemplo Gocho esta disponible para distintas plataformas sin mucho problema. <a href="https://github.com/donkeysharp/gocho/releases" target="_blank">Releases Gocho</a></p>
+
+<h2 id="algunos-problemas-que-encontré">Algunos Problemas que Encontré</h2>
+
+<h3 id="problema-1-compartir-archivos">Problema 1: Compartir Archivos</h3>
+
+<p>En la empresa donde trabajo existe una diversidad en cuestión a sistemas operativos. Algun@s compañer@s utilizan Windows, OSX y otr@s GNU/Linux. Para compartir archivo, existe un Active Directory o algo similar configurado, personalmente nunca logré acceder a las carpetas compartidas por otros (uso GNU/Linux). Al intentar acceder me salía la opción de insertar un dominio y credenciales; pése a que introducía los datos &mdash;que en teoría eran correctos&mdash; no lograba acceder a los archivos compartidos.</p>
+
+<p>En el trabajo hay compañeros que comparten información por ejemplo videos, cursos, etc. montando un servidor <code>httpd</code> en su máquina local o en mi caso ejecutaba <code>python -m SimpleHTTPServer</code> en el directorio que deseaba compartir. Noté un problema con <code>SimpleHTTPServer</code>, con pocas personas tratando de descargar el mismo archivo, esta pequeña utilidad solo permite manejar una descarga al mismo tiempo.</p>
+
+<p>Mi segundo intento fue utilizar algo un poco más robusto que <code>SimpleHTTPServer</code> pero sin la necesidad de levantar algo grande como <code>httpd</code>. Tuve la suerte de chocar con un ejemplo en la documentación de Go para el modulo <code>net/http</code> que justamente &mdash;con pocas líneas de código&mdash; me permitía compartir un directorio y podía soportar varias descargas simultáneas sin problemas.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;log&#34;</span>
+    <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// Simple static webserver:
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">directory</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;some/directory&#34;</span>
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">FileServer</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Dir</span>(<span style="color:#e6db74">&#34;/home/myuser/some/directory&#34;</span>))))
+}</code></pre></div>
+
+<p>Solo tuve que compilar este archivo; poner el binario que llamé <code>http</code> en algún directorio que se encuentre en mi <code>PATH</code> de ejecución y voila! ya contaba con algo más robusto que pueda aguantar más descargas y no tenga que montar todo un servicio.</p>
+
+<blockquote>
+<blockquote>
+<p><em>ya contaba con algo más robusto que pueda aguantar más descargas</em></p>
+</blockquote>
+
+<p>Con esto me refiero a algo que aguante varias conexiones simultáneas, algo que Go lo plantea de una manera simple y en el caso del módulo <code>net/http</code> ya viene por defecto.</p>
+</blockquote>
+
+<p>Hasta este punto, solamente tengo un pequeño binario que me permite compartir un directorio y pueda aguantar varias descargas simultáneas &mdash;algo no tan complejo como montar un servicio <code>httpd</code> pero más robusto que <code>SimpleHTTPServer</code> de Python.</p>
+
+<p>La verdad si compilara este binario <code>http</code> para varios sistemas operativos sería suficiente para compartir archivos, pero quería ir un poco más alla.</p>
+
+<h3 id="problema-2-indicar-donde-se-encuentran-los-archivos-compartidos">Problema 2: Indicar Donde se Encuentran los Archivos Compartidos</h3>
+
+<p>Otro problema que encontré es que cada vez que un usuario comparte algo en una red local, este debe &mdash;de algún modo&mdash; comunicar como acceder a los recursos que se comparten. Una forma común de realizar esto es compartir la url de descarga <code>http://ip_red_local:algun_puerto</code> en algun grupo de chat o similar.</p>
+
+<p>Ya que esta aplicación la tengo orientada para el contexto de una red local, algo que se me pasó por la cabeza son los juegos en red como StarCraft. En StarCraft cuando alguien crea una partida de red de área local, los jugadores que se unirán a una partida no especifican como tal la dirección IP de la máquina servidor a la que se conectarán. El juego simplemente muestra las partidas creadas en la red actualmente y uno puede conectarse sin problemas de forma automática.</p>
+
+<p>Investigando un poco sobre cómo estos juegos hacian posible mostrar las partidas ya existentes en la red sin tener que especificar una dirección IP o algo similar, me llevó al concepto de <a href="https://en.wikipedia.org/wiki/Multicast" target="_blank">multicast</a>.</p>
+
+<p>En palabras simples, Multicast es un método que permite enviar información a nodos interesados en una red.</p>
+
+<p>Por ejemplo, si deseo enviar el mensaje &ldquo;hola mundo&rdquo; a computadoras interesadas en recibir este mensaje sin que yo tenga que saber a qué máquinas específicamente, la idea sería la siguiente:</p>
+
+<ul>
+<li><em>Mi Computadora</em>: Enviar datagrama UDP con mensaje &ldquo;hola mundo&rdquo; a alguna <a href="https://en.wikipedia.org/wiki/Multicast_address#IPv4" target="_blank">dirección IP reservada para multicast</a> ej. 239.6.6.6:1234</li>
+<li><em>Computadora Interesada 1</em>: Escuchar por datagramas UDP en 239.6.6.6:1234</li>
+<li><em>Computadora Interesada 2</em>: Escuchar por datagramas UDP en 239.6.6.6:1234</li>
+<li><em>Computadora Interesada n</em>: Escuchar por datagramas UDP en 239.6.6.6:1234</li>
+</ul>
+
+<p>De este modo multicast permite que cualquier máquina que desee compartir algo, solo debe enviar su información de nodo (identificador, dirección IP, puerto) por multicast y otras máquinas interesadas.</p>
+
+<p>Sabiendo esto, Gocho además de compartir un directorio podrá saber lo que otros nodos Gocho estan compartiendo.</p>
+
+<p>Ya viendo un poco la implementación de esto, podemos ver algunos trozos de código que utilicé en Gocho.</p>
+
+<p><a href="https://github.com/donkeysharp/gocho/blob/master/pkg/node/net.go" target="_blank">pkg/node/net.go</a></p>
+
+<p>La función <code>announceNode</code> básicamente envía un paquete multicast.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">announceNode</span>(<span style="color:#a6e22e">nodeInfo</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">NodeInfo</span>) {
+    <span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUDPAddr</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#a6e22e">MULTICAST_ADDRESS</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>
+    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">DialUDP</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">address</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#f92672">...</span>
+        <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#a6e22e">message</span>))
+        <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">ANNOUNCE_INTERVAL_SEC</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+    }
+}</code></pre></div>
+
+<p>La función <code>listenForNodes</code> que escucha los mensajes multicast.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">listenForNodes</span>(<span style="color:#a6e22e">nodeList</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">List</span>) {
+    <span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUDPAddr</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#a6e22e">MULTICAST_ADDRESS</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ListenMulticastUDP</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">address</span>)
+    <span style="color:#75715e">// error handling
+</span><span style="color:#75715e"></span>
+    <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">SetReadBuffer</span>(<span style="color:#a6e22e">MULTICAST_BUFFER_SIZE</span>)
+
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#a6e22e">packet</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#a6e22e">MULTICAST_BUFFER_SIZE</span>)
+        <span style="color:#a6e22e">size</span>, <span style="color:#a6e22e">udpAddr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">ReadFromUDP</span>(<span style="color:#a6e22e">packet</span>)
+        <span style="color:#f92672">...</span>
+    }
+}</code></pre></div>
+
+<p>Entonces gran parte de la &ldquo;mágia&rdquo; de Gocho se encuentra en el trabajo con multicast. Con multicast una máquina puede anunciarse a sí misma y a la vez descubrir a otros nodos.</p>
+
+<h3 id="problema-3-formato-de-los-mensajes">Problema 3: Formato de los Mensajes</h3>
+
+<p>Si bien ya tenemos una forma de comunicarnos entre nodos, ví conveniente poder identificar los paquetes que envía Gocho con otros. Básicamente el paquete (en esta versión inicial) debe seguir lo siguiente:</p>
+
+<ol>
+<li>Los primeros 4 bytes deben ser <code>0x60</code>, <code>0x0d</code>, <code>0xf0</code>, <code>0x0d</code> o <code>0x600df00d</code>, que es la cabecera que identifica que lo enviado es un mensaje de otro nodo de Gocho</li>
+<li>El siguiente byte especifica el comando, actualmente solo existe un solo comando que es <code>0x01</code> que indica que un nodo se esta anunciando. La información del nodo se encuentra en el payload</li>
+<li>Finalmente el resto es el payload. Para esto decidí utilizar el formato JSON</li>
+</ol>
+
+<p>Un hexdump de un mensaje en el que se anuncia un nodo luce de la siguiente forma:</p>
+
+<pre><code>00000000  60 0d f0 0d 01 7b 22 6e  6f 64 65 49 64 22 3a 22  |`....{&quot;nodeId&quot;:&quot;|
+00000010  6e 6f 64 6f 2d 73 65 72  67 69 6f 22 2c 22 69 70  |nodo-sergio&quot;,&quot;ip|
+00000020  41 64 64 72 65 73 73 22  3a 22 22 2c 22 77 65 62  |Address&quot;:&quot;&quot;,&quot;web|
+00000030  50 6f 72 74 22 3a 22 35  30 30 30 22 7d           |Port&quot;:&quot;5000&quot;}|
+</code></pre>
+
+<p>La decisión de tener este formato fue la de ahorrar la mayor cantidad de bytes posibles. De hecho, si no utilizara el formato JSON se ahorrarían unos cuantos bytes más.</p>
+
+<p>En el futuro es posible que existan más comandos diferentes al de anunciar un nodo (<code>0x01</code>). Es por eso que se dejó un byte reservado para ello.</p>
+
+<h2 id="diseño-de-la-aplicación">Diseño de la aplicación</h2>
+
+<p>Esta sección habla un poco más de la implementación ya habiendo conocido los problemas mencionados arriba. Para poder seguir esta sección hago referencia al <a href="https://github.com/donkeysharp/gocho" target="_blank">código fuente</a> de la aplicación.</p>
+
+<h3 id="estructura-del-código">Estructura del Código</h3>
+
+<p>La estructura de código del proyecto Gocho está basada en este <a href="https://peter.bourgon.org/go-best-practices-2016/#repository-structure" target="_blank">artículo</a> en el que se plantea una esctructura para proyectos en Go. Esta estructura es bastante utilizada en diferentes proyectos, entre ellos algunos proyectos bastante conocidos como <a href="https://github.com/kubernetes/kubernetes" target="_blank">Kubernetes</a> o <a href="https://github.com/moby/moby" target="_blank">Docker</a>.</p>
+
+<p>El proyecto incluye un archivo <code>Makefile</code> el cual indica los pasos necesarios para poder construir o desarrollar el proyecto, como también crear los binarios para las plataformas soportadas.</p>
+
+<h3 id="componentes-del-servicio">Componentes del Servicio</h3>
+
+<p>En el anterior punto mencioné la estructura de código que utilizo. En este punto me enforcaré en los componentes dentro del directorio <code>pkg</code>, especialmente en <code>pkg/node</code>.</p>
+
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Descripción</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>pkg/info</code></td>
+<td>Información básica de la aplicación como nombre o versión.</td>
+</tr>
+
+<tr>
+<td><code>pkg/cmds</code></td>
+<td>Toda la lógica de flags de la utilidad de línea de comandos. Por ejemplo <code>gocho start [options]</code> o <code>gocho configure</code>.</td>
+</tr>
+
+<tr>
+<td><code>pkg/config</code></td>
+<td>Todo el código con la lógica y estructuras necesarias para representar la lógica de Gocho. Aca se encuentra la lógica de establecer valores por defecto o cargar las diferentes configuraciones de un archivo <code>.gocho.conf</code> o de los options establecidos por línea de comandos.</td>
+</tr>
+
+<tr>
+<td><code>pkg/node</code></td>
+<td>La lógica principal de la aplicación radica en este directorio. El cómo se tiene un dashboard web embebido; el formato de los paquetes; el mecanismo de auto-discovery (multicast) y el índice de archivos que muestra el contenido del directorio compartido.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="algunas-estructuras-de-datos-y-lógica-utilizada">Algunas Estructuras de Datos y Lógica Utilizada</h3>
+
+<p>La aplicación debe guardar la información de otros nodos, para esto decidí hacer uso de una lista enlazada por la simplicidad al borrar o insertar elementos.</p>
+
+<p>Es importante notar que mientras más nodos se anuncien en una red, es posible que partes del código (de cualquier nodo) tendrá que ejecutar las mismas sentencias al mismo tiempo. Para evitar problemas de concurrencia: principalmente en la lista enlazada que guarda información de otros nodos, hice uso de un <a href="https://golang.org/pkg/sync/#Mutex" target="_blank">Mutex</a> con lo cual pude controlar estos comportamientos que podrían llevar a resultados inesperados.</p>
+
+<p>Algo importante es notar que existen algunos timeouts por defecto que constantemente verifican la lista enlazada de nodos. Básicamente estos timeouts nos permite liberar recursos, cuando un nodo después de cierto tiempo deja de anunciarse.</p>
+
+<h3 id="el-dashboard">El Dashboard</h3>
+
+<p>Para el desarrollo del dashboard de frontent hice uso de <a href="https://reactjs.org/" target="_blank">React</a> solamente. Tal vez algunos se preguntan ¿por qué no utilicé otras librerias como Redux o React-Router?. Pues la respuesta es simple, como el bundle javascript resultante se encuentra embebido en el binario, si tenemos un bundle más grande y pesado, el binario resultante será más grande y pesado.</p>
+
+<p>Los componentes y el código para la UI se encuentra en el directorio <code>ui</code>. Para la estructura quise mantener las cosas cosas simple así que utilicé <a href="https://github.com/facebook/create-react-app" target="_blank">Create React App</a> para este propósito.</p>
+
+<p>De la misma forma para los estilos, si bien podría haber utilizado un procesador como <em>SASS</em>, decidí mantener los estilos y solo utilizar el estándar por defecto <em>CSS</em>, que como verán en el código es un <a href="https://github.com/donkeysharp/gocho/blob/master/ui/src/App.css" target="_blank">archivo</a> de 184 líneas de código.</p>
+
+<p>Para generar el bundle javascript solo es necesario ejecutar el siguiente comando.</p>
+
+<pre><code>$ make dist
+</code></pre>
+
+<p>Internamente esto utiliza los scripts de Create React App y para poder tener el bundle embebido dentro del binario, hago uso de <a href="https://blog.golang.org/generate" target="_blank">Go Generate</a>.</p>
+
+<p><a href="https://github.com/donkeysharp/gocho/blob/master/cmd/gocho/gocho.go" target="_blank">Este archivo</a> tiene un comentario:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#75715e">//go:generate go-bindata -o ../../assets/assets_gen.go -pkg assets ../../ui/build/...
+</span><span style="color:#75715e"></span>
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;github.com/donkeysharp/gocho/pkg/cmds&#34;</span>
+    <span style="color:#e6db74">&#34;os&#34;</span>
+)
+<span style="color:#f92672">...</span></code></pre></div>
+
+<p>donde se especifica donde se encuentra el bundle resultante que será embebido en el binario resultante.</p>
+
+<h3 id="el-índice-de-archivos-compartidos">El Índice de Archivos Compartidos</h3>
+
+<p>Esta fue una de las partes en las que tuve mucha diversión. Como mencioné en el <em>Problema 1</em>, Go presenta un ejemplo para poder compartir un directorio. El problema con esto es que no cuenta con estilos, extensibilidad, el directorio <code>..</code> para poder subir un nivel el directorio.</p>
+
+<p>Para poder personalizar este código ya existente tuve que utilizar <a href="https://en.wikipedia.org/wiki/Interceptor_pattern" target="_blank">Interceptor Pattern</a> y un middleware personalizado para poder adicionar íconos y HTML personalizados, el directorio <code>..</code> para ir un nivel hacia arriba y agrupar directorios de archivos de forma ordenada.</p>
+
+<p>Toda la lógica para la personalización de <code>net/http.FileServer</code> se encuentra en el archivo <a href="https://github.com/donkeysharp/gocho/blob/master/pkg/node/index.go" target="_blank">index.go</a>.</p>
+
+<p>Espero poder crear otra entrada en la que muestro específicamente la implementación de esta parte que puede ser reutilizada con cualquier otra aplicación.</p>
+
+<h2 id="comentarios-finales">Comentarios Finales</h2>
+
+<p>Hay varias cosas que deseo mejorar de <a href="https://github.com/donkeysharp/gocho" target="_blank">Gocho</a>. Al ser un proyecto open-source sientanse libres de abrir un issue o mejor contribuir con algo de código (bugfixing, nuevos features, documentación, etc.)</p>
+
+<p>Esta es la primera vez que trabajo en una aplicación, la cual envia y recibe información de varias máquinas o nodos al mismo tiempo y hayan diferentes cosas que sincronizar. Personalmente fue &mdash;y espero siga siendo&mdash; una experiencia educativa.</p>
+
+
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/es/post/entorno-de-desarrollo-en-sublime-text/" data-toggle="tooltip" data-placement="top" title="Mi Entorno De Desarrollo En Sublime Text (Parte 1)">&larr; Artículo anterior</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://blog.donkeysharp.xyz/es/post/debian-day-2018/" data-toggle="tooltip" data-placement="top" title="Debian Day 2018">Artículo siguiente &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center footer-links">
+      
+          <li>
+            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+      
+      <li>
+        <a target="_blank" href="" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <p class="credits copyright text-muted">
+      
+        
+          Sergio Guillen
+        
+      
+      &bull;
+      
+        2019
+      
+    </p>
+    
+    <p class="credits theme-by text-muted">
+      Creado con <a target="_" href="https://gohugo.io">Hugo</a>.
+&nbsp;&bull;&nbsp;
+Tema <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+
+      
+    </p>
+  </div>
+</div>
+</div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
+<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

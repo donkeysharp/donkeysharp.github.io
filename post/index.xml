@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Post on Sergio Guillen</title>
+    <link>https://blog.donkeysharp.xyz/post/</link>
+    <description>Recent content in Post on Sergio Guillen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 26 Nov 2019 13:08:36 -0400</lastBuildDate>
+    
+	<atom:link href="https://blog.donkeysharp.xyz/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Analyzing a Video Looking for Possible Malware</title>
+      <link>https://blog.donkeysharp.xyz/post/analyzing-evo-video/</link>
+      <pubDate>Tue, 26 Nov 2019 13:08:36 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/post/analyzing-evo-video/</guid>
+      <description>Hello, during the months of October and November different social and political conflicts occurred in Bolivia, this entry is not so much to discuss the political issue, it will be a 100% technical entry but it is related to those events.
+The previous week a large number of clients from a local ISP received an SMS with a link bit.ly to an MP4 video in Dropbox that was later deleted.</description>
+    </item>
+    
+    <item>
+      <title>Automating post-installation setup in my personal Debian machines</title>
+      <link>https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/</link>
+      <pubDate>Mon, 13 May 2019 21:45:39 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/</guid>
+      <description>Hi, some time ago I posted about my initial setup in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.
+Basically what I was doing was to review my previous blog post and repeat those steps.</description>
+    </item>
+    
+    <item>
+      <title>Fun with SSH - Local Port Forwarding</title>
+      <link>https://blog.donkeysharp.xyz/post/fun-with-ssh-part-1/</link>
+      <pubDate>Tue, 28 Aug 2018 08:30:57 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/post/fun-with-ssh-part-1/</guid>
+      <description>The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind that would solve some of the challenges he has was OpenSSH.
+What is SSH? SSH is a short for Secure Shell, it&amp;rsquo;s a protocol to manage services inside a network using a secure channel.</description>
+    </item>
+    
+    <item>
+      <title>Gocho, Sharing files in a local network</title>
+      <link>https://blog.donkeysharp.xyz/post/gocho-file-sharing/</link>
+      <pubDate>Thu, 29 Mar 2018 22:22:46 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/post/gocho-file-sharing/</guid>
+      <description>Hey,during my free time I was working a side project called Gocho. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will auto-discover other nodes. In this post I will explain what this application is all about, why I wrote it and some challenges that came up duting the development.
+View
+Why I wrote this app? First I wanted to share a directory in a local network without the need of others having to ask for my local ip address or the port where I published the files.</description>
+    </item>
+    
+    <item>
+      <title>My desktop setup in Debian</title>
+      <link>https://blog.donkeysharp.xyz/post/my-computer-setup/</link>
+      <pubDate>Fri, 09 Mar 2018 23:15:16 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/post/my-computer-setup/</guid>
+      <description>Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+ In this post I show the applications and settings I commonly use for my local development machine.
+Operating System: GNU/Linux - Debian Stretch
+Dektop Manager: xfce4
+Frequently Used Applications This is the list of application I frequently use and try to have them installed after I have a fresh computer. Some applications are general purpose and others are related with programming, things I investigate, my job and personal projects.</description>
+    </item>
+    
+    <item>
+      <title>First Post - echo &#34;Hello World&#34;</title>
+      <link>https://blog.donkeysharp.xyz/post/my-first-post/</link>
+      <pubDate>Fri, 05 Jan 2018 13:04:24 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/post/my-first-post/</guid>
+      <description>Hi, I am Sergio Guillen Mantilla publishing via Github pages 😄.
+This is a project I will take again and publish content different than my previous blog which was mostly about Microsoft technologies. Since I stopped using this kind of technologies &amp;mdash;that I still get impressed with them e.g. C#&amp;mdash; I had the good luck to meet new technologies, so I want to share some experiences I had with them or stuff I&amp;rsquo;ve been researching.</description>
+    </item>
+    
+  </channel>
+</rss>
