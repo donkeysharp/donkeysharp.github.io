@@ -3,23 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.donkeysharp.xyz/es/post/analisis-video-evo/</loc>
-    <lastmod>2019-11-26T13:08:36-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/analyzing-evo-video/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/analisis-video-evo/"
-                />
+    <loc>https://blog.donkeysharp.xyz/es/post/gracias-profe-elias/</loc>
+    <lastmod>2020-07-20T08:16:55-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.donkeysharp.xyz/es/post/</loc>
-    <lastmod>2019-11-26T13:08:36-04:00</lastmod>
+    <lastmod>2020-07-20T08:16:55-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -34,7 +24,7 @@
   
   <url>
     <loc>https://blog.donkeysharp.xyz/es/</loc>
-    <lastmod>2019-11-26T13:08:36-04:00</lastmod>
+    <lastmod>2020-07-20T08:16:55-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -44,6 +34,21 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://blog.donkeysharp.xyz/es/post/analisis-video-evo/</loc>
+    <lastmod>2019-11-26T13:08:36-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/post/analyzing-evo-video/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/post/analisis-video-evo/"
                 />
   </url>
   
