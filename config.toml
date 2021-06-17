@@ -27,7 +27,7 @@ paginate = 5
   commit = false
   rss = true
   comments = true
-  homeTitle = "Personal Blog"
+  homeTitle = "My Blog"
   readingTime = true
   useHLJS = true
   socialShare = false
@@ -35,7 +35,7 @@ paginate = 5
   showRelatedPosts = true
   languageIcon = "img/flags/en.png"
 [languages.es.params]
-  homeTitle = "Blog Personal"
+  homeTitle = "Mi Blog"
   languageIcon = "img/flags/es.png"
 
 [Author]
