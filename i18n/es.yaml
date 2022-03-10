@@ -1,3 +1,5 @@
+# This workaround is to fix the issue
+# and have English dates in both languages
 - id: dateFormat
   translation: "Jan 2, 2006"
 - id: translationsLabel
