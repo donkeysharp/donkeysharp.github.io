@@ -1,8 +1,8 @@
 ---
 title: "Qué sucede cuando un proceso de Linux se va a dormir?"
 url: post/what-happens-when-a-process-goes-to-sleep
-date: "2022-01-15"
-draft: true
+date: "2022-03-10"
+draft: false
 ---
 
 Es posible que cuando estas escribiendo un programa, en algún momento necesites pausar la ejecución de un proceso llamando a la función `sleep(NUMBER_OF_SECONDS)` dependiendo del problema que estés resolviendo. En este post, compartiré lo que aprendí hasta ahora mientras investigaba los mecanismos internos del kernel que hacen que la función `sleep` funcione de la forma en que lo hace.

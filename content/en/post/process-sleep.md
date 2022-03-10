@@ -1,8 +1,8 @@
 ---
 title: "What Happens When A Linux Process Goes To Sleep?"
 url: post/what-happens-when-a-process-goes-to-sleep
-date: "2022-01-15"
-draft: true
+date: "2022-03-10"
+draft: false
 ---
 
 It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the `sleep(NUMBER_OF_SECONDS)` function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the `sleep` function work the way it does.
