@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>What Happens When A Linux Process Goes To Sleep? - Sergio Guillen</title>
+  <meta name="description" content="It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.
+ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&rsquo;s source code, and wanted to share what I learned.">
+  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Sergio Guillen",
+    
+    "url": "https:\/\/blog.donkeysharp.xyz"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/blog.donkeysharp.xyz"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/post\/what-happens-when-a-process-goes-to-sleep\/",
+          "name": "What happens when a linux process goes to sleep?"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "What Happens When A Linux Process Goes To Sleep?",
+  "description" : "It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.\n I appreciate your feedback. I am not an expert on this topic as Linux Kernel\u0026rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel\u0026rsquo;s source code, and wanted to share what I learned.",
+  "inLanguage" : "en",
+  "wordCount":  3019 ,
+  "datePublished" : "2022-03-10T00:00:00",
+  "dateModified" : "2022-03-10T00:00:00",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/post\/what-happens-when-a-process-goes-to-sleep\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="What Happens When A Linux Process Goes To Sleep?" />
+<meta property="og:description" content="It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.
+ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&rsquo;s source code, and wanted to share what I learned.">
+<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Sergio Guillen" />
+
+  <meta name="twitter:title" content="What Happens When A Linux Process Goes To Sleep?" />
+  <meta name="twitter:description" content="It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In …">
+  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@donkeysharp" />
+  <meta name="twitter:creator" content="@donkeysharp" />
+  <meta name="generator" content="Hugo 0.86.1" />
+  <link rel="alternate" href="https://blog.donkeysharp.xyz/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-112385104-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://blog.donkeysharp.xyz">DONKEYSHARP</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="https://blog.donkeysharp.xyz/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About me" href="https://blog.donkeysharp.xyz/about/">About me</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+              
+                
+                  <a href="https://blog.donkeysharp.xyz/es" lang="es" title="Español">
+                    <img src="https://blog.donkeysharp.xyz/img/flags/es.png" />
+                  </a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz">
+            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>What Happens When A Linux Process Goes To Sleep?</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 10, 2022
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;15&nbsp;minutes
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  &nbsp;&bull;&nbsp;Also in: <a href="https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/" lang="es">Español</a>
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the <code>sleep(NUMBER_OF_SECONDS)</code> function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the <code>sleep</code> function work the way it does.</p>
+<blockquote>
+<p><strong>I appreciate your feedback.</strong> I am not an expert on this topic as Linux Kernel&rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&rsquo;s source code, and wanted to share what I learned. If you find something incorrect in this post, please let me know by opening an issue on this blog&rsquo;s <a href="https://github.com/donkeysharp/donkeysharp.github.io">Github repository</a>. I will really appreciate it!.</p>
+</blockquote>
+<h2 id="process-state">Process State</h2>
+<p>One of the first concepts that we need to review is the process state. A Linux process has a state associated which represents its execution state in the operating system. A process can be on one of the next states:</p>
+<ul>
+<li>Running</li>
+<li>Sleeping (interruptible and uninterruptible)</li>
+<li>Stopped</li>
+<li>Zombie</li>
+</ul>
+<p>When a process is executing instructions in the CPU, it is in <code>Running</code> state and when the process is waiting for something to happen i.e. waiting for network or disk I/O, or it calls the <code>sleep</code> function, it will change to a <code>Sleeping</code> state.</p>
+<p>We can verify it with a simple C example program:</p>
+<pre><code>// states.c
+// gcc states.c -o states
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+#define SOME_MAGIC_NUMBER 365000000l
+
+void start_processing() {
+  long i;
+  printf(&quot;Starting Loop\n&quot;);
+  for (i = 0; i &lt; (long)(10 * SOME_MAGIC_NUMBER); i++);
+  printf(&quot;Loop Finished\n&quot;);
+}
+
+int main() {
+  pid_t pid = getpid();
+  printf(&quot;PID: %d\n&quot;, pid);
+  start_processing();
+  printf(&quot;Sleep process\n&quot;);
+  sleep(5);
+  printf(&quot;Sleep finished\n&quot;);
+  start_processing();
+  return 0;
+}
+</code></pre><p>The code above will run a loop for some seconds, then it will sleep for 5 seconds, and finally loop for another number of seconds. Hence we expect the process state to be <code>Running -&gt; Sleeping -&gt; Running</code>.</p>
+<p>While the program is being executed we can check the process state with the <a href="https://htop.dev/">Htop</a> tool, which will usually show a letter on the 8th column that represents the process state e.g. <code>R</code> (Running), <code>S</code> (Sleeping), <code>T</code> (Stopped), etc.</p>
+<p><img src="https://blog.donkeysharp.xyz/img/sleep-post/process-state.gif" alt=""></p>
+<p>As expected, the states the process had while executing were: <code>Running (R) -&gt; Sleeping (S) -&gt; Running (R)</code>.</p>
+<h3 id="tldr">TL;DR</h3>
+<p>When a program calls the <code>sleep(NUMBER_OF_SECONDS)</code> function (in C), it will call the <code>nanosleep</code> system call. Other programming languages might call other syscalls that can also send a process to sleep for some seconds e.g. <code>select</code> syscall, but inside the Linux kernel the behavior will be tsimilar no matter the syscall used.</p>
+<p>The Linux Kernel implementation of the <code>nanosleep</code> system call will do the next:</p>
+<ul>
+<li>Initialize a High Resolution sleep timer.</li>
+<li>Change the process state to <code>TASK_INTERRUPTIBLE (Sleeping)</code>.</li>
+<li>Starts the High Resolution sleep timer.</li>
+<li>Calls the process scheduler so it can schedule another process and pause the execution of the current process.</li>
+</ul>
+<p>The Linux kernel processes High Resolution timers in following way:</p>
+<ul>
+<li>The computer hardware has a CPU Timer that will cause interruptions periodically, making the kernel handle them by calling the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1633">hrtimer_interrupt</a> function.</li>
+<li>The <code>hrtimer_interrupt</code> function will process the existing timers and see if a timer expired. Once a High Resolution sleep timer expires, the kernel will call the <code>hrtimer_wakeup</code> function which will wake up the process associated with the timer, and that will change the state from <code>TASK_INTERRUPTIBLE (Sleeping)</code> to <code>TASK_RUNNING (Running)</code>.</li>
+<li>Finally some CPU cycles later, the process scheduler will continue the execution of the process exactly where it was paused.</li>
+</ul>
+<p>Continue reading if you are interested in more details.</p>
+<h2 id="going-deeper">Going Deeper</h2>
+<p>As software engineers most of the time we might be writing applications that run in <a href="https://en.wikipedia.org/wiki/User_space">user space or user mode</a> such as servers (any kind) or server-side applications, web, mobile or desktop applications, automation scripts, etc.</p>
+<p>No matter the programming language, framework, or technology, internally a program running in user mode will always interact one way or another with the operating system (for this post Linux) via <a href="https://en.wikipedia.org/wiki/System_call">System Calls or syscalls</a>. For instance, when we read a file, our code (no matter the programming language) might indirectly communicate with the Linux Kernel via the <code>read</code> system call, then the kernel will ask the physical hard drive for the contents of the file we want based on the filesystem, and finally return the requested content to our program.</p>
+<p>There is a tool called <a href="https://man7.org/linux/man-pages/man1/strace.1.html">Strace</a> that monitors all the system calls a process executes.</p>
+<p>If we execute the previous C example using <code>strace</code>, we can see the following output:</p>
+<pre><code>$ strace ./states
+
+... syscalls for process loading (they won't be useful right now) ...
+
+write(1, &quot;PID: 26846\n&quot;, 11PID: 26846
+)            = 11
+write(1, &quot;Starting Loop\n&quot;, 14Starting Loop
+)         = 14
+write(1, &quot;Loop Finished\n&quot;, 14Loop Finished
+)         = 14
+write(1, &quot;Sleep process\n&quot;, 14Sleep process
+)         = 14
+nanosleep({tv_sec=5, tv_nsec=0}, 0x7ffefc933be0) = 0
+write(1, &quot;Sleep finished\n&quot;, 15Sleep finished
+)        = 15
+write(1, &quot;Starting Loop\n&quot;, 14Starting Loop
+)         = 14
+write(1, &quot;Loop Finished\n&quot;, 14Loop Finished
+)         = 14
+exit_group(0)                           = ?
++++ exited with 0 +++
+</code></pre><p>The real output is longer than the one showed above, but most of the first syscalls are always executed when a process starts and loads the C Standard Library among other things, but the ones we are interested to review are the last ones.</p>
+<p>The <code>write</code> syscall tells the Kernel that the program wants to display a string on the <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)">standard output</a> (in this case the terminal). With that information, we can have an idea that the <code>printf</code> function communicates with the operating system by calling the <code>write</code> syscall.</p>
+<p>Then the <code>nanosleep</code> syscall is called, which will indicate the Linux kernel to move the process from a Running state to a Sleeping state.</p>
+<p>Before reviewing the Linux implementation of the <code>nanosleep</code> syscall, first we have to review two concepts in order to have a better understanding of what&rsquo;s coming.</p>
+<h3 id="high-resolution-timers">High Resolution Timers</h3>
+<p>Inside the Linux Kernel, different components need to wait for some time before executing something, this is where the Timers concept comes in. A timer is a struct in which we define its expiration time (the time to wait) and what function will be called once the timer expires.</p>
+<p>The Linux Kernel has two types of timers: Low Resolution timers and High Resolution timers. We are going to review High Resolution Timers.</p>
+<p>The High Resolution Timers framework inside the Linux Kernel is a set of structs and functions that optimally process timers. Its implementation is based on a queue of timers that are sorted by the timer that is sooner to expire. In order to make this queue efficient, it uses a <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">Red Black Tree data structure</a> so insertion and deletion can be done in logarithmic time.</p>
+<p>This framework is very interesting by itself, in this article we will only review how it is used and some specific parts of its implementation. For more information regarding implementation details read <a href="#references">[0]</a>, <a href="#references">[1]</a> and <a href="#references">[2]</a>.</p>
+<blockquote>
+<p>Time management inside the Linux Kernel is a very interesting topic and the talk given by <a href="https://www.linkedin.com/in/stephen-w-boyd/">Stephen Boyd</a> titled <strong>&ldquo;Timekeeping In The Linux Kernel&rdquo;</strong> <a href="#references">[4]</a> gave me a better understanding of how the Linux Kernel handles time-related tasks as well as its complexity. This talk helped me a lot. Thanks!</p>
+</blockquote>
+<h3 id="hardware-timer">Hardware Timer</h3>
+<p>The CPU (physically) has a clock and internally it has a programmable timer. In simple words, the main purpose of this timer is to cause <a href="https://en.wikipedia.org/wiki/Interrupt#Hardware_interrupts">interruptions</a> periodically (many times within a second) so the kernel can handle them. The frequency of these interruptions will depend on the architecture which is specified in the Linux Kernel during its compilation. The Linux Kernel abstracts this as <a href="https://www.kernel.org/doc/html/latest/timers/timekeeping.html#clock-events">Clock Event Devices</a> and there is one Clock Event device per CPU. A Clock Event Device is used to schedule the next event interrupt <a href="#references">[3]</a>.</p>
+<p>When a timer interruption happens, the Linux Kernel will handle it by calling a function. <a href="#references">[4]</a> mentions that for High Resolution Timers the <code>hrtimer_interrupt</code> function is the handler for Timer interruptions (we will review its code later).</p>
+<p>Another way to check which handler will be used, is to review the <code>/proc/timer_list</code> read-only file that contains the list of pending timers and the Clock Event devices.</p>
+<p>In my case, I validated that the handler for these devices on my machine is indeed the <code>hrtimer_interrup</code> function.</p>
+<pre><code># /proc/timer_list
+....
+
+Tick Device: mode:     1
+Per CPU device: 0
+Clock Event Device: lapic-deadline
+ max_delta_ns:   1916620707137
+ min_delta_ns:   1000
+ mult:           9624619
+ shift:          25
+ mode:           3
+ next_event:     14403083615478 nsecs
+ set_next_event: lapic_next_deadline
+ shutdown: lapic_timer_shutdown
+ periodic: lapic_timer_set_periodic
+ oneshot:  lapic_timer_set_oneshot
+ oneshot stopped: lapic_timer_shutdown
+ event_handler:  hrtimer_interrupt              &lt;&lt;&lt;&lt;&lt;&lt;&lt; the interrupt handler
+ retries:        1316
+
+Tick Device: mode:     1
+Per CPU device: 1
+Clock Event Device: lapic-deadline
+ max_delta_ns:   1916620707137
+ min_delta_ns:   1000
+ mult:           9624619
+ shift:          25
+ mode:           3
+ next_event:     14403083615478 nsecs
+ set_next_event: lapic_next_deadline
+ shutdown: lapic_timer_shutdown
+ periodic: lapic_timer_set_periodic
+ oneshot:  lapic_timer_set_oneshot
+ oneshot stopped: lapic_timer_shutdown
+ event_handler:  hrtimer_interrupt              &lt;&lt;&lt;&lt;&lt;&lt;&lt; the interrupt handler
+ retries:        484
+.... The rest of devices per CPU of my machine
+</code></pre><p>Now we have an idea of High Resolution Timers and that the CPU has a hardware timer that periodically causes interruptions to the Kernel, we can continue with the <code>nanosleep</code> syscall.</p>
+<h3 id="linux-kernel-implementation-of-nanosleep">Linux Kernel Implementation of <code>nanosleep</code></h3>
+<blockquote>
+<p>The Linux Kernel is a big project, thousands of files and millions of lines of code, navigating through them can be challenging. There is an online tool called LXR that helps navigate the Linux Kernel source code in a friendly way. The URL of the site is <a href="https://elixir.bootlin.com/linux">https://elixir.bootlin.com/linux/v5.14/source</a>.</p>
+</blockquote>
+<p>So far we know that the <code>nanosleep</code> syscall does all the magic to move the process state from Running to Sleeping for a given number of seconds, then to Running state again. Now we will explore the Linux Kernel source code and review what are the internal mechanisms behind that &ldquo;simple&rdquo; behavior.</p>
+<p>First, we have to check where the <code>nanosleep</code> syscall is defined. After googleing a little bit, I found a document that specifies how <a href="https://www.kernel.org/doc/html/latest/process/adding-syscalls.html#generic-system-call-implementation">syscalls are defined</a> in the Linux Kernel. Hence we have to search for <code>SYSCALL_DEFINE2(nanosleep, ....)</code>, the <code>2</code> in <code>SYSCALL_DEFINE2</code> indicates the number of arguments of the syscall. I know <code>nanosleep</code> has two arguments after reviewing its <a href="https://man7.org/linux/man-pages/man2/nanosleep.2.html">man page</a> (all syscalls have a man page(2)).</p>
+<p>After searching for the term <code>nanosleep</code> in LXR, I found that the syscall is defined in the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1970">kernel/time/hrtimer.c</a> file.</p>
+<pre><code>SYSCALL_DEFINE2(nanosleep, struct __kernel_timespec __user *, rqtp,
+    struct __kernel_timespec __user *, rmtp)
+{
+  struct timespec64 tu;
+
+  if (get_timespec64(&amp;tu, rqtp))
+    return -EFAULT;
+
+  if (!timespec64_valid(&amp;tu))
+    return -EINVAL;
+
+  current-&gt;restart_block.nanosleep.type = rmtp ? TT_NATIVE : TT_NONE;
+  current-&gt;restart_block.nanosleep.rmtp = rmtp;
+  return hrtimer_nanosleep(timespec64_to_ktime(tu), HRTIMER_MODE_REL,
+         CLOCK_MONOTONIC);
+}
+</code></pre><p>Of course, every line of code has its reason to be, but I will highlight the call to <code>timespec64_to_ktime</code> which converts the input arguments of the syscall to the <code>ktime</code> struct that is used by the High Resolution Timers framework. Finally, it calls the <code>hrtimer_nanosleep</code> where all fun starts.</p>
+<p>I will go function by function in the order they are called and explain the parts I consider relevant:</p>
+<p><a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1935">hrtimer_nanosleep</a> function:</p>
+<pre><code>long hrtimer_nanosleep(ktime_t rqtp, const enum hrtimer_mode mode, const clockid_t clockid)
+{
+  ...
+  hrtimer_init_sleeper_on_stack(&amp;t, clockid, mode);
+  hrtimer_set_expires_range_ns(&amp;t.timer, rqtp, slack);
+  ret = do_nanosleep(&amp;t, mode);
+  ...
+}
+</code></pre><p>There are three relevant parts here:</p>
+<ul>
+<li>The HR Sleep timer initialization (we will review this with more detail)</li>
+<li>The expiration time for the initialized timer. Although that seems a simple task, there is a lot of logic under the hood. Because the Linux Kernel works at the hardware level, to convert human time to computer time it has to use some formulas that are based on the HZ constant that varies depending on the architecture. Also, the concept of <a href="https://en.wikipedia.org/wiki/Jiffy_(time)">Jiffies</a> comes up. I will not go into more details, however <a href="#references">[4]</a> explains this part very well.</li>
+<li>Finally, it calls the <code>do_nanosleep</code> function that has the logic that sends a process to sleep.</li>
+</ul>
+<p>The <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L442">hrtimer_init_sleeper_on_stack</a> function (which in the end calls the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1821">__hrtimer_init_sleeper</a> function) allocates and initializes an HR sleep timer associated with the current process that is being executed.</p>
+<p>The <code>function</code> attribute of the HR sleep timer is the callback function, which means that this <code>function</code> will be called after the HR sleep timer expires. In this case, the <code>function</code> <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1849">attribute of the sleep timer</a> is set to <code>hrtimer_wakeup</code> which we will see later (don&rsquo;t forget this 😉).</p>
+<pre><code>static void __hrtimer_init_sleeper(struct hrtimer_sleeper *sl,
+          clockid_t clock_id, enum hrtimer_mode mode)
+{
+  ...
+  __hrtimer_init(&amp;scicil-&gt;timer, clock_id, mode);
+  sl-&gt;timer.function = hrtimer_wakeup; // &lt;&lt;&lt;&lt;&lt;&lt; This function will be called after the timer expires
+  sl-&gt;task = current;                  // &lt;&lt;&lt;&lt;&lt;&lt; Associates the timer with the current process
+}
+</code></pre><blockquote>
+<p>In the Linux Kernel, the <code>current</code> variable is a pointer to the current process being executed (in our case the program that calls the <code>sleep</code> function).</p>
+</blockquote>
+<p>Before continuing with the <code>do_nanosleep</code> function, I will make a parenthesis about the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1393">__hrtimer_init</a> function.</p>
+<pre><code>static void __hrtimer_init(struct hrtimer *timer, clockid_t clock_id,
+        enum hrtimer_mode mode)
+{
+  ...
+  timerqueue_init(&amp;timer-&gt;node);
+}
+</code></pre><p>I mentioned that HR Timers use a queue which under the hood is implemented using a Red Black Tree. The call to <a href="https://elixir.bootlin.com/linux/v5.14/source/include/linux/timerqueue.h#L43">timerqueue_init</a> functions is only allocating and initializing a Red-Black Tree Node, but not adding it to the tree yet.</p>
+<p>After that short parenthesis, let&rsquo;s see what happens inside the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1887">do_nanosleep</a> function.</p>
+<p>I initially thought that the do/while loop iterates until the HR sleep timer expired (something like an infinite loop), things happen differently.</p>
+<pre><code>static int __sched do_nanosleep(struct hrtimer_sleeper *t, enum hrtimer_mode mode)
+{
+  struct restart_block *restart;
+
+  do {
+    set_current_state(TASK_INTERRUPTIBLE);   // &lt;&lt;&lt;&lt; This causes the process to go to a Sleeping state
+    hrtimer_sleeper_start_expires(t, mode);
+
+    if (likely(t-&gt;task))
+      freezable_schedule();
+
+    hrtimer_cancel(&amp;t-&gt;timer);
+    mode = HRTIMER_MODE_ABS;
+
+  } while (t-&gt;task &amp;&amp; !signal_pending(current));
+
+  __set_current_state(TASK_RUNNING);
+
+  if (!t-&gt;task)
+    return 0;
+
+  restart = &amp;current-&gt;restart_block;
+  if (restart-&gt;nanosleep.type != TT_NONE) {
+    ktime_t rem = hrtimer_expires_remaining(&amp;t-&gt;timer);
+    struct timespec64 rmt;
+
+    if (rem &lt;= 0)
+      return 0;
+    rmt = ktime_to_timespec64(rem);
+
+    return nanosleep_copyout(restart, &amp;rmt);
+  }
+  return -ERESTART_RESTARTBLOCK;
+}
+</code></pre><p>As mentioned before, when the <code>sleep</code> function is called, the current process  will pass to a <code>Sleeping</code> state. We can see that happening on the line that calls the <code>set_current_state</code> function that changes the state of the <code>current</code> process to <code>TASK_INTERRUPTIBLE</code> (Sleeping).</p>
+<p>The call to the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1804">hrtimer_sleeper_start_expires</a> function will call other functions until it calls the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1101">__hrtimer_start_range_ns</a> function which in turn will call the <code>enqueue_hrtimer</code> function, it is at this point where the timer (node) we initialized before is added to the Red Black Tree structure so the timer can be processed later.</p>
+<p>Finally, the <code>freezable_schedule</code> function indicates the process scheduler to schedule another process because the <code>current</code> process went to sleep and the execution of our process pauses here.</p>
+<h4 id="how-does-the-process-wakes-up">How Does The Process Wakes Up?</h4>
+<p>So far we reviewed that the <code>nanosleep</code> implementation changes the state of the process to <code>TASK_INTERRUPTIBLE</code> and pauses the process execution.</p>
+<p>Now that the process state is in <code>TASK_INTERRUPTIBLE</code> state, the process scheduler will not consider the process for execution in the future, until the state of the process is set back to <code>TASK_RUNNING</code>.</p>
+<p>We mentioned that the <a href="#hardware-timer">Hardware Timer</a> will cause periodic interrupts so the Linux Kernel can handle them by calling the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1633">hrtimer_interrupt</a> function on each interruption (multiple times in a second). It is in this function where High Resolution Timers are processed by calling the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1569">__hrtimer_run_queues</a> function.</p>
+<pre><code>static void __hrtimer_run_queues(struct hrtimer_cpu_base *cpu_base, ktime_t now,
+         unsigned long flags, unsigned int active_mask)
+{
+  struct hrtimer_clock_base *base;
+  unsigned int active = cpu_base-&gt;active_bases &amp; active_mask;
+
+  for_each_active_base(base, cpu_base, active) {
+    struct timerqueue_node *node;
+    ktime_t basenow;
+
+    basenow = ktime_add(now, base-&gt;offset);
+
+    while ((node = timerqueue_getnext(&amp;base-&gt;active))) {
+      struct hrtimer *timer;
+
+      timer = container_of(node, struct hrtimer, node);
+      if (basenow &lt; hrtimer_get_softexpires_tv64(timer))
+        break;
+
+      __run_hrtimer(cpu_base, base, timer, &amp;basenow, flags);
+      if (active_mask == HRTIMER_ACTIVE_SOFT)
+        hrtimer_sync_wait_running(cpu_base, flags);
+    }
+  }
+}
+</code></pre><p>The <code>__hrtimer_run_queues</code> function will iterate the timers in the Red Black Tree, remember that it will iterate starting by the timers that are sooner to expire. Something to note here is that it will break the while loop if the timer didn&rsquo;t expire yet (why do unnecessary iterations if the head of the queue is a timer that didn&rsquo;t expire yet?). But when a timer expired, it will call the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1494">__run_hrtimer</a> function. As we can see, its implementation will call the callback function we set during HR sleep timer initialization.</p>
+<pre><code>static void __run_hrtimer(struct hrtimer_cpu_base *cpu_base,
+        struct hrtimer_clock_base *base,
+        struct hrtimer *timer, ktime_t *now,
+        unsigned long flags) __must_hold(&amp;cpu_base-&gt;lock)
+{
+  ...
+  fn = timer-&gt;function; // &lt;&lt;&lt;&lt;&lt; This fn function is pointing to the hrtimer_wakeup function
+  ...
+  restart = fn(timer);
+  ...
+}
+</code></pre><p>The function that was set as the callback function during HR sleep timer initialization was the <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1783">hrtimer_wakeup</a> function.</p>
+<pre><code>static enum hrtimer_restart hrtimer_wakeup(struct hrtimer *timer)
+{
+  struct hrtimer_sleeper *t =
+    container_of(timer, struct hrtimer_sleeper, timer);
+  struct task_struct *task = t-&gt;task;
+
+  t-&gt;task = NULL;
+  if (task)
+    wake_up_process(task);    // &lt;&lt;&lt;&lt;&lt;&lt; Wake up the process!!
+
+  return HRTIMER_NORESTART;
+}
+</code></pre><p>As we can see this function will call the <code>wake_up_process</code> function sending the process (task) associated with the HR timer as parameter. The <code>wake_up_process</code> function among other things will set the process state to <code>TASK_RUNNING</code>.</p>
+<p>Some CPU cycles later, the process scheduler will resume the execution of this process where it stopped (after the call to the <code>freezable_schedule</code> function). Then the rest of the <code>do_nanosleep</code> function will free memory, remove the timer from the Red Black Tree and continue with the execution. And that&rsquo;s it!</p>
+<h3 id="there-are-other-alternatives-to-nanosleep">There are other alternatives to <code>nanosleep</code></h3>
+<p>The <code>nanosleep</code> syscall is not the only syscall that can be used to sleep a process. For example Python <code>time.sleep</code> function uses the <code>select</code> syscall under the hood, however, if we review the implementation of the <a href="https://elixir.bootlin.com/linux/v5.14/source/fs/select.c#L476">do_select</a> function which in turn calls the <a href="https://elixir.bootlin.com/linux/v5.14/source/fs/select.c#L236">schedule_hrtimeout_range</a> function, you will notice that it calls the <code>schedule_hrtimeout_range</code> function which initializes and starts a High Resolution sleep timer, and tells the process scheduler to schedule another process (same logic as with <code>nanosleep</code>).</p>
+<p>Python sleep is one example, but other languages might be using different syscalls.</p>
+<h3 id="last-comments">Last Comments</h3>
+<p>Although calling the <code>sleep</code> function in our programs might be something trivial, all the mechanisms that live behind that simple behavior are amazing. When I started digging to understand what happens when you call a <code>sleep</code> function, I wouldn&rsquo;t have imagined how much I was going to learn.</p>
+<p>In case there are parts of this post that you find incorrect, let me know by opening an issue on this blog&rsquo;s <a href="https://github.com/donkeysharp/donkeysharp.github.io">Github repository</a>. I will really appreciate it!.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>[0] <a href="https://lwn.net/Articles/167897/">https://lwn.net/Articles/167897/</a></li>
+<li>[1] <a href="https://lwn.net/Articles/152436/">https://lwn.net/Articles/152436/</a></li>
+<li>[2] <a href="https://www.kernel.org/doc/html/latest/timers/hrtimers.html">https://www.kernel.org/doc/html/latest/timers/hrtimers.html</a></li>
+<li>[3] <a href="https://www.kernel.org/doc/html/latest/timers/highres.html">https://www.kernel.org/doc/html/latest/timers/highres.html</a></li>
+<li>[4] <a href="https://www.youtube.com/watch?v=Puv4mW55bF8">https://www.youtube.com/watch?v=Puv4mW55bF8</a></li>
+</ul>
+
+
+        
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/post/analyzing-evo-video/" data-toggle="tooltip" data-placement="top" title="Analyzing a Video Looking for Possible Malware">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    
+<footer>
+<div class="container">
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="list-inline text-center footer-links">
+      
+          <li>
+            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+      
+      <li>
+        <a target="_blank" href="" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <p class="credits copyright text-muted">
+      
+        
+          Sergio Guillen
+        
+      
+      &bull;
+      
+        2022
+      
+    </p>
+    
+    <p class="credits theme-by text-muted">
+      Powered by <a target="_" href="https://gohugo.io">Hugo</a>.
+&nbsp;&bull;&nbsp;
+Theme <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+
+      
+    </p>
+  </div>
+</div>
+</div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
+<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

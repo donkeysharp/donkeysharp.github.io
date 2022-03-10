@@ -6,7 +6,17 @@
     <description>Recent content on Sergio Guillen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Jul 2020 08:16:55 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/es/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Qué sucede cuando un proceso de Linux se va a dormir?</title>
+      <link>https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/</guid>
+      <description>Es posible que cuando estas escribiendo un programa, en algún momento necesites pausar la ejecución de un proceso llamando a la función sleep(NUMBER_OF_SECONDS) dependiendo del problema que estés resolviendo. En este post, compartiré lo que aprendí hasta ahora mientras investigaba los mecanismos internos del kernel que hacen que la función sleep funcione de la forma en que lo hace.
+ Agradezco su feedback. No soy un experto en este tema ya que las partes internas del Kernel de Linux son nuevas para mí, fue solo mi curiosidad lo que me llevó a revisar el código fuente del Kernel y quería compartir lo que aprendí.</description>
+    </item>
+    
     <item>
       <title>Gracias Profe Elias</title>
       <link>https://blog.donkeysharp.xyz/es/post/gracias-profe-elias/</link>
