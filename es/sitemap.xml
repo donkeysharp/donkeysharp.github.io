@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://blog.donkeysharp.xyz/es/post/gracias-profe-elias/</loc>
     <lastmod>2020-07-20T08:16:55-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/</loc>
     <lastmod>2020-07-20T08:16:55-04:00</lastmod>
     <xhtml:link
@@ -20,9 +17,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/</loc>
     <lastmod>2020-07-20T08:16:55-04:00</lastmod>
     <xhtml:link
@@ -35,9 +30,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/analisis-video-evo/</loc>
     <lastmod>2019-11-26T13:08:36-04:00</lastmod>
     <xhtml:link
@@ -50,9 +43,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/analisis-video-evo/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/automatizando-setup-post-instalacion-debian/</loc>
     <lastmod>2019-05-13T21:45:39-04:00</lastmod>
     <xhtml:link
@@ -65,9 +56,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/automatizando-setup-post-instalacion-debian/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/</loc>
     <lastmod>2018-08-28T08:30:57-04:00</lastmod>
     <xhtml:link
@@ -80,14 +69,10 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/debian-day-2018/</loc>
     <lastmod>2018-08-25T11:40:05-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/</loc>
     <lastmod>2018-03-29T22:22:46-04:00</lastmod>
     <xhtml:link
@@ -100,14 +85,10 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/entorno-de-desarrollo-en-sublime-text/</loc>
     <lastmod>2018-03-14T00:32:43-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/</loc>
     <lastmod>2018-03-09T23:15:16-04:00</lastmod>
     <xhtml:link
@@ -120,9 +101,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/mi-primer-post/</loc>
     <lastmod>2018-01-05T13:04:24-04:00</lastmod>
     <xhtml:link
@@ -135,9 +114,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/mi-primer-post/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -149,9 +126,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/about/</loc>
     <xhtml:link
                 rel="alternate"
@@ -163,9 +138,7 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/about/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -178,5 +151,4 @@
                 href="https://blog.donkeysharp.xyz/es/tags/"
                 />
   </url>
-  
 </urlset>
