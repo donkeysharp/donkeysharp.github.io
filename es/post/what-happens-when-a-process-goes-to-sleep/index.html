@@ -93,7 +93,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@donkeysharp" />
   <meta name="twitter:creator" content="@donkeysharp" />
-  <meta name="generator" content="Hugo 0.86.1" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -106,7 +106,7 @@
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-112385104-1', 'auto');
+	ga('create', 'G-NE86EKXE5N', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -298,7 +298,7 @@ if (!doNotTrack) {
 </ul>
 <p>Cuando un proceso está ejecutando instrucciones en la CPU, se encuentra en estado &ldquo;Running&rdquo; y cuando el proceso está esperando que suceda algo, es decir, esperando I/O de red o disco, o se llama a la funcion <code>sleep</code>, cambiará a un estado <code>Sleeping</code>.</p>
 <p>Podemos comprobarlo con un sencillo programa de ejemplo en C:</p>
-<pre><code>// states.c
+<pre tabindex="0"><code>// states.c
 // gcc states.c -o states
 #include &lt;stdio.h&gt;
 #include &lt;unistd.h&gt;
@@ -307,18 +307,18 @@ if (!doNotTrack) {
 
 void start_processing() {
   long i;
-  printf(&quot;Starting Loop\n&quot;);
+  printf(&#34;Starting Loop\n&#34;);
   for (i = 0; i &lt; (long)(10 * SOME_MAGIC_NUMBER); i++);
-  printf(&quot;Loop Finished\n&quot;);
+  printf(&#34;Loop Finished\n&#34;);
 }
 
 int main() {
   pid_t pid = getpid();
-  printf(&quot;PID: %d\n&quot;, pid);
+  printf(&#34;PID: %d\n&#34;, pid);
   start_processing();
-  printf(&quot;Sleep process\n&quot;);
+  printf(&#34;Sleep process\n&#34;);
   sleep(5);
-  printf(&quot;Sleep finished\n&quot;);
+  printf(&#34;Sleep finished\n&#34;);
   start_processing();
   return 0;
 }
@@ -347,24 +347,24 @@ int main() {
 <p>No importa el lenguaje de programación, el framework o la tecnología, internamente un programa que se ejecuta en user mode siempre interactuará de una forma u otra con el sistema operativo (en este post Linux) a través de <a href="https://en.wikipedia.org/wiki/System_call">System Calls o syscalls</a>. Por ejemplo, cuando leemos un archivo, nuestro código (sin importar el lenguaje de programación) se comunicará indirectamente con el Kernel de Linux a través de la syscall <code>read</code> (no es la única), luego el kernel le pedirá al disco duro físico el contenido del archivo que queremos basado en el sistema de archivos, y finalmente devolverá el contenido solicitado a nuestro programa.</p>
 <p>Hay una herramienta llamada <a href="https://man7.org/linux/man-pages/man1/strace.1.html">Strace</a> que monitorea todas las syscall que ejecuta un proceso.</p>
 <p>Si ejecutamos el ejemplo anterior en C usando <code>strace</code>, podemos ver la siguiente salida:</p>
-<pre><code>$ strace ./states
+<pre tabindex="0"><code>$ strace ./states
 
-... syscalls for process loading (they won't be useful right now) ...
+... syscalls for process loading (they won&#39;t be useful right now) ...
 
-write(1, &quot;PID: 26846\n&quot;, 11PID: 26846
+write(1, &#34;PID: 26846\n&#34;, 11PID: 26846
 )            = 11
-write(1, &quot;Starting Loop\n&quot;, 14Starting Loop
+write(1, &#34;Starting Loop\n&#34;, 14Starting Loop
 )         = 14
-write(1, &quot;Loop Finished\n&quot;, 14Loop Finished
+write(1, &#34;Loop Finished\n&#34;, 14Loop Finished
 )         = 14
-write(1, &quot;Sleep process\n&quot;, 14Sleep process
+write(1, &#34;Sleep process\n&#34;, 14Sleep process
 )         = 14
 nanosleep({tv_sec=5, tv_nsec=0}, 0x7ffefc933be0) = 0
-write(1, &quot;Sleep finished\n&quot;, 15Sleep finished
+write(1, &#34;Sleep finished\n&#34;, 15Sleep finished
 )        = 15
-write(1, &quot;Starting Loop\n&quot;, 14Starting Loop
+write(1, &#34;Starting Loop\n&#34;, 14Starting Loop
 )         = 14
-write(1, &quot;Loop Finished\n&quot;, 14Loop Finished
+write(1, &#34;Loop Finished\n&#34;, 14Loop Finished
 )         = 14
 exit_group(0)                           = ?
 +++ exited with 0 +++
@@ -385,7 +385,7 @@ exit_group(0)                           = ?
 <p>Cuando ocurre una interrupción del timer, el kernel de Linux lo manejará llamando a una función. <a href="#references">[4]</a> menciona que para los High Resolution Timers, la función <code>hrtimer_interrupt</code> es el manejador de las interrupciones del timer (revisaremos su código más adelante).</p>
 <p>Otra forma de verificar qué manejador se utilizará, es revisar el archivo de solo lectura <code>/proc/timer_list</code> que contiene la lista de timers pendientes y los Clock Event devices.</p>
 <p>En mi caso, validé que el manejador de estos dispositivos en mi máquina es efectivamente la función <code>hrtimer_interrup</code>.</p>
-<pre><code># /proc/timer_list
+<pre tabindex="0"><code># /proc/timer_list
 ....
 
 Tick Device: mode:     1
@@ -430,7 +430,7 @@ Clock Event Device: lapic-deadline
 <p>Hasta ahora sabemos que la syscall <code>nanosleep</code> hace toda la magia para mover el estado del proceso de Running a Sleeping durante un determinado número de segundos, luego pasar al estado Running nuevamente. Ahora exploraremos el código fuente del kernel de Linux y revisaremos cuáles son los mecanismos internos detrás de ese comportamiento &ldquo;simple&rdquo;.</p>
 <p>Primero, tenemos que verificar dónde está definida la syscall <code>nanosleep</code>. Después de buscar un poco en Google, encontré un documento que especifica cómo <a href="https://www.kernel.org/doc/html/latest/process/adding-syscalls.html#generic-system-call-implementation">se definen las syscall</a> en el kernel de Linux. Por lo tanto, tenemos que buscar <code>SYSCALL_DEFINE2(nanosleep, ....)</code>, el <code>2</code> en <code>SYSCALL_DEFINE2</code> indica el número de argumentos de la syscall. Sé que <code>nanosleep</code> tiene dos argumentos después de comprobar en su <a href="https://man7.org/linux/man-pages/man2/nanosleep.2.html">manual</a> (todas las syscall tienen una página man(2)).</p>
 <p>Después de buscar el término <code>nanosleep</code> en LXR, encontré que la syscall está definida en archivo <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1970">kernel/time/hrtimer.c</a> .</p>
-<pre><code>SYSCALL_DEFINE2(nanosleep, struct __kernel_timespec __user *, rqtp,
+<pre tabindex="0"><code>SYSCALL_DEFINE2(nanosleep, struct __kernel_timespec __user *, rqtp,
     struct __kernel_timespec __user *, rmtp)
 {
   struct timespec64 tu;
@@ -449,7 +449,7 @@ Clock Event Device: lapic-deadline
 </code></pre><p>Por supuesto, cada línea de código tiene su razón de ser, pero resaltaré la llamada a <code>timespec64_to_ktime</code> que convierte los argumentos de entrada de la syscall en la estructura <code>ktime</code> que es utilizada por el framework de High Resolution Timers. Finalmente, llama a la función <code>hrtimer_nanosleep</code> donde comienza toda la diversión.</p>
 <p>Iré función por función en el orden en que son llamadas y explicaré las partes que considero relevantes:</p>
 <p>La función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1935">hrtimer_nanosleep</a>:</p>
-<pre><code>long hrtimer_nanosleep(ktime_t rqtp, const enum hrtimer_mode mode, const clockid_t clockid)
+<pre tabindex="0"><code>long hrtimer_nanosleep(ktime_t rqtp, const enum hrtimer_mode mode, const clockid_t clockid)
 {
   ...
   hrtimer_init_sleeper_on_stack(&amp;t, clockid, mode);
@@ -465,7 +465,7 @@ Clock Event Device: lapic-deadline
 </ul>
 <p>La función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L442">hrtimer_init_sleeper_on_stack</a> (que al final llama a <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1821">__hrtimer_init_sleeper</a>) asigna e inicializa un High Resolution Timer asociado con el proceso actual que se está ejecutando.</p>
 <p>El atributo <code>function</code> del High Resolution Sleep Timer es la función callback, lo que significa que este atributo <code>function</code> se llamará después de que expire el High Resolution Timer. En este caso el valor del <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1849">atributo function</a> es la función <code>hrtimer_wakeup</code> que veremos más adelante (no se olviden de esto 😉).</p>
-<pre><code>static void __hrtimer_init_sleeper(struct hrtimer_sleeper *sl,
+<pre tabindex="0"><code>static void __hrtimer_init_sleeper(struct hrtimer_sleeper *sl,
           clockid_t clock_id, enum hrtimer_mode mode)
 {
   ...
@@ -477,16 +477,16 @@ Clock Event Device: lapic-deadline
 <p>En el kernel de Linux, la variable <code>current</code> es un puntero al proceso actual que se está ejecutando (en nuestro caso, el programa que llama a la función <code>sleep</code>).</p>
 </blockquote>
 <p>Antes de continuar con la función <code>do_nanosleep</code>, haré un paréntesis sobre la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1393">__hrtimer_init</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__hrtimer_init</span>(<span style="color:#66d9ef">struct</span> hrtimer <span style="color:#f92672">*</span>timer, clockid_t clock_id,
-        <span style="color:#66d9ef">enum</span> hrtimer_mode mode)
-{
-  ...
-  timerqueue_init(<span style="color:#f92672">&amp;</span>timer<span style="color:#f92672">-&gt;</span>node);
-}
-</code></pre></div><p>Mencioné que los High Resolution Timers usan una cola que por debajo es implementada utilizando un Red Black Tree. La llamada a las funciones <a href="https://elixir.bootlin.com/linux/5.14/source/include/linux/timerqueue.h#L43">timerqueue_init</a> solo asigna e inicializa un nodo del Red Black Tree, sin embargo este nodo no es agregado al árbol aún.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__hrtimer_init</span>(<span style="color:#66d9ef">struct</span> hrtimer <span style="color:#f92672">*</span>timer, clockid_t clock_id,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">enum</span> hrtimer_mode mode)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  timerqueue_init(<span style="color:#f92672">&amp;</span>timer<span style="color:#f92672">-&gt;</span>node);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Mencioné que los High Resolution Timers usan una cola que por debajo es implementada utilizando un Red Black Tree. La llamada a las funciones <a href="https://elixir.bootlin.com/linux/5.14/source/include/linux/timerqueue.h#L43">timerqueue_init</a> solo asigna e inicializa un nodo del Red Black Tree, sin embargo este nodo no es agregado al árbol aún.</p>
 <p>Después de ese breve paréntesis, veamos qué sucede dentro de la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1887">do_nanosleep</a>.</p>
 <p>Inicialmente pensé que el ciclo do/while itera hasta que High Resolution Timer expire (algo como un bucle infinito), sin embargo las cosas suceden de manera diferente.</p>
-<pre><code>static int __sched do_nanosleep(struct hrtimer_sleeper *t, enum hrtimer_mode mode)
+<pre tabindex="0"><code>static int __sched do_nanosleep(struct hrtimer_sleeper *t, enum hrtimer_mode mode)
 {
   struct restart_block *restart;
 
@@ -527,7 +527,7 @@ Clock Event Device: lapic-deadline
 <p>Hasta ahora hemos comprobado que la implementación de <code>nanosleep</code> cambia el estado del proceso a <code>TASK_INTERRUPTIBLE</code> y pausa la ejecución del proceso.</p>
 <p>Ahora que el estado del proceso está en el estado <code>TASK_INTERRUPTIBLE</code>, el process scheduler no considerará la ejecución del proceso hasta que el estado del proceso vuelva a <code>TASK_RUNNING</code>.</p>
 <p>Mencionamos que el <a href="#hardware-timer">Hardware Timer</a> causa interrupciones periódicas para que el Kernel de Linux pueda manejarlas llamando a la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1633">hrtimer_interrupt</a> en cada interrupción (varias veces en un segundo). Es en esta función donde se procesan los High Resolution Timers llamando a la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1569">__hrtimer_run_queues</a>.</p>
-<pre><code>static void __hrtimer_run_queues(struct hrtimer_cpu_base *cpu_base, ktime_t now,
+<pre tabindex="0"><code>static void __hrtimer_run_queues(struct hrtimer_cpu_base *cpu_base, ktime_t now,
          unsigned long flags, unsigned int active_mask)
 {
   struct hrtimer_clock_base *base;
@@ -553,7 +553,7 @@ Clock Event Device: lapic-deadline
   }
 }
 </code></pre><p>La función <code>__hrtimer_run_queues</code> iterará los timers en el Red Black Tree, recuerden que iterará comenzando por los timers que están más próximos a expirar. Algo a tener en cuenta aquí es que romperá el ciclo while si el timer aún no ha expirado (¿por qué tener iteraciones innecesarias si el header de la cola es un timer que no ha caducado aún?). Pero cuando el timer expire, llamará a la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1494">__run_hrtimer</a>. Como podemos ver, su implementación llamará al callback que configuramos durante la inicialización del High Resolution Timer.</p>
-<pre><code>static void __run_hrtimer(struct hrtimer_cpu_base *cpu_base,
+<pre tabindex="0"><code>static void __run_hrtimer(struct hrtimer_cpu_base *cpu_base,
         struct hrtimer_clock_base *base,
         struct hrtimer *timer, ktime_t *now,
         unsigned long flags) __must_hold(&amp;cpu_base-&gt;lock)
@@ -565,7 +565,7 @@ Clock Event Device: lapic-deadline
   ...
 }
 </code></pre><p>La función que se configuró como el callback durante la inicialización del High Resolution Timer fue la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1783">hrtimer_wakeup</a>.</p>
-<pre><code>static enum hrtimer_restart hrtimer_wakeup(struct hrtimer *timer)
+<pre tabindex="0"><code>static enum hrtimer_restart hrtimer_wakeup(struct hrtimer *timer)
 {
   struct hrtimer_sleeper *t =
     container_of(timer, struct hrtimer_sleeper, timer);

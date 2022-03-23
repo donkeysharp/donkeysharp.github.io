@@ -93,7 +93,7 @@ Basically what I was doing was to review my previous blog post and repeat those 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@donkeysharp" />
   <meta name="twitter:creator" content="@donkeysharp" />
-  <meta name="generator" content="Hugo 0.86.1" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://blog.donkeysharp.xyz/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -106,7 +106,7 @@ Basically what I was doing was to review my previous blog post and repeat those 
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-112385104-1', 'auto');
+	ga('create', 'G-NE86EKXE5N', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -292,7 +292,7 @@ if (!doNotTrack) {
 <h2 id="analyzing-the-project">Analyzing the Project</h2>
 <p>I posted this project on <a href="https://github.com/sguillen-proyectos/fresh-install-setup/">Github</a> if you want to see the source code.</p>
 <p>As this is a project that uses Ansible, there is a certain convention regarding the directory tree, file names, etc. I decided to use the following structure:</p>
-<pre><code>├── init-setup.sh
+<pre tabindex="0"><code>├── init-setup.sh
 ├── inventory
 ├── README.md
 ├── roles
@@ -321,11 +321,11 @@ if (!doNotTrack) {
 </blockquote>
 <p>I divided the project into different roles, each for a different purpose such as: a specific application or a group of applications including their settings. For example, in the role <code>common</code> install all the desktop utilities and command line utilities that I use every day. And in general there are roles for specific things that I use, Docker, software development tools, technologies and others. If you are more curious you can check the repo 😄.</p>
 <p>Continuing with the explanation, within Ansible there is a fairly important concept which is the <code>inventory</code>, which indicates all the servers where the tasks specified in the roles will be applied. This project has a file called <code>inventory</code> with particular options, since all the tasks will not be executed against several servers, but against one and it is the same local machine.</p>
-<pre><code>[local]
+<pre tabindex="0"><code>[local]
 localhost ansible_connection=local
 </code></pre><p><code>[local]</code> is the group of servers, I named it <code>local</code> but it could be called anything, the important thing is that if you change its name, this name should also be reflected in<code> setup-playbook.yml</code> in <code>hosts: local</code>. Then the following lines indicate the hostname which in this case is <code>localhost</code> and<code> ansible_connection=local</code> which indicates that it will be a local execution and thus avoid the SSH authentication process that Ansible performs on each execution towards the same machine.</p>
 <p>Finally the <code>init-setup.sh</code> script is a wizard which asks for certain options before going through the entire installation and configuration process. This would become the &ldquo;magic&rdquo; command that takes care of everything:</p>
-<pre><code>bash &lt;(wget -q -O- https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh)
+<pre tabindex="0"><code>bash &lt;(wget -q -O- https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh)
 </code></pre><h2 id="what-do-i-gain-with-this">What do I gain with this?</h2>
 <p>Well, first I learned a couple of things that I didn&rsquo;t know about Ansible, I had fun and the most important thing for me (besides that was the objective of this project) is that now I save all the time of manual configuration that I carried out in a newly operating system installation.</p>
 <p>Although I already had my <a href="https://blog.donkeysharp.xyz/post/my-computer-setup/">guide</a> of what packages to install and what configurations to perform, that took me between one and two hours, now all this time The setup is mainly conditioned to the speed of the internet.</p>

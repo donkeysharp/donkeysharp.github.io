@@ -93,7 +93,7 @@ Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@donkeysharp" />
   <meta name="twitter:creator" content="@donkeysharp" />
-  <meta name="generator" content="Hugo 0.86.1" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -106,7 +106,7 @@ Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía 
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-112385104-1', 'auto');
+	ga('create', 'G-NE86EKXE5N', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -292,7 +292,7 @@ if (!doNotTrack) {
 <h2 id="analizando-el-proyecto">Analizando el Proyecto</h2>
 <p>Este proyecto lo publiqué en <a href="https://github.com/sguillen-proyectos/fresh-install-setup/">Github</a> si desean ver el código fuente.</p>
 <p>Al ser este un proyecto que utiliza Ansible, existe cierta convención en cuestión a árbol de directorios, nombres de archivos, etc. Decidí utilizar la siguiente estructura:</p>
-<pre><code>├── init-setup.sh
+<pre tabindex="0"><code>├── init-setup.sh
 ├── inventory
 ├── README.md
 ├── roles
@@ -321,11 +321,11 @@ if (!doNotTrack) {
 </blockquote>
 <p>Dividí el proyecto en diferentes roles, cada uno para un diferente propósito como ser: una aplicación específica o un grupo de aplicaciones incluidas sus configuraciones. Por ejemplo, en el role <code>common</code> instala todas las utilidades de escritorio y las utilidades de línea de comandos que utilizo día a día. Y en general hay roles para cosas específicas que utilizo, Docker, herramientas y tecnologías de desarrollo de software y otros. Si tienen más curiosidad pueden revisar el repo 😄.</p>
 <p>Siguiendo con la explicación, dentro de Ansible existe un concepto bastante importante que es el <code>inventory</code>, el cual indica todos los servidores en los que se aplicarán las tareas especificada en los roles. Este proyecto tiene un archivo llamado <code>inventory</code> con opciones particulares, ya que todas las tareas no se ejecutarán en contra de varios servidores, sino en contra de uno solo y es la misma máquina local.</p>
-<pre><code>[local]
+<pre tabindex="0"><code>[local]
 localhost ansible_connection=local
 </code></pre><p>Lo explico: <code>[local]</code> es el grupo de servidores, yo lo denominé <code>local</code> pero podría llamarse cualquier cosa, lo importante es que si se cambiase de nombre, este nombre también debería reflejarse en <code>setup-playbook.yml</code> en <code>hosts: local</code>. Luego la siguientes líneas indican el hostname que en este caso es <code>localhost</code> y <code>ansible_connection=local</code> que indica que será una ejecución local y de ese modo evitar el proceso de autenticación por SSH que Ansible realiza en cada ejecución hacia la misma máquina.</p>
 <p>Finalmente el script <code>init-setup.sh</code> es un wizard el cual pregunta por ciertas opciones antes de realizar todo el proceso de instalación y configuración. Este llegaría a ser el comando &ldquo;mágico&rdquo; que se encarga de todo:</p>
-<pre><code>bash &lt;(wget -q -O- https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh)
+<pre tabindex="0"><code>bash &lt;(wget -q -O- https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh)
 </code></pre><h2 id="qué-gano-con-esto">¿Qué gano con esto?</h2>
 <p>Bueno, primero aprendí un par de cosas que no sabía sobre Ansible, me divertí y lo más importante para mí (además que era el objetivo de este proyecto) es que ahora me ahorro todo el tiempo de configuración manual que realizaba en un sistema operativo recién instalado.</p>
 <p>Si bien ya tenía mi <a href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/">guía</a> de qué paquetes instalar y que configuraciones realizar, eso me tomaba entre una a dos horas, ahora todo este tiempo de setup esta principalmente condicionado a la velocidad de internet.</p>

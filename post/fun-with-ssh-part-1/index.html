@@ -93,7 +93,7 @@ What is SSH? SSH is a short for Secure Shell, it&rsquo;s a protocol to manage se
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@donkeysharp" />
   <meta name="twitter:creator" content="@donkeysharp" />
-  <meta name="generator" content="Hugo 0.86.1" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://blog.donkeysharp.xyz/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -106,7 +106,7 @@ What is SSH? SSH is a short for Secure Shell, it&rsquo;s a protocol to manage se
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-112385104-1', 'auto');
+	ga('create', 'G-NE86EKXE5N', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -302,9 +302,9 @@ if (!doNotTrack) {
 <!-- raw HTML omitted -->
 <p>By default DigitalOcean allows yout to access the servers with a <code>root</code> user, which is considered a <a href="https://unix.stackexchange.com/questions/82626/why-is-root-login-via-ssh-so-bad-that-everyone-advises-to-disable-it">bad practice</a> in terms of security. For a real server I recommend you to disable <code>root</code> login.</p>
 <p>To log into a server run:</p>
-<pre><code>$ ssh usuario@servidor
+<pre tabindex="0"><code>$ ssh usuario@servidor
 </code></pre><p>For the case of DigitalOcean run:</p>
-<pre><code>$ ssh root@ip_droplet
+<pre tabindex="0"><code>$ ssh root@ip_droplet
 </code></pre><p>Once connected we can do different things: run commands, configure the server, install/uninstall packages, etc. Now with this we can start to play and see some funny things we can do with SSH.</p>
 <h3 id="local-port-forwarding">Local Port Forwarding</h3>
 <p>I will explain the concept with an example: let&rsquo;s suppose we have a public server and behind it there is a private network that can have different private servers such as a database server. So as these servers are in a private network there is not a simple way to access these services. Some options to access these private services is to use a VPM or Local Port Forwarding. Local Porta Forwarding allows us to create a tunnel between a private service with our local machine via a public server that can access these private services.</p>
@@ -314,7 +314,7 @@ if (!doNotTrack) {
 <p>In case we want to access the private database server we need to be in the private network (something that is not true) because we are in our house&rsquo;s local network. Fortunately the public server <code>152.190.23.56</code> has access to the private network and it also can be accessed from the Internet.</p>
 <p>What we will do is to use this SSH&rsquo;s feature called Local Port Forwarding to create a secure channel through the public server <code>152.190.23.56</code> between the port <code>3306</code> in my local computer and the port <code>3306</code> in the private database server <code>10.100.1.23</code>.</p>
 <p>The execution format is as follows:</p>
-<pre><code>ssh -nNT -L portA:private_host:portB user@server
+<pre tabindex="0"><code>ssh -nNT -L portA:private_host:portB user@server
 </code></pre><p>Where:</p>
 <ul>
 <li><code>-n</code> avoids STDIN input i.e. avoids setting up a terminal session</li>
@@ -326,42 +326,41 @@ if (!doNotTrack) {
 <li><code>portB</code> remote service&rsquo;s port that is running in <code>private_host</code></li>
 </ul>
 <p>For our example it would be something like:</p>
-<pre><code>ssh -nNT -L 3306:10.100.1.23:3306 root@ip_droplet
+<pre tabindex="0"><code>ssh -nNT -L 3306:10.100.1.23:3306 root@ip_droplet
 </code></pre><p>It is important to note that in case we have MySQL installed in our local machine it would be a port conflict. In that case we can use something like.</p>
-<pre><code>ssh -nNT -L 3307:10.100.1.23:3306 root@ip_droplet
+<pre tabindex="0"><code>ssh -nNT -L 3307:10.100.1.23:3306 root@ip_droplet
 </code></pre><p>Let&rsquo;s suppose the case that users in our local network need to access this private service as well, the simplest solution would be these users to follow the same procedure but let&rsquo;s add the constraint that they don&rsquo;t have permissions to access the public server. In this case the solution would be that I do the same procedure but I expose my local port inside the local network so any user can connecto to my local ip address which in turn will connect to the remote private database server.</p>
 <p>Next diagram shows what we want to accomplish:</p>
 <p><img src="https://blog.donkeysharp.xyz/img/ssh_guide_2.png" alt=""></p>
 <p>In order to get this scenario working we only need at add an extra option to the execution:</p>
-<pre><code>ssh -nNT -L local_ip:portA:private_host:portB user@server
+<pre tabindex="0"><code>ssh -nNT -L local_ip:portA:private_host:portB user@server
 </code></pre><p>Donde</p>
 <ul>
 <li><code>local_ip</code> is our machine&rsquo;s local network IP address, in case we are in different networks and not sure of the our IP address we set it to <code>0.0.0.0</code> that will expose it in all the networks that are connected to.</li>
 </ul>
-<pre><code>ssh -nNT -L 192.168.1.100:3306:10.100.1.23:3306 root@ip_droplet
+<pre tabindex="0"><code>ssh -nNT -L 192.168.1.100:3306:10.100.1.23:3306 root@ip_droplet
 </code></pre><p>From the previous run all machines in our local network can connect to <code>192.168.1.100:3306</code> and that way they will access the MySQL server which is in a remote private network.</p>
 <h2 id="reproducing-the-example-in-our-public-server">Reproducing the example in our public server</h2>
 <p>One of the defaults behaviors in MuSQL is that it does not expose the <code>3306</code> to any network i.e. it is only available locally. So if we install MySQL in our public server the port <code>3306</code> will not be exposed to the Internet and we could consider it to be in a &ldquo;private network&rdquo; and apply what we learned so far.</p>
 <p>Once in the server we install MySQL by running:</p>
-<pre><code>$ sudo apt install mysql-server
+<pre tabindex="0"><code>$ sudo apt install mysql-server
 </code></pre><p>We want to make sure that MySQL is not exposing the <code>3306</code> port to the Internet.</p>
 <p>For that purpose we have two options:</p>
 <h3 id="use-netstat-internally">Use <code>netstat</code> internally</h3>
 <p>We will check that there is an open socket in port <code>3306</code> but this one is using address <code>127.0.0.1</code> i.e. only available to the same machine.</p>
-<pre><code>$ netstat -tlpn
+<pre tabindex="0"><code>$ netstat -tlpn
 </code></pre><p>The output will be similar to:</p>
-<pre><code>Active Internet connections (only servers)
+<pre tabindex="0"><code>Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      2722/mysqld
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      784/sshd
 tcp6       0      0 :::22                   :::*                    LISTEN      784/sshd
-
 </code></pre><p>And as expected we see that MySQL is exposing the <code>3306</code> only for the same machine and not accessible from any network (public or private).</p>
 <h3 id="using-nmap-externally">Using <code>nmap</code> externally</h3>
 <p>In order to check if port <code>3306</code> is open to the public we use <a href="https://nmap.org/">nmap</a>:</p>
-<pre><code>$ nmap -Pn server_ip -p 3306
+<pre tabindex="0"><code>$ nmap -Pn server_ip -p 3306
 </code></pre><p>And the output will be something like:</p>
-<pre><code>Starting Nmap 7.40 ( https://nmap.org ) at 2018-08-18 23:24 -04
+<pre tabindex="0"><code>Starting Nmap 7.40 ( https://nmap.org ) at 2018-08-18 23:24 -04
 Nmap scan report for 142.93.204.171
 Host is up (0.12s latency).
 PORT     STATE  SERVICE
@@ -369,18 +368,18 @@ PORT     STATE  SERVICE
 </code></pre><p><code>3306/tcp closed mysql</code> says that we cannot access this port from the outside.</p>
 <h3 id="using-local-port-forwarding">Using Local Port Forwarding</h3>
 <p>Now the question is: How can we access MySQL from outside?. There are different answers to this question but this post will use Local Port Forwarding to map a port from our local machine with a port that can only be accessed internally from the public server.</p>
-<pre><code>ssh -nNT -L 3306:localhost:3306 root@server_ip
+<pre tabindex="0"><code>ssh -nNT -L 3306:localhost:3306 root@server_ip
 </code></pre><p>This way we check in our computer that port <code>3306</code> should be open. To verify we run the next in our local machine.</p>
-<pre><code>$ netstat -tlpn
+<pre tabindex="0"><code>$ netstat -tlpn
 </code></pre><p>With an output similar to:</p>
-<pre><code>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+<pre tabindex="0"><code>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      23193/ssh
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
 </code></pre><p>Where <code>127.0.0.1:3306</code> says that port <code>3306</code> is only available for our local machine using a secure channel to the remote&rsquo;s server internal MySQL server.</p>
 <p>In addition we can make other machines in our local network to access our machine which in turn can access remote&rsquo;s internal MySQL server. We do that by running:</p>
-<pre><code>$ ssh -nNT -L 192.168.1.100:3306:localhost:3306 root@server_ip
+<pre tabindex="0"><code>$ ssh -nNT -L 192.168.1.100:3306:localhost:3306 root@server_ip
 </code></pre><p>To verify that it is available in our internal network we run:</p>
-<pre><code>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+<pre tabindex="0"><code>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
 tcp        0      0 192.1681.1.100:3306     0.0.0.0:*               LISTEN      23193/ssh
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -
 </code></pre><h2 id="final-comments">Final Comments</h2>

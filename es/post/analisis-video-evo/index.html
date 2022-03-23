@@ -93,7 +93,7 @@ La anterior semana una gran cantidad de clientes de un ISP local recibieron un S
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@donkeysharp" />
   <meta name="twitter:creator" content="@donkeysharp" />
-  <meta name="generator" content="Hugo 0.86.1" />
+  <meta name="generator" content="Hugo 0.95.0" />
   <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -106,7 +106,7 @@ La anterior semana una gran cantidad de clientes de un ISP local recibieron un S
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-112385104-1', 'auto');
+	ga('create', 'G-NE86EKXE5N', 'auto');
 	
 	ga('send', 'pageview');
 }
@@ -293,20 +293,20 @@ if (!doNotTrack) {
 <p>Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos <a href="https://twitter.com/lorddemon">Gonzalo</a> y <a href="https://twitter.com/crhystamil">Cristhian</a> me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.</p>
 <h2 id="el-video">El video</h2>
 <p>El video justamente era un archivo mp4 llamado <code>evo-telefono.mp4</code> con este sha512:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246
-</code></pre></div><p>Primeramente verificar que efectivamente es un mp4 viendo los <a href="https://asecuritysite.com/forensics/magic">magic numbers</a> del fichero. Generalmente los magic numbers de cualquier archivo son los primeros bytes de un archivo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246
+</span></span></code></pre></div><p>Primeramente verificar que efectivamente es un mp4 viendo los <a href="https://asecuritysite.com/forensics/magic">magic numbers</a> del fichero. Generalmente los magic numbers de cualquier archivo son los primeros bytes de un archivo.</p>
 <p>En el caso de un mp4 los bytes deberían ser: <code>00 00 00 (18 o 1C) 66 74 79 70 6D 70 34 32</code> y al correr:</p>
-<pre><code>$ hexdump -C evo-telefono.mp4 | head -n1
+<pre tabindex="0"><code>$ hexdump -C evo-telefono.mp4 | head -n1
 00000000  00 00 00 1c 66 74 79 70  6d 70 34 32 00 00 00 01  |....ftypmp42....|
 </code></pre><p>Efectivamente tiene esos magic numbers que identifican a un mp4. Una forma más simple de verificar es utilizando el comando <code>file</code>:</p>
-<pre><code>$ file evo-telefono.mp4
+<pre tabindex="0"><code>$ file evo-telefono.mp4
 evo-telefono.mp4: ISO Media, MP4 v2 [ISO 14496-14]
 </code></pre><h2 id="primeras-ideas">Primeras ideas</h2>
 <p>Para ver si encuentro algo interesante ejecuté el comando <code>strings</code> contra el video y ver si encontraba alguna cadena ASCII interesante, como la vulnerabilidad explica que el error radica en la metadata del archivo, entonces imaginé que la estructura era algo interno como &ldquo;clave-valor&rdquo; todo en ASCII, esa suposición la descarté al no encontrar nada interesante usando <code>strings</code>.</p>
-<pre><code>$ strings evo-telefono.mp4
+<pre tabindex="0"><code>$ strings evo-telefono.mp4
 </code></pre><p>La siguiente idea fue utilizar una herramienta que puede ver la metadata de diferentes formatos que se llama <code>mediainfo</code> y <code>mediainfo-gui</code>. Para esta primera etapa del análisis utilicé <code>mediainfo</code> porque no entendía muy bien la forma en como se presentaba con <code>mediainfo-gui</code>, pero esta gui más adelante fue de mucha más utilidad.</p>
 <p>Utilizando <code>mediainfo</code> contra el video <code>evo-telefono.mp4</code> obtuve la siguiente salida, pondré solo ciertas partes pero dejo este <a href="https://gist.github.com/donkeysharp/ecdfb633e2a75844019985cc61904c3c">gist</a> con la salida completa del comando.</p>
-<pre><code>$ mediainfo evo-telefono.mp4
+<pre tabindex="0"><code>$ mediainfo evo-telefono.mp4
 General
 Complete name                            : evo-telefono.mp4
 Format                                   : MPEG-4
@@ -330,7 +330,7 @@ Tagged date                              : UTC 2019-11-21 12:31:59
 <p>Horas después que pausé, mi amigo <a href="https://twitter.com/ElvinMollinedo">Elvin</a> envió este <a href="https://hackaday.com/2019/11/22/this-week-in-security-more-whatsapp-nextcry-hover-to-crash-and-android-permissions-bypass/">link de Hack A Day</a> que da un resumen de la vulnerabilidad y somo esta siendo explotada, muchísimas gracias por compartirlo fue uno de los recursos más importantes para esta investigación. La verdad cuando lo leí no entendí ciertos detalles que justamente eran los más importantes, no entendía aún la estructura de un archivo mp4.</p>
 <p><strong>Desde acá</strong> todos los pasos que sigo son solamente con el archivo <code>poc.mp4</code> y al final aplicaré lo aprendido a <code>evo-telefono.mp4</code>.</p>
 <p>Lo primero que hice es tratar de reproducir el único paso que menciona en el post de Hack A Day con la herramienta <code>AtomicParsley</code> contra <code>poc.mp4</code>. Al ejecutarlo me salió un <code>Segmentation Fault</code> pero lo mismo con <code>evo-telefono.mp4</code>, al parecer es más un error de la herramienta que ya anda descontinuada.</p>
-<pre><code>$ AtomicParsley poc.mp4 -T
+<pre tabindex="0"><code>$ AtomicParsley poc.mp4 -T
 
 Atom ftyp @ 0 of size: 24, ends @ 24
 Atom moov @ 24 of size: 794, ends @ 818
@@ -350,7 +350,7 @@ Segmentation fault
 </code></pre><p>Como se ve en la salida un montón de info que no entendía xD, pero algo que si mencionaban en el post de Hack A Day es la posición en bytes y que MP4 es una estructura jerárquica y la estructura básica de de MP4 es el &ldquo;Atom&rdquo; (existen diferentes tipos de atoms). Más adelante hablaré con más detalle sobre los Atoms.</p>
 <p>Cada atom tiene una cabecera que indica el size del atom. Al ser una estructura jerárquica un atom puede contener otros atoms dentro. Al ser así, el tamaño de un atom padre es el total de todos los bytes de los atom hijos y lo que se resalta y es mencionado en el post es lo siguiente:</p>
 <p>El atom <code>meta</code> tiene un tamaño de 117 bytes pero dentro de este atom hay un atom hijo sin nombre que tiene un tamaño de 6943 bytes que es mayor a los 117 bytes del padre y bueno eso da una pista.</p>
-<pre><code>         Atom  @ 152 of size: 6943, ends @ 7095 				 ~
+<pre tabindex="0"><code>         Atom  @ 152 of size: 6943, ends @ 7095 				 ~
 </code></pre><p>En el post posteriormente hace referencia a 33 bytes y 1.6GB del size del atom y bueno ahí me perdí y eso era efectivamente la clave para entender el error.</p>
 <p>Lo siguiente en hacer &ndash;ya lo había procrastinado suficiente&ndash; era leer las especificaciones de un archivo MP4. De los archivos que conseguí ninguno era al nivel que quería, es decir, a nivel de bytes. Por suerte, una vez más el post de Hack A Day hace referencia a dos documentos: la especificación en el sitio de <a href="https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html">Apple Developers</a> y otra especificación un <a href="http://xhelmboyx.tripod.com/formats/mp4-layout.txt">poco más rebuscada</a> y es donde se llega a entender completamente este error.</p>
 <h2 id="el-formato-mp4">El formato MP4</h2>
@@ -367,11 +367,11 @@ Segmentation fault
 <p>Un atom tiene una cabecera de 8 bytes donde los primeros 4 bytes indican el tamaño del atom y los siguientes 4 bytes el tipo de atom e.g. <code>moov</code>, <code>meta</code>, <code>hdlr</code> entre otros y luego vienen N bytes que son el contenido del atom, donde N es el tamaño del atom especificado en los primeros 4 bytes restando 8 bytes (la cabecera).</p>
 <p>Un ejemplo:</p>
 <p>Un atom de 794 bytes de tamaño de tipo <code>moov</code> se representaría como:</p>
-<pre><code>00 00 03 1A 6D 6F 6F 76 XX XX XX ... 786 bytes ... XX XX
+<pre tabindex="0"><code>00 00 03 1A 6D 6F 6F 76 XX XX XX ... 786 bytes ... XX XX
 </code></pre><p>Según la especificación los primeros 4 bytes son el tamaño, los siguientes 4 bytes son el tipo de atom y el resto es el cuerpo.</p>
 <p>Los primeros 4 bytes se pueden representar como <code>0x0000031A</code> o <code>0x31A</code> que en decimal es <code>794</code>.</p>
 <p>Los siguientes 4 bytes indican el tipo de atom que es texto ASCII, entonces solo es convertir los siguientes bytes a su caracter en ASCII y tendremos:</p>
-<pre><code>6D -&gt; m
+<pre tabindex="0"><code>6D -&gt; m
 6F -&gt; o
 6F -&gt; o
 76 -&gt; v
@@ -380,7 +380,7 @@ Segmentation fault
 <p>Existen casos especiales de algunos Atoms que tienen un formato especial. Un ejemplo de estos atoms especiales es que después del header no definimos directamente otro atom, es posible que algunos bytes esten reservados con algún propósito (flags, etc) y luego de estos bytes reservados recién es posible definir atoms hijos. <strong>Recuerden</strong> este párrafo ya que verán es la llave al éxito.</p>
 </blockquote>
 <p>Siguiendo con ejemplos en <code>poc.mp4</code>, hay un atom llamado <code>mdta</code> que es basicamente el nombre de key en la metadata (este atom tiene el key <code>com.android.version</code> que mencioné más arriba). Al igual que otro atom se lo representa con un header de 8 bytes y luego el contenido:</p>
-<pre><code>00 00 00 1B 6D 64 74 61 63 6F 6D 2E 61 6E 64 72 6F 69 64 2E 76 65 72 73 69 6F 6E
+<pre tabindex="0"><code>00 00 00 1B 6D 64 74 61 63 6F 6D 2E 61 6E 64 72 6F 69 64 2E 76 65 72 73 69 6F 6E
 </code></pre><p>Donde:</p>
 <ul>
 <li><code>0x0000001B</code> representa el tamaño que en decimal es 27 bytes</li>
@@ -404,13 +404,13 @@ The issue was present in parsing the elementary stream metadata of an MP4 file a
 <!-- raw HTML omitted -->
 <p><img src="https://blog.donkeysharp.xyz/img/vid-analysis-atom-meta-hex.png" alt=""></p>
 <!-- raw HTML omitted -->
-<pre><code>header size   meta type     header size   hdlr type
+<pre tabindex="0"><code>header size   meta type     header size   hdlr type
 -----------   -----------   -----------  -----------
 00 00 00 75   6d 65 74 61   00 00 00 21  68 64 6c 72 ...
 0x00000075    meta          0x00000021   hdlr
 0x75 o 117    meta          0x21 o 33    hdlr
 </code></pre><p>Lo que se ve en <code>mediainfo-gui</code> y en el hexadecimal tiene mucho sentido, pero si recordamos la salida de la aplicación <code>AtomicParsley</code> no sale en ningún momento el atom <code>hdlr</code> que efectivamente esta definido y en lugar de eso muestra un error de que un atom <em>sin nombre</em> tiene tamaño de 6943 bytes (mayor a los 117 de su atom padre <code>meta</code>).</p>
-<pre><code>$ AtomicParsley poc.mp4 -T
+<pre tabindex="0"><code>$ AtomicParsley poc.mp4 -T
 
 Atom ftyp @ 0 of size: 24, ends @ 24
 Atom moov @ 24 of size: 794, ends @ 818
@@ -432,7 +432,7 @@ Segmentation fault
 <p>Se ve que en <code>mediainfo-gui</code> todo se muestra bien, como si nada hubiera pasado y el formato esta correcto. Sin embargo, en <code>AtomicParsley</code> muestra un atom sin ningún tipo y tenemos un excedente en 4 bytes haciendo sumas y restas con la salida de <code>AtomicParsley</code>.</p>
 <p>Lo que sucede y logré deducir es lo siguiente, si vemos el tipo de archivo de <code>poc.mp4</code> suando el comando <code>file</code> se ve que es <code>ISO Media, MP4 v2 [ISO 14496-14]</code>. Pasa que el formato mp4 esta en base al estándar <code>ISO 14496-14</code> que es la continuación de otro estándar llamado <code>ISO 14496-12</code> y lo más interesante viene aca: en el post de Hack A Day menciona dos links de especificaciones el de <a href="https://developer.apple.com/library/archive/documentation/QuickTime/QTFF/Metadata/Metadata.html">Apple Developers</a> y uno un <a href="http://xhelmboyx.tripod.com/formats/mp4-layout.txt">poco más rebuscado</a>. En el segundo link indica claramente que es la especificación del estándar <code>ISO/IEC 14496-12</code> y justamente en este es donde indica que el atom <code>meta</code> despúes del header de 8 bytes tiene 4 bytes reservados (3 para flags y 1 para versión) y después de estos 4 bytes recién se pueden definir otros atoms hijo.</p>
 <p>De ser así y volviendo a analizar el hexadecimal se tiene lo siguiente:</p>
-<pre><code>                            4 bytes
+<pre tabindex="0"><code>                            4 bytes
 header size   meta type     reservados   header size  type inválido
 -----------   -----------   -----------  -----------  -----------
 00 00 00 75   6d 65 74 61   00 00 00 21  68 64 6c 72  00 00 00 00 ...
