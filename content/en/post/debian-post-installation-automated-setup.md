@@ -11,7 +11,7 @@ Basically what I was doing was to review my previous blog post and repeat those 
 
 
 ## The idea
-While I could have done this project using a simple Bash script, I was encouraged to use Bash + [Ansible] (https://docs.ansible.com/) for fun and practice :smile:.
+While I could have done this project using a simple Bash script, I was encouraged to use Bash + [Ansible](https://docs.ansible.com/) for fun and practice :smile:.
 
 What I had in mind when I started this project was that as soon as the installation of the operating system was finished (in my case the Debian distribution), I would only have to execute a command and "magically" all the applications, configurations, etc. on my [personal setup]({{< ref "post/my-computer-setup.md" >}}) would be applied.
 
