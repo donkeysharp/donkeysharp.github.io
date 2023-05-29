@@ -8,7 +8,7 @@
     <language>en</language>
     <lastBuildDate>Sun, 28 May 2023 21:08:04 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/es/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mocking EC2 metadata server locally</title>
+      <title>Servidor local para metadata de EC2</title>
       <link>https://blog.donkeysharp.xyz/es/mock-ec2-metadata/</link>
       <pubDate>Sun, 28 May 2023 21:08:04 -0400</pubDate>
       
