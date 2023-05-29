@@ -2,8 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.donkeysharp.xyz/mock-ec2-metadata/</loc>
+    <lastmod>2023-05-28T21:08:04-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/mock-ec2-metadata/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/mock-ec2-metadata/"
+                />
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/post/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2023-05-28T21:08:04-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -16,7 +29,7 @@
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/</loc>
-    <lastmod>2022-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2023-05-28T21:08:04-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"

@@ -6,7 +6,16 @@
     <description>Recent content on Sergio Guillen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2023 21:08:04 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mocking EC2 metadata server locally</title>
+      <link>https://blog.donkeysharp.xyz/mock-ec2-metadata/</link>
+      <pubDate>Sun, 28 May 2023 21:08:04 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/mock-ec2-metadata/</guid>
+      <description>Some time ago I was working on creating a local docker-based development environment for some microservices at work so developers can have the necessary infra components on their machines and that will help them with their daily tasks. Initially, the business logic of some microservices were a black box to me. After containerizing the applications and creating the docker-compose setup, some of them started failing and after checking the logs it turns out that the applications were using AWS SDK to get ec2 instance metadata.</description>
+    </item>
+    
     <item>
       <title>What Happens When A Linux Process Goes To Sleep?</title>
       <link>https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/</link>

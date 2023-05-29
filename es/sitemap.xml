@@ -4,6 +4,16 @@
   <url>
     <loc>https://blog.donkeysharp.xyz/es/mock-ec2-metadata/</loc>
     <lastmod>2023-05-28T21:08:04-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/mock-ec2-metadata/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/mock-ec2-metadata/"
+                />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/</loc>
     <lastmod>2023-05-28T21:08:04-04:00</lastmod>
