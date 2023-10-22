@@ -10,10 +10,10 @@
  
 
 
-      <title>Automating post-installation setup in my personal Debian machines - My Blog</title>
+      <title>Using Serverless Framework with AWS SSO - My Blog</title>
 
-  <meta name="description" content="Hi, some time ago I posted about my initial setup in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.
-Basically what I was doing was to review my previous blog post and repeat those steps.">
+  <meta name="description" content="In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.
+Serverless Framework is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to AWS SAM, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my ~/.">
   <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -49,8 +49,8 @@ Basically what I was doing was to review my previous blog post and repeat those 
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/blog.donkeysharp.xyz\/post\/debian-post-installation-automated-setup\/",
-          "name": "Automating post installation setup in my personal debian machines"
+          "@id": "https:\/\/blog.donkeysharp.xyz\/serverless-aws-sso\/",
+          "name": "Using serverless framework with aws sso"
         }
     }]
 }
@@ -61,15 +61,15 @@ Basically what I was doing was to review my previous blog post and repeat those 
   "author": {
     "name" : "Sergio Guillen"
   },
-  "headline": "Automating post-installation setup in my personal Debian machines",
-  "description" : "Hi, some time ago I posted about my initial setup in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.\nBasically what I was doing was to review my previous blog post and repeat those steps.",
+  "headline": "Using Serverless Framework with AWS SSO",
+  "description" : "In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.\nServerless Framework is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to AWS SAM, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my ~\/.",
   "inLanguage" : "en",
-  "wordCount":  869 ,
-  "datePublished" : "2019-05-13T21:45:39",
-  "dateModified" : "2019-05-13T21:45:39",
+  "wordCount":  586 ,
+  "datePublished" : "2023-10-22T17:51:02",
+  "dateModified" : "2023-10-22T17:51:02",
   "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/post\/debian-post-installation-automated-setup\/",
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/serverless-aws-sso\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/blog.donkeysharp.xyz",
@@ -83,16 +83,17 @@ Basically what I was doing was to review my previous blog post and repeat those 
 }
 </script>
 
-<meta property="og:title" content="Automating post-installation setup in my personal Debian machines" />
-<meta property="og:description" content="Hi, some time ago I posted about my initial setup in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.
-Basically what I was doing was to review my previous blog post and repeat those steps.">
+<meta property="og:title" content="Using Serverless Framework with AWS SSO" />
+<meta property="og:description" content="In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.
+Serverless Framework is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to AWS SAM, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my ~/.">
 <meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
-<meta property="og:url" content="https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/serverless-aws-sso/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Sergio Guillen" />
 
-  <meta name="twitter:title" content="Automating post-installation setup in my personal Debian machines" />
-  <meta name="twitter:description" content="Hi, some time ago I posted about my initial setup in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The …">
+  <meta name="twitter:title" content="Using Serverless Framework with AWS SSO" />
+  <meta name="twitter:description" content="In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.
+Serverless Framework is one of my favorite tools when I …">
   <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@donkeysharp" />
@@ -250,7 +251,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Automating post-installation setup in my personal Debian machines</h1>
+                <h1>Using Serverless Framework with AWS SSO</h1>
               
               
               
@@ -258,10 +259,10 @@ if (!doNotTrack) {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on May 13, 2019
+  <i class="fas fa-calendar"></i>&nbsp;Posted on October 22, 2023
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
   
   
@@ -269,7 +270,7 @@ if (!doNotTrack) {
       &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
     
   
-  &nbsp;&bull;&nbsp;Also in: <a href="https://blog.donkeysharp.xyz/es/post/automatizando-setup-post-instalacion-debian/" lang="es">Español</a>
+  &nbsp;&bull;&nbsp;Also in: <a href="https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/" lang="es">Español</a>
 </span>
 
 
@@ -288,56 +289,63 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Hi, some time ago I <a href="https://blog.donkeysharp.xyz/post/my-computer-setup/">posted about my initial setup</a> in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.</p>
-<p>Basically what I was doing was to review my previous blog post and repeat those steps. So far it has worked for me, but as it&rsquo;s becoming repetitive, I was encouraged to automate this whole process, both installation and configuration of certain applications and the configuration of the look and feel of the desktop (with the setup that I always use).</p>
-<h2 id="the-idea">The idea</h2>
-<p>While I could have done this project using a simple Bash script, I was encouraged to use Bash + <a href="https://docs.ansible.com/">Ansible</a> for fun and practice 😄.</p>
-<p>What I had in mind when I started this project was that as soon as the installation of the operating system was finished (in my case the Debian distribution), I would only have to execute a command and &ldquo;magically&rdquo; all the applications, configurations, etc. on my <a href="https://blog.donkeysharp.xyz/post/my-computer-setup/">personal setup</a> would be applied.</p>
-<h2 id="analyzing-the-project">Analyzing the Project</h2>
-<p>I posted this project on <a href="https://github.com/sguillen-proyectos/fresh-install-setup/">Github</a> if you want to see the source code.</p>
-<p>As this is a project that uses Ansible, there is a certain convention regarding the directory tree, file names, etc. I decided to use the following structure:</p>
-<pre tabindex="0"><code>├── init-setup.sh
-├── inventory
-├── README.md
-├── roles
-│   ├── chrome
-│   ├── common
-│   ├── docker
-│   ├── dotenvs
-│   │   ├── tasks
-│   │   └── templates
-│   ├── games
-│   │   └── tasks
-│   │       └── main.yml
-│   ├── mysql
-│   │   ├── files
-│   │   └── tasks
-│   ├── node
-│   ├── php7
-│   ├── virtualbox
-│   ├── vscode
-│   └── xfce4
-├── setup-playbook.yml
-└── update-desktop-layout.sh
-</code></pre><p>In Ansible what would be called the main program is the <code>playbook</code> which is responsible for executing different tasks against one or more servers, in this case, the main program for Ansible would be the file<code> setup-playbook.yml</code>. As you can see this file has a section called <code>roles</code>.</p>
-<blockquote>
-<p><strong>Note:</strong> In Ansible what is called a <code>role</code> references to a reusable piece of code (like a module). This allows us to have the project better organized and has an internal directory structure as seen in the directory tree above.</p>
-</blockquote>
-<p>I divided the project into different roles, each for a different purpose such as: a specific application or a group of applications including their settings. For example, in the role <code>common</code> install all the desktop utilities and command line utilities that I use every day. And in general there are roles for specific things that I use, Docker, software development tools, technologies and others. If you are more curious you can check the repo 😄.</p>
-<p>Continuing with the explanation, within Ansible there is a fairly important concept which is the <code>inventory</code>, which indicates all the servers where the tasks specified in the roles will be applied. This project has a file called <code>inventory</code> with particular options, since all the tasks will not be executed against several servers, but against one and it is the same local machine.</p>
-<pre tabindex="0"><code>[local]
-localhost ansible_connection=local
-</code></pre><p><code>[local]</code> is the group of servers, I named it <code>local</code> but it could be called anything, the important thing is that if you change its name, this name should also be reflected in<code> setup-playbook.yml</code> in <code>hosts: local</code>. Then the following lines indicate the hostname which in this case is <code>localhost</code> and<code> ansible_connection=local</code> which indicates that it will be a local execution and thus avoid the SSH authentication process that Ansible performs on each execution towards the same machine.</p>
-<p>Finally the <code>init-setup.sh</code> script is a wizard which asks for certain options before going through the entire installation and configuration process. This would become the &ldquo;magic&rdquo; command that takes care of everything:</p>
-<pre tabindex="0"><code>bash &lt;(wget -q -O- https://raw.githubusercontent.com/sguillen-proyectos/fresh-install-setup/master/init-setup.sh)
-</code></pre><h2 id="what-do-i-gain-with-this">What do I gain with this?</h2>
-<p>Well, first I learned a couple of things that I didn&rsquo;t know about Ansible, I had fun and the most important thing for me (besides that was the objective of this project) is that now I save all the time of manual configuration that I carried out in a newly operating system installation.</p>
-<p>Although I already had my <a href="https://blog.donkeysharp.xyz/post/my-computer-setup/">guide</a> of what packages to install and what configurations to perform, that took me between one and two hours, now all this time The setup is mainly conditioned to the speed of the internet.</p>
-<p>Something in this project that is quite useful for me is that I managed to standardize my desktop settings (in this case Xfce4), since in many occasions &ldquo;stylizing&rdquo; my desktop is what I wasted the most time on.</p>
-<h2 id="final-comments">Final Comments</h2>
-<p>Although this project is supposed to be for my personal setup, I decided to share it in case the idea of automating the environment serves any of the people who read this blog post.</p>
-<p>During the time I invested to carry out this project, several fun things happened that made me deny that I learned something new. I&rsquo;ll write about that series of unfortunate events in a next post.</p>
-<p>Happy Hacking!</p>
+        <p>In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.</p>
+<p><a href="https://www.serverless.com/framework/docs">Serverless Framework</a> is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to <a href="https://aws.amazon.com/serverless/sam/">AWS SAM</a>, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my <code>~/.aws/credentials</code> file. However this time I was using <a href="https://aws.amazon.com/what-is/sso/">AWS Single Sign-On</a> to access AWS API from my local computer. Unfortunately, when I wanted to deploy some Lambda functions using the <code>sls</code> CLI, I was not able to do it, it shows a message saying the AWS profile I was using was not configured, even I logged in successfully a couple minutes ago.</p>
+<pre tabindex="0"><code>$ export AWS_PROFILE=&#39;some-aws-sso-profile&#39;
+$ aws sso login
+# Logs in successfully
+$ sls deploy --stage dev
+DOTENV: Loading environment variables from .env:
+Deploying some-random-lambda to stage dev (us-east-1)
+
+✖ Stack some-random-lambda failed to deploy (64s)
+Environment: linux, node 18.16.0, framework 3.33.0 (local) 3.33.0v (global), plugin 6.2.3, SDK 4.3.2
+Docs:        docs.serverless.com
+Support:     forum.serverless.com
+Bugs:        github.com/serverless/serverless/issues
+
+Error:
+AWS profile &#34;some-aws-sso-profile&#34; doesn&#39;t seem to be configured
+</code></pre><p>So after some googling I discovered that Serverless <a href="https://github.com/serverless/serverless/issues/7567">does not support</a> AWS SSO, it appears that <code>sls</code> expects the <code>~/.aws/credentials</code> file to be configured, but AWS SSO doesn&rsquo;t require storing credentials locally since it generates temporary credentials each time you log in.</p>
+<p>I read that I can install a Serverless plugin named <a href="https://www.npmjs.com/package/serverless-better-credentials">Better Credentials</a>. However, I personally prefer to avoid installing and versioning a plugin that&rsquo;s only useful for local development.</p>
+<h2 id="how-aws-sso-store-credentials">How AWS SSO store credentials</h2>
+<p>After you login successfully, an access token is stored in a JSON file located at <code>~/.aws/sso/cache</code>. Fortunately, this access token can be used to obtain the actual ACCESS KEY and ACCESS SECRET KEY, which can be used added to the <code>~/.aws/credentials</code> file, which is the one <code>sls</code> CLI expects to be configured.</p>
+<p>The content of this JSON file looks like:</p>
+<pre tabindex="0"><code>{&#34;startUrl&#34;: &#34;https://&lt;some-id&gt;.awsapps.com/start#/&#34;, &#34;region&#34;: &#34;us-east-1&#34;, &#34;accessToken&#34;: &#34;&lt;an-access-token&gt;&#34;, &#34;expiresAt&#34;: &#34;2023-10-20T05:58:17Z&#34;}
+</code></pre><p>Additionally, my <code>~/.aws/config</code> file includes the next SSO configuration:</p>
+<pre tabindex="0"><code>[profile some-aws-sso-profile]
+sso_start_url = https://&lt;some-id&gt;.awsapps.com/start#/
+sso_region = us-east-1
+sso_account_id = 123456789012
+sso_role_name = MyRoleName
+region = us-east-1
+</code></pre><p>In order to retrieve the actual ACCESS KEY and ACCESS SECRET KEY execute the next command:</p>
+<pre tabindex="0"><code>$ export SSO_TOKEN=&#39;token-from-the-json-file&#39;
+$ aws sso get-role-credentials --access-token $SSO_TOKEN --role-name MyRoleName --account-id 123456789012
+
+{
+    &#34;roleCredentials&#34;: {
+        &#34;accessKeyId&#34;: &#34;an-access-key&#34;,
+        &#34;secretAccessKey&#34;: &#34;a-secret-access-key&#34;,
+        &#34;sessionToken&#34;: &#34;a-session-token&#34;
+        &#34;expiration&#34;: 1698038986000
+    }
+}
+</code></pre><p>This information can be added to the <code>~/.aws/credentials</code> file using the same AWS profile name, which will make the <code>sls</code> CLI work as expected.</p>
+<h2 id="introducing-aws-sso-creds-helper-util">Introducing <code>aws-sso-creds-helper</code> util</h2>
+<p>Although the solution previously mentioned will work, it involves several manual steps. Fortunately there is a utility that automates this process. It is a JS utility known as <a href="https://www.npmjs.com/package/aws-sso-creds-helper">aws-sso-creds-helper</a>.</p>
+<pre tabindex="0"><code>$ npm install -g aws-sso-creds-helper
+</code></pre><h2 id="putting-it-all-together">Putting it all together</h2>
+<p>The final step is integrating all these elements. To make the entire solution work, all you need to do is execute the <code>ssocreds</code> command immediately after using AWS SSO login.</p>
+<pre tabindex="0"><code>$ export AWS_PROFILE=&#39;some-aws-sso-profile&#39;
+$ aws sso login
+# Logs in successfully
+$ ssocreds -p $AWS_PROFILE
+# Adds the temporal credentials to the ~/.aws/credentials file
+$ sls deploy --stage dev
+# It deploys successfully
+</code></pre><h2 id="final-thoughts">Final thoughts</h2>
+<p>Despite the introduction of an extra tool to work with AWS SSO, I find this solution to be elegant as it eliminates the need to modify or add extra dependencies to the project solely for local development purposes.</p>
 
 
         
@@ -355,13 +363,9 @@ localhost ansible_connection=local
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://blog.donkeysharp.xyz/post/fun-with-ssh-part-1/" data-toggle="tooltip" data-placement="top" title="Fun with SSH - Local Port Forwarding">&larr; Previous Post</a>
+              <a href="https://blog.donkeysharp.xyz/mock-ec2-metadata/" data-toggle="tooltip" data-placement="top" title="Mocking EC2 metadata server locally">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://blog.donkeysharp.xyz/post/analyzing-evo-video/" data-toggle="tooltip" data-placement="top" title="Analyzing a Video Looking for Possible Malware">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

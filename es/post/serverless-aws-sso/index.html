@@ -10,9 +10,10 @@
  
 
 
-      <title>Overview of all pages with the category #Categories - Mi Blog</title>
+      <title>Usando Serverless Framework con AWS SSO - Mi Blog</title>
 
-  <meta name="description" content="Overview of all pages with the category #Categories, such as: %!s(&lt;nil&gt;)">
+  <meta name="description" content="En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.
+Serverless Framework es una de mis herramientas preferidas al trabajar con AWS Lambda y otros servicios serverless. Es una alternativa a AWS SAM, pero personalmente prefiero Serverless Framework debido a su compatibilidad con diversos cloud providers y plugins. Ya he usado Serverless Framework antes para acceder a las API de AWS configurando el archivo ~/.">
   <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -33,14 +34,66 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/blog.donkeysharp.xyz\/es\/post\/serverless-aws-sso\/",
+          "name": "Usando serverless framework con aws sso"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Sergio Guillen"
+  },
+  "headline": "Usando Serverless Framework con AWS SSO",
+  "description" : "En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.\nServerless Framework es una de mis herramientas preferidas al trabajar con AWS Lambda y otros servicios serverless. Es una alternativa a AWS SAM, pero personalmente prefiero Serverless Framework debido a su compatibilidad con diversos cloud providers y plugins. Ya he usado Serverless Framework antes para acceder a las API de AWS configurando el archivo ~\/.",
+  "inLanguage" : "es",
+  "wordCount":  588 ,
+  "datePublished" : "2023-10-22T17:51:02",
+  "dateModified" : "2023-10-22T17:51:02",
+  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/es\/post\/serverless-aws-sso\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/blog.donkeysharp.xyz",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
-<meta property="og:title" content="Categories" />
+<meta property="og:title" content="Usando Serverless Framework con AWS SSO" />
+<meta property="og:description" content="En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.
+Serverless Framework es una de mis herramientas preferidas al trabajar con AWS Lambda y otros servicios serverless. Es una alternativa a AWS SAM, pero personalmente prefiero Serverless Framework debido a su compatibilidad con diversos cloud providers y plugins. Ya he usado Serverless Framework antes para acceder a las API de AWS configurando el archivo ~/.">
 <meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
-<meta property="og:url" content="https://blog.donkeysharp.xyz/es/categories/" />
+<meta property="og:url" content="https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Sergio Guillen" />
 
-  <meta name="twitter:title" content="Categories" />
+  <meta name="twitter:title" content="Usando Serverless Framework con AWS SSO" />
+  <meta name="twitter:description" content="En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.
+Serverless Framework es una de mis herramientas …">
   <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@donkeysharp" />
@@ -196,14 +249,31 @@ if (!doNotTrack) {
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="categories-heading">
+            <div class="post-heading">
               
-                <h1>Categories</h1>
-              
-              
-                <hr class="small">
+                <h1>Usando Serverless Framework con AWS SSO</h1>
               
               
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Publicado el Oct 22, 2023
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutos
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
+    
+  
+  &nbsp;&bull;&nbsp;También en: <a href="https://blog.donkeysharp.xyz/serverless-aws-sso/" lang="en">English</a>
+</span>
+
+
               
             </div>
           </div>
@@ -215,20 +285,104 @@ if (!doNotTrack) {
 
 
     
-
-
-
 <div class="container" role="main">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    <article class="post-preview">
-      <div class="panel-group" id="accordion">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.</p>
+<p><a href="https://www.serverless.com/framework/docs">Serverless Framework</a> es una de mis herramientas preferidas al trabajar con AWS Lambda y otros servicios serverless. Es una alternativa a <a href="https://aws.amazon.com/serverless/sam/">AWS SAM</a>, pero personalmente prefiero Serverless Framework debido a su compatibilidad con diversos cloud providers y plugins. Ya he usado Serverless Framework antes para acceder a las API de AWS configurando el archivo <code>~/.aws/credentials</code>. Sin embargo, esta vez me tocó utilizar <a href="https://aws.amazon.com/what-is/sso/">AWS Single Sign-On</a> para acceder a las API de AWS desde mi computadora local. Lamentablemente, al intentar hacer deploy de funciones Lambda con la CLI de <code>sls</code> tuve algunos errores. Mostró un mensaje de error que indicaba que el AWS profile que estaba utilizando no estaba configurado, a pesar de haber iniciado sesión con éxito hace unos minutos.</p>
+<pre tabindex="0"><code>$ export AWS_PROFILE=&#39;some-aws-sso-profile&#39;
+$ aws sso login
+# Logs in successfully
+$ sls deploy --stage dev
+DOTENV: Loading environment variables from .env:
+Deploying some-random-lambda to stage dev (us-east-1)
+
+✖ Stack some-random-lambda failed to deploy (64s)
+Environment: linux, node 18.16.0, framework 3.33.0 (local) 3.33.0v (global), plugin 6.2.3, SDK 4.3.2
+Docs:        docs.serverless.com
+Support:     forum.serverless.com
+Bugs:        github.com/serverless/serverless/issues
+
+Error:
+AWS profile &#34;some-aws-sso-profile&#34; doesn&#39;t seem to be configured
+</code></pre><p>Después de investigar un poco, descubrí que Serverless <a href="https://github.com/serverless/serverless/issues/7567">no es compatible</a> con AWS SSO. Parece que <code>sls</code> espera que el archivo <code>~/.aws/credentials</code> esté configurado, pero AWS SSO no requiere almacenar credenciales localmente, ya que genera credenciales temporales cada vez que inicias sesión.</p>
+<p>También aprendí que podía instalar un plugin de Serverless llamado <a href="https://www.npmjs.com/package/serverless-better-credentials">Better Credentials</a>. Sin embargo, personalmente prefiero evitar instalar y versionar un plugin que solo es útil para el desarrollo local.</p>
+<h2 id="cómo-aws-sso-almacena-las-credenciales">Cómo AWS SSO almacena las credenciales</h2>
+<p>Tras iniciar sesión con éxito, un access token se guarda en un archivo JSON en <code>~/.aws/sso/cache</code>. Afortunadamente, este token de acceso se puede utilizar para obtener la ACCESS KEY y SECRET ACCESS KEY reales, que luego se pueden agregar al archivo <code>~/.aws/credentials</code>, que la CLI <code>sls</code> espera que este configurado. El contenido de este archivo JSON se ve así:</p>
+<pre tabindex="0"><code>{
+  &#34;startUrl&#34;: &#34;https://&lt;some-id&gt;.awsapps.com/start#/&#34;,
+  &#34;region&#34;: &#34;us-east-1&#34;,
+  &#34;accessToken&#34;: &#34;&lt;access-token&gt;&#34;,
+  &#34;expiresAt&#34;: &#34;2023-10-20T05:58:17Z&#34;
+}
+</code></pre><p>Además, mi archivo <code>~/.aws/config</code> incluye la siguiente configuración de SSO:</p>
+<pre tabindex="0"><code>[profile some-aws-sso-profile]
+sso_start_url = https://&lt;some-id&gt;.awsapps.com/start#/
+sso_region = us-east-1
+sso_account_id = 123456789012
+sso_role_name = MyRoleName
+region = us-east-1
+</code></pre><p>Para obtener ACCESS KEY y SECRET ACCESS KEY, se debe ejecutar el siguiente comando:</p>
+<pre tabindex="0"><code>$ export SSO_TOKEN=&#39;token-del-archivo-json&#39;
+$ aws sso get-role-credentials --access-token $SSO_TOKEN --role-name MyRoleName --account-id 123456789012
+
+{
+    &#34;roleCredentials&#34;: {
+        &#34;accessKeyId&#34;: &#34;una-clave-de-acceso&#34;,
+        &#34;secretAccessKey&#34;: &#34;una-clave-de-acceso-secreta&#34;,
+        &#34;sessionToken&#34;: &#34;un-token-de-sesión&#34;,
+        &#34;expiration&#34;: 1698038986000
+    }
+}
+</code></pre><p>Esta información se puede agregar al archivo <code>~/.aws/credentials</code> utilizando el mismo nombre de perfil de AWS, lo que permite que <code>sls</code> funcione.</p>
+<h2 id="presentando-aws-sso-creds-helper">Presentando <code>aws-sso-creds-helper</code></h2>
+<p>Aunque la solución mencionada anteriormente funciona, implica varios pasos manuales. Afortunadamente, existe una utilidad que automatiza este proceso. Se trata de una utilidad JavaScript conocida como <a href="https://www.npmjs.com/package/aws-sso-creds-helper">aws-sso-creds-helper</a>.</p>
+<pre tabindex="0"><code>$ npm install -g aws-sso-creds-helper
+</code></pre><h2 id="poniéndolo-todo-junto">Poniéndolo todo junto</h2>
+<p>El paso final es integrar todos estos elementos. Para que la solución funcione en su totalidad, todo lo que debes hacer es ejecutar el comando <code>ssocreds</code> inmediatamente después de iniciar sesión con AWS SSO.</p>
+<pre tabindex="0"><code>$ export AWS_PROFILE=&#39;some-aws-sso-profile&#39;
+$ aws sso login
+# Inicio de sesión exitoso
+$ ssocreds -p $AWS_PROFILE
+# Agrega las credenciales temporales al archivo ~/.aws/credentials
+$ sls deploy --stage dev
+# deployment exitoso
+</code></pre><h2 id="pensamientos-finales">Pensamientos finales</h2>
+<p>A pesar de la introducción de una herramienta adicional para trabajar con AWS SSO, considero que esta solución es elegante, ya que elimina la necesidad de modificar o agregar dependencias adicionales al proyecto solo con el fin de utilizarlo en desarrollo local.</p>
+
+
         
-      </div>
-    </article>
+
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://blog.donkeysharp.xyz/es/mock-ec2-metadata/" data-toggle="tooltip" data-placement="top" title="Simulando servidor de metadata de EC2 localmente">&larr; Artículo anterior</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
   </div>
 </div>
-
-
 
     
 <footer>
@@ -263,7 +417,7 @@ if (!doNotTrack) {
           </li>
       
       <li>
-        <a target="_blank" href="https://blog.donkeysharp.xyz/es/categories/index.xml" title="RSS">
+        <a target="_blank" href="" title="RSS">
           <span class="fa-stack fa-lg">
             <i class="fas fa-circle fa-stack-2x"></i>
             <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

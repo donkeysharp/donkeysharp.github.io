@@ -6,7 +6,17 @@
     <description>Recent content in Post on Sergio Guillen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 May 2023 21:08:04 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Oct 2023 17:51:02 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Serverless Framework with AWS SSO</title>
+      <link>https://blog.donkeysharp.xyz/serverless-aws-sso/</link>
+      <pubDate>Sun, 22 Oct 2023 17:51:02 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/serverless-aws-sso/</guid>
+      <description>In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.
+Serverless Framework is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to AWS SAM, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my ~/.</description>
+    </item>
+    
     <item>
       <title>Mocking EC2 metadata server locally</title>
       <link>https://blog.donkeysharp.xyz/mock-ec2-metadata/</link>
@@ -23,7 +33,7 @@
       
       <guid>https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/</guid>
       <description>It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.
- I appreciate your feedback. I am not an expert on this topic as Linux Kernel&amp;rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&amp;rsquo;s source code, and wanted to share what I learned.</description>
+I appreciate your feedback. I am not an expert on this topic as Linux Kernel&amp;rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&amp;rsquo;s source code, and wanted to share what I learned.</description>
     </item>
     
     <item>
@@ -74,7 +84,7 @@ Why I wrote this app? First I wanted to share a directory in a local network wit
       <guid>https://blog.donkeysharp.xyz/post/my-computer-setup/</guid>
       <description>Update
 2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
- In this post I show the applications and settings I commonly use for my local development machine.
+In this post I show the applications and settings I commonly use for my local development machine.
 Operating System: GNU/Linux - Debian Stretch
 Dektop Manager: xfce4
 Frequently Used Applications This is the list of application I frequently use and try to have them installed after I have a fresh computer. Some applications are general purpose and others are related with programming, things I investigate, my job and personal projects.</description>
@@ -87,7 +97,7 @@ Frequently Used Applications This is the list of application I frequently use an
       
       <guid>https://blog.donkeysharp.xyz/post/my-first-post/</guid>
       <description>Hi, I am Sergio Guillen Mantilla publishing via Github pages 😄.
-This is a project I will take again and publish content different than my previous blogwhich was mostly about Microsoft technologies. Since I stopped using this kind of technologies —that I still get impressed with them e.g. C#— I had the good luck to meet new technologies, so I want to share some experiences I had with them or stuff I&amp;rsquo;ve been researching.</description>
+This is a project I will take again and publish content different than my previous blog which was mostly about Microsoft technologies. Since I stopped using this kind of technologies —that I still get impressed with them e.g. C#— I had the good luck to meet new technologies, so I want to share some experiences I had with them or stuff I&amp;rsquo;ve been researching.</description>
     </item>
     
   </channel>
