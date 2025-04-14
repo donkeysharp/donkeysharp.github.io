@@ -6,7 +6,16 @@
     <description>Recent content on Sergio Guillen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 22 Oct 2023 17:51:02 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/es/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Apr 2025 17:51:02 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guía del fin del mundo para el USD en Bolivia</title>
+      <link>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</link>
+      <pubDate>Sun, 13 Apr 2025 17:51:02 -0400</pubDate>
+      
+      <guid>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</guid>
+      <description>En Bolivia hace unos 15 años aproximadamente pensar en comprar por internet no era algo simple, salvo tengas una tarjeta de crédito cosa que no es algo simple como abrir una cuenta de banco (esto hasta hoy por la burocracia de los bancos), por esos motivos, varios bancos comenzaron a permitir hacer compras por internet utilizando las tarjetas de débito que los bancos ofrecen. Eso facilitó muchas cosas y era mucho más simple acceder a diferentes servicios que antes no eran del todo simples.</description>
+    </item>
+    
     <item>
       <title>Usando Serverless Framework con AWS SSO</title>
       <link>https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/</link>
@@ -132,15 +141,6 @@ Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más f
       <guid>https://blog.donkeysharp.xyz/es/post/mi-primer-post/</guid>
       <description>Hola, soy Sergio Guillen Mantilla&amp;hellip; en forma de github pages 😄
 Este es un proyecto el cual retomaré distinto del contenido de mi antiguo blog que en su mayoría era orientado a tecnologías Microsoft. Desde que dejé de usar estas tecnologías —que aún me impresionan un montón como C#— tuve la suerte de conocer otras tecnologías de las cuales deseo compartir algunas experiencias que tuve o una que otra cosa que voy investigando.</description>
-    </item>
-    
-    <item>
-      <title>Guía del fin del mundo para el USD en Bolivia</title>
-      <link>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</guid>
-      <description>En Bolivia hace unos 15 años aproximadamente pensar en comprar por internet no era algo simple, salvo tengas una tarjeta de crédito cosa que no es algo simple como abrir una cuenta de banco (esto hasta hoy por la burocracia de los bancos), por esos motivos, varios bancos comenzaron a permitir hacer compras por internet utilizando las tarjetas de débito que los bancos ofrecen. Eso facilitó muchas cosas y era mucho más simple acceder a diferentes servicios que antes no eran del todo simples.</description>
     </item>
     
   </channel>

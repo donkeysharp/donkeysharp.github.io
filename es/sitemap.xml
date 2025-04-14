@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</loc>
+    <lastmod>2025-04-13T17:51:02-04:00</lastmod>
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/</loc>
-    <lastmod>2023-10-22T17:51:02-04:00</lastmod>
+    <lastmod>2025-04-13T17:51:02-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +19,7 @@
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/es/</loc>
-    <lastmod>2023-10-22T17:51:02-04:00</lastmod>
+    <lastmod>2025-04-13T17:51:02-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -165,8 +168,6 @@
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/categories/"
                 />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</loc>
   </url><url>
     <loc>https://blog.donkeysharp.xyz/es/about/</loc>
     <xhtml:link
