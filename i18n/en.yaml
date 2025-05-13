@@ -1,7 +1,0 @@
-- id: translationsLabel
-  translation: "Also in: "
-- id: poweredBy # Accepts HTML
-  translation: |
-    Powered by <a target="_" href="https://gohugo.io">Hugo</a>.
-    &nbsp;&bull;&nbsp;
-    Theme <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
