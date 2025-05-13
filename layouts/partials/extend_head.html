@@ -1,0 +1,11 @@
+<!-- Google tag (gtag.js) -->
+{{- if site.Params.analytics.google.SiteVerificationTag }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.Params.analytics.google.SiteVerificationTag }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', '{{ site.Params.analytics.google.SiteVerificationTag }}');
+</script>
+{{- end }}
