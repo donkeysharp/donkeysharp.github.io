@@ -29,7 +29,16 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://blog.donkeysharp.xyz/mock-ec2-metadata/">
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NE86EKXE5N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NE86EKXE5N');
+</script>
+<meta property="og:url" content="https://blog.donkeysharp.xyz/mock-ec2-metadata/">
   <meta property="og:site_name" content="Donkeysharp">
   <meta property="og:title" content="Mocking EC2 metadata server locally">
   <meta property="og:description" content="Some time ago I was working on creating a local docker-based development environment for some microservices at work so developers can have the necessary infra components on their machines and that will help them with their daily tasks. Initially, the business logic of some microservices were a black box to me. After containerizing the applications and creating the docker-compose setup, some of them started failing and after checking the logs it turns out that the applications were using AWS SDK to get ec2 instance metadata.">

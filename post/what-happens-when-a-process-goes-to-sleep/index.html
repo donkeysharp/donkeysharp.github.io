@@ -31,7 +31,16 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
         }
 
     </style>
-</noscript><meta property="og:url" content="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/">
+</noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NE86EKXE5N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-NE86EKXE5N');
+</script>
+<meta property="og:url" content="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/">
   <meta property="og:site_name" content="Donkeysharp">
   <meta property="og:title" content="What Happens When A Linux Process Goes To Sleep?">
   <meta property="og:description" content="It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.
