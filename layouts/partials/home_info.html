@@ -1,0 +1,49 @@
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+  <!-- <header class="entry-header">
+    <h1>{{ .Title | markdownify }}</h1>
+  </header> -->
+  <div class="entry-content">
+    <img class="donkeysharp" src="/donkeysharp.png" />
+    <!-- <p>{{ .Content | markdownify }}</p> -->
+    <div class="terminal-container" id="terminal-container">
+      <div class="terminal" id="terminal">blog@donkeysharp:~$</div><span class="caret" id="caret"></span><br />
+    </div>
+  </div>
+  <footer class="entry-footer">
+    {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+  </footer>
+</article>
+{{- end -}}
+
+<script>
+  const TYPE_SPEED = 70;
+  const language = document.documentElement.lang;
+  console.log(language)
+  let text = ' echo "Welcome! I usually share content about GNU/Linux, cloud and programming. Happy hacking! 👾"';
+  if (language == 'es') {
+    text = ' echo "Hola! Usualmente comparto contenido sobre GNU/Linux, cloud y programación. Happy hacking! 👾"';
+  }
+  const terminal = document.getElementById('terminal');
+  let index = 0;
+
+  function displayNormal() {
+    document.querySelector('#terminal-container').remove();
+    const p = document.createElement('p');
+    p.innerText = text.replace('echo', '').replace('"', '').replace('"', '');
+    document.querySelector('.entry-content').appendChild(p);
+  }
+
+  function terminalType() {
+    if (index < text.length) {
+      terminal.textContent += text.charAt(index);
+      index++;
+      setTimeout(terminalType, TYPE_SPEED);
+    } else {
+      document.querySelector('#caret').style.animation = 'blink 0.7s steps(1) infinite'
+      terminal.innerHTML += '<br/>';
+      setTimeout(displayNormal, 2000);
+    }
+  }
+  terminalType();
+</script>

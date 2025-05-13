@@ -1,0 +1,111 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Donkeysharp
+theme: ["PaperMod"]
+copyright: "© [Donkeysharp](https://x.com/donkeysharp)"
+
+## Papermod settings
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: Archive
+          url: archive
+          weight: 5
+        - name: About Me
+          url: about/
+  es:
+    languageName: "Español"
+    weight: 2
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: Archivo
+          url: archive
+          weight: 5
+        - name: Sobre mí
+          url: about/
+    params:
+      homeInfoParams:
+        Title: "Mi Blog"
+        Content: >
+          👾 Bienvenid@! Comaparto contenido sobre programación y cosas de Linux! 👾
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Personal Blog - Donkeysharp"
+  author: donkeysharp
+
+  defaultTheme: light
+  ShowShareButtons: true
+  ShowReadingTime: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  # comments: false
+  images: ["images/papermod-cover.png"]
+
+  homeInfoParams:
+    Title: "My Blog"
+    Content: >
+      👾 Welcome! I share mostly programming-related and Linux stuff! 👾
+
+
+  socialIcons:
+    - name: github
+      title: View Source on Github
+      url: "https://github.com/donkeysharp"
+    - name: X
+      title: Share PaperMod on X/Twitter
+      url: "https://x.com/donkeysharp"
+    - name: Instagram
+      title: Share PaperMod on X/Twitter
+      url: "https://instagram.com/sergio.guillen.m"
+
+  assets:
+    disableHLJS: true
+
+  # analytics:
+  #   google:
+  #     SiteVerificationTag: "XYZabc"
+  #   bing:
+  #     SiteVerificationTag: "XYZabc"
+  #   yandex:
+  #     SiteVerificationTag: "XYZabc"
+
+  # cover:
+  #   hidden: true # hide everywhere but not in structured data
+  #   hiddenInList: true # hide on list pages and home
+  #   hiddenInSingle: true # hide on single page
