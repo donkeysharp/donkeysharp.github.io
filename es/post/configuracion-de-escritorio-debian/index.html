@@ -1,312 +1,244 @@
 <!DOCTYPE html>
-<html lang="es" itemscope itemtype="http://schema.org/WebPage">
-  <head>
-    
+<html lang="es" dir="auto">
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Mis Configuraciones De Escritorio en Debian | Donkeysharp</title>
+<meta name="keywords" content="">
+<meta name="description" content="
+Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+Sistema Operativo: GNU/Linux - Debian Stretch
+Dektop Manager: xfce4
+Aplicaciones usadas frecuentemente
+Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.">
+<meta name="author" content="donkeysharp">
+<link rel="canonical" href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5e527a53ba71ca5f4055f7a87232df40d551cf0ad74e23ec98a5c1e9587fbaf9.css" integrity="sha256-XlJ6U7pxyl9AVfeocjLfQNVRzwrXTiPsmKXB6Vh/uvk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.donkeysharp.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.donkeysharp.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.donkeysharp.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.donkeysharp.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.donkeysharp.xyz/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://blog.donkeysharp.xyz/posts/my-computer-setup/">
+<link rel="alternate" hreflang="es" href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
- 
-
-
-      <title>Mis Configuraciones De Escritorio en Debian - Mi Blog</title>
-
-  <meta name="description" content="Update
+    </style>
+</noscript><meta property="og:url" content="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/">
+  <meta property="og:site_name" content="Donkeysharp">
+  <meta property="og:title" content="Mis Configuraciones De Escritorio en Debian">
+  <meta property="og:description" content=" Update
 2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
 En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
 Sistema Operativo: GNU/Linux - Debian Stretch
 Dektop Manager: xfce4
 Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.">
-  <meta name="author" content="Sergio Guillen"/><script type="application/ld+json">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-03-09T23:15:16-04:00">
+    <meta property="article:modified_time" content="2018-03-09T23:15:16-04:00">
+      <meta property="og:image" content="https://blog.donkeysharp.xyz/images/papermod-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.donkeysharp.xyz/images/papermod-cover.png">
+<meta name="twitter:title" content="Mis Configuraciones De Escritorio en Debian">
+<meta name="twitter:description" content="
+Update
+2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
+En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
+Sistema Operativo: GNU/Linux - Debian Stretch
+Dektop Manager: xfce4
+Aplicaciones usadas frecuentemente
+Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.">
+
+
+<script type="application/ld+json">
 {
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "name": "Sergio Guillen",
-    
-    "url": "https:\/\/blog.donkeysharp.xyz"
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "name": "",
-  "url": "https:\/\/blog.donkeysharp.xyz"
-  
-  
-  
-  
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://blog.donkeysharp.xyz/es/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Mis Configuraciones De Escritorio en Debian",
+      "item": "https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/"
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
 {
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@id": "https:\/\/blog.donkeysharp.xyz",
-          "name": "home"
-        }
-    },{
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@id": "https:\/\/blog.donkeysharp.xyz\/es\/post\/configuracion-de-escritorio-debian\/",
-          "name": "Mis configuraciones de escritorio en debian"
-        }
-    }]
-}
-</script><script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Article",
-  "author": {
-    "name" : "Sergio Guillen"
-  },
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
   "headline": "Mis Configuraciones De Escritorio en Debian",
-  "description" : "Update\n2018-04-28 Added more packages I use and new settings I do (reinstalled machine)\nEn esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.\nSistema Operativo: GNU\/Linux - Debian Stretch\nDektop Manager: xfce4\nAplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.",
-  "inLanguage" : "es",
-  "wordCount":  953 ,
-  "datePublished" : "2018-03-09T23:15:16",
-  "dateModified" : "2018-03-09T23:15:16",
-  "image" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
-  "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/blog.donkeysharp.xyz\/es\/post\/configuracion-de-escritorio-debian\/",
-  "publisher" : {
+  "name": "Mis Configuraciones De Escritorio en Debian",
+  "description": " Update\n2018-04-28 Added more packages I use and new settings I do (reinstalled machine)\nEn esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.\nSistema Operativo: GNU/Linux - Debian Stretch\nDektop Manager: xfce4\nAplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.\n",
+  "keywords": [
+    
+  ],
+  "articleBody": " Update\n2018-04-28 Added more packages I use and new settings I do (reinstalled machine)\nEn esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.\nSistema Operativo: GNU/Linux - Debian Stretch\nDektop Manager: xfce4\nAplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.\nGnome file roller para comprimir archivos file-roller Font Viewer para la instalación de fuentes gnome-font-viewer Google Chrome Terminal music player mocp Vim editor, para edición por línea de comandos y servidores vim Build essentials build-essential SublimeText3 editor de texto que uso para casi todo. Emacs editor de texto que uso para algunas cosas emacs Redshift para cambiar la temperatura del monitor redshift Kazam para grabar el escritorio kazam Kupfer similar a Spotlight para búsquedas rápidas kupfer Shutter para screenshots shutter Editor de gráficos vectoriales inkscape Gnome Hex Editor ghex Meld para comparar diferencias entre dos archivos meld Armagetron, juego basado en Tron armagetronad DOSBox emulador de juegos antiguos de DOS dosbox Drivers faltantes firmware-linux-free firmware-linux-nonfree Ristretto Image viewer Ettercap para investigación de ataques MITM, pensé en usar Bettercap pero no soy un fanático de Ruby Transmission cliente bit torrent transmission Wireshark para interceptar paquetes de red wireshark Slack messaging, personalmente uso la versión web gran parte del tiempo, pero cuando necesito compartir mi escritorio es cuando uso la versión de escritorio (descargar de su sitio) Pavu Controller para configuraciones de audio pavucontrol VLC Media Player vlc Evince como visor de pdf evince xCHM visor de archivos .chm xchm Utildad para manejar discos gparted Información del hardware hardinfo Docker Community Edition NodeJs Esta es otra lista de aplicaciones que utilizo con más frecuencia específicamente en línea de comandos:\nTerminal multiplexer tmux htop visor de procesos basado en ncurses htop Tracer de llamadas al sistema strace Cliente HTTP curl Utilidades de DNS dnsutils Instalar sudo Compresores zip sudo Obviamente hay otros paquetes para cosas bastante específicas los cuales los instalando cuando es necesario.\nEscritorio Uso xfce4 con dos panels ambos en la parte superior. El primero contiene el menú de aplicación con el logo de Debian; un separador transparente que se extiende; las ventanas abiertas; otro separador transparente que se extiende. El segundo panel tiene estos items: las áreas de trabajo con dos files y dos áreas en cada fila; el visor de uso de CPU; el área de notificaciones; plugin de PulseAudio para cambiar el volumen; finalmente el plugin de fecha mostrando la fecha arriba y la hora abajo.\nEl primer panel tiene un fondo negro mientras que el otro usa el estilo por defecto del sistema para evitar colisión en colores de fuente.\nApariencia Para mis configuraciones de apariencia utilizo lo siguiente:\nIconos Numix Light que vienen en el paquete numix-icon-theme Tema de ventanas Adwaita Fuente por defecto: Sans (10) con antialias en Slight y DPI en 101 Tweaks Extra El “Switcher de Ventanas” (alt + tab) de xfce4 que viene en Debian Stretch no me agrada por el tamaño gigante de preview de ventana. Personalmente prefiero tener solo los íconos pequeños sin nombre de la ventana, para ello son solo un par de cambios a realizar: ir a Settings \u003e Window Manager Tweaks y en el tab Cycling deseleccionar Cycle through windows in a list y finalmente en el tab Compositor deseleccionar Show windows preview in place of icons when cycling.\nHotkeys Tengo algunos hotkeys que uso en xfce4 para tareas comunes. Para configurar los hotkeys de xfce4 voy a Settings \u003e Keyboard \u003e Application Shortcuts tab. Mis hotkeys son los siguientes:\nHotkey Comando Descripción win_key + f thunar Abrir manejador de archivos Thunar win_key + t /usr/bin/xfce4-terminal Abrir una nueva terminal win_key + n mocp --next Ir a la siguiente canción en MOC player win_key + b mocp --previous Ir a la anterior canción en MOC player win_key + o mocp --pause Pausar la canción actual en MOC player win_key + p mocp --unpause Reanudar reproducción en MOC player Otras hotkeys: Este no es un hotkey de xfce4 pero lo uso con mucha frecuencia ctrl + shift + space para lanzar kupfer.\nTerminal Tema Para la terminal uso la que viene por defecto xfce4-terminal con estas configuraciones en ~/.config/xfce4/terminal/terminalrc.\nPrompt Por defecto la terminal bash tiene un prompt simple como usuario@host:directorio-actual. En mi caso que uso bastantes repositorios git, este prompt por defecto no es suficiente ya que quiero ver en el prompt si hay cambios, conflictos, etc. Podria correr git status pero con un prompt personalizado podría ahorrarme ese paso 😉. Este es el script que llamo desde mi archivo .bashrc, que basicamente muestra hora, directorio actual y la información del repositorio en caso de estar usando uno. Gracias a Mike Stewart que es el autor original de este script.\nIntente utilizar zsh y sus frameworks pero no me sentia comodo y me fue difícil acostumbrarme a este, así que la forma más simple fue tener un prompt personalizado. Afortunadamente habian muchos recursos disponibles para ello, así que no fue un dolor.\nConfiguración Configuración de Tmux Utilizo tmux desde Debian Wheezy pero cuando cambié a Debian Jessie tuve algunos problemas con el directorio al crear nuevos panels. Este es el .tmux.conf que uso.\nConfiguración de MOC Player Como esta es una herramienta de línea de comandos pienso que entra en esta sección. Hay dos archivos que tengo .moc/config y el tema que uso, ambos pueden ser encontrados en mi gist.\nComentarios Finales Si bien estas configuraciones son bastante personalizadas para mi caso, hice esta entrada con el propósito de tener algo que leer por si olvido y lo compartí en caso le sea de utilidad a algún lector.\n",
+  "wordCount" : "953",
+  "inLanguage": "es",
+  "image": "https://blog.donkeysharp.xyz/images/papermod-cover.png","datePublished": "2018-03-09T23:15:16-04:00",
+  "dateModified": "2018-03-09T23:15:16-04:00",
+  "author":{
+    "@type": "Person",
+    "name": "donkeysharp"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/"
+  },
+  "publisher": {
     "@type": "Organization",
-    "name" : "https:\/\/blog.donkeysharp.xyz",
-    "logo" : {
-        "@type" : "ImageObject",
-        "url" : "https:\/\/blog.donkeysharp.xyz\/img\/donkeysharp.png",
-        "height" :  60 ,
-        "width" :  60
+    "name": "Donkeysharp",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.donkeysharp.xyz/favicon.ico"
     }
   }
 }
 </script>
+</head>
 
-<meta property="og:title" content="Mis Configuraciones De Escritorio en Debian" />
-<meta property="og:description" content="Update
-2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
-En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
-Sistema Operativo: GNU/Linux - Debian Stretch
-Dektop Manager: xfce4
-Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.">
-<meta property="og:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
-<meta property="og:url" content="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Sergio Guillen" />
-
-  <meta name="twitter:title" content="Mis Configuraciones De Escritorio en Debian" />
-  <meta name="twitter:description" content="Update
-2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
-En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
-Sistema …">
-  <meta name="twitter:image" content="https://blog.donkeysharp.xyz/img/donkeysharp.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@donkeysharp" />
-  <meta name="twitter:creator" content="@donkeysharp" />
-  <meta name="generator" content="Hugo 0.118.2">
-  <link rel="alternate" href="https://blog.donkeysharp.xyz/es/index.xml" type="application/rss+xml" title="Sergio Guillen"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
-  <link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/highlight.min.css" /><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous"><link rel="stylesheet" href="https://blog.donkeysharp.xyz/css/custom.css">
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NE86EKXE5N"></script>
+<body class="" id="top">
 <script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-NE86EKXE5N', { 'anonymize_ip': false });
-}
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+
 </script>
 
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Conmuta navegación</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="https://blog.donkeysharp.xyz/es/">DONKEYSHARP</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
-        
-          
-            <li>
-              <a title="Blog" href="https://blog.donkeysharp.xyz/es">Blog</a>
-            </li>
-          
-        
-          
-            <li>
-              <a title="Sobre mí" href="https://blog.donkeysharp.xyz/es/about/">Sobre mí</a>
-            </li>
-          
-        
-
-        
-          
-            <li>
-              
-                
-                  <a href="https://blog.donkeysharp.xyz/en" lang="en" title="English">
-                    <img src="https://blog.donkeysharp.xyz/img/flags/en.png" />
-                  </a>
-                
-              
-                
-              
-            </li>
-          
-        
-
-        
-      </ul>
-    </div>
-
-    
-      <div class="avatar-container">
-        <div class="avatar-img-border">
-          <a title="Sergio Guillen" href="https://blog.donkeysharp.xyz/es/">
-            <img class="avatar-img" src="https://blog.donkeysharp.xyz/img/donkeysharp.png" alt="Sergio Guillen" />
-          </a>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.donkeysharp.xyz/es/" accesskey="h" title="Donkeysharp (Alt + H)">Donkeysharp</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://blog.donkeysharp.xyz/" title="English"
+                            aria-label="English">English</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-    
+        <ul id="menu">
+            <li>
+                <a href="https://blog.donkeysharp.xyz/es/archive" title="Archivo">
+                    <span>Archivo</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.donkeysharp.xyz/es/about/" title="Sobre mí">
+                    <span>Sobre mí</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
 
-  </div>
-</nav>
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.donkeysharp.xyz/es/">Inicio</a>&nbsp;»&nbsp;<a href="https://blog.donkeysharp.xyz/es/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Mis Configuraciones De Escritorio en Debian
+    </h1>
+    <div class="post-meta"><span title='2018-03-09 23:15:16 -0400 -04'>marzo 9, 2018</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;donkeysharp&nbsp;|&nbsp;Traducciones:
+<ul class="i18n_list">
+    <li>
+        <a href="https://blog.donkeysharp.xyz/posts/my-computer-setup/">English</a>
+    </li>
+</ul>
 
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Tabla de Contenidos</span>
+        </summary>
 
-
-
-    
-
-
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-<div class="pswp__bg"></div>
-
-<div class="pswp__scroll-wrap">
-    
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    
-    <div class="pswp__ui pswp__ui--hidden">
-    <div class="pswp__top-bar">
-      
-      <div class="pswp__counter"></div>
-      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-      <button class="pswp__button pswp__button--share" title="Share"></button>
-      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-      
-      
-      <div class="pswp__preloader">
-        <div class="pswp__preloader__icn">
-          <div class="pswp__preloader__cut">
-            <div class="pswp__preloader__donut"></div>
-          </div>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#aplicaciones-usadas-frecuentemente" aria-label="Aplicaciones usadas frecuentemente">Aplicaciones usadas frecuentemente</a></li>
+                <li>
+                    <a href="#escritorio" aria-label="Escritorio">Escritorio</a><ul>
+                        
+                <li>
+                    <a href="#apariencia" aria-label="Apariencia">Apariencia</a></li>
+                <li>
+                    <a href="#tweaks-extra" aria-label="Tweaks Extra">Tweaks Extra</a></li>
+                <li>
+                    <a href="#hotkeys" aria-label="Hotkeys">Hotkeys</a></li></ul>
+                </li>
+                <li>
+                    <a href="#terminal" aria-label="Terminal">Terminal</a><ul>
+                        
+                <li>
+                    <a href="#tema" aria-label="Tema">Tema</a></li>
+                <li>
+                    <a href="#prompt" aria-label="Prompt">Prompt</a></li></ul>
+                </li>
+                <li>
+                    <a href="#configuraci%c3%b3n" aria-label="Configuración">Configuración</a><ul>
+                        
+                <li>
+                    <a href="#configuraci%c3%b3n-de-tmux" aria-label="Configuración de Tmux">Configuración de Tmux</a></li>
+                <li>
+                    <a href="#configuraci%c3%b3n-de-moc-player" aria-label="Configuración de MOC Player">Configuración de MOC Player</a></li></ul>
+                </li>
+                <li>
+                    <a href="#comentarios-finales" aria-label="Comentarios Finales">Comentarios Finales</a>
+                </li>
+            </ul>
         </div>
-      </div>
-    </div>
-    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-      <div class="pswp__share-tooltip"></div>
-    </div>
-    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-    </button>
-    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-    </button>
-    <div class="pswp__caption">
-      <div class="pswp__caption__center"></div>
-    </div>
-    </div>
-    </div>
+    </details>
 </div>
 
-
-  
-  
-  
-
-
-
-
-
-
-  
-
-  <header class="header-section ">
-    
-    
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-heading">
-              
-                <h1>Mis Configuraciones De Escritorio en Debian</h1>
-              
-              
-              
-              
-                <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Publicado el Mar 9, 2018
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutos
-  
-  
-  
-    
-      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sergio Guillen
-    
-  
-  &nbsp;&bull;&nbsp;También en: <a href="https://blog.donkeysharp.xyz/post/my-computer-setup/" lang="en">English</a>
-</span>
-
-
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-  </header>
-
-
-    
-<div class="container" role="main">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <article role="main" class="blog-post">
-        <blockquote>
+  <div class="post-content"><blockquote>
 <p><strong>Update</strong></p>
-<p><em>2018-04-28</em> Added more packages I use and new settings I do (reinstalled machine)</p>
-</blockquote>
+<p><em>2018-04-28</em> Added more packages I use and new settings I do (reinstalled machine)</p></blockquote>
 <p>En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.</p>
 <p><em>Sistema Operativo:</em> GNU/Linux - Debian Stretch</p>
 <p><em>Dektop Manager:</em> xfce4</p>
-<h2 id="aplicaciones-usadas-frecuentemente">Aplicaciones usadas frecuentemente</h2>
+<h2 id="aplicaciones-usadas-frecuentemente">Aplicaciones usadas frecuentemente<a hidden class="anchor" aria-hidden="true" href="#aplicaciones-usadas-frecuentemente">#</a></h2>
 <p>Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.</p>
 <ul>
 <li>Gnome file roller para comprimir archivos <code>file-roller</code></li>
@@ -353,205 +285,287 @@ if (!doNotTrack) {
 <li><code>sudo</code></li>
 </ul>
 <p>Obviamente hay otros paquetes para cosas bastante específicas los cuales los instalando cuando es necesario.</p>
-<h2 id="escritorio">Escritorio</h2>
+<h2 id="escritorio">Escritorio<a hidden class="anchor" aria-hidden="true" href="#escritorio">#</a></h2>
 <p>Uso xfce4 con dos panels ambos en la parte superior. El primero contiene el menú de aplicación con el logo de Debian; un separador transparente que se extiende; las ventanas abiertas; otro separador transparente que se extiende. El segundo panel tiene estos items: las áreas de trabajo con dos files y dos áreas en cada fila; el visor de uso de CPU; el área de notificaciones; plugin de PulseAudio para cambiar el volumen; finalmente el plugin de fecha mostrando la fecha arriba y la hora abajo.</p>
 <p>El primer panel tiene un fondo negro mientras que el otro usa el estilo por defecto del sistema para evitar colisión en colores de fuente.</p>
-<p><img src="https://blog.donkeysharp.xyz/img/debian-desktop.png" alt=""></p>
-<!-- raw HTML omitted -->
-<h3 id="apariencia">Apariencia</h3>
+<p><img loading="lazy" src="/img/debian-desktop.png"></p>
+<h3 id="apariencia">Apariencia<a hidden class="anchor" aria-hidden="true" href="#apariencia">#</a></h3>
 <p>Para mis configuraciones de apariencia utilizo lo siguiente:</p>
 <ul>
 <li>Iconos <code>Numix Light</code> que vienen en el paquete <code>numix-icon-theme</code></li>
 <li>Tema de ventanas <code>Adwaita</code></li>
 <li>Fuente por defecto: Sans (10) con antialias en <code>Slight</code> y DPI en <code>101</code></li>
 </ul>
-<p><img src="https://blog.donkeysharp.xyz/img/thunar.png" alt=""></p>
-<!-- raw HTML omitted -->
-<h3 id="tweaks-extra">Tweaks Extra</h3>
+<p><img loading="lazy" src="/img/thunar.png"></p>
+<h3 id="tweaks-extra">Tweaks Extra<a hidden class="anchor" aria-hidden="true" href="#tweaks-extra">#</a></h3>
 <p>El &ldquo;Switcher de Ventanas&rdquo; (alt + tab) de xfce4 que viene en Debian Stretch no me agrada por el tamaño gigante de preview de ventana. Personalmente prefiero tener solo los íconos pequeños sin nombre de la ventana, para ello son solo un par de cambios a realizar: ir a <code>Settings &gt; Window Manager Tweaks</code> y en el tab <code>Cycling</code> deseleccionar <code>Cycle through windows in a list</code> y finalmente en el tab <code>Compositor</code> deseleccionar <code>Show windows preview in place of icons when cycling</code>.</p>
-<h3 id="hotkeys">Hotkeys</h3>
+<h3 id="hotkeys">Hotkeys<a hidden class="anchor" aria-hidden="true" href="#hotkeys">#</a></h3>
 <p>Tengo algunos hotkeys que uso en xfce4 para tareas comunes. Para configurar los hotkeys de xfce4 voy a <code>Settings &gt; Keyboard &gt; Application Shortcuts tab</code>. Mis hotkeys son los siguientes:</p>
 <table>
-<thead>
-<tr>
-<th>Hotkey</th>
-<th>Comando</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>win_key + f</code></td>
-<td><code>thunar</code></td>
-<td>Abrir manejador de archivos Thunar</td>
-</tr>
-<tr>
-<td><code>win_key + t</code></td>
-<td><code>/usr/bin/xfce4-terminal</code></td>
-<td>Abrir una nueva terminal</td>
-</tr>
-<tr>
-<td><code>win_key + n</code></td>
-<td><code>mocp --next</code></td>
-<td>Ir a la siguiente canción en MOC player</td>
-</tr>
-<tr>
-<td><code>win_key + b</code></td>
-<td><code>mocp --previous</code></td>
-<td>Ir a la anterior canción en MOC player</td>
-</tr>
-<tr>
-<td><code>win_key + o</code></td>
-<td><code>mocp --pause</code></td>
-<td>Pausar la canción actual en MOC player</td>
-</tr>
-<tr>
-<td><code>win_key + p</code></td>
-<td><code>mocp --unpause</code></td>
-<td>Reanudar reproducción en MOC player</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Hotkey</th>
+          <th>Comando</th>
+          <th>Descripción</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>win_key + f</code></td>
+          <td><code>thunar</code></td>
+          <td>Abrir manejador de archivos Thunar</td>
+      </tr>
+      <tr>
+          <td><code>win_key + t</code></td>
+          <td><code>/usr/bin/xfce4-terminal</code></td>
+          <td>Abrir una nueva terminal</td>
+      </tr>
+      <tr>
+          <td><code>win_key + n</code></td>
+          <td><code>mocp --next</code></td>
+          <td>Ir a la siguiente canción en MOC player</td>
+      </tr>
+      <tr>
+          <td><code>win_key + b</code></td>
+          <td><code>mocp --previous</code></td>
+          <td>Ir a la anterior canción en MOC player</td>
+      </tr>
+      <tr>
+          <td><code>win_key + o</code></td>
+          <td><code>mocp --pause</code></td>
+          <td>Pausar la canción actual en MOC player</td>
+      </tr>
+      <tr>
+          <td><code>win_key + p</code></td>
+          <td><code>mocp --unpause</code></td>
+          <td>Reanudar reproducción en MOC player</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Otras hotkeys:</strong> Este no es un hotkey de xfce4 pero lo uso con mucha frecuencia <code>ctrl + shift + space</code> para lanzar kupfer.</p>
-<h2 id="terminal">Terminal</h2>
-<h3 id="tema">Tema</h3>
+<h2 id="terminal">Terminal<a hidden class="anchor" aria-hidden="true" href="#terminal">#</a></h2>
+<h3 id="tema">Tema<a hidden class="anchor" aria-hidden="true" href="#tema">#</a></h3>
 <p>Para la terminal uso la que viene por defecto <code>xfce4-terminal</code> con <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-terminalrc">estas configuraciones</a> en <code>~/.config/xfce4/terminal/terminalrc</code>.</p>
-<h3 id="prompt">Prompt</h3>
-<p>Por defecto la terminal bash tiene un prompt simple como <code>usuario@host:directorio-actual</code>. En mi caso que uso bastantes repositorios git, este prompt por defecto no es suficiente ya que quiero ver en el prompt si hay cambios, conflictos, etc. Podria correr <code>git status</code> pero con un prompt personalizado podría ahorrarme ese paso 😉. <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-custom_prompt.sh">Este es el script</a> que llamo desde mi archivo <code>.bashrc</code>, que basicamente muestra hora, directorio actual y la información del repositorio en caso de estar usando uno. Gracias a <a href="https://twitter.com/mdrmike_">Mike Stewart</a> que es el autor original de este script.</p>
+<h3 id="prompt">Prompt<a hidden class="anchor" aria-hidden="true" href="#prompt">#</a></h3>
+<p>Por defecto la terminal bash tiene un prompt simple como <code>usuario@host:directorio-actual</code>. En mi caso que uso bastantes repositorios git, este prompt por defecto no es suficiente ya que quiero ver en el prompt si hay cambios, conflictos, etc. Podria correr <code>git status</code> pero con un prompt personalizado podría ahorrarme ese paso &#x1f609;. <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-custom_prompt.sh">Este es el script</a> que llamo desde mi archivo <code>.bashrc</code>, que basicamente muestra hora, directorio actual y la información del repositorio en caso de estar usando uno. Gracias a <a href="https://twitter.com/mdrmike_">Mike Stewart</a> que es el autor original de este script.</p>
 <p>Intente utilizar <code>zsh</code> y sus frameworks pero no me sentia comodo y me fue difícil acostumbrarme a este, así que la forma más simple fue tener un prompt personalizado. Afortunadamente habian muchos recursos disponibles para ello, así que no fue un dolor.</p>
-<p><img src="https://blog.donkeysharp.xyz/img/terminal.png" alt=""></p>
-<!-- raw HTML omitted -->
-<h2 id="configuración">Configuración</h2>
-<h3 id="configuración-de-tmux">Configuración de Tmux</h3>
+<p><img loading="lazy" src="/img/terminal.png"></p>
+<h2 id="configuración">Configuración<a hidden class="anchor" aria-hidden="true" href="#configuración">#</a></h2>
+<h3 id="configuración-de-tmux">Configuración de Tmux<a hidden class="anchor" aria-hidden="true" href="#configuración-de-tmux">#</a></h3>
 <p>Utilizo tmux desde Debian Wheezy pero cuando cambié a Debian Jessie tuve algunos problemas con el directorio al crear nuevos panels. Este es el <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-tmux-conf">.tmux.conf</a> que uso.</p>
-<h3 id="configuración-de-moc-player">Configuración de MOC Player</h3>
+<h3 id="configuración-de-moc-player">Configuración de MOC Player<a hidden class="anchor" aria-hidden="true" href="#configuración-de-moc-player">#</a></h3>
 <p>Como esta es una herramienta de línea de comandos pienso que entra en esta sección. Hay dos archivos que tengo <code>.moc/config</code> y el tema que uso, ambos pueden ser encontrados en mi <a href="https://gist.github.com/donkeysharp/b4fe1d9b366963314202c4b8c130ba6f#file-moc_config_file">gist</a>.</p>
-<p><img src="https://blog.donkeysharp.xyz/img/mocp.png" alt=""></p>
-<!-- raw HTML omitted -->
-<h2 id="comentarios-finales">Comentarios Finales</h2>
+<p><img loading="lazy" src="/img/mocp.png"></p>
+<h2 id="comentarios-finales">Comentarios Finales<a hidden class="anchor" aria-hidden="true" href="#comentarios-finales">#</a></h2>
 <p>Si bien estas configuraciones son bastante personalizadas para mi caso, hice esta entrada con el propósito de tener algo que leer por si olvido y lo compartí en caso le sea de utilidad a algún lector.</p>
 
 
-        
-
-        
-
-        
-          
-
-          
-        
-      </article>
-
-      
-        <ul class="pager blog-pager">
-          
-            <li class="previous">
-              <a href="https://blog.donkeysharp.xyz/es/post/mi-primer-post/" data-toggle="tooltip" data-placement="top" title="Primer Post - echo &#34;Hello World&#34;">&larr; Artículo anterior</a>
-            </li>
-          
-          
-            <li class="next">
-              <a href="https://blog.donkeysharp.xyz/es/post/entorno-de-desarrollo-en-sublime-text/" data-toggle="tooltip" data-placement="top" title="Mi Entorno De Desarrollo En Sublime Text (Parte 1)">Artículo siguiente &rarr;</a>
-            </li>
-          
-        </ul>
-      
-
-
-      
-        
-        
-      
-
-    </div>
   </div>
-</div>
 
-    
-<footer>
-<div class="container">
-<div class="row">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    <ul class="list-inline text-center footer-links">
-      
-          <li>
-            <a target="_blank" href="https://github.com/donkeysharp" title="GitHub">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://twitter.com/donkeysharp" title="Twitter">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://www.instagram.com/donkeysharp" title="Instagram">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-      
-      <li>
-        <a target="_blank" href="" title="RSS">
-          <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
+  <footer class="post-footer">
+    <ul class="post-tags">
     </ul>
-    <p class="credits copyright text-muted">
-      
-        
-          Sergio Guillen
-        
-      
-      &bull;
-      
-        2025
-      
-    </p>
+<nav class="paginav">
+  <a class="prev" href="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/">
+    <span class="title">« Anterior</span>
+    <br>
+    <span>Gocho, Compartir Archivos En Una Red Local</span>
+  </a>
+  <a class="next" href="https://blog.donkeysharp.xyz/es/post/mi-primer-post/">
+    <span class="title">Siguiente »</span>
+    <br>
+    <span>Primer Post - echo &#34;Hello World&#34;</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Mis Configuraciones De Escritorio en Debian on x"
+            href="https://x.com/intent/tweet/?text=Mis%20Configuraciones%20De%20Escritorio%20en%20Debian&amp;url=https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Mis Configuraciones De Escritorio en Debian on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f&amp;title=Mis%20Configuraciones%20De%20Escritorio%20en%20Debian&amp;summary=Mis%20Configuraciones%20De%20Escritorio%20en%20Debian&amp;source=https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Mis Configuraciones De Escritorio en Debian on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f&title=Mis%20Configuraciones%20De%20Escritorio%20en%20Debian">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Mis Configuraciones De Escritorio en Debian on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Mis Configuraciones De Escritorio en Debian on whatsapp"
+            href="https://api.whatsapp.com/send?text=Mis%20Configuraciones%20De%20Escritorio%20en%20Debian%20-%20https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Mis Configuraciones De Escritorio en Debian on telegram"
+            href="https://telegram.me/share/url?text=Mis%20Configuraciones%20De%20Escritorio%20en%20Debian&amp;url=https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Mis Configuraciones De Escritorio en Debian on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Mis%20Configuraciones%20De%20Escritorio%20en%20Debian&u=https%3a%2f%2fblog.donkeysharp.xyz%2fes%2fpost%2fconfiguracion-de-escritorio-debian%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
     
-    <p class="credits theme-by text-muted">
-      Creado con <a target="_" href="https://gohugo.io">Hugo</a>.
-&nbsp;&bull;&nbsp;
-Tema <a target="_" href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+<footer class="footer">
+        <span>© <a href="https://x.com/donkeysharp">Donkeysharp</a></span> · 
 
-      
-    </p>
-  </div>
-</div>
-</div>
-</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-<script src="https://blog.donkeysharp.xyz/js/main.js"></script>
-<script src="https://blog.donkeysharp.xyz/js/highlight.min.js"></script>
-<script> hljs.initHighlightingOnLoad(); </script>
-<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://blog.donkeysharp.xyz/js/load-photoswipe.js"></script>
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
 
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
 
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
 
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copiar';
 
+        function copyingDone() {
+            copybutton.innerHTML = '¡copiado!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copiar';
+            }, 2000);
+        }
 
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
 
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
 
-    
-  </body>
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
 </html>
-

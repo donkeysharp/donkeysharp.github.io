@@ -1,147 +1,122 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Sergio Guillen</title>
+    <title>Donkeysharp</title>
     <link>https://blog.donkeysharp.xyz/es/</link>
-    <description>Recent content on Sergio Guillen</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content on Donkeysharp</description>
+    <image>
+      <title>Donkeysharp</title>
+      <url>https://blog.donkeysharp.xyz/images/papermod-cover.png</url>
+      <link>https://blog.donkeysharp.xyz/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.147.0</generator>
     <language>es</language>
-    <lastBuildDate>Sun, 13 Apr 2025 17:51:02 -0400</lastBuildDate><atom:link href="https://blog.donkeysharp.xyz/es/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Donkeysharp</copyright>
+    <lastBuildDate>Sun, 13 Apr 2025 17:51:02 -0400</lastBuildDate>
+    <atom:link href="https://blog.donkeysharp.xyz/es/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Guía del fin del mundo para el USD en Bolivia</title>
       <link>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</link>
       <pubDate>Sun, 13 Apr 2025 17:51:02 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</guid>
-      <description>En Bolivia hace unos 15 años aproximadamente pensar en comprar por internet no era algo simple, salvo tengas una tarjeta de crédito cosa que no es algo simple como abrir una cuenta de banco (esto hasta hoy por la burocracia de los bancos), por esos motivos, varios bancos comenzaron a permitir hacer compras por internet utilizando las tarjetas de débito que los bancos ofrecen. Eso facilitó muchas cosas y era mucho más simple acceder a diferentes servicios que antes no eran del todo simples.</description>
+      <description>&lt;p&gt;En Bolivia hace unos 15 años aproximadamente pensar en comprar por internet no era algo simple, salvo tengas una tarjeta de crédito cosa que no es algo simple como abrir una cuenta de banco (esto hasta hoy por la burocracia de los bancos), por esos motivos, varios bancos comenzaron a permitir hacer compras por internet utilizando las tarjetas de débito que los bancos ofrecen. Eso facilitó muchas cosas y era mucho más simple acceder a diferentes servicios que antes no eran del todo simples. Ejemplo, pagar compras de Ebay, pagar tu dominio o hosting web, pagar servicios de streaming, suscribirte a servicios de educación, etc. Por otro lado para las personas que viajan mucho, esto ayudó un montón ya que era posible usar tu tarjeta de débito cuando salías del país sin mucha dificultad, buenos años.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Usando Serverless Framework con AWS SSO</title>
       <link>https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/</link>
       <pubDate>Sun, 22 Oct 2023 17:51:02 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/</guid>
-      <description>En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.
-Serverless Framework es una de mis herramientas preferidas al trabajar con AWS Lambda y otros servicios serverless. Es una alternativa a AWS SAM, pero personalmente prefiero Serverless Framework debido a su compatibilidad con diversos cloud providers y plugins. Ya he usado Serverless Framework antes para acceder a las API de AWS configurando el archivo ~/.</description>
+      <description>&lt;p&gt;En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.serverless.com/framework/docs&#34;&gt;Serverless Framework&lt;/a&gt; es una de mis herramientas preferidas al trabajar con AWS Lambda y otros servicios serverless. Es una alternativa a &lt;a href=&#34;https://aws.amazon.com/serverless/sam/&#34;&gt;AWS SAM&lt;/a&gt;, pero personalmente prefiero Serverless Framework debido a su compatibilidad con diversos cloud providers y plugins. Ya he usado Serverless Framework antes para acceder a las API de AWS configurando el archivo &lt;code&gt;~/.aws/credentials&lt;/code&gt;. Sin embargo, esta vez me tocó utilizar &lt;a href=&#34;https://aws.amazon.com/what-is/sso/&#34;&gt;AWS Single Sign-On&lt;/a&gt; para acceder a las API de AWS desde mi computadora local. Lamentablemente, al intentar hacer deploy de funciones Lambda con la CLI de &lt;code&gt;sls&lt;/code&gt; tuve algunos errores. Mostró un mensaje de error que indicaba que el AWS profile que estaba utilizando no estaba configurado, a pesar de haber iniciado sesión con éxito hace unos minutos.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Simulando servidor de metadata de EC2 localmente</title>
       <link>https://blog.donkeysharp.xyz/es/mock-ec2-metadata/</link>
       <pubDate>Sun, 28 May 2023 21:08:04 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/mock-ec2-metadata/</guid>
-      <description>Hace algún tiempo estaba trabajando en la creación de un entorno de desarrollo local basado en docker para algunos microservicios, para que los desarrolladores puedan tener los componentes de infraestructura necesarios en sus máquinas y eso les ayudará con sus tareas diarias. Inicialmente, la lógica de negocio de algunos microservicios era una caja negra para mí. Después de colocar las aplicaciones en contenedores y crear la configuración de docker-compose, algunas de ellas comenzaron a fallar y, después de verificar los logs, resultó que las aplicaciones usaban el AWS SDK para obtener la metadata de la instancia ec2.</description>
+      <description>&lt;p&gt;Hace algún tiempo estaba trabajando en la creación de un entorno de desarrollo local basado en docker para algunos microservicios, para que los desarrolladores puedan tener los componentes de infraestructura necesarios en sus máquinas y eso les ayudará con sus tareas diarias. Inicialmente, la lógica de negocio de algunos microservicios era una caja negra para mí. Después de colocar las aplicaciones en contenedores y crear la configuración de docker-compose, algunas de ellas comenzaron a fallar y, después de verificar los logs, resultó que las aplicaciones usaban el AWS SDK para obtener la metadata de la instancia ec2.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Qué sucede cuando un proceso de Linux se va a dormir?</title>
       <link>https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/</guid>
-      <description>Es posible que cuando estas escribiendo un programa, en algún momento necesites pausar la ejecución de un proceso llamando a la función sleep(NUMBER_OF_SECONDS) dependiendo del problema que estés resolviendo. En este post, compartiré lo que aprendí hasta ahora mientras investigaba los mecanismos internos del kernel que hacen que la función sleep funcione de la forma en que lo hace.
-Agradezco su feedback. No soy un experto en este tema ya que las partes internas del Kernel de Linux son nuevas para mí, fue solo mi curiosidad lo que me llevó a revisar el código fuente del Kernel y quería compartir lo que aprendí.</description>
+      <description>&lt;p&gt;Es posible que cuando estas escribiendo un programa, en algún momento necesites pausar la ejecución de un proceso llamando a la función &lt;code&gt;sleep(NUMBER_OF_SECONDS)&lt;/code&gt; dependiendo del problema que estés resolviendo. En este post, compartiré lo que aprendí hasta ahora mientras investigaba los mecanismos internos del kernel que hacen que la función &lt;code&gt;sleep&lt;/code&gt; funcione de la forma en que lo hace.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Agradezco su feedback.&lt;/strong&gt; No soy un experto en este tema ya que las partes internas del Kernel de Linux son nuevas para mí, fue solo mi curiosidad lo que me llevó a revisar el código fuente del Kernel y quería compartir lo que aprendí. Si encuentran algo incorrecto en este post, pueden abrir un issue en el &lt;a href=&#34;https://github.com/donkeysharp/donkeysharp.github.io&#34;&gt;repositorio de Github&lt;/a&gt; de este blog. Gracias!.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Gracias Profe Elias</title>
       <link>https://blog.donkeysharp.xyz/es/post/gracias-profe-elias/</link>
       <pubDate>Mon, 20 Jul 2020 08:16:55 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/gracias-profe-elias/</guid>
-      <description>Cuando aún estaba en secundaria y tenía 15 años, solo por esa gestión nos tocó un nuevo profesor de Física. Su nombre era Elias Quispe. Una manera de enseñar diferente presentando varios retos y sobre todo rompiendonos la cabeza con problemas complejos de Física (resulta que también era docente de Física en la Universidad).
-En una de las clases mencionó que la tarea estaba en su página web y yo era &amp;ldquo;woooooooow!</description>
+      <description>&lt;p&gt;Cuando aún estaba en secundaria y tenía 15 años, solo por esa gestión nos tocó un nuevo profesor de Física. Su nombre era Elias Quispe. Una manera de enseñar diferente presentando varios retos y sobre todo rompiendonos la cabeza con problemas complejos de Física (resulta que también era docente de Física en la Universidad).&lt;/p&gt;
+&lt;p&gt;En una de las clases mencionó que la tarea estaba en su página web y yo era &amp;ldquo;woooooooow!, cómo habrá logrado tener su página web?&amp;rdquo; y bueno entre a su sitio, me gustó, también tenía foro y recursos interesantes.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Análisis De Video En Busca De Supuesto Malware</title>
       <link>https://blog.donkeysharp.xyz/es/post/analisis-video-evo/</link>
       <pubDate>Tue, 26 Nov 2019 13:08:36 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/analisis-video-evo/</guid>
-      <description>Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.
-La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de bit.ly a un video MP4 en Dropbox que después fue dado de baja.</description>
+      <description>&lt;p&gt;Hola, durante los meses de Octubre y Noviembre sucedieron diferentes conflictos sociales y políticos en Bolivia, esta entrada no es tanto para discutir el tema político, es más será una entrada 100% técnica pero se encuentra relacionada con estos hechos.&lt;/p&gt;
+&lt;p&gt;La anterior semana una gran cantidad de clientes de un ISP local recibieron un SMS con un link de &lt;code&gt;bit.ly&lt;/code&gt; a un video MP4 en Dropbox que después fue dado de baja.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Automatizando setup post-instalación en mis máquinas Debian</title>
       <link>https://blog.donkeysharp.xyz/es/post/automatizando-setup-post-instalacion-debian/</link>
       <pubDate>Mon, 13 May 2019 21:45:39 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/automatizando-setup-post-instalacion-debian/</guid>
-      <description>Hola, hace un tiempo publiqué sobre el setup inicial que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.
-Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones.</description>
+      <description>&lt;p&gt;Hola, hace un tiempo &lt;a href=&#34;https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian&#34;&gt;publiqué sobre el setup inicial&lt;/a&gt; que tengo en los equipos Debian con los que trabajo, como ser: aplicaciones, configuraciones de apariencia del escritorio, etc. Los últimos meses instalé y reinstalé Debian varias veces en los equipos con los que trabajo (nuevos, actualizaciones de un nuevo disco duro, etc.) y ya se volvió una tarea repetitiva.&lt;/p&gt;
+&lt;p&gt;Básicamente lo que realizaba es revisar mi anterior entrada de blog y repetía esas acciones. Hasta ahora me funcionó, pero al volverse repetitivo me animé en automatizar todo este proceso tanto de instalación y configuración de ciertas aplicaciones como el manejo de la apariencia del escritorio (con el setup que siempre utilizo).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Diversión con SSH - Local Port Forwarding</title>
       <link>https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/</link>
       <pubDate>Tue, 28 Aug 2018 08:30:57 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/</guid>
-      <description>El otro día cenando con mi amigo Francisco, él me comentaba que tiene un proyecto personal en mente y lo que desea conseguir. Escuchando sus preguntas la primera herramienta que pasó por mi cabeza para resolver algunos de sus problemas fue utilizar OpenSSH.
-Esta entrada la hago principalmente para mi amigo Francisco pero la redactaré de forma general para que el benficio sea general.
-Qué es SSH? SSH significa Secure Shell y es un protocolo para administrar servicios en una red mediante un canal cifrado (he ahí el porqué de &amp;ldquo;Secure&amp;rdquo; 😉).</description>
+      <description>&lt;p&gt;El otro día cenando con mi amigo Francisco, él me comentaba que tiene un proyecto personal en mente y lo que desea conseguir. Escuchando sus preguntas la primera herramienta que pasó por mi cabeza para resolver algunos de sus problemas fue utilizar OpenSSH.&lt;/p&gt;
+&lt;p&gt;Esta entrada la hago principalmente para mi amigo Francisco pero la redactaré de forma general para que el benficio sea general.&lt;/p&gt;
+&lt;h2 id=&#34;qué-es-ssh&#34;&gt;Qué es SSH?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://es.wikipedia.org/wiki/Secure_Shell&#34;&gt;SSH&lt;/a&gt; significa Secure Shell y es un protocolo para administrar servicios en una red mediante un canal cifrado (he ahí el porqué de &amp;ldquo;Secure&amp;rdquo; &amp;#x1f609;). Algunas de las tareas más comunes que se pueden realizar con este protocolo es la de poder iniciar sesión en un servidor o la ejecución remota de comandos.&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>Debian Day 2018</title>
-      <link>https://blog.donkeysharp.xyz/es/post/debian-day-2018/</link>
-      <pubDate>Sat, 25 Aug 2018 11:40:05 -0400</pubDate>
-      
-      <guid>https://blog.donkeysharp.xyz/es/post/debian-day-2018/</guid>
-      <description>Desde hace unos años he asistido a los Debian Days organizados acá en la ciudad de La Paz. Este año se llevó a cabo en la UMSA en la Carrera de Informática.
-Este año me encantó la organización de este evento, realmente se rajaron muchach@os!!!, muchas felicidades. Núcleo Linux, Virus, Enmaskarado, Dx, La Otra Red, #r00tHouse y todos los que no mencioné.
-Siempre han habido charlas interesantes, encontrarse con los amigos y en general ese cariño que se tiene a la distribución Debian.</description>
-    </item>
-    
     <item>
       <title>Gocho, Compartir Archivos En Una Red Local</title>
       <link>https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/</link>
       <pubDate>Thu, 29 Mar 2018 22:22:46 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/</guid>
-      <description>Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado Gocho. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.
-Por qué lo hice? Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo.</description>
+      <description>&lt;p&gt;Holas, durante mi tiempo libre estuve trabajando en un proyecto llamado &lt;a href=&#34;https://github.com/donkeysharp/gocho&#34;&gt;Gocho&lt;/a&gt;. Esta pequeña aplicación permite compartir archivos en una red local, por ejemplo la red de la casa, red del trabajo, etc. con la característica de auto-descubrimiento de nodos (auto-discovery). En este post explicaré de que se trata, por qué lo hice y algunos de los retos que surgieron al hacer la aplicación.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.donkeysharp.xyz/img/gocho-dashboard.gif&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;por-qué-lo-hice&#34;&gt;Por qué lo hice?&lt;/h2&gt;
+&lt;p&gt;Lo hice porque deseaba una aplicación donde pueda compartir un directorio; poder aguantar varias descargas al mismo tiempo; no tener que preguntar la dirección IP o puerto de los recursos que otros comparten; tener algo que sea simple de ejecutar en cualquier sistema operativo (Windows, OSX, GNU/Linux) sin tener que instalar ningún requisito previo.&lt;/p&gt;</description>
     </item>
-    
-    <item>
-      <title>Mi Entorno De Desarrollo En Sublime Text (Parte 1)</title>
-      <link>https://blog.donkeysharp.xyz/es/post/entorno-de-desarrollo-en-sublime-text/</link>
-      <pubDate>Wed, 14 Mar 2018 00:32:43 -0400</pubDate>
-      
-      <guid>https://blog.donkeysharp.xyz/es/post/entorno-de-desarrollo-en-sublime-text/</guid>
-      <description>Update
-2018-04-28 Otra forma de instalar paquetes
-En temas de desarrollo o edición de texto la mayor parte del tiempo —por no decir todo— utilizo Sublime Text 3 como entorno de desarrollo. Es bueno recalcar que Sublime Text es un editor de texto, pero combinado con plugins se vuelve un entorno de desarrollo que para mí es suficiente.
-Los casos en los que no uso Sublime Text son: edición en un servidor; edición por línea de comandos; no cuenta con artist-mode como en Emacs.</description>
-    </item>
-    
     <item>
       <title>Mis Configuraciones De Escritorio en Debian</title>
       <link>https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/</link>
       <pubDate>Fri, 09 Mar 2018 23:15:16 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/</guid>
-      <description>Update
-2018-04-28 Added more packages I use and new settings I do (reinstalled machine)
-En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.
-Sistema Operativo: GNU/Linux - Debian Stretch
-Dektop Manager: xfce4
-Aplicaciones usadas frecuentemente Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.</description>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;2018-04-28&lt;/em&gt; Added more packages I use and new settings I do (reinstalled machine)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;En esta entrada explico las aplicaciones y configuraciones que uso para mi máquina de desarrollo local.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Sistema Operativo:&lt;/em&gt; GNU/Linux - Debian Stretch&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Dektop Manager:&lt;/em&gt; xfce4&lt;/p&gt;
+&lt;h2 id=&#34;aplicaciones-usadas-frecuentemente&#34;&gt;Aplicaciones usadas frecuentemente&lt;/h2&gt;
+&lt;p&gt;Estas son las aplicaciones que uso con más frecuencia y siempre trato de tenerlas instaladas, algunas son de proposito general y otras relacionadas con programación, experimentos, trabajo y proyectos personales.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Primer Post - echo &#34;Hello World&#34;</title>
       <link>https://blog.donkeysharp.xyz/es/post/mi-primer-post/</link>
       <pubDate>Fri, 05 Jan 2018 13:04:24 -0400</pubDate>
-      
       <guid>https://blog.donkeysharp.xyz/es/post/mi-primer-post/</guid>
-      <description>Hola, soy Sergio Guillen Mantilla&amp;hellip; en forma de github pages 😄
-Este es un proyecto el cual retomaré distinto del contenido de mi antiguo blog que en su mayoría era orientado a tecnologías Microsoft. Desde que dejé de usar estas tecnologías —que aún me impresionan un montón como C#— tuve la suerte de conocer otras tecnologías de las cuales deseo compartir algunas experiencias que tuve o una que otra cosa que voy investigando.</description>
+      <description>&lt;p&gt;Hola, soy Sergio Guillen Mantilla&amp;hellip; en forma de github pages &amp;#x1f604;&lt;/p&gt;
+&lt;p&gt;Este es un proyecto el cual retomaré distinto del contenido de mi &lt;a href=&#34;http://donkeysharp.blogspot.com/&#34;&gt;antiguo blog&lt;/a&gt; que en su mayoría era orientado a tecnologías Microsoft. Desde que dejé de usar estas tecnologías —que aún me impresionan un montón como C#— tuve la suerte de conocer otras tecnologías de las cuales deseo compartir algunas experiencias que tuve o una que otra cosa que voy investigando.&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>Sobre mí</title>
+      <link>https://blog.donkeysharp.xyz/es/about/</link>
+      <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>https://blog.donkeysharp.xyz/es/about/</guid>
+      <description>Un poco sobre mi persona</description>
+    </item>
   </channel>
 </rss>

@@ -2,22 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</loc>
-    <lastmod>2025-04-13T17:51:02-04:00</lastmod>
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/es/post/</loc>
-    <lastmod>2025-04-13T17:51:02-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/"
-                />
-  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/</loc>
     <lastmod>2025-04-13T17:51:02-04:00</lastmod>
     <xhtml:link
@@ -29,6 +13,22 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/guia-dolar-bolivia/</loc>
+    <lastmod>2025-04-13T17:51:02-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/posts/</loc>
+    <lastmod>2025-04-13T17:51:02-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/posts/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/</loc>
@@ -104,7 +104,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/fun-with-ssh-part-1/"
+                href="https://blog.donkeysharp.xyz/posts/fun-with-ssh-part-1/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -112,15 +112,12 @@
                 href="https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/es/post/debian-day-2018/</loc>
-    <lastmod>2018-08-25T11:40:05-04:00</lastmod>
-  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/</loc>
     <lastmod>2018-03-29T22:22:46-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/gocho-file-sharing/"
+                href="https://blog.donkeysharp.xyz/posts/gocho-file-sharing/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -128,15 +125,12 @@
                 href="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/es/post/entorno-de-desarrollo-en-sublime-text/</loc>
-    <lastmod>2018-03-14T00:32:43-04:00</lastmod>
-  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/</loc>
     <lastmod>2018-03-09T23:15:16-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/my-computer-setup/"
+                href="https://blog.donkeysharp.xyz/posts/my-computer-setup/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -149,12 +143,63 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/my-first-post/"
+                href="https://blog.donkeysharp.xyz/posts/my-first-post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/post/mi-primer-post/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/tags/donkeysharp/</loc>
+    <lastmod>2018-01-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/donkeysharp/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/donkeysharp/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/about/</loc>
+    <lastmod>2018-01-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/about/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/tags/</loc>
+    <lastmod>2018-01-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/archive/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/archive/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/archive/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/es/categories/</loc>
@@ -169,28 +214,16 @@
                 href="https://blog.donkeysharp.xyz/es/categories/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/es/about/</loc>
+    <loc>https://blog.donkeysharp.xyz/es/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/about/"
+                href="https://blog.donkeysharp.xyz/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/about/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/es/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/"
+                href="https://blog.donkeysharp.xyz/es/series/"
                 />
   </url>
 </urlset>
