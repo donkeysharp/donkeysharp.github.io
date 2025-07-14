@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AWS on Donkeysharp</title>
-    <link>http://localhost:1313/es/tags/aws/</link>
+    <link>https://blog.donkeysharp.xyz/es/tags/aws/</link>
     <description>Recent content in AWS on Donkeysharp</description>
     <image>
       <title>Donkeysharp</title>
-      <url>http://localhost:1313/images/papermod-cover.png</url>
-      <link>http://localhost:1313/images/papermod-cover.png</link>
+      <url>https://blog.donkeysharp.xyz/images/papermod-cover.png</url>
+      <link>https://blog.donkeysharp.xyz/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.147.0</generator>
     <language>es</language>
     <copyright>Donkeysharp</copyright>
-    <lastBuildDate>Tue, 13 Aug 2024 18:20:13 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/es/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jul 2025 18:20:13 -0400</lastBuildDate>
+    <atom:link href="https://blog.donkeysharp.xyz/es/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Nuke&#39;em all! Using AWS Nuke to clean your AWS accounts</title>
-      <link>http://localhost:1313/es/intro-to-aws-nuke/</link>
-      <pubDate>Tue, 13 Aug 2024 18:20:13 -0400</pubDate>
-      <guid>http://localhost:1313/es/intro-to-aws-nuke/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/aws-nuke.png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;introducing-aws-nuke&#34;&gt;Introducing AWS Nuke!&lt;/h2&gt;
-&lt;p&gt;In this post I will give you a quick introduction to &lt;a href=&#34;https://aws-nuke.ekristen.dev/&#34;&gt;AWS Nuke&lt;/a&gt;, a tool developed in Golang that aims to delete all resources in an AWS account. This tool helped me a lot.&lt;/p&gt;
-&lt;h2 id=&#34;use-cases&#34;&gt;Use Cases&lt;/h2&gt;
-&lt;h3 id=&#34;cleaning-free-tier-aws-account&#34;&gt;Cleaning Free Tier AWS Account&lt;/h3&gt;
-&lt;p&gt;This was a personal use-case, I created a free tier AWS Account some months ago and I&amp;rsquo;ve been using it for different purposes, some of the resources I created were via Terraform which made it simpler to delete the resources I created after using them, on the other hand, I created other resources manually without tracking them, some of them were costing me money!. So I prefered to delete everything in this account as I use it for learning purposes only. AWS Nuke is a great fit for this task.&lt;/p&gt;</description>
+      <title>Utilizando AWS Nuke para limpiar tus cuentas de AWS</title>
+      <link>https://blog.donkeysharp.xyz/es/intro-to-aws-nuke/</link>
+      <pubDate>Sun, 13 Jul 2025 18:20:13 -0400</pubDate>
+      <guid>https://blog.donkeysharp.xyz/es/intro-to-aws-nuke/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://blog.donkeysharp.xyz/img/aws-nuke.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;presentando-aws-nuke&#34;&gt;¡Presentando AWS Nuke!&lt;/h2&gt;
+&lt;p&gt;En este post daré una introducción rápida a &lt;a href=&#34;https://aws-nuke.ekristen.dev/&#34;&gt;AWS Nuke&lt;/a&gt;, una herramienta desarrollada en Golang que tiene como objetivo eliminar todos los recursos en una cuenta de AWS. Esta herramienta me ayudó muchísimo.&lt;/p&gt;
+&lt;h2 id=&#34;casos-de-uso&#34;&gt;Casos de Uso&lt;/h2&gt;
+&lt;h3 id=&#34;limpiar-una-cuenta-aws-free-tier&#34;&gt;Limpiar una Cuenta AWS Free Tier&lt;/h3&gt;
+&lt;p&gt;Este fue más un caso de uso personal. Creé una cuenta de AWS Free Tier hace algunos meses y la he estado utilizando para diferentes propósitos. Algunos de los recursos que creé fueron mediante Terraform, lo que hizo más sencillo eliminarlos luego de usarlos. Por otro lado, creé otros recursos manualmente, y algunos de ellos me estaban generando costos! Así que preferí eliminar todo en esta cuenta ya que la uso solo con fines de aprendizaje. AWS Nuke es una excelente herramienta para esta tarea.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

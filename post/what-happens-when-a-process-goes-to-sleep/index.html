@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,18 +11,18 @@
 
 I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&rsquo;s source code, and wanted to share what I learned. If you find something incorrect in this post, please let me know by opening an issue on this blog&rsquo;s Github repository. I will really appreciate it!.">
 <meta name="author" content="donkeysharp">
-<link rel="canonical" href="http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/">
+<link rel="canonical" href="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/">
 <meta name="google-site-verification" content="G-NE86EKXE5N">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5e527a53ba71ca5f4055f7a87232df40d551cf0ad74e23ec98a5c1e9587fbaf9.css" integrity="sha256-XlJ6U7pxyl9AVfeocjLfQNVRzwrXTiPsmKXB6Vh/uvk=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://blog.donkeysharp.xyz/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.donkeysharp.xyz/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.donkeysharp.xyz/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://blog.donkeysharp.xyz/apple-touch-icon.png">
+<link rel="mask-icon" href="https://blog.donkeysharp.xyz/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/">
-<link rel="alternate" hreflang="es" href="http://localhost:1313/es/post/what-happens-when-a-process-goes-to-sleep/">
+<link rel="alternate" hreflang="en" href="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/">
+<link rel="alternate" hreflang="es" href="https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/">
 <noscript>
     <style>
         #theme-toggle,
@@ -40,7 +40,7 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
 
   gtag('config', 'G-NE86EKXE5N');
 </script>
-<meta property="og:url" content="http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/">
+<meta property="og:url" content="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/">
   <meta property="og:site_name" content="Donkeysharp">
   <meta property="og:title" content="What Happens When A Linux Process Goes To Sleep?">
   <meta property="og:description" content="It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.
@@ -50,9 +50,9 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel’s
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2022-03-10T00:00:00+00:00">
     <meta property="article:modified_time" content="2022-03-10T00:00:00+00:00">
-      <meta property="og:image" content="http://localhost:1313/images/papermod-cover.png">
+      <meta property="og:image" content="https://blog.donkeysharp.xyz/images/papermod-cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/images/papermod-cover.png">
+<meta name="twitter:image" content="https://blog.donkeysharp.xyz/images/papermod-cover.png">
 <meta name="twitter:title" content="What Happens When A Linux Process Goes To Sleep?">
 <meta name="twitter:description" content="It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.
 
@@ -68,13 +68,13 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/posts/"
+      "item": "https://blog.donkeysharp.xyz/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "What Happens When A Linux Process Goes To Sleep?",
-      "item": "http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/"
+      "item": "https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/"
     }
   ]
 }
@@ -92,7 +92,7 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
   "articleBody": "It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.\nI appreciate your feedback. I am not an expert on this topic as Linux Kernel’s internals are new for me, it was just my curiosity that drove me to get into kernel’s source code, and wanted to share what I learned. If you find something incorrect in this post, please let me know by opening an issue on this blog’s Github repository. I will really appreciate it!.\nProcess State One of the first concepts that we need to review is the process state. A Linux process has a state associated which represents its execution state in the operating system. A process can be on one of the next states:\nRunning Sleeping (interruptible and uninterruptible) Stopped Zombie When a process is executing instructions in the CPU, it is in Running state and when the process is waiting for something to happen i.e. waiting for network or disk I/O, or it calls the sleep function, it will change to a Sleeping state.\nWe can verify it with a simple C example program:\n// states.c // gcc states.c -o states #include #include #define SOME_MAGIC_NUMBER 365000000l void start_processing() { long i; printf(\"Starting Loop\\n\"); for (i = 0; i \u003c (long)(10 * SOME_MAGIC_NUMBER); i++); printf(\"Loop Finished\\n\"); } int main() { pid_t pid = getpid(); printf(\"PID: %d\\n\", pid); start_processing(); printf(\"Sleep process\\n\"); sleep(5); printf(\"Sleep finished\\n\"); start_processing(); return 0; } The code above will run a loop for some seconds, then it will sleep for 5 seconds, and finally loop for another number of seconds. Hence we expect the process state to be Running -\u003e Sleeping -\u003e Running.\nWhile the program is being executed we can check the process state with the Htop tool, which will usually show a letter on the 8th column that represents the process state e.g. R (Running), S (Sleeping), T (Stopped), etc.\nAs expected, the states the process had while executing were: Running (R) -\u003e Sleeping (S) -\u003e Running (R).\nTL;DR When a program calls the sleep(NUMBER_OF_SECONDS) function (in C), it will call the nanosleep system call. Other programming languages might call other syscalls that can also send a process to sleep for some seconds e.g. select syscall, but inside the Linux kernel the behavior will be tsimilar no matter the syscall used.\nThe Linux Kernel implementation of the nanosleep system call will do the next:\nInitialize a High Resolution sleep timer. Change the process state to TASK_INTERRUPTIBLE (Sleeping). Starts the High Resolution sleep timer. Calls the process scheduler so it can schedule another process and pause the execution of the current process. The Linux kernel processes High Resolution timers in following way:\nThe computer hardware has a CPU Timer that will cause interruptions periodically, making the kernel handle them by calling the hrtimer_interrupt function. The hrtimer_interrupt function will process the existing timers and see if a timer expired. Once a High Resolution sleep timer expires, the kernel will call the hrtimer_wakeup function which will wake up the process associated with the timer, and that will change the state from TASK_INTERRUPTIBLE (Sleeping) to TASK_RUNNING (Running). Finally some CPU cycles later, the process scheduler will continue the execution of the process exactly where it was paused. Continue reading if you are interested in more details.\nGoing Deeper As software engineers most of the time we might be writing applications that run in user space or user mode such as servers (any kind) or server-side applications, web, mobile or desktop applications, automation scripts, etc.\nNo matter the programming language, framework, or technology, internally a program running in user mode will always interact one way or another with the operating system (for this post Linux) via System Calls or syscalls. For instance, when we read a file, our code (no matter the programming language) might indirectly communicate with the Linux Kernel via the read system call, then the kernel will ask the physical hard drive for the contents of the file we want based on the filesystem, and finally return the requested content to our program.\nThere is a tool called Strace that monitors all the system calls a process executes.\nIf we execute the previous C example using strace, we can see the following output:\n$ strace ./states ... syscalls for process loading (they won't be useful right now) ... write(1, \"PID: 26846\\n\", 11PID: 26846 ) = 11 write(1, \"Starting Loop\\n\", 14Starting Loop ) = 14 write(1, \"Loop Finished\\n\", 14Loop Finished ) = 14 write(1, \"Sleep process\\n\", 14Sleep process ) = 14 nanosleep({tv_sec=5, tv_nsec=0}, 0x7ffefc933be0) = 0 write(1, \"Sleep finished\\n\", 15Sleep finished ) = 15 write(1, \"Starting Loop\\n\", 14Starting Loop ) = 14 write(1, \"Loop Finished\\n\", 14Loop Finished ) = 14 exit_group(0) = ? +++ exited with 0 +++ The real output is longer than the one showed above, but most of the first syscalls are always executed when a process starts and loads the C Standard Library among other things, but the ones we are interested to review are the last ones.\nThe write syscall tells the Kernel that the program wants to display a string on the standard output (in this case the terminal). With that information, we can have an idea that the printf function communicates with the operating system by calling the write syscall.\nThen the nanosleep syscall is called, which will indicate the Linux kernel to move the process from a Running state to a Sleeping state.\nBefore reviewing the Linux implementation of the nanosleep syscall, first we have to review two concepts in order to have a better understanding of what’s coming.\nHigh Resolution Timers Inside the Linux Kernel, different components need to wait for some time before executing something, this is where the Timers concept comes in. A timer is a struct in which we define its expiration time (the time to wait) and what function will be called once the timer expires.\nThe Linux Kernel has two types of timers: Low Resolution timers and High Resolution timers. We are going to review High Resolution Timers.\nThe High Resolution Timers framework inside the Linux Kernel is a set of structs and functions that optimally process timers. Its implementation is based on a queue of timers that are sorted by the timer that is sooner to expire. In order to make this queue efficient, it uses a Red Black Tree data structure so insertion and deletion can be done in logarithmic time.\nThis framework is very interesting by itself, in this article we will only review how it is used and some specific parts of its implementation. For more information regarding implementation details read [0], [1] and [2].\nTime management inside the Linux Kernel is a very interesting topic and the talk given by Stephen Boyd titled “Timekeeping In The Linux Kernel” [4] gave me a better understanding of how the Linux Kernel handles time-related tasks as well as its complexity. This talk helped me a lot. Thanks!\nHardware Timer The CPU (physically) has a clock and internally it has a programmable timer. In simple words, the main purpose of this timer is to cause interruptions periodically (many times within a second) so the kernel can handle them. The frequency of these interruptions will depend on the architecture which is specified in the Linux Kernel during its compilation. The Linux Kernel abstracts this as Clock Event Devices and there is one Clock Event device per CPU. A Clock Event Device is used to schedule the next event interrupt [3].\nWhen a timer interruption happens, the Linux Kernel will handle it by calling a function. [4] mentions that for High Resolution Timers the hrtimer_interrupt function is the handler for Timer interruptions (we will review its code later).\nAnother way to check which handler will be used, is to review the /proc/timer_list read-only file that contains the list of pending timers and the Clock Event devices.\nIn my case, I validated that the handler for these devices on my machine is indeed the hrtimer_interrup function.\n# /proc/timer_list .... Tick Device: mode: 1 Per CPU device: 0 Clock Event Device: lapic-deadline max_delta_ns: 1916620707137 min_delta_ns: 1000 mult: 9624619 shift: 25 mode: 3 next_event: 14403083615478 nsecs set_next_event: lapic_next_deadline shutdown: lapic_timer_shutdown periodic: lapic_timer_set_periodic oneshot: lapic_timer_set_oneshot oneshot stopped: lapic_timer_shutdown event_handler: hrtimer_interrupt \u003c\u003c\u003c\u003c\u003c\u003c\u003c the interrupt handler retries: 1316 Tick Device: mode: 1 Per CPU device: 1 Clock Event Device: lapic-deadline max_delta_ns: 1916620707137 min_delta_ns: 1000 mult: 9624619 shift: 25 mode: 3 next_event: 14403083615478 nsecs set_next_event: lapic_next_deadline shutdown: lapic_timer_shutdown periodic: lapic_timer_set_periodic oneshot: lapic_timer_set_oneshot oneshot stopped: lapic_timer_shutdown event_handler: hrtimer_interrupt \u003c\u003c\u003c\u003c\u003c\u003c\u003c the interrupt handler retries: 484 .... The rest of devices per CPU of my machine Now we have an idea of High Resolution Timers and that the CPU has a hardware timer that periodically causes interruptions to the Kernel, we can continue with the nanosleep syscall.\nLinux Kernel Implementation of nanosleep The Linux Kernel is a big project, thousands of files and millions of lines of code, navigating through them can be challenging. There is an online tool called LXR that helps navigate the Linux Kernel source code in a friendly way. The URL of the site is https://elixir.bootlin.com/linux/v5.14/source.\nSo far we know that the nanosleep syscall does all the magic to move the process state from Running to Sleeping for a given number of seconds, then to Running state again. Now we will explore the Linux Kernel source code and review what are the internal mechanisms behind that “simple” behavior.\nFirst, we have to check where the nanosleep syscall is defined. After googleing a little bit, I found a document that specifies how syscalls are defined in the Linux Kernel. Hence we have to search for SYSCALL_DEFINE2(nanosleep, ....), the 2 in SYSCALL_DEFINE2 indicates the number of arguments of the syscall. I know nanosleep has two arguments after reviewing its man page (all syscalls have a man page(2)).\nAfter searching for the term nanosleep in LXR, I found that the syscall is defined in the kernel/time/hrtimer.c file.\nSYSCALL_DEFINE2(nanosleep, struct __kernel_timespec __user *, rqtp, struct __kernel_timespec __user *, rmtp) { struct timespec64 tu; if (get_timespec64(\u0026tu, rqtp)) return -EFAULT; if (!timespec64_valid(\u0026tu)) return -EINVAL; current-\u003erestart_block.nanosleep.type = rmtp ? TT_NATIVE : TT_NONE; current-\u003erestart_block.nanosleep.rmtp = rmtp; return hrtimer_nanosleep(timespec64_to_ktime(tu), HRTIMER_MODE_REL, CLOCK_MONOTONIC); } Of course, every line of code has its reason to be, but I will highlight the call to timespec64_to_ktime which converts the input arguments of the syscall to the ktime struct that is used by the High Resolution Timers framework. Finally, it calls the hrtimer_nanosleep where all fun starts.\nI will go function by function in the order they are called and explain the parts I consider relevant:\nhrtimer_nanosleep function:\nlong hrtimer_nanosleep(ktime_t rqtp, const enum hrtimer_mode mode, const clockid_t clockid) { ... hrtimer_init_sleeper_on_stack(\u0026t, clockid, mode); hrtimer_set_expires_range_ns(\u0026t.timer, rqtp, slack); ret = do_nanosleep(\u0026t, mode); ... } There are three relevant parts here:\nThe HR Sleep timer initialization (we will review this with more detail) The expiration time for the initialized timer. Although that seems a simple task, there is a lot of logic under the hood. Because the Linux Kernel works at the hardware level, to convert human time to computer time it has to use some formulas that are based on the HZ constant that varies depending on the architecture. Also, the concept of Jiffies comes up. I will not go into more details, however [4] explains this part very well. Finally, it calls the do_nanosleep function that has the logic that sends a process to sleep. The hrtimer_init_sleeper_on_stack function (which in the end calls the __hrtimer_init_sleeper function) allocates and initializes an HR sleep timer associated with the current process that is being executed.\nThe function attribute of the HR sleep timer is the callback function, which means that this function will be called after the HR sleep timer expires. In this case, the function attribute of the sleep timer is set to hrtimer_wakeup which we will see later (don’t forget this 😉).\nstatic void __hrtimer_init_sleeper(struct hrtimer_sleeper *sl, clockid_t clock_id, enum hrtimer_mode mode) { ... __hrtimer_init(\u0026scicil-\u003etimer, clock_id, mode); sl-\u003etimer.function = hrtimer_wakeup; // \u003c\u003c\u003c\u003c\u003c\u003c This function will be called after the timer expires sl-\u003etask = current; // \u003c\u003c\u003c\u003c\u003c\u003c Associates the timer with the current process } In the Linux Kernel, the current variable is a pointer to the current process being executed (in our case the program that calls the sleep function).\nBefore continuing with the do_nanosleep function, I will make a parenthesis about the __hrtimer_init function.\nstatic void __hrtimer_init(struct hrtimer *timer, clockid_t clock_id, enum hrtimer_mode mode) { ... timerqueue_init(\u0026timer-\u003enode); } I mentioned that HR Timers use a queue which under the hood is implemented using a Red Black Tree. The call to timerqueue_init functions is only allocating and initializing a Red-Black Tree Node, but not adding it to the tree yet.\nAfter that short parenthesis, let’s see what happens inside the do_nanosleep function.\nI initially thought that the do/while loop iterates until the HR sleep timer expired (something like an infinite loop), things happen differently.\nstatic int __sched do_nanosleep(struct hrtimer_sleeper *t, enum hrtimer_mode mode) { struct restart_block *restart; do { set_current_state(TASK_INTERRUPTIBLE); // \u003c\u003c\u003c\u003c This causes the process to go to a Sleeping state hrtimer_sleeper_start_expires(t, mode); if (likely(t-\u003etask)) freezable_schedule(); hrtimer_cancel(\u0026t-\u003etimer); mode = HRTIMER_MODE_ABS; } while (t-\u003etask \u0026\u0026 !signal_pending(current)); __set_current_state(TASK_RUNNING); if (!t-\u003etask) return 0; restart = \u0026current-\u003erestart_block; if (restart-\u003enanosleep.type != TT_NONE) { ktime_t rem = hrtimer_expires_remaining(\u0026t-\u003etimer); struct timespec64 rmt; if (rem \u003c= 0) return 0; rmt = ktime_to_timespec64(rem); return nanosleep_copyout(restart, \u0026rmt); } return -ERESTART_RESTARTBLOCK; } As mentioned before, when the sleep function is called, the current process will pass to a Sleeping state. We can see that happening on the line that calls the set_current_state function that changes the state of the current process to TASK_INTERRUPTIBLE (Sleeping).\nThe call to the hrtimer_sleeper_start_expires function will call other functions until it calls the __hrtimer_start_range_ns function which in turn will call the enqueue_hrtimer function, it is at this point where the timer (node) we initialized before is added to the Red Black Tree structure so the timer can be processed later.\nFinally, the freezable_schedule function indicates the process scheduler to schedule another process because the current process went to sleep and the execution of our process pauses here.\nHow Does The Process Wakes Up? So far we reviewed that the nanosleep implementation changes the state of the process to TASK_INTERRUPTIBLE and pauses the process execution.\nNow that the process state is in TASK_INTERRUPTIBLE state, the process scheduler will not consider the process for execution in the future, until the state of the process is set back to TASK_RUNNING.\nWe mentioned that the Hardware Timer will cause periodic interrupts so the Linux Kernel can handle them by calling the hrtimer_interrupt function on each interruption (multiple times in a second). It is in this function where High Resolution Timers are processed by calling the __hrtimer_run_queues function.\nstatic void __hrtimer_run_queues(struct hrtimer_cpu_base *cpu_base, ktime_t now, unsigned long flags, unsigned int active_mask) { struct hrtimer_clock_base *base; unsigned int active = cpu_base-\u003eactive_bases \u0026 active_mask; for_each_active_base(base, cpu_base, active) { struct timerqueue_node *node; ktime_t basenow; basenow = ktime_add(now, base-\u003eoffset); while ((node = timerqueue_getnext(\u0026base-\u003eactive))) { struct hrtimer *timer; timer = container_of(node, struct hrtimer, node); if (basenow \u003c hrtimer_get_softexpires_tv64(timer)) break; __run_hrtimer(cpu_base, base, timer, \u0026basenow, flags); if (active_mask == HRTIMER_ACTIVE_SOFT) hrtimer_sync_wait_running(cpu_base, flags); } } } The __hrtimer_run_queues function will iterate the timers in the Red Black Tree, remember that it will iterate starting by the timers that are sooner to expire. Something to note here is that it will break the while loop if the timer didn’t expire yet (why do unnecessary iterations if the head of the queue is a timer that didn’t expire yet?). But when a timer expired, it will call the __run_hrtimer function. As we can see, its implementation will call the callback function we set during HR sleep timer initialization.\nstatic void __run_hrtimer(struct hrtimer_cpu_base *cpu_base, struct hrtimer_clock_base *base, struct hrtimer *timer, ktime_t *now, unsigned long flags) __must_hold(\u0026cpu_base-\u003elock) { ... fn = timer-\u003efunction; // \u003c\u003c\u003c\u003c\u003c This fn function is pointing to the hrtimer_wakeup function ... restart = fn(timer); ... } The function that was set as the callback function during HR sleep timer initialization was the hrtimer_wakeup function.\nstatic enum hrtimer_restart hrtimer_wakeup(struct hrtimer *timer) { struct hrtimer_sleeper *t = container_of(timer, struct hrtimer_sleeper, timer); struct task_struct *task = t-\u003etask; t-\u003etask = NULL; if (task) wake_up_process(task); // \u003c\u003c\u003c\u003c\u003c\u003c Wake up the process!! return HRTIMER_NORESTART; } As we can see this function will call the wake_up_process function sending the process (task) associated with the HR timer as parameter. The wake_up_process function among other things will set the process state to TASK_RUNNING.\nSome CPU cycles later, the process scheduler will resume the execution of this process where it stopped (after the call to the freezable_schedule function). Then the rest of the do_nanosleep function will free memory, remove the timer from the Red Black Tree and continue with the execution. And that’s it!\nThere are other alternatives to nanosleep The nanosleep syscall is not the only syscall that can be used to sleep a process. For example Python time.sleep function uses the select syscall under the hood, however, if we review the implementation of the do_select function which in turn calls the schedule_hrtimeout_range function, you will notice that it calls the schedule_hrtimeout_range function which initializes and starts a High Resolution sleep timer, and tells the process scheduler to schedule another process (same logic as with nanosleep).\nPython sleep is one example, but other languages might be using different syscalls.\nLast Comments Although calling the sleep function in our programs might be something trivial, all the mechanisms that live behind that simple behavior are amazing. When I started digging to understand what happens when you call a sleep function, I wouldn’t have imagined how much I was going to learn.\nIn case there are parts of this post that you find incorrect, let me know by opening an issue on this blog’s Github repository. I will really appreciate it!.\nReferences [0] https://lwn.net/Articles/167897/ [1] https://lwn.net/Articles/152436/ [2] https://www.kernel.org/doc/html/latest/timers/hrtimers.html [3] https://www.kernel.org/doc/html/latest/timers/highres.html [4] https://www.youtube.com/watch?v=Puv4mW55bF8 ",
   "wordCount" : "3019",
   "inLanguage": "en",
-  "image": "http://localhost:1313/images/papermod-cover.png","datePublished": "2022-03-10T00:00:00Z",
+  "image": "https://blog.donkeysharp.xyz/images/papermod-cover.png","datePublished": "2022-03-10T00:00:00Z",
   "dateModified": "2022-03-10T00:00:00Z",
   "author":{
     "@type": "Person",
@@ -100,14 +100,14 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/"
+    "@id": "https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Donkeysharp",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/favicon.ico"
+      "url": "https://blog.donkeysharp.xyz/favicon.ico"
     }
   }
 }
@@ -125,7 +125,7 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Donkeysharp (Alt + H)">Donkeysharp</a>
+            <a href="https://blog.donkeysharp.xyz/" accesskey="h" title="Donkeysharp (Alt + H)">Donkeysharp</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -149,7 +149,7 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
                 </button>
                 <ul class="lang-switch"><li>|</li>
                     <li>
-                        <a href="http://localhost:1313/es/" title="Español"
+                        <a href="https://blog.donkeysharp.xyz/es/" title="Español"
                             aria-label="Español">Español</a>
                     </li>
                 </ul>
@@ -157,12 +157,12 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archive" title="Archive">
+                <a href="https://blog.donkeysharp.xyz/archive" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="About Me">
+                <a href="https://blog.donkeysharp.xyz/about/" title="About Me">
                     <span>About Me</span>
                 </a>
             </li>
@@ -173,14 +173,14 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="https://blog.donkeysharp.xyz/">Home</a>&nbsp;»&nbsp;<a href="https://blog.donkeysharp.xyz/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       What Happens When A Linux Process Goes To Sleep?
     </h1>
     <div class="post-meta"><span title='2022-03-10 00:00:00 +0000 UTC'>March 10, 2022</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;donkeysharp&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>
-        <a href="http://localhost:1313/es/post/what-happens-when-a-process-goes-to-sleep/">Español</a>
+        <a href="https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/">Español</a>
     </li>
 </ul>
 
@@ -537,12 +537,12 @@ Clock Event Device: lapic-deadline
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/devops-training/">
+  <a class="prev" href="https://blog.donkeysharp.xyz/mock-ec2-metadata/">
     <span class="title">« Prev</span>
     <br>
-    <span>Devops Training</span>
+    <span>Mocking EC2 metadata server locally</span>
   </a>
-  <a class="next" href="http://localhost:1313/post/analyzing-evo-video/">
+  <a class="next" href="https://blog.donkeysharp.xyz/post/analyzing-evo-video/">
     <span class="title">Next »</span>
     <br>
     <span>Analyzing a Video Looking for Possible Malware</span>
@@ -553,7 +553,7 @@ Clock Event Device: lapic-deadline
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share What Happens When A Linux Process Goes To Sleep? on x"
-            href="https://x.com/intent/tweet/?text=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f&amp;hashtags=">
+            href="https://x.com/intent/tweet/?text=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;url=https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f&amp;hashtags=">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -562,7 +562,7 @@ Clock Event Device: lapic-deadline
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share What Happens When A Linux Process Goes To Sleep? on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f&amp;title=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;summary=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;source=http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f&amp;title=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;summary=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;source=https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -571,7 +571,7 @@ Clock Event Device: lapic-deadline
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share What Happens When A Linux Process Goes To Sleep? on reddit"
-            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f&title=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f">
+            href="https://reddit.com/submit?url=https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f&title=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -580,7 +580,7 @@ Clock Event Device: lapic-deadline
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share What Happens When A Linux Process Goes To Sleep? on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -589,7 +589,7 @@ Clock Event Device: lapic-deadline
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share What Happens When A Linux Process Goes To Sleep? on whatsapp"
-            href="https://api.whatsapp.com/send?text=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f%20-%20http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
+            href="https://api.whatsapp.com/send?text=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f%20-%20https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -598,7 +598,7 @@ Clock Event Device: lapic-deadline
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share What Happens When A Linux Process Goes To Sleep? on telegram"
-            href="https://telegram.me/share/url?text=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
+            href="https://telegram.me/share/url?text=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&amp;url=https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -607,7 +607,7 @@ Clock Event Device: lapic-deadline
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share What Happens When A Linux Process Goes To Sleep? on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&u=http%3a%2f%2flocalhost%3a1313%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
+            href="https://news.ycombinator.com/submitlink?t=What%20Happens%20When%20A%20Linux%20Process%20Goes%20To%20Sleep%3f&u=https%3a%2f%2fblog.donkeysharp.xyz%2fpost%2fwhat-happens-when-a-process-goes-to-sleep%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path

@@ -2,31 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Donkeysharp</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://blog.donkeysharp.xyz/categories/</link>
     <description>Recent content in Categories on Donkeysharp</description>
     <image>
       <title>Donkeysharp</title>
-      <url>http://localhost:1313/images/papermod-cover.png</url>
-      <link>http://localhost:1313/images/papermod-cover.png</link>
+      <url>https://blog.donkeysharp.xyz/images/papermod-cover.png</url>
+      <link>https://blog.donkeysharp.xyz/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.147.0</generator>
     <language>en</language>
     <copyright>Donkeysharp</copyright>
-    <lastBuildDate>Sun, 10 Mar 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Syntax</title>
-      <link>http://localhost:1313/categories/syntax/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/syntax/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Themes</title>
-      <link>http://localhost:1313/categories/themes/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/categories/themes/</guid>
-      <description></description>
-    </item>
+    <atom:link href="https://blog.donkeysharp.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
