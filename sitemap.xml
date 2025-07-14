@@ -2,14 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://blog.donkeysharp.xyz/en/sitemap.xml</loc>
+    <loc>http://localhost:1313/en/sitemap.xml</loc>
     
-      <lastmod>2024-08-13T18:20:13-04:00</lastmod>
+      <lastmod>2025-06-21T11:37:13-04:00</lastmod>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://blog.donkeysharp.xyz/es/sitemap.xml</loc>
+    <loc>http://localhost:1313/es/sitemap.xml</loc>
     
       <lastmod>2025-04-13T17:51:02-04:00</lastmod>
     

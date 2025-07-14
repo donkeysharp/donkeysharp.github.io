@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AWS on Donkeysharp</title>
+    <link>http://localhost:1313/es/tags/aws/</link>
+    <description>Recent content in AWS on Donkeysharp</description>
+    <image>
+      <title>Donkeysharp</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>es</language>
+    <copyright>Donkeysharp</copyright>
+    <lastBuildDate>Tue, 13 Aug 2024 18:20:13 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/es/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nuke&#39;em all! Using AWS Nuke to clean your AWS accounts</title>
+      <link>http://localhost:1313/es/intro-to-aws-nuke/</link>
+      <pubDate>Tue, 13 Aug 2024 18:20:13 -0400</pubDate>
+      <guid>http://localhost:1313/es/intro-to-aws-nuke/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/aws-nuke.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introducing-aws-nuke&#34;&gt;Introducing AWS Nuke!&lt;/h2&gt;
+&lt;p&gt;In this post I will give you a quick introduction to &lt;a href=&#34;https://aws-nuke.ekristen.dev/&#34;&gt;AWS Nuke&lt;/a&gt;, a tool developed in Golang that aims to delete all resources in an AWS account. This tool helped me a lot.&lt;/p&gt;
+&lt;h2 id=&#34;use-cases&#34;&gt;Use Cases&lt;/h2&gt;
+&lt;h3 id=&#34;cleaning-free-tier-aws-account&#34;&gt;Cleaning Free Tier AWS Account&lt;/h3&gt;
+&lt;p&gt;This was a personal use-case, I created a free tier AWS Account some months ago and I&amp;rsquo;ve been using it for different purposes, some of the resources I created were via Terraform which made it simpler to delete the resources I created after using them, on the other hand, I created other resources manually without tracking them, some of them were costing me money!. So I prefered to delete everything in this account as I use it for learning purposes only. AWS Nuke is a great fit for this task.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

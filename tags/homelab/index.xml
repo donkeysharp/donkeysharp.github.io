@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Homelab on Donkeysharp</title>
+    <link>http://localhost:1313/tags/homelab/</link>
+    <description>Recent content in Homelab on Donkeysharp</description>
+    <image>
+      <title>Donkeysharp</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.147.0</generator>
+    <language>en</language>
+    <copyright>Donkeysharp</copyright>
+    <lastBuildDate>Sat, 21 Jun 2025 11:37:13 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Connecting an AWS VPC to your Homelab without dying in the process</title>
+      <link>http://localhost:1313/connect-vpc-to-homelab/</link>
+      <pubDate>Sat, 21 Jun 2025 11:37:13 -0400</pubDate>
+      <guid>http://localhost:1313/connect-vpc-to-homelab/</guid>
+      <description>&lt;p&gt;Hey there! It&amp;rsquo;s been a while since my last technical post. In this post I will be showing some experiments I was playing with during the weekend in order to connect an AWS VPC to my Homelab.&lt;/p&gt;
+&lt;p&gt;I want to first thank to Lib, she posted some questions regarding this topic on the AWS User Group Cochabamba Whatsapp group. Although I have a theoritical idea on how to do it, she sparked my curiosity and I started checking documentation with more detail with the idea to implement it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

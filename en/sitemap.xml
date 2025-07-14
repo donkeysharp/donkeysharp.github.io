@@ -2,222 +2,265 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.donkeysharp.xyz/</loc>
-    <lastmod>2024-08-13T18:20:13-04:00</lastmod>
+    <loc>http://localhost:1313/tags/aws/</loc>
+    <lastmod>2025-06-21T11:37:13-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/connect-vpc-to-homelab/</loc>
+    <lastmod>2025-06-21T11:37:13-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-06-21T11:37:13-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/"
+                href="http://localhost:1313/es/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/"
+                href="http://localhost:1313/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/posts/</loc>
-    <lastmod>2024-08-13T18:20:13-04:00</lastmod>
+    <loc>http://localhost:1313/tags/homelab/</loc>
+    <lastmod>2025-06-21T11:37:13-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/linux/</loc>
+    <lastmod>2025-06-21T11:37:13-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-06-21T11:37:13-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/posts/"
+                href="http://localhost:1313/es/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/posts/"
+                href="http://localhost:1313/posts/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/serverless-aws-sso/</loc>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-06-21T11:37:13-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/intro-to-aws-nuke/</loc>
+    <lastmod>2024-08-13T18:20:13-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/serverless-aws-sso/</loc>
     <lastmod>2023-10-22T17:51:02-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/"
+                href="http://localhost:1313/es/post/serverless-aws-sso/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/serverless-aws-sso/"
+                href="http://localhost:1313/serverless-aws-sso/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/mock-ec2-metadata/</loc>
+    <loc>http://localhost:1313/mock-ec2-metadata/</loc>
     <lastmod>2023-05-28T21:08:04-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/mock-ec2-metadata/"
+                href="http://localhost:1313/es/mock-ec2-metadata/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/mock-ec2-metadata/"
+                href="http://localhost:1313/mock-ec2-metadata/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/</loc>
+    <loc>http://localhost:1313/posts/access-ec2-instances/</loc>
+    <lastmod>2022-09-04T11:48:18-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/devops-training/</loc>
+    <lastmod>2022-03-11T16:49:49-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/</loc>
     <lastmod>2022-03-10T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/"
+                href="http://localhost:1313/es/post/what-happens-when-a-process-goes-to-sleep/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/"
+                href="http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/post/analyzing-evo-video/</loc>
+    <loc>http://localhost:1313/post/analyzing-evo-video/</loc>
     <lastmod>2019-11-26T13:08:36-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/analisis-video-evo/"
+                href="http://localhost:1313/es/post/analisis-video-evo/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/analyzing-evo-video/"
+                href="http://localhost:1313/post/analyzing-evo-video/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/</loc>
+    <loc>http://localhost:1313/post/debian-post-installation-automated-setup/</loc>
     <lastmod>2019-05-13T21:45:39-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/automatizando-setup-post-instalacion-debian/"
+                href="http://localhost:1313/es/post/automatizando-setup-post-instalacion-debian/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/"
+                href="http://localhost:1313/post/debian-post-installation-automated-setup/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/posts/fun-with-ssh-part-1/</loc>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://localhost:1313/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/categories/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/tags/code/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/foobar/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/gist/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/markdown/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/syntax/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/syntax/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/themes/</loc>
+    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/fun-with-ssh-part-1/</loc>
     <lastmod>2018-08-28T08:30:57-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/diversion-con-ssh-parte-1/"
+                href="http://localhost:1313/es/post/diversion-con-ssh-parte-1/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/posts/fun-with-ssh-part-1/"
+                href="http://localhost:1313/posts/fun-with-ssh-part-1/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/posts/gocho-file-sharing/</loc>
+    <loc>http://localhost:1313/posts/gocho-file-sharing/</loc>
     <lastmod>2018-03-29T22:22:46-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/"
+                href="http://localhost:1313/es/post/gocho-compartir-archivos-red-local/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/posts/gocho-file-sharing/"
+                href="http://localhost:1313/posts/gocho-file-sharing/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/posts/my-computer-setup/</loc>
+    <loc>http://localhost:1313/posts/my-computer-setup/</loc>
     <lastmod>2018-03-09T23:15:16-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/configuracion-de-escritorio-debian/"
+                href="http://localhost:1313/es/post/configuracion-de-escritorio-debian/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/posts/my-computer-setup/"
+                href="http://localhost:1313/posts/my-computer-setup/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/posts/my-first-post/</loc>
+    <loc>http://localhost:1313/posts/my-first-post/</loc>
     <lastmod>2018-01-05T13:04:24-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/post/mi-primer-post/"
+                href="http://localhost:1313/es/post/mi-primer-post/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/posts/my-first-post/"
+                href="http://localhost:1313/posts/my-first-post/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2018-01-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/about/"
+                href="http://localhost:1313/es/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/about/"
+                href="http://localhost:1313/about/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/donkeysharp/</loc>
+    <loc>http://localhost:1313/tags/donkeysharp/</loc>
     <lastmod>2018-01-05T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/donkeysharp/"
+                href="http://localhost:1313/es/tags/donkeysharp/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/donkeysharp/"
+                href="http://localhost:1313/tags/donkeysharp/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/</loc>
-    <lastmod>2018-01-05T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/archive/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/"
+                href="http://localhost:1313/es/archive/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/"
+                href="http://localhost:1313/archive/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/archive/</loc>
+    <loc>http://localhost:1313/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/archive/"
+                href="http://localhost:1313/es/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/archive/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/categories/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/series/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/series/"
+                href="http://localhost:1313/series/"
                 />
   </url>
 </urlset>

@@ -2,82 +2,127 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Donkeysharp</title>
-    <link>https://blog.donkeysharp.xyz/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Donkeysharp</description>
     <image>
       <title>Donkeysharp</title>
-      <url>https://blog.donkeysharp.xyz/images/papermod-cover.png</url>
-      <link>https://blog.donkeysharp.xyz/images/papermod-cover.png</link>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.147.0</generator>
     <language>en</language>
     <copyright>Donkeysharp</copyright>
-    <lastBuildDate>Sun, 22 Oct 2023 17:51:02 -0400</lastBuildDate>
-    <atom:link href="https://blog.donkeysharp.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jul 2025 18:20:13 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nuke&#39;em all! Using AWS Nuke to clean your AWS accounts</title>
+      <link>http://localhost:1313/intro-to-aws-nuke/</link>
+      <pubDate>Sun, 13 Jul 2025 18:20:13 -0400</pubDate>
+      <guid>http://localhost:1313/intro-to-aws-nuke/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/aws-nuke.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introducing-aws-nuke&#34;&gt;Introducing AWS Nuke!&lt;/h2&gt;
+&lt;p&gt;In this post I will give you a quick introduction to &lt;a href=&#34;https://aws-nuke.ekristen.dev/&#34;&gt;AWS Nuke&lt;/a&gt;, a tool developed in Golang that aims to delete all resources in an AWS account. This tool helped me a lot.&lt;/p&gt;
+&lt;h2 id=&#34;use-cases&#34;&gt;Use Cases&lt;/h2&gt;
+&lt;h3 id=&#34;cleaning-free-tier-aws-account&#34;&gt;Cleaning Free Tier AWS Account&lt;/h3&gt;
+&lt;p&gt;This was a personal use-case, I created a free tier AWS Account some months ago and I&amp;rsquo;ve been using it for different purposes, some of the resources I created were via Terraform which made it simpler to delete the resources I created after using them, on the other hand, I created other resources manually without tracking them, some of them were costing me money!. So I prefered to delete everything in this account as I use it for learning purposes only. AWS Nuke is a great fit for this task.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Connecting an AWS VPC to your Homelab without dying in the process</title>
+      <link>http://localhost:1313/connect-vpc-to-homelab/</link>
+      <pubDate>Sat, 21 Jun 2025 11:37:13 -0400</pubDate>
+      <guid>http://localhost:1313/connect-vpc-to-homelab/</guid>
+      <description>&lt;p&gt;Hey there! It&amp;rsquo;s been a while since my last technical post. In this post I will be showing some experiments I was playing with during the weekend in order to connect an AWS VPC to my Homelab.&lt;/p&gt;
+&lt;p&gt;I want to first thank to Lib, she posted some questions regarding this topic on the AWS User Group Cochabamba Whatsapp group. Although I have a theoritical idea on how to do it, she sparked my curiosity and I started checking documentation with more detail with the idea to implement it.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using Serverless Framework with AWS SSO</title>
-      <link>https://blog.donkeysharp.xyz/serverless-aws-sso/</link>
+      <link>http://localhost:1313/serverless-aws-sso/</link>
       <pubDate>Sun, 22 Oct 2023 17:51:02 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/serverless-aws-sso/</guid>
+      <guid>http://localhost:1313/serverless-aws-sso/</guid>
       <description>&lt;p&gt;In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.serverless.com/framework/docs&#34;&gt;Serverless Framework&lt;/a&gt; is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to &lt;a href=&#34;https://aws.amazon.com/serverless/sam/&#34;&gt;AWS SAM&lt;/a&gt;, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my &lt;code&gt;~/.aws/credentials&lt;/code&gt; file. However this time I was using &lt;a href=&#34;https://aws.amazon.com/what-is/sso/&#34;&gt;AWS Single Sign-On&lt;/a&gt; to access AWS API from my local computer. Unfortunately, when I wanted to deploy some Lambda functions using the &lt;code&gt;sls&lt;/code&gt; CLI, I was not able to do it, it shows a message saying the AWS profile I was using was not configured, even I logged in successfully a couple minutes ago.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mocking EC2 metadata server locally</title>
-      <link>https://blog.donkeysharp.xyz/mock-ec2-metadata/</link>
+      <link>http://localhost:1313/mock-ec2-metadata/</link>
       <pubDate>Sun, 28 May 2023 21:08:04 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/mock-ec2-metadata/</guid>
+      <guid>http://localhost:1313/mock-ec2-metadata/</guid>
       <description>&lt;p&gt;Some time ago I was working on creating a local docker-based development environment for some microservices at work so developers can have the necessary infra components on their machines and that will help them with their daily tasks. Initially, the business logic of some microservices were a black box to me. After containerizing the applications and creating the docker-compose setup, some of them started failing and after checking the logs it turns out that the applications were using AWS SDK to get ec2 instance metadata.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Accessing EC2 instances without exposing SSH port</title>
+      <link>http://localhost:1313/posts/access-ec2-instances/</link>
+      <pubDate>Sun, 04 Sep 2022 11:48:18 -0400</pubDate>
+      <guid>http://localhost:1313/posts/access-ec2-instances/</guid>
+      <description>&lt;p&gt;The need to access a remote Linux server is very common be it for debugging purposes, maintenance, etc. The other day I was chatting with my friend Yarel and checking an alternative to SSH that helps accessing EC2 instances (and this can work for non-AWS instances as well).&lt;/p&gt;
+&lt;h2 id=&#34;using-ssh&#34;&gt;Using SSH&lt;/h2&gt;
+&lt;p&gt;The most common approach is to start an Open SSH server and access the server, that implies opening port 22 (SSH port) to the public or use some security group ingress rules to allow accessing port 22 from specific IP addresses. Of course there are other security good practices to follow, but you get the point.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Devops Training</title>
+      <link>http://localhost:1313/posts/devops-training/</link>
+      <pubDate>Fri, 11 Mar 2022 16:49:49 -0400</pubDate>
+      <guid>http://localhost:1313/posts/devops-training/</guid>
+      <description>&lt;p&gt;Hey there! I hope this post can help people who is interested on getting a job as a DevOps Engineer, Cloud Engineer, Site Reliability Engineer, etc.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I know there is a lot of discussion regarding the roles and if they would exist or what are their main tasks. To be honest, it really sucks because based on my experience and after applying for any of the roles mentioned about, I ended up doing almost the same and also each organization have their own definition of those roles. Anyways I hope this post can help.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>What Happens When A Linux Process Goes To Sleep?</title>
-      <link>https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/</link>
+      <link>http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/</link>
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
-      <guid>https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/</guid>
+      <guid>http://localhost:1313/post/what-happens-when-a-process-goes-to-sleep/</guid>
       <description>&lt;p&gt;It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the &lt;code&gt;sleep(NUMBER_OF_SECONDS)&lt;/code&gt; function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the &lt;code&gt;sleep&lt;/code&gt; function work the way it does.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;I appreciate your feedback.&lt;/strong&gt; I am not an expert on this topic as Linux Kernel&amp;rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&amp;rsquo;s source code, and wanted to share what I learned. If you find something incorrect in this post, please let me know by opening an issue on this blog&amp;rsquo;s &lt;a href=&#34;https://github.com/donkeysharp/donkeysharp.github.io&#34;&gt;Github repository&lt;/a&gt;. I will really appreciate it!.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Analyzing a Video Looking for Possible Malware</title>
-      <link>https://blog.donkeysharp.xyz/post/analyzing-evo-video/</link>
+      <link>http://localhost:1313/post/analyzing-evo-video/</link>
       <pubDate>Tue, 26 Nov 2019 13:08:36 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/post/analyzing-evo-video/</guid>
+      <guid>http://localhost:1313/post/analyzing-evo-video/</guid>
       <description>&lt;p&gt;Hello, during the months of October and November different social and political conflicts occurred in Bolivia, this entry is not so much to discuss the political issue, it will be a 100% technical entry but it is related to those events.&lt;/p&gt;
 &lt;p&gt;The previous week a large number of clients from a local ISP received an SMS with a link &lt;code&gt;bit.ly&lt;/code&gt; to an MP4 video in Dropbox that was later deleted.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Automating post-installation setup in my personal Debian machines</title>
-      <link>https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/</link>
+      <link>http://localhost:1313/post/debian-post-installation-automated-setup/</link>
       <pubDate>Mon, 13 May 2019 21:45:39 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/</guid>
-      <description>&lt;p&gt;Hi, some time ago I &lt;a href=&#34;https://blog.donkeysharp.xyz/posts/my-computer-setup/&#34;&gt;posted about my initial setup&lt;/a&gt; in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.&lt;/p&gt;
+      <guid>http://localhost:1313/post/debian-post-installation-automated-setup/</guid>
+      <description>&lt;p&gt;Hi, some time ago I &lt;a href=&#34;http://localhost:1313/posts/my-computer-setup/&#34;&gt;posted about my initial setup&lt;/a&gt; in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.&lt;/p&gt;
 &lt;p&gt;Basically what I was doing was to review my previous blog post and repeat those steps. So far it has worked for me, but as it&amp;rsquo;s becoming repetitive, I was encouraged to automate this whole process, both installation and configuration of certain applications and the configuration of the look and feel of the desktop (with the setup that I always use).&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Code Syntax Guide</title>
+      <link>http://localhost:1313/posts/foobar/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/foobar/</guid>
+      <description>Sample article showcasing basic code syntax and formatting for HTML elements.</description>
+    </item>
+    <item>
       <title>Fun with SSH - Local Port Forwarding</title>
-      <link>https://blog.donkeysharp.xyz/posts/fun-with-ssh-part-1/</link>
+      <link>http://localhost:1313/posts/fun-with-ssh-part-1/</link>
       <pubDate>Tue, 28 Aug 2018 08:30:57 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/posts/fun-with-ssh-part-1/</guid>
+      <guid>http://localhost:1313/posts/fun-with-ssh-part-1/</guid>
       <description>&lt;p&gt;The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind that would solve some of the challenges he has was OpenSSH.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-ssh&#34;&gt;What is SSH?&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;https://es.wikipedia.org/wiki/Secure_Shell&#34;&gt;SSH&lt;/a&gt; is a short for Secure Shell, it&amp;rsquo;s a protocol to manage services inside a network using a secure channel. One of the most common tasks that can be done using this protocol is to log into a server and remotely execute commands in this server.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Gocho, Sharing files in a local network</title>
-      <link>https://blog.donkeysharp.xyz/posts/gocho-file-sharing/</link>
+      <link>http://localhost:1313/posts/gocho-file-sharing/</link>
       <pubDate>Thu, 29 Mar 2018 22:22:46 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/posts/gocho-file-sharing/</guid>
+      <guid>http://localhost:1313/posts/gocho-file-sharing/</guid>
       <description>&lt;p&gt;Hey,during my free time I was working a side project called &lt;a href=&#34;https://github.com/donkeysharp/gocho&#34;&gt;Gocho&lt;/a&gt;. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will auto-discover other nodes. In this post I will explain what this application is all about, why I wrote it and some challenges that came up duting the development.&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.donkeysharp.xyz/img/gocho-dashboard.gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/gocho-dashboard.gif&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;why-i-wrote-this-app&#34;&gt;Why I wrote this app?&lt;/h2&gt;
 &lt;p&gt;First I wanted to share a directory in a local network without the need of others having to ask for my local ip address or the port where I published the files. Also I wanted something that is simple to execute in most common operating systems (Windows, OSX and GNU/Linux) without the need to install some dependencies.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My desktop setup in Debian</title>
-      <link>https://blog.donkeysharp.xyz/posts/my-computer-setup/</link>
+      <link>http://localhost:1313/posts/my-computer-setup/</link>
       <pubDate>Fri, 09 Mar 2018 23:15:16 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/posts/my-computer-setup/</guid>
+      <guid>http://localhost:1313/posts/my-computer-setup/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;2018-04-28&lt;/em&gt; Added more packages I use and new settings I do (reinstalled machine)&lt;/p&gt;&lt;/blockquote&gt;
@@ -89,17 +134,17 @@
     </item>
     <item>
       <title>First Post - echo &#34;Hello World&#34;</title>
-      <link>https://blog.donkeysharp.xyz/posts/my-first-post/</link>
+      <link>http://localhost:1313/posts/my-first-post/</link>
       <pubDate>Fri, 05 Jan 2018 13:04:24 -0400</pubDate>
-      <guid>https://blog.donkeysharp.xyz/posts/my-first-post/</guid>
+      <guid>http://localhost:1313/posts/my-first-post/</guid>
       <description>&lt;p&gt;Hey there, I am Sergio Guillen publishing via Github pages &amp;#x1f604;.&lt;/p&gt;
 &lt;p&gt;This blog is a project I will take again and publish content different from my &lt;a href=&#34;http://donkeysharp.blogspot.com/&#34;&gt;previous blog&lt;/a&gt; which was mostly about Microsoft technologies. Since I stopped using those technologies —that I still get impressed with them e.g. C#— I had the good luck to meet new technologies, so I want to share some experiences I had with them or stuff I&amp;rsquo;ve been researching.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About me</title>
-      <link>https://blog.donkeysharp.xyz/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Fri, 05 Jan 2018 00:00:00 +0000</pubDate>
-      <guid>https://blog.donkeysharp.xyz/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>A little bit about me</description>
     </item>
   </channel>
