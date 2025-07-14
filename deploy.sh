@@ -10,7 +10,7 @@ function build_site() {
   sync_master
 
   # Build the project
-  hugo -t beautifulhugo
+  hugo
 
   pushd public
   git add .
