@@ -14,7 +14,7 @@ Lo hice porque deseaba una aplicación donde pueda compartir un directorio; pode
 <meta name="author" content="donkeysharp">
 <link rel="canonical" href="https://blog.donkeysharp.xyz/es/post/gocho-compartir-archivos-red-local/">
 <meta name="google-site-verification" content="G-NE86EKXE5N">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5e527a53ba71ca5f4055f7a87232df40d551cf0ad74e23ec98a5c1e9587fbaf9.css" integrity="sha256-XlJ6U7pxyl9AVfeocjLfQNVRzwrXTiPsmKXB6Vh/uvk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f710067e04dcceea91964a3f3e88a29f286096ac5fb3cb6541ffb78d592b3eb.css" integrity="sha256-f3EAZ&#43;BNzO6pGWSj8&#43;iKKfKGCWrF&#43;zy2VB/7eNWSs&#43;s=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.donkeysharp.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.donkeysharp.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.donkeysharp.xyz/favicon-32x32.png">
@@ -250,18 +250,18 @@ Lo hice porque deseaba una aplicación donde pueda compartir un directorio; pode
 <p>En la empresa donde trabajo existe una diversidad en cuestión a sistemas operativos. Algun@s compañer@s utilizan Windows, OSX y otr@s GNU/Linux. Para compartir archivo, existe un Active Directory o algo similar configurado, personalmente nunca logré acceder a las carpetas compartidas por otros (uso GNU/Linux). Al intentar acceder me salía la opción de insertar un dominio y credenciales; pése a que introducía los datos —que en teoría eran correctos— no lograba acceder a los archivos compartidos.</p>
 <p>En el trabajo hay compañeros que comparten información por ejemplo videos, cursos, etc. montando un servidor <code>httpd</code> en su máquina local o en mi caso ejecutaba <code>python -m SimpleHTTPServer</code> en el directorio que deseaba compartir. Noté un problema con <code>SimpleHTTPServer</code>, con pocas personas tratando de descargar el mismo archivo, esta pequeña utilidad solo permite manejar una descarga al mismo tiempo.</p>
 <p>Mi segundo intento fue utilizar algo un poco más robusto que <code>SimpleHTTPServer</code> pero sin la necesidad de levantar algo grande como <code>httpd</code>. Tuve la suerte de chocar con un ejemplo en la documentación de Go para el modulo <code>net/http</code> que justamente —con pocas líneas de código— me permitía compartir un directorio y podía soportar varias descargas simultáneas sin problemas.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;log&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;net/http&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// Simple static webserver:</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">directory</span> <span class="o">:=</span> <span class="s">&#34;some/directory&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">log</span><span class="p">.</span><span class="nf">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="nx">http</span><span class="p">.</span><span class="nf">FileServer</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nf">Dir</span><span class="p">(</span><span class="s">&#34;/home/myuser/some/directory&#34;</span><span class="p">))))</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Simple static webserver:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">directory</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;some/directory&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">FileServer</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Dir</span>(<span style="color:#e6db74">&#34;/home/myuser/some/directory&#34;</span>))))
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Solo tuve que compilar este archivo; poner el binario que llamé <code>http</code> en algún directorio que se encuentre en mi <code>PATH</code> de ejecución y voila! ya contaba con algo más robusto que pueda aguantar más descargas y no tenga que montar todo un servicio.</p>
 <blockquote>
 <blockquote>
@@ -286,34 +286,34 @@ Lo hice porque deseaba una aplicación donde pueda compartir un directorio; pode
 <p>Ya viendo un poco la implementación de esto, podemos ver algunos trozos de código que utilicé en Gocho.</p>
 <p><a href="https://github.com/donkeysharp/gocho/blob/master/pkg/node/net.go">pkg/node/net.go</a></p>
 <p>La función <code>announceNode</code> básicamente envía un paquete multicast.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">announceNode</span><span class="p">(</span><span class="nx">nodeInfo</span> <span class="o">*</span><span class="nx">NodeInfo</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">address</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ResolveUDPAddr</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="nx">MULTICAST_ADDRESS</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// error handling</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">DialUDP</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// error handling</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="o">...</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">conn</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">message</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">ANNOUNCE_INTERVAL_SEC</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">announceNode</span>(<span style="color:#a6e22e">nodeInfo</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">NodeInfo</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUDPAddr</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#a6e22e">MULTICAST_ADDRESS</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// error handling</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">DialUDP</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">address</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// error handling</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">Write</span>([]byte(<span style="color:#a6e22e">message</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">ANNOUNCE_INTERVAL_SEC</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>La función <code>listenForNodes</code> que escucha los mensajes multicast.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">listenForNodes</span><span class="p">(</span><span class="nx">nodeList</span> <span class="o">*</span><span class="nx">list</span><span class="p">.</span><span class="nx">List</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">address</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ResolveUDPAddr</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="nx">MULTICAST_ADDRESS</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// error handling</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nf">ListenMulticastUDP</span><span class="p">(</span><span class="s">&#34;udp&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">address</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// error handling</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">conn</span><span class="p">.</span><span class="nf">SetReadBuffer</span><span class="p">(</span><span class="nx">MULTICAST_BUFFER_SIZE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">packet</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">MULTICAST_BUFFER_SIZE</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">size</span><span class="p">,</span> <span class="nx">udpAddr</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">conn</span><span class="p">.</span><span class="nf">ReadFromUDP</span><span class="p">(</span><span class="nx">packet</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="o">...</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">listenForNodes</span>(<span style="color:#a6e22e">nodeList</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">list</span>.<span style="color:#a6e22e">List</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ResolveUDPAddr</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#a6e22e">MULTICAST_ADDRESS</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// error handling</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">conn</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">net</span>.<span style="color:#a6e22e">ListenMulticastUDP</span>(<span style="color:#e6db74">&#34;udp&#34;</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">address</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// error handling</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">SetReadBuffer</span>(<span style="color:#a6e22e">MULTICAST_BUFFER_SIZE</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">packet</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#a6e22e">MULTICAST_BUFFER_SIZE</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">size</span>, <span style="color:#a6e22e">udpAddr</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">conn</span>.<span style="color:#a6e22e">ReadFromUDP</span>(<span style="color:#a6e22e">packet</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Entonces gran parte de la &ldquo;mágia&rdquo; de Gocho se encuentra en el trabajo con multicast. Con multicast una máquina puede anunciarse a sí misma y a la vez descubrir a otros nodos.</p>
 <h3 id="problema-3-formato-de-los-mensajes">Problema 3: Formato de los Mensajes<a hidden class="anchor" aria-hidden="true" href="#problema-3-formato-de-los-mensajes">#</a></h3>
 <p>Si bien ya tenemos una forma de comunicarnos entre nodos, ví conveniente poder identificar los paquetes que envía Gocho con otros. Básicamente el paquete (en esta versión inicial) debe seguir lo siguiente:</p>
@@ -371,18 +371,18 @@ Lo hice porque deseaba una aplicación donde pueda compartir un directorio; pode
 <p>Los componentes y el código para la UI se encuentra en el directorio <code>ui</code>. Para la estructura quise mantener las cosas cosas simple así que utilicé <a href="https://github.com/facebook/create-react-app">Create React App</a> para este propósito.</p>
 <p>De la misma forma para los estilos, si bien podría haber utilizado un procesador como <em>SASS</em>, decidí mantener los estilos y solo utilizar el estándar por defecto <em>CSS</em>, que como verán en el código es un <a href="https://github.com/donkeysharp/gocho/blob/master/ui/src/App.css">archivo</a> de 184 líneas de código.</p>
 <p>Para generar el bundle javascript solo es necesario ejecutar el siguiente comando.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">make dist
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>make dist
 </span></span></code></pre></div><p>Internamente esto utiliza los scripts de Create React App y para poder tener el bundle embebido dentro del binario, hago uso de <a href="https://blog.golang.org/generate">Go Generate</a>.</p>
 <p><a href="https://github.com/donkeysharp/gocho/blob/master/cmd/gocho/gocho.go">Este archivo</a> tiene un comentario:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">//go:generate go-bindata -o ../../assets/assets_gen.go -pkg assets ../../ui/build/...</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;github.com/donkeysharp/gocho/pkg/cmds&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="s">&#34;os&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="o">...</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//go:generate go-bindata -o ../../assets/assets_gen.go -pkg assets ../../ui/build/...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;github.com/donkeysharp/gocho/pkg/cmds&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;os&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
 </span></span></code></pre></div><p>donde se especifica donde se encuentra el bundle resultante que será embebido en el binario resultante.</p>
 <h3 id="el-índice-de-archivos-compartidos">El Índice de Archivos Compartidos<a hidden class="anchor" aria-hidden="true" href="#el-índice-de-archivos-compartidos">#</a></h3>
 <p>Esta fue una de las partes en las que tuve mucha diversión. Como mencioné en el <em>Problema 1</em>, Go presenta un ejemplo para poder compartir un directorio. El problema con esto es que no cuenta con estilos, extensibilidad, el directorio <code>..</code> para poder subir un nivel el directorio.</p>

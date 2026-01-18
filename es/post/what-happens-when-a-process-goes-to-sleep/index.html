@@ -13,7 +13,7 @@ Agradezco su feedback. No soy un experto en este tema ya que las partes internas
 <meta name="author" content="donkeysharp">
 <link rel="canonical" href="https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/">
 <meta name="google-site-verification" content="G-NE86EKXE5N">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5e527a53ba71ca5f4055f7a87232df40d551cf0ad74e23ec98a5c1e9587fbaf9.css" integrity="sha256-XlJ6U7pxyl9AVfeocjLfQNVRzwrXTiPsmKXB6Vh/uvk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f710067e04dcceea91964a3f3e88a29f286096ac5fb3cb6541ffb78d592b3eb.css" integrity="sha256-f3EAZ&#43;BNzO6pGWSj8&#43;iKKfKGCWrF&#43;zy2VB/7eNWSs&#43;s=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.donkeysharp.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.donkeysharp.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.donkeysharp.xyz/favicon-32x32.png">
@@ -237,30 +237,30 @@ Agradezco su feedback. No soy un experto en este tema ya que las partes internas
 </ul>
 <p>Cuando un proceso está ejecutando instrucciones en la CPU, se encuentra en estado &ldquo;Running&rdquo; y cuando el proceso está esperando que suceda algo, es decir, esperando I/O de red o disco, o se llama a la funcion <code>sleep</code>, cambiará a un estado <code>Sleeping</code>.</p>
 <p>Podemos comprobarlo con un sencillo programa de ejemplo en C:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// states.c
-</span></span></span><span class="line"><span class="cl"><span class="c1">// gcc states.c -o states
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#define SOME_MAGIC_NUMBER 365000000l
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">start_processing</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">long</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Starting Loop</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">long</span><span class="p">)(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">SOME_MAGIC_NUMBER</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Loop Finished</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">pid_t</span> <span class="n">pid</span> <span class="o">=</span> <span class="nf">getpid</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;PID: %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">pid</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">start_processing</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Sleep process</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Sleep finished</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">start_processing</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// states.c
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// gcc states.c -o states
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define SOME_MAGIC_NUMBER 365000000l
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start_processing</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">long</span> i;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Starting Loop</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> (<span style="color:#66d9ef">long</span>)(<span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> SOME_MAGIC_NUMBER); i<span style="color:#f92672">++</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Loop Finished</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">pid_t</span> pid <span style="color:#f92672">=</span> <span style="color:#a6e22e">getpid</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;PID: %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, pid);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">start_processing</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Sleep process</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">sleep</span>(<span style="color:#ae81ff">5</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Sleep finished</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">start_processing</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>El código anterior ejecutará un loop durante algunos segundos, luego se suspenderá durante 5 segundos y finalmente ejecutará otro loop durante otro número de segundos. Por lo tanto, esperamos que el estado del proceso sea <code>Running -&gt; Sleeping -&gt; Running</code>.</p>
 <p>Mientras se ejecuta el programa, podemos comprobar el estado del proceso con la herramienta <a href="https://htop.dev/">Htop</a>, que normalmente mostrará una letra en la octava columna que representa el estado del proceso, e.g. <code>R</code> (Running), <code>S</code> (Sleeping), <code>T</code> (Stopped), etc.</p>
 <p><img loading="lazy" src="/img/sleep-post/process-state.gif"></p>
@@ -286,27 +286,27 @@ Agradezco su feedback. No soy un experto en este tema ya que las partes internas
 <p>No importa el lenguaje de programación, el framework o la tecnología, internamente un programa que se ejecuta en user mode siempre interactuará de una forma u otra con el sistema operativo (en este post Linux) a través de <a href="https://en.wikipedia.org/wiki/System_call">System Calls o syscalls</a>. Por ejemplo, cuando leemos un archivo, nuestro código (sin importar el lenguaje de programación) se comunicará indirectamente con el Kernel de Linux a través de la syscall <code>read</code> (no es la única), luego el kernel le pedirá al disco duro físico el contenido del archivo que queremos basado en el sistema de archivos, y finalmente devolverá el contenido solicitado a nuestro programa.</p>
 <p>Hay una herramienta llamada <a href="https://man7.org/linux/man-pages/man1/strace.1.html">Strace</a> que monitorea todas las syscall que ejecuta un proceso.</p>
 <p>Si ejecutamos el ejemplo anterior en C usando <code>strace</code>, podemos ver la siguiente salida:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ strace ./states
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">... syscalls <span class="k">for</span> process loading <span class="o">(</span>they won<span class="err">&#39;</span>t be useful right now<span class="o">)</span> ...
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">write<span class="o">(</span>1, <span class="s2">&#34;PID: 26846\n&#34;</span>, 11PID: <span class="m">26846</span>
-</span></span><span class="line"><span class="cl"><span class="o">)</span>            <span class="o">=</span> <span class="m">11</span>
-</span></span><span class="line"><span class="cl">write<span class="o">(</span>1, <span class="s2">&#34;Starting Loop\n&#34;</span>, 14Starting Loop
-</span></span><span class="line"><span class="cl"><span class="o">)</span>         <span class="o">=</span> <span class="m">14</span>
-</span></span><span class="line"><span class="cl">write<span class="o">(</span>1, <span class="s2">&#34;Loop Finished\n&#34;</span>, 14Loop Finished
-</span></span><span class="line"><span class="cl"><span class="o">)</span>         <span class="o">=</span> <span class="m">14</span>
-</span></span><span class="line"><span class="cl">write<span class="o">(</span>1, <span class="s2">&#34;Sleep process\n&#34;</span>, 14Sleep process
-</span></span><span class="line"><span class="cl"><span class="o">)</span>         <span class="o">=</span> <span class="m">14</span>
-</span></span><span class="line"><span class="cl">nanosleep<span class="o">({</span><span class="nv">tv_sec</span><span class="o">=</span>5, <span class="nv">tv_nsec</span><span class="o">=</span>0<span class="o">}</span>, 0x7ffefc933be0<span class="o">)</span> <span class="o">=</span> <span class="m">0</span>
-</span></span><span class="line"><span class="cl">write<span class="o">(</span>1, <span class="s2">&#34;Sleep finished\n&#34;</span>, 15Sleep finished
-</span></span><span class="line"><span class="cl"><span class="o">)</span>        <span class="o">=</span> <span class="m">15</span>
-</span></span><span class="line"><span class="cl">write<span class="o">(</span>1, <span class="s2">&#34;Starting Loop\n&#34;</span>, 14Starting Loop
-</span></span><span class="line"><span class="cl"><span class="o">)</span>         <span class="o">=</span> <span class="m">14</span>
-</span></span><span class="line"><span class="cl">write<span class="o">(</span>1, <span class="s2">&#34;Loop Finished\n&#34;</span>, 14Loop Finished
-</span></span><span class="line"><span class="cl"><span class="o">)</span>         <span class="o">=</span> <span class="m">14</span>
-</span></span><span class="line"><span class="cl">exit_group<span class="o">(</span>0<span class="o">)</span>                           <span class="o">=</span> ?
-</span></span><span class="line"><span class="cl">+++ exited with <span class="m">0</span> +++
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ strace ./states
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>... syscalls <span style="color:#66d9ef">for</span> process loading <span style="color:#f92672">(</span>they won<span style="color:#960050;background-color:#1e0010">&#39;</span>t be useful right now<span style="color:#f92672">)</span> ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#e6db74">&#34;PID: 26846\n&#34;</span>, 11PID: <span style="color:#ae81ff">26846</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>            <span style="color:#f92672">=</span> <span style="color:#ae81ff">11</span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#e6db74">&#34;Starting Loop\n&#34;</span>, 14Starting Loop
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#e6db74">&#34;Loop Finished\n&#34;</span>, 14Loop Finished
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#e6db74">&#34;Sleep process\n&#34;</span>, 14Sleep process
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>nanosleep<span style="color:#f92672">({</span>tv_sec<span style="color:#f92672">=</span>5, tv_nsec<span style="color:#f92672">=</span>0<span style="color:#f92672">}</span>, 0x7ffefc933be0<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#e6db74">&#34;Sleep finished\n&#34;</span>, 15Sleep finished
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>        <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#e6db74">&#34;Starting Loop\n&#34;</span>, 14Starting Loop
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>write<span style="color:#f92672">(</span>1, <span style="color:#e6db74">&#34;Loop Finished\n&#34;</span>, 14Loop Finished
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>         <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>exit_group<span style="color:#f92672">(</span>0<span style="color:#f92672">)</span>                           <span style="color:#f92672">=</span> ?
+</span></span><span style="display:flex;"><span>+++ exited with <span style="color:#ae81ff">0</span> +++
 </span></span></code></pre></div><p>La salida verdadera es más larga que la que se muestra arriba, pero la mayoría de las primeras syscalls siempre se ejecutan cuando se inicia un proceso y carga la biblioteca estándar de C entre otras cosas, pero las que nos interesa revisar son las últimas.</p>
 <p>La syscall <code>write</code> le dice al Kernel que el programa quiere mostrar una cadena de texto en la <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_%28stdout%29">salida estándar</a> (en este caso la terminal). Con esa información, podemos tener una idea de que la función <code>printf</code> se comunica con el sistema operativo llamando a la syscall <code>write</code>.</p>
 <p>Luego se llama a la syscall <code>nanosleep</code>, que indicará al kernel de Linux que mueva el proceso de un estado Running a un estado Sleeping.</p>
@@ -367,33 +367,33 @@ Clock Event Device: lapic-deadline
 <p>Hasta ahora sabemos que la syscall <code>nanosleep</code> hace toda la magia para mover el estado del proceso de Running a Sleeping durante un determinado número de segundos, luego pasar al estado Running nuevamente. Ahora exploraremos el código fuente del kernel de Linux y revisaremos cuáles son los mecanismos internos detrás de ese comportamiento &ldquo;simple&rdquo;.</p>
 <p>Primero, tenemos que verificar dónde está definida la syscall <code>nanosleep</code>. Después de buscar un poco en Google, encontré un documento que especifica cómo <a href="https://www.kernel.org/doc/html/latest/process/adding-syscalls.html#generic-system-call-implementation">se definen las syscall</a> en el kernel de Linux. Por lo tanto, tenemos que buscar <code>SYSCALL_DEFINE2(nanosleep, ....)</code>, el <code>2</code> en <code>SYSCALL_DEFINE2</code> indica el número de argumentos de la syscall. Sé que <code>nanosleep</code> tiene dos argumentos después de comprobar en su <a href="https://man7.org/linux/man-pages/man2/nanosleep.2.html">manual</a> (todas las syscall tienen una página man(2)).</p>
 <p>Después de buscar el término <code>nanosleep</code> en LXR, encontré que la syscall está definida en archivo <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1970">kernel/time/hrtimer.c</a> .</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">SYSCALL_DEFINE2</span><span class="p">(</span><span class="n">nanosleep</span><span class="p">,</span> <span class="k">struct</span> <span class="n">__kernel_timespec</span> <span class="n">__user</span> <span class="o">*</span><span class="p">,</span> <span class="n">rqtp</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">__kernel_timespec</span> <span class="n">__user</span> <span class="o">*</span><span class="p">,</span> <span class="n">rmtp</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">timespec64</span> <span class="n">tu</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nf">get_timespec64</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tu</span><span class="p">,</span> <span class="n">rqtp</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="n">EFAULT</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">timespec64_valid</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tu</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">current</span><span class="o">-&gt;</span><span class="n">restart_block</span><span class="p">.</span><span class="n">nanosleep</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">rmtp</span> <span class="o">?</span> <span class="nl">TT_NATIVE</span> <span class="p">:</span> <span class="n">TT_NONE</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="n">current</span><span class="o">-&gt;</span><span class="n">restart_block</span><span class="p">.</span><span class="n">nanosleep</span><span class="p">.</span><span class="n">rmtp</span> <span class="o">=</span> <span class="n">rmtp</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nf">hrtimer_nanosleep</span><span class="p">(</span><span class="nf">timespec64_to_ktime</span><span class="p">(</span><span class="n">tu</span><span class="p">),</span> <span class="n">HRTIMER_MODE_REL</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">         <span class="n">CLOCK_MONOTONIC</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">SYSCALL_DEFINE2</span>(nanosleep, <span style="color:#66d9ef">struct</span> __kernel_timespec __user <span style="color:#f92672">*</span>, rqtp,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> __kernel_timespec __user <span style="color:#f92672">*</span>, rmtp)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> timespec64 tu;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">get_timespec64</span>(<span style="color:#f92672">&amp;</span>tu, rqtp))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>EFAULT;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">timespec64_valid</span>(<span style="color:#f92672">&amp;</span>tu))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>EINVAL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  current<span style="color:#f92672">-&gt;</span>restart_block.nanosleep.type <span style="color:#f92672">=</span> rmtp <span style="color:#f92672">?</span> TT_NATIVE : TT_NONE;
+</span></span><span style="display:flex;"><span>  current<span style="color:#f92672">-&gt;</span>restart_block.nanosleep.rmtp <span style="color:#f92672">=</span> rmtp;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">hrtimer_nanosleep</span>(<span style="color:#a6e22e">timespec64_to_ktime</span>(tu), HRTIMER_MODE_REL,
+</span></span><span style="display:flex;"><span>         CLOCK_MONOTONIC);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Por supuesto, cada línea de código tiene su razón de ser, pero resaltaré la llamada a <code>timespec64_to_ktime</code> que convierte los argumentos de entrada de la syscall en la estructura <code>ktime</code> que es utilizada por el framework de High Resolution Timers. Finalmente, llama a la función <code>hrtimer_nanosleep</code> donde comienza toda la diversión.</p>
 <p>Iré función por función en el orden en que son llamadas y explicaré las partes que considero relevantes:</p>
 <p>La función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1935">hrtimer_nanosleep</a>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">long</span> <span class="nf">hrtimer_nanosleep</span><span class="p">(</span><span class="kt">ktime_t</span> <span class="n">rqtp</span><span class="p">,</span> <span class="k">const</span> <span class="k">enum</span> <span class="n">hrtimer_mode</span> <span class="n">mode</span><span class="p">,</span> <span class="k">const</span> <span class="kt">clockid_t</span> <span class="n">clockid</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">...</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">hrtimer_init_sleeper_on_stack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="n">clockid</span><span class="p">,</span> <span class="n">mode</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">hrtimer_set_expires_range_ns</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">.</span><span class="n">timer</span><span class="p">,</span> <span class="n">rqtp</span><span class="p">,</span> <span class="n">slack</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">ret</span> <span class="o">=</span> <span class="nf">do_nanosleep</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span> <span class="n">mode</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">...</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#a6e22e">hrtimer_nanosleep</span>(<span style="color:#66d9ef">ktime_t</span> rqtp, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">enum</span> hrtimer_mode mode, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">clockid_t</span> clockid)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">hrtimer_init_sleeper_on_stack</span>(<span style="color:#f92672">&amp;</span>t, clockid, mode);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">hrtimer_set_expires_range_ns</span>(<span style="color:#f92672">&amp;</span>t.timer, rqtp, slack);
+</span></span><span style="display:flex;"><span>  ret <span style="color:#f92672">=</span> <span style="color:#a6e22e">do_nanosleep</span>(<span style="color:#f92672">&amp;</span>t, mode);
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Hay tres partes relevantes aquí:</p>
 <ul>
 <li>La inicialización del High Resolution Timer (lo revisaremos más adelante)</li>
@@ -402,60 +402,60 @@ Clock Event Device: lapic-deadline
 </ul>
 <p>La función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L442">hrtimer_init_sleeper_on_stack</a> (que al final llama a <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1821">__hrtimer_init_sleeper</a>) asigna e inicializa un High Resolution Timer asociado con el proceso actual que se está ejecutando.</p>
 <p>El atributo <code>function</code> del High Resolution Sleep Timer es la función callback, lo que significa que este atributo <code>function</code> se llamará después de que expire el High Resolution Timer. En este caso el valor del <a href="https://elixir.bootlin.com/linux/v5.14/source/kernel/time/hrtimer.c#L1849">atributo function</a> es la función <code>hrtimer_wakeup</code> que veremos más adelante (no se olviden de esto &#x1f609;).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">__hrtimer_init_sleeper</span><span class="p">(</span><span class="k">struct</span> <span class="n">hrtimer_sleeper</span> <span class="o">*</span><span class="n">sl</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="kt">clockid_t</span> <span class="n">clock_id</span><span class="p">,</span> <span class="k">enum</span> <span class="n">hrtimer_mode</span> <span class="n">mode</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">...</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">__hrtimer_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">scicil</span><span class="o">-&gt;</span><span class="n">timer</span><span class="p">,</span> <span class="n">clock_id</span><span class="p">,</span> <span class="n">mode</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">sl</span><span class="o">-&gt;</span><span class="n">timer</span><span class="p">.</span><span class="n">function</span> <span class="o">=</span> <span class="n">hrtimer_wakeup</span><span class="p">;</span> <span class="c1">// &lt;&lt;&lt;&lt;&lt;&lt; This function will be called after the timer expires
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">sl</span><span class="o">-&gt;</span><span class="n">task</span> <span class="o">=</span> <span class="n">current</span><span class="p">;</span>                  <span class="c1">// &lt;&lt;&lt;&lt;&lt;&lt; Associates the timer with the current process
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__hrtimer_init_sleeper</span>(<span style="color:#66d9ef">struct</span> hrtimer_sleeper <span style="color:#f92672">*</span>sl,
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">clockid_t</span> clock_id, <span style="color:#66d9ef">enum</span> hrtimer_mode mode)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">__hrtimer_init</span>(<span style="color:#f92672">&amp;</span>scicil<span style="color:#f92672">-&gt;</span>timer, clock_id, mode);
+</span></span><span style="display:flex;"><span>  sl<span style="color:#f92672">-&gt;</span>timer.function <span style="color:#f92672">=</span> hrtimer_wakeup; <span style="color:#75715e">// &lt;&lt;&lt;&lt;&lt;&lt; This function will be called after the timer expires
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  sl<span style="color:#f92672">-&gt;</span>task <span style="color:#f92672">=</span> current;                  <span style="color:#75715e">// &lt;&lt;&lt;&lt;&lt;&lt; Associates the timer with the current process
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span></code></pre></div><blockquote>
 <p>En el kernel de Linux, la variable <code>current</code> es un puntero al proceso actual que se está ejecutando (en nuestro caso, el programa que llama a la función <code>sleep</code>).</p></blockquote>
 <p>Antes de continuar con la función <code>do_nanosleep</code>, haré un paréntesis sobre la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1393">__hrtimer_init</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">__hrtimer_init</span><span class="p">(</span><span class="k">struct</span> <span class="n">hrtimer</span> <span class="o">*</span><span class="n">timer</span><span class="p">,</span> <span class="kt">clockid_t</span> <span class="n">clock_id</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="k">enum</span> <span class="n">hrtimer_mode</span> <span class="n">mode</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">...</span>
-</span></span><span class="line"><span class="cl">  <span class="nf">timerqueue_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">timer</span><span class="o">-&gt;</span><span class="n">node</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__hrtimer_init</span>(<span style="color:#66d9ef">struct</span> hrtimer <span style="color:#f92672">*</span>timer, <span style="color:#66d9ef">clockid_t</span> clock_id,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">enum</span> hrtimer_mode mode)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">timerqueue_init</span>(<span style="color:#f92672">&amp;</span>timer<span style="color:#f92672">-&gt;</span>node);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Mencioné que los High Resolution Timers usan una cola que por debajo es implementada utilizando un Red Black Tree. La llamada a las funciones <a href="https://elixir.bootlin.com/linux/5.14/source/include/linux/timerqueue.h#L43">timerqueue_init</a> solo asigna e inicializa un nodo del Red Black Tree, sin embargo este nodo no es agregado al árbol aún.</p>
 <p>Después de ese breve paréntesis, veamos qué sucede dentro de la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1887">do_nanosleep</a>.</p>
 <p>Inicialmente pensé que el ciclo do/while itera hasta que High Resolution Timer expire (algo como un bucle infinito), sin embargo las cosas suceden de manera diferente.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">int</span> <span class="n">__sched</span> <span class="nf">do_nanosleep</span><span class="p">(</span><span class="k">struct</span> <span class="n">hrtimer_sleeper</span> <span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="k">enum</span> <span class="n">hrtimer_mode</span> <span class="n">mode</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">restart_block</span> <span class="o">*</span><span class="n">restart</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">do</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">set_current_state</span><span class="p">(</span><span class="n">TASK_INTERRUPTIBLE</span><span class="p">);</span>   <span class="c1">// &lt;&lt;&lt;&lt; This causes the process to go to a Sleeping state
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">hrtimer_sleeper_start_expires</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">mode</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nf">likely</span><span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">task</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">      <span class="nf">freezable_schedule</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nf">hrtimer_cancel</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">timer</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">mode</span> <span class="o">=</span> <span class="n">HRTIMER_MODE_ABS</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">task</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nf">signal_pending</span><span class="p">(</span><span class="n">current</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nf">__set_current_state</span><span class="p">(</span><span class="n">TASK_RUNNING</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">task</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">restart</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">current</span><span class="o">-&gt;</span><span class="n">restart_block</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">restart</span><span class="o">-&gt;</span><span class="n">nanosleep</span><span class="p">.</span><span class="n">type</span> <span class="o">!=</span> <span class="n">TT_NONE</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">ktime_t</span> <span class="n">rem</span> <span class="o">=</span> <span class="nf">hrtimer_expires_remaining</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="o">-&gt;</span><span class="n">timer</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">timespec64</span> <span class="n">rmt</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rem</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">rmt</span> <span class="o">=</span> <span class="nf">ktime_to_timespec64</span><span class="p">(</span><span class="n">rem</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">nanosleep_copyout</span><span class="p">(</span><span class="n">restart</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rmt</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="o">-</span><span class="n">ERESTART_RESTARTBLOCK</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> __sched <span style="color:#a6e22e">do_nanosleep</span>(<span style="color:#66d9ef">struct</span> hrtimer_sleeper <span style="color:#f92672">*</span>t, <span style="color:#66d9ef">enum</span> hrtimer_mode mode)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> restart_block <span style="color:#f92672">*</span>restart;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">do</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">set_current_state</span>(TASK_INTERRUPTIBLE);   <span style="color:#75715e">// &lt;&lt;&lt;&lt; This causes the process to go to a Sleeping state
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">hrtimer_sleeper_start_expires</span>(t, mode);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">likely</span>(t<span style="color:#f92672">-&gt;</span>task))
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">freezable_schedule</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">hrtimer_cancel</span>(<span style="color:#f92672">&amp;</span>t<span style="color:#f92672">-&gt;</span>timer);
+</span></span><span style="display:flex;"><span>    mode <span style="color:#f92672">=</span> HRTIMER_MODE_ABS;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">while</span> (t<span style="color:#f92672">-&gt;</span>task <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">signal_pending</span>(current));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">__set_current_state</span>(TASK_RUNNING);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>t<span style="color:#f92672">-&gt;</span>task)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  restart <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>current<span style="color:#f92672">-&gt;</span>restart_block;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (restart<span style="color:#f92672">-&gt;</span>nanosleep.type <span style="color:#f92672">!=</span> TT_NONE) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ktime_t</span> rem <span style="color:#f92672">=</span> <span style="color:#a6e22e">hrtimer_expires_remaining</span>(<span style="color:#f92672">&amp;</span>t<span style="color:#f92672">-&gt;</span>timer);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> timespec64 rmt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (rem <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    rmt <span style="color:#f92672">=</span> <span style="color:#a6e22e">ktime_to_timespec64</span>(rem);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">nanosleep_copyout</span>(restart, <span style="color:#f92672">&amp;</span>rmt);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>ERESTART_RESTARTBLOCK;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Como se mencionó anteriormente, cuando se llama a la función <code>sleep</code>, el proceso actual pasará al estado <code>Sleeping</code>. Podemos ver que eso sucede en la línea que llama a la función <code>set_current_state</code> que cambia el estado del proceso actual a <code>TASK_INTERRUPTIBLE</code> (Sleeping).</p>
 <p>La llamada a la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1804">hrtimer_sleeper_start_expires</a> llamará a otras funciones hasta que llame a <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1101">__hrtimer_start_range_ns</a> que a su vez llamará a <code>enqueue_hrtimer</code>, es en este punto donde el timer (nodo) inicializado antes se agrega a la estructura del Red Black Tree para que el timer pueda ser procesado más tarde.</p>
 <p>Finalmente, la función <code>freezable_schedule</code> invoca al process scheduler para que haga schedule de otro proceso, porque el proceso actual <code>current</code> entró en suspensión y la ejecución de nuestro proceso se detiene aquí.</p>
@@ -463,56 +463,56 @@ Clock Event Device: lapic-deadline
 <p>Hasta ahora hemos comprobado que la implementación de <code>nanosleep</code> cambia el estado del proceso a <code>TASK_INTERRUPTIBLE</code> y pausa la ejecución del proceso.</p>
 <p>Ahora que el estado del proceso está en el estado <code>TASK_INTERRUPTIBLE</code>, el process scheduler no considerará la ejecución del proceso hasta que el estado del proceso vuelva a <code>TASK_RUNNING</code>.</p>
 <p>Mencionamos que el <a href="/es/post/what-happens-when-a-process-goes-to-sleep/#hardware-timer">Hardware Timer</a> causa interrupciones periódicas para que el Kernel de Linux pueda manejarlas llamando a la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1633">hrtimer_interrupt</a> en cada interrupción (varias veces en un segundo). Es en esta función donde se procesan los High Resolution Timers llamando a la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1569">__hrtimer_run_queues</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">__hrtimer_run_queues</span><span class="p">(</span><span class="k">struct</span> <span class="n">hrtimer_cpu_base</span> <span class="o">*</span><span class="n">cpu_base</span><span class="p">,</span> <span class="kt">ktime_t</span> <span class="n">now</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">         <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">flags</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">active_mask</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">hrtimer_clock_base</span> <span class="o">*</span><span class="n">base</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">active</span> <span class="o">=</span> <span class="n">cpu_base</span><span class="o">-&gt;</span><span class="n">active_bases</span> <span class="o">&amp;</span> <span class="n">active_mask</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nf">for_each_active_base</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">cpu_base</span><span class="p">,</span> <span class="n">active</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="n">timerqueue_node</span> <span class="o">*</span><span class="n">node</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">ktime_t</span> <span class="n">basenow</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">basenow</span> <span class="o">=</span> <span class="nf">ktime_add</span><span class="p">(</span><span class="n">now</span><span class="p">,</span> <span class="n">base</span><span class="o">-&gt;</span><span class="n">offset</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">((</span><span class="n">node</span> <span class="o">=</span> <span class="nf">timerqueue_getnext</span><span class="p">(</span><span class="o">&amp;</span><span class="n">base</span><span class="o">-&gt;</span><span class="n">active</span><span class="p">)))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">struct</span> <span class="n">hrtimer</span> <span class="o">*</span><span class="n">timer</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="n">timer</span> <span class="o">=</span> <span class="nf">container_of</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="k">struct</span> <span class="n">hrtimer</span><span class="p">,</span> <span class="n">node</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">basenow</span> <span class="o">&lt;</span> <span class="nf">hrtimer_get_softexpires_tv64</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">      <span class="nf">__run_hrtimer</span><span class="p">(</span><span class="n">cpu_base</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">timer</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">basenow</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">active_mask</span> <span class="o">==</span> <span class="n">HRTIMER_ACTIVE_SOFT</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">hrtimer_sync_wait_running</span><span class="p">(</span><span class="n">cpu_base</span><span class="p">,</span> <span class="n">flags</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__hrtimer_run_queues</span>(<span style="color:#66d9ef">struct</span> hrtimer_cpu_base <span style="color:#f92672">*</span>cpu_base, <span style="color:#66d9ef">ktime_t</span> now,
+</span></span><span style="display:flex;"><span>         <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> flags, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> active_mask)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> hrtimer_clock_base <span style="color:#f92672">*</span>base;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> active <span style="color:#f92672">=</span> cpu_base<span style="color:#f92672">-&gt;</span>active_bases <span style="color:#f92672">&amp;</span> active_mask;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">for_each_active_base</span>(base, cpu_base, active) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> timerqueue_node <span style="color:#f92672">*</span>node;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ktime_t</span> basenow;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    basenow <span style="color:#f92672">=</span> <span style="color:#a6e22e">ktime_add</span>(now, base<span style="color:#f92672">-&gt;</span>offset);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> ((node <span style="color:#f92672">=</span> <span style="color:#a6e22e">timerqueue_getnext</span>(<span style="color:#f92672">&amp;</span>base<span style="color:#f92672">-&gt;</span>active))) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">struct</span> hrtimer <span style="color:#f92672">*</span>timer;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      timer <span style="color:#f92672">=</span> <span style="color:#a6e22e">container_of</span>(node, <span style="color:#66d9ef">struct</span> hrtimer, node);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (basenow <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">hrtimer_get_softexpires_tv64</span>(timer))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">__run_hrtimer</span>(cpu_base, base, timer, <span style="color:#f92672">&amp;</span>basenow, flags);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (active_mask <span style="color:#f92672">==</span> HRTIMER_ACTIVE_SOFT)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">hrtimer_sync_wait_running</span>(cpu_base, flags);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>La función <code>__hrtimer_run_queues</code> iterará los timers en el Red Black Tree, recuerden que iterará comenzando por los timers que están más próximos a expirar. Algo a tener en cuenta aquí es que romperá el ciclo while si el timer aún no ha expirado (¿por qué tener iteraciones innecesarias si el header de la cola es un timer que no ha caducado aún?). Pero cuando el timer expire, llamará a la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1494">__run_hrtimer</a>. Como podemos ver, su implementación llamará al callback que configuramos durante la inicialización del High Resolution Timer.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="kt">void</span> <span class="nf">__run_hrtimer</span><span class="p">(</span><span class="k">struct</span> <span class="n">hrtimer_cpu_base</span> <span class="o">*</span><span class="n">cpu_base</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="k">struct</span> <span class="n">hrtimer_clock_base</span> <span class="o">*</span><span class="n">base</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="k">struct</span> <span class="n">hrtimer</span> <span class="o">*</span><span class="n">timer</span><span class="p">,</span> <span class="kt">ktime_t</span> <span class="o">*</span><span class="n">now</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">flags</span><span class="p">)</span> <span class="nf">__must_hold</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cpu_base</span><span class="o">-&gt;</span><span class="n">lock</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">...</span>
-</span></span><span class="line"><span class="cl">  <span class="n">fn</span> <span class="o">=</span> <span class="n">timer</span><span class="o">-&gt;</span><span class="n">function</span><span class="p">;</span> <span class="c1">// &lt;&lt;&lt;&lt;&lt; This fn function is pointing to the hrtimer_wakeup function
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">...</span>
-</span></span><span class="line"><span class="cl">  <span class="n">restart</span> <span class="o">=</span> <span class="nf">fn</span><span class="p">(</span><span class="n">timer</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">...</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">__run_hrtimer</span>(<span style="color:#66d9ef">struct</span> hrtimer_cpu_base <span style="color:#f92672">*</span>cpu_base,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">struct</span> hrtimer_clock_base <span style="color:#f92672">*</span>base,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">struct</span> hrtimer <span style="color:#f92672">*</span>timer, <span style="color:#66d9ef">ktime_t</span> <span style="color:#f92672">*</span>now,
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">long</span> flags) <span style="color:#a6e22e">__must_hold</span>(<span style="color:#f92672">&amp;</span>cpu_base<span style="color:#f92672">-&gt;</span>lock)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  fn <span style="color:#f92672">=</span> timer<span style="color:#f92672">-&gt;</span>function; <span style="color:#75715e">// &lt;&lt;&lt;&lt;&lt; This fn function is pointing to the hrtimer_wakeup function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  ...
+</span></span><span style="display:flex;"><span>  restart <span style="color:#f92672">=</span> <span style="color:#a6e22e">fn</span>(timer);
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>La función que se configuró como el callback durante la inicialización del High Resolution Timer fue la función <a href="https://elixir.bootlin.com/linux/5.14/source/kernel/time/hrtimer.c#L1783">hrtimer_wakeup</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">enum</span> <span class="n">hrtimer_restart</span> <span class="nf">hrtimer_wakeup</span><span class="p">(</span><span class="k">struct</span> <span class="n">hrtimer</span> <span class="o">*</span><span class="n">timer</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">hrtimer_sleeper</span> <span class="o">*</span><span class="n">t</span> <span class="o">=</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">container_of</span><span class="p">(</span><span class="n">timer</span><span class="p">,</span> <span class="k">struct</span> <span class="n">hrtimer_sleeper</span><span class="p">,</span> <span class="n">timer</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="n">task_struct</span> <span class="o">*</span><span class="n">task</span> <span class="o">=</span> <span class="n">t</span><span class="o">-&gt;</span><span class="n">task</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="n">t</span><span class="o">-&gt;</span><span class="n">task</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">task</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">wake_up_process</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>    <span class="c1">// &lt;&lt;&lt;&lt;&lt;&lt; Wake up the process!!
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">HRTIMER_NORESTART</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">enum</span> hrtimer_restart <span style="color:#a6e22e">hrtimer_wakeup</span>(<span style="color:#66d9ef">struct</span> hrtimer <span style="color:#f92672">*</span>timer)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> hrtimer_sleeper <span style="color:#f92672">*</span>t <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">container_of</span>(timer, <span style="color:#66d9ef">struct</span> hrtimer_sleeper, timer);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">struct</span> task_struct <span style="color:#f92672">*</span>task <span style="color:#f92672">=</span> t<span style="color:#f92672">-&gt;</span>task;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  t<span style="color:#f92672">-&gt;</span>task <span style="color:#f92672">=</span> NULL;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (task)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">wake_up_process</span>(task);    <span style="color:#75715e">// &lt;&lt;&lt;&lt;&lt;&lt; Wake up the process!!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> HRTIMER_NORESTART;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Como podemos ver, esta función llamará a la función <code>wake_up_process</code> enviando el proceso (tarea) asociado con el High Resolution Timer como parámetro. La función <code>wake_up_process</code>, entre otras cosas, establecerá el estado del proceso en <code>TASK_RUNNING</code>.</p>
 <p>Algunos ciclos de CPU más tarde, el process schduler reanudará la ejecución de nuestro proceso donde se detuvo (después de la llamada a la función <code>freezable_schedule</code>). Luego, el resto de la función <code>do_nanosleep</code> liberará memoria, eliminará el timer del Red Black Tree y continuará con la ejecución. ¡Y eso es todo!</p>
 <h3 id="hay-otras-alternativas-a-nanosleep">Hay otras alternativas a <code>nanosleep</code><a hidden class="anchor" aria-hidden="true" href="#hay-otras-alternativas-a-nanosleep">#</a></h3>

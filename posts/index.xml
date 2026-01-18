@@ -9,11 +9,22 @@
       <url>https://blog.donkeysharp.xyz/images/papermod-cover.png</url>
       <link>https://blog.donkeysharp.xyz/images/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- 0.147.0</generator>
+    <generator>Hugo -- 0.148.2</generator>
     <language>en</language>
     <copyright>Donkeysharp</copyright>
-    <lastBuildDate>Sun, 13 Jul 2025 18:20:13 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 18 Jan 2026 08:11:13 -0400</lastBuildDate>
     <atom:link href="https://blog.donkeysharp.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Booting Raspberry Pi 3 Model B from SSD</title>
+      <link>https://blog.donkeysharp.xyz/boot-rpi-3-model-b-from-ssd/</link>
+      <pubDate>Sun, 18 Jan 2026 08:11:13 -0400</pubDate>
+      <guid>https://blog.donkeysharp.xyz/boot-rpi-3-model-b-from-ssd/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://blog.donkeysharp.xyz/img/rpi-homelab.jpeg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Hey everyone! In this post I&amp;rsquo;m going to share my experience of USB booting the Raspberry Pi 3 Model B from an SSD. Although it is something I did almost one year ago, I wanted to share it&amp;hellip; sorry for the 1 year delay xD!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Probably there might be something I missed on my solution, so any feedback is really appreciated!&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Before the pandemic started, a friend of mine sold me 4 Raspberry Pi 3 Model B and one Raspberry Pi 3 Model B+. I used them for an electronics + home automation project I no longer need anymore, so I decided to repurpose them to something new, a new project I started working on for which I will make another blog entry.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Nuke&#39;em all! Using AWS Nuke to clean your AWS accounts</title>
       <link>https://blog.donkeysharp.xyz/intro-to-aws-nuke/</link>

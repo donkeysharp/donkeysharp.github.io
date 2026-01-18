@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://blog.donkeysharp.xyz/es/tags/aws/</loc>
-    <lastmod>2025-07-13T18:20:13-04:00</lastmod>
+    <loc>https://blog.donkeysharp.xyz/es/boot-rpi-3-model-b-from-ssd/</loc>
+    <lastmod>2026-01-18T08:11:13-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/aws/"
+                href="https://blog.donkeysharp.xyz/boot-rpi-3-model-b-from-ssd/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/aws/"
+                href="https://blog.donkeysharp.xyz/es/boot-rpi-3-model-b-from-ssd/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/es/</loc>
-    <lastmod>2025-07-13T18:20:13-04:00</lastmod>
+    <lastmod>2026-01-18T08:11:13-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,8 +28,34 @@
                 href="https://blog.donkeysharp.xyz/es/"
                 />
   </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/tags/homelab/</loc>
+    <lastmod>2026-01-18T08:11:13-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/homelab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/homelab/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/tags/linux/</loc>
+    <lastmod>2026-01-18T08:11:13-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/linux/"
+                />
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/posts/</loc>
-    <lastmod>2025-07-13T18:20:13-04:00</lastmod>
+    <lastmod>2026-01-18T08:11:13-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -41,8 +67,21 @@
                 href="https://blog.donkeysharp.xyz/es/posts/"
                 />
   </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/tags/rpi/</loc>
+    <lastmod>2026-01-18T08:11:13-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/rpi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/rpi/"
+                />
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/es/tags/</loc>
-    <lastmod>2025-07-13T18:20:13-04:00</lastmod>
+    <lastmod>2026-01-18T08:11:13-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -52,6 +91,19 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://blog.donkeysharp.xyz/es/tags/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/es/tags/aws/</loc>
+    <lastmod>2025-07-13T18:20:13-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/aws/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/aws/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/es/intro-to-aws-nuke/</loc>

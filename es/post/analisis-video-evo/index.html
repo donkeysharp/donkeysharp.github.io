@@ -12,7 +12,7 @@ La anterior semana una gran cantidad de clientes de un ISP local recibieron un S
 <meta name="author" content="donkeysharp">
 <link rel="canonical" href="https://blog.donkeysharp.xyz/es/post/analisis-video-evo/">
 <meta name="google-site-verification" content="G-NE86EKXE5N">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.5e527a53ba71ca5f4055f7a87232df40d551cf0ad74e23ec98a5c1e9587fbaf9.css" integrity="sha256-XlJ6U7pxyl9AVfeocjLfQNVRzwrXTiPsmKXB6Vh/uvk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.7f710067e04dcceea91964a3f3e88a29f286096ac5fb3cb6541ffb78d592b3eb.css" integrity="sha256-f3EAZ&#43;BNzO6pGWSj8&#43;iKKfKGCWrF&#43;zy2VB/7eNWSs&#43;s=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.donkeysharp.xyz/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.donkeysharp.xyz/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.donkeysharp.xyz/favicon-32x32.png">
@@ -220,7 +220,7 @@ La anterior semana una gran cantidad de clientes de un ISP local recibieron un S
 <p>Bueno, me dió mucha curiosidad ver que había o si efectivamente había algo malicioso en ese video o simplemente era spam. De entrada sabía que aprendería varias cosas porque muy poca idea tenía de como podría analizar si el video era malicioso o no y bueno ya con el video que lo enviaron a un grupo público de chat, mis amigos <a href="https://twitter.com/lorddemon">Gonzalo</a> y <a href="https://twitter.com/crhystamil">Cristhian</a> me dijeron que ponga una entrada en mi blog sobre lo que encuentre y de no encontrar nada que hable sobre los ángulos de grabación del video XD. Bueno el resto del blog será sobre lo que encontré y aprendí. Gracias por animarme a investigar muchachos, me divertí mucho.</p>
 <h2 id="el-video">El video<a hidden class="anchor" aria-hidden="true" href="#el-video">#</a></h2>
 <p>El video justamente era un archivo mp4 llamado <code>evo-telefono.mp4</code> con este sha512:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>a378c367e3c9a4be3ca639822fe79adf75aaa30ba25ca97ff8f6eb3945d36ed9eb160703ed611ecfe5fdc448c6a099e8af3a74a2c7078695db9c258a25800246
 </span></span></code></pre></div><p>Primeramente verificar que efectivamente es un mp4 viendo los <a href="https://asecuritysite.com/forensics/magic">magic numbers</a> del fichero. Generalmente los magic numbers de cualquier archivo son los primeros bytes de un archivo.</p>
 <p>En el caso de un mp4 los bytes deberían ser: <code>00 00 00 (18 o 1C) 66 74 79 70 6D 70 34 32</code> y al correr:</p>
 <pre tabindex="0"><code>$ hexdump -C evo-telefono.mp4 | head -n1
