@@ -11,3 +11,5 @@ tags: ["donkeysharp"]
 En los últimos años pasé del desarrollo de software a infraestructura en la nube y adoptar la cultura DevOps. Siempre estoy emocionado por mejorar los procesos de desarrollo y despligue para que sea más sencillo lanzar nuevas versiones de un software en períodos más cortos y mejorar la forma en que se gestiona la infraestructura en la nube.
 
 En mi tiempo libre colaboro con diferentes comunidades tecnológicas, lo que me da la oportunidad de aprender más de los demás y compartir lo que sé.
+
+Soy el cuate que siempre esta creando, rompiendo y arreglando cosas 🤓.

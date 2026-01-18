@@ -11,3 +11,5 @@ Since 2016 I moved from software development to cloud infrastructure and embraci
 
 In my free time I collaborate to different technology communities which gives me the opportunity to learn more from others and to share what I know.
 
+I'm the dude who is always creating, breaking and fixing stuff 🤓.
+
