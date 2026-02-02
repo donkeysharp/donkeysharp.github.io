@@ -4,6 +4,9 @@ title: Donkeysharp
 theme: ["PaperMod"]
 copyright: "© [Donkeysharp](https://x.com/donkeysharp)"
 
+# disqus comments
+disqusShortname: "blog-donkeysharp-xyz-1"
+
 ## Papermod settings
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -74,7 +77,7 @@ params:
   ShowAllPagesInArchive: true
   ShowPageNums: true
   ShowToc: true
-  # comments: false
+  comments: true
   images: ["images/papermod-cover.png"]
 
   homeInfoParams:
