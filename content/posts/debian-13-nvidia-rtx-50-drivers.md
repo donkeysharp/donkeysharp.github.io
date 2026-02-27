@@ -98,12 +98,12 @@ In my case, I chose the latest version and after downloading it, you must add ex
 ![](/img/nvidia-drivers/01-driver-choice.png)
 
 ```sh
-chmod +x NVIDIA......run
+chmod +x NVIDIA-Linux-x86_64-580.126.18.run
 ```
 
 Now let's execute it the following way.
 ```sh
-sudo ./NVIDIA....run --dkms
+sudo ./NVIDIA-Linux-x86_64-580.126.18.run --dkms
 ```
 
 The `--dkms` flag means that the Nvidia driver will be re-built automatically when we upgrade our OS with a new version of the Linux kernel ([see next section](#method-b-upgrading-debian-13)).
