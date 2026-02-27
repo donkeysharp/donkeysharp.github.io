@@ -15,7 +15,7 @@
     <lastBuildDate>Fri, 27 Feb 2026 08:02:12 -0400</lastBuildDate>
     <atom:link href="https://blog.donkeysharp.xyz/tags/drivers/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Installing Nvidia RTX 50 series on Debian 13 Trixie</title>
+      <title>Installing Nvidia Drivers for RTX 50 series on Debian 13 Trixie</title>
       <link>https://blog.donkeysharp.xyz/installing-nvidia-drivers-rtx-50-debian13-trixie/</link>
       <pubDate>Fri, 27 Feb 2026 08:02:12 -0400</pubDate>
       <guid>https://blog.donkeysharp.xyz/installing-nvidia-drivers-rtx-50-debian13-trixie/</guid>
