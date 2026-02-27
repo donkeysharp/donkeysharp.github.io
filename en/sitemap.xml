@@ -17,6 +17,16 @@
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/drivers/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/drivers/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/drivers/"
+                />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/homelab/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>
@@ -33,6 +43,16 @@
   </url><url>
     <loc>https://blog.donkeysharp.xyz/installing-nvidia-drivers-rtx-50-debian13-trixie/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/instalando-drivers-nvidia-rtx-50-debian13-trixie/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/installing-nvidia-drivers-rtx-50-debian13-trixie/"
+                />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/linux/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>
@@ -49,6 +69,16 @@
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/nvidia/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/nvidia/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/nvidia/"
+                />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/posts/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>

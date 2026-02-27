@@ -12,8 +12,19 @@
     <generator>Hugo -- 0.148.2</generator>
     <language>es</language>
     <copyright>Donkeysharp</copyright>
-    <lastBuildDate>Sun, 18 Jan 2026 08:11:13 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 08:02:12 -0400</lastBuildDate>
     <atom:link href="https://blog.donkeysharp.xyz/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instalando Nvidia RTX serie 50 en Debian 13 Trixie</title>
+      <link>https://blog.donkeysharp.xyz/es/instalando-drivers-nvidia-rtx-50-debian13-trixie/</link>
+      <pubDate>Fri, 27 Feb 2026 08:02:12 -0400</pubDate>
+      <guid>https://blog.donkeysharp.xyz/es/instalando-drivers-nvidia-rtx-50-debian13-trixie/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.donkeysharp.xyz/img/nvidia-drivers/nvidia-setup.jpeg&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Traducido del artículo original en Inglés&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;¡Hola a todos! En este post les voy a mostrar el proceso de instalación de los Drivers Oficiales de Nvidia para Linux para las tarjetas gráficas RTX serie 50 en Debian 13 (Trixie). Algunos problemas que encontré y otros escenarios a considerar como actualizaciones del sistema operativo.&lt;/p&gt;
+&lt;p&gt;Algo que me encanta de usar GNU/Linux es que hay múltiples formas de resolver un problema. Y a veces dependerá del hardware que estés usando, arquitectura, entorno de escritorio, etc, etc.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Arrancando Raspberry Pi 3 Model B desde SSD</title>
       <link>https://blog.donkeysharp.xyz/es/boot-rpi-3-model-b-from-ssd/</link>

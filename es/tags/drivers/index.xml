@@ -2,25 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Drivers on Donkeysharp</title>
-    <link>http://localhost:1313/es/tags/drivers/</link>
+    <link>https://blog.donkeysharp.xyz/es/tags/drivers/</link>
     <description>Recent content in Drivers on Donkeysharp</description>
     <image>
       <title>Donkeysharp</title>
-      <url>http://localhost:1313/images/papermod-cover.png</url>
-      <link>http://localhost:1313/images/papermod-cover.png</link>
+      <url>https://blog.donkeysharp.xyz/images/papermod-cover.png</url>
+      <link>https://blog.donkeysharp.xyz/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.148.2</generator>
     <language>es</language>
     <copyright>Donkeysharp</copyright>
     <lastBuildDate>Fri, 27 Feb 2026 08:02:12 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/es/tags/drivers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.donkeysharp.xyz/es/tags/drivers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Instalando Nvidia RTX serie 50 en Debian 13 Trixie</title>
-      <link>http://localhost:1313/es/instalando-drivers-nvidia-rtx-50-debian13-trixie/</link>
+      <link>https://blog.donkeysharp.xyz/es/instalando-drivers-nvidia-rtx-50-debian13-trixie/</link>
       <pubDate>Fri, 27 Feb 2026 08:02:12 -0400</pubDate>
-      <guid>http://localhost:1313/es/instalando-drivers-nvidia-rtx-50-debian13-trixie/</guid>
-      <description>&lt;p&gt;Hola a todos! En este post les voy a mostrar el proceso de instalacion de los Drivers Oficiales de Nvidia para Linux para las tarjetas graficas RTX serie 50 en Debian 13 (Trixie). Algunos problemas que encontre y otros escenarios a considerar como actualizaciones del sistema operativo.&lt;/p&gt;
-&lt;p&gt;Algo que me encanta de usar GNU/Linux es que hay multiples formas de resolver un problema. Y a veces dependera del hardware que estes usando, arquitectura, entorno de escritorio, etc, etc.&lt;/p&gt;</description>
+      <guid>https://blog.donkeysharp.xyz/es/instalando-drivers-nvidia-rtx-50-debian13-trixie/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.donkeysharp.xyz/img/nvidia-drivers/nvidia-setup.jpeg&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Traducido del artículo original en Inglés&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;¡Hola a todos! En este post les voy a mostrar el proceso de instalación de los Drivers Oficiales de Nvidia para Linux para las tarjetas gráficas RTX serie 50 en Debian 13 (Trixie). Algunos problemas que encontré y otros escenarios a considerar como actualizaciones del sistema operativo.&lt;/p&gt;
+&lt;p&gt;Algo que me encanta de usar GNU/Linux es que hay múltiples formas de resolver un problema. Y a veces dependerá del hardware que estés usando, arquitectura, entorno de escritorio, etc, etc.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
