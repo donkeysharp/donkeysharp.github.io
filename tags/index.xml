@@ -12,20 +12,34 @@
     <generator>Hugo -- 0.148.2</generator>
     <language>en</language>
     <copyright>Donkeysharp</copyright>
-    <lastBuildDate>Sun, 18 Jan 2026 08:11:13 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 08:02:12 -0400</lastBuildDate>
     <atom:link href="https://blog.donkeysharp.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drivers</title>
+      <link>https://blog.donkeysharp.xyz/tags/drivers/</link>
+      <pubDate>Fri, 27 Feb 2026 08:02:12 -0400</pubDate>
+      <guid>https://blog.donkeysharp.xyz/tags/drivers/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Homelab</title>
       <link>https://blog.donkeysharp.xyz/tags/homelab/</link>
-      <pubDate>Sun, 18 Jan 2026 08:11:13 -0400</pubDate>
+      <pubDate>Fri, 27 Feb 2026 08:02:12 -0400</pubDate>
       <guid>https://blog.donkeysharp.xyz/tags/homelab/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux</title>
       <link>https://blog.donkeysharp.xyz/tags/linux/</link>
-      <pubDate>Sun, 18 Jan 2026 08:11:13 -0400</pubDate>
+      <pubDate>Fri, 27 Feb 2026 08:02:12 -0400</pubDate>
       <guid>https://blog.donkeysharp.xyz/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nvidia</title>
+      <link>https://blog.donkeysharp.xyz/tags/nvidia/</link>
+      <pubDate>Fri, 27 Feb 2026 08:02:12 -0400</pubDate>
+      <guid>https://blog.donkeysharp.xyz/tags/nvidia/</guid>
       <description></description>
     </item>
     <item>
