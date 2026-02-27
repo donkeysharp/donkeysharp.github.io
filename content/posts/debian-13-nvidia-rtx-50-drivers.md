@@ -1,9 +1,9 @@
 ---
-title: "Installing Nvidia RTX 50 series on Debian 13 Trixie"
+title: "Installing Nvidia Drivers for RTX 50 series on Debian 13 Trixie"
 url: "installing-nvidia-drivers-rtx-50-debian13-trixie"
 date: 2026-02-27T08:02:12-04:00
 tags: ["homelab", "linux", "nvidia", "drivers"]
-draft: true
+draft: false
 ---
 
 Hey everyone! In this post I'm gonna walk you through the process of installing Official Linux Nvidia Drivers for the RTX 50 series graphic cards on Debian 13 (Trixie). Some issues I found and other scenarios to consider such as OS upgrades.
