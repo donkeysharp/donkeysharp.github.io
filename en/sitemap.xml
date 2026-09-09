@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.donkeysharp.xyz/</loc>
-    <lastmod>2026-02-27T08:02:12-04:00</lastmod>
+    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -14,6 +14,132 @@
                 hreflang="en"
                 href="https://blog.donkeysharp.xyz/"
                 />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/life-balance/</loc>
+    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/life-balance/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/life-balance/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/posts/</loc>
+    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/posts/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/productivity/</loc>
+    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/productivity/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/productivity/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/how-i-organize-myself/</loc>
+    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tips-de-productividad-que-me-funcionan/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/how-i-organize-myself/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/</loc>
+    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/tips/</loc>
+    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/tips/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/debian/</loc>
+    <lastmod>2026-03-03T20:42:12-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/fixing-nvidia-issue-xfce-compositor/</loc>
+    <lastmod>2026-03-03T20:42:12-04:00</lastmod>
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/homelab/</loc>
+    <lastmod>2026-03-03T20:42:12-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/homelab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/homelab/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/linux/</loc>
+    <lastmod>2026-03-03T20:42:12-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/linux/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/nvidia/</loc>
+    <lastmod>2026-03-03T20:42:12-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/nvidia/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/nvidia/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/xfce4/</loc>
+    <lastmod>2026-03-03T20:42:12-04:00</lastmod>
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/drivers/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>
@@ -28,19 +154,6 @@
                 href="https://blog.donkeysharp.xyz/tags/drivers/"
                 />
   </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/homelab/</loc>
-    <lastmod>2026-02-27T08:02:12-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/homelab/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/homelab/"
-                />
-  </url><url>
     <loc>https://blog.donkeysharp.xyz/installing-nvidia-drivers-rtx-50-debian13-trixie/</loc>
     <lastmod>2026-02-27T08:02:12-04:00</lastmod>
     <xhtml:link
@@ -52,58 +165,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.donkeysharp.xyz/installing-nvidia-drivers-rtx-50-debian13-trixie/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/linux/</loc>
-    <lastmod>2026-02-27T08:02:12-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/linux/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/linux/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/nvidia/</loc>
-    <lastmod>2026-02-27T08:02:12-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/nvidia/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/nvidia/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/posts/</loc>
-    <lastmod>2026-02-27T08:02:12-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/posts/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/</loc>
-    <lastmod>2026-02-27T08:02:12-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/boot-rpi-3-model-b-from-ssd/</loc>

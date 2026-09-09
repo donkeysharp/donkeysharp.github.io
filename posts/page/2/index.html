@@ -140,6 +140,33 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Using Serverless Framework with AWS SSO
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In this post, I will present a solution (one I personally find quite tidy) to a problem I encountered with AWS SSO and the Serverless Framework.
+Serverless Framework is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to AWS SAM, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my ~/.aws/credentials file. However this time I was using AWS Single Sign-On to access AWS API from my local computer. Unfortunately, when I wanted to deploy some Lambda functions using the sls CLI, I was not able to do it, it shows a message saying the AWS profile I was using was not configured, even I logged in successfully a couple minutes ago.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-10-22 17:51:02 -0400 -04'>October 22, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;donkeysharp</footer>
+  <a class="entry-link" aria-label="post link to Using Serverless Framework with AWS SSO" href="https://blog.donkeysharp.xyz/serverless-aws-sso/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Mocking EC2 metadata server locally
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Some time ago I was working on creating a local docker-based development environment for some microservices at work so developers can have the necessary infra components on their machines and that will help them with their daily tasks. Initially, the business logic of some microservices were a black box to me. After containerizing the applications and creating the docker-compose setup, some of them started failing and after checking the logs it turns out that the applications were using AWS SDK to get ec2 instance metadata.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-05-28 21:08:04 -0400 -04'>May 28, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;donkeysharp</footer>
+  <a class="entry-link" aria-label="post link to Mocking EC2 metadata server locally" href="https://blog.donkeysharp.xyz/mock-ec2-metadata/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">What Happens When A Linux Process Goes To Sleep?
     </h2>
   </header>
@@ -178,34 +205,6 @@ Basically what I was doing was to review my previous blog post and repeat those 
   </div>
   <footer class="entry-footer"><span title='2019-05-13 21:45:39 -0400 -04'>May 13, 2019</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;donkeysharp</footer>
   <a class="entry-link" aria-label="post link to Automating post-installation setup in my personal Debian machines" href="https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Fun with SSH - Local Port Forwarding
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>The other day when I went out eating with my friend Francisco, he commented me about a personal project and what he wanted to accomplish. Listening to his questions the first tool that came to my mind that would solve some of the challenges he has was OpenSSH.
-What is SSH? SSH is a short for Secure Shell, it’s a protocol to manage services inside a network using a secure channel. One of the most common tasks that can be done using this protocol is to log into a server and remotely execute commands in this server.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-08-28 08:30:57 -0400 -04'>August 28, 2018</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;donkeysharp</footer>
-  <a class="entry-link" aria-label="post link to Fun with SSH - Local Port Forwarding" href="https://blog.donkeysharp.xyz/posts/fun-with-ssh-part-1/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Gocho, Sharing files in a local network
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Hey,during my free time I was working a side project called Gocho. This application allows the user to share files in a local network e.g. home network, work, etc. with the difference that it will auto-discover other nodes. In this post I will explain what this application is all about, why I wrote it and some challenges that came up duting the development.
-Why I wrote this app? First I wanted to share a directory in a local network without the need of others having to ask for my local ip address or the port where I published the files. Also I wanted something that is simple to execute in most common operating systems (Windows, OSX and GNU/Linux) without the need to install some dependencies.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2018-03-29 22:22:46 -0400 -04'>March 29, 2018</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;donkeysharp</footer>
-  <a class="entry-link" aria-label="post link to Gocho, Sharing files in a local network" href="https://blog.donkeysharp.xyz/posts/gocho-file-sharing/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
