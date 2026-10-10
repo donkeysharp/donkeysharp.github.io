@@ -12,8 +12,19 @@
     <generator>Hugo -- 0.148.2</generator>
     <language>es</language>
     <copyright>Donkeysharp</copyright>
-    <lastBuildDate>Sun, 13 Jul 2025 18:20:13 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 10:00:03 -0400</lastBuildDate>
     <atom:link href="https://blog.donkeysharp.xyz/es/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redescubriendo AWS Firecracker, la joya open-source escondida de AWS</title>
+      <link>https://blog.donkeysharp.xyz/es/redescubriendo-firecracker-la-joya-escondida-de-aws/</link>
+      <pubDate>Sat, 10 Oct 2026 10:00:03 -0400</pubDate>
+      <guid>https://blog.donkeysharp.xyz/es/redescubriendo-firecracker-la-joya-escondida-de-aws/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Traducido del artículo original en Inglés&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Este post probablemente es uno de los más largos que tengo en mi blog, pero créanme, está 100% escrito por mí, nada de AI slop, libre de gluten XD (la versión original está en Inglés)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Hola a tod@s! En este post les voy a hablar sobre Firecracker y las MicroVMs y su importancia en esta nueva era de la IA que estamos viviendo. Es más como un resumen de las charlas que presenté en el AWS Community Day Colombia 2026 y el AWS Community Day Bolivia 2026. Recibí algunos mensajes de amigos interesados en el tema, así que feliz de compartirlo acá!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Utilizando AWS Nuke para limpiar tus cuentas de AWS</title>
       <link>https://blog.donkeysharp.xyz/es/intro-to-aws-nuke/</link>

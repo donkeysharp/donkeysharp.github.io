@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Community on Donkeysharp</title>
+    <link>http://localhost:1313/tags/community/</link>
+    <description>Recent content in Community on Donkeysharp</description>
+    <image>
+      <title>Donkeysharp</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>en</language>
+    <copyright>Donkeysharp</copyright>
+    <lastBuildDate>Thu, 01 Oct 2026 10:00:03 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/community/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rediscovering AWS Firecracker and my experience on AWS Community Day in Colombia and Bolivia</title>
+      <link>http://localhost:1313/rediscovering-firecracker-experience-community-day/</link>
+      <pubDate>Thu, 01 Oct 2026 10:00:03 -0400</pubDate>
+      <guid>http://localhost:1313/rediscovering-firecracker-experience-community-day/</guid>
+      <description>&lt;p&gt;Hi everyone! In this post I&amp;rsquo;m going to talk about Firecracker and MicroVMs and their importance during this new AI era we are living in. This is more like a summary of the talks I presented at the AWS Community Day Colombia 2026 and AWS Community Day Bolivia 2026. I received some messages from folks insterested on this topic, so I feel happy to share it here!&lt;/p&gt;
+&lt;h2 id=&#34;why-i-proposed-this-talk&#34;&gt;Why I proposed this talk&lt;/h2&gt;
+&lt;p&gt;I checked Firecracker for the first time back in 2021 (more on that below), couple years later when I had a use case for this, I found out I couldn&amp;rsquo;t use it in a real AWS environment as it required metal EC2 instances (that has KVM enabled via), unfortunately before February 2026, you could have nested virtualization only on &lt;code&gt;metal&lt;/code&gt; instances which had way more specs that I nedded for PoCs, and of course expensive.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,8 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.donkeysharp.xyz/tags/aws/</loc>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/aws/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/aws/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/containers/</loc>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/containers/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/containers/"
+                />
+  </url><url>
     <loc>https://blog.donkeysharp.xyz/</loc>
-    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -13,6 +39,71 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.donkeysharp.xyz/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/firecracker/</loc>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/firecracker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/firecracker/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/kubernetes/</loc>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/kubernetes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/kubernetes/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/posts/</loc>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/posts/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/rediscovering-firecracker-the-hidden-jewel-from-aws/</loc>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/redescubriendo-firecracker-la-joya-escondida-de-aws/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/rediscovering-firecracker-the-hidden-jewel-from-aws/"
+                />
+  </url><url>
+    <loc>https://blog.donkeysharp.xyz/tags/</loc>
+    <lastmod>2026-10-10T10:00:03-04:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://blog.donkeysharp.xyz/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://blog.donkeysharp.xyz/tags/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/life-balance/</loc>
@@ -26,19 +117,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.donkeysharp.xyz/tags/life-balance/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/posts/</loc>
-    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/posts/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/productivity/</loc>
@@ -65,19 +143,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.donkeysharp.xyz/how-i-organize-myself/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/</loc>
-    <lastmod>2026-09-08T20:02:34-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/tags/tips/</loc>
@@ -191,19 +256,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://blog.donkeysharp.xyz/tags/rpi/"
-                />
-  </url><url>
-    <loc>https://blog.donkeysharp.xyz/tags/aws/</loc>
-    <lastmod>2025-07-13T18:20:13-04:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://blog.donkeysharp.xyz/es/tags/aws/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://blog.donkeysharp.xyz/tags/aws/"
                 />
   </url><url>
     <loc>https://blog.donkeysharp.xyz/intro-to-aws-nuke/</loc>
