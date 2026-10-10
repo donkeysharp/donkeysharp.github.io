@@ -19,7 +19,7 @@ Afortunadamente, es posible hacer que el tráfico a `169.254.169.254` funcione l
 Según el sistema operativo que esté utilizando, existen diferentes formas de enrutar el tráfico `169.254.169.254` a la interfaz local.
 
 En MacOS puedes hacerlo ejecutando el comando:
-```
+```sh
 $ sudo ifconfig lo0 alias 169.254.169.254
 ```
 
@@ -27,12 +27,12 @@ En Linux, hay diferentes opciones:
 
 Usando `ifconfig`:
 ```sh
-$ sudo ifconfig lo:0 169.254.169.254 máscara de red 255.255.255.255
+$ sudo ifconfig lo:0 169.254.169.254 netmask 255.255.255.255
 ```
 
-Usando `iptabes`:
+Usando `iptables`:
 ```sh
-$ sudo iptables -t nat -A SALIDA -d 169.254.169.254 -j DNAT --a-destino 127.0.0.1
+$ sudo iptables -t nat -A OUTPUT -d 169.254.169.254 -j DNAT --to-destination 127.0.0.1
 ```
 
 De esta manera, cualquier conexión de red que vaya a `169.254.169.254` irá a nuestra máquina local.

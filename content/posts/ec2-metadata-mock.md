@@ -30,7 +30,7 @@ Using `ifconfig`:
 $ sudo ifconfig lo:0 169.254.169.254 netmask 255.255.255.255
 ```
 
-Using `iptabes`:
+Using `iptables`:
 ```sh
 $ sudo iptables -t nat -A OUTPUT -d 169.254.169.254 -j DNAT --to-destination 127.0.0.1
 ```
