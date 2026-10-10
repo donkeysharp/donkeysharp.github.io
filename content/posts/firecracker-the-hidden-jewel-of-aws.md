@@ -162,6 +162,9 @@ However, as we can see on the next video, container creation fails while trying 
 
 The reason is that after `containerd` upgraded to v2, there are some changes that broke unpacking layers of a Docker image when using device-mapper. There are still two open issues on Github, there are some workarounds like the `--local` flag, but in general that makes Firecracker unfortunately not a good option for Kata Containers.
 
+- https://github.com/containerd/containerd/issues/11390
+- https://github.com/containerd/containerd/issues/11606
+
 ### Demo - Network Connectivity between services
 This final demo shows (with Cloud Hypervisor) that our Deployments can connect between each other as pods without issues, even though they have their own kernel.
 
