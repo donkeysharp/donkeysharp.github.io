@@ -33,7 +33,32 @@ We couldn't have done this without the help of Digital Harbor as they were keen 
 
 ## The content and the dynamic
 
+Requirements before first session:
+-
 
+The topis per week were the following ones:
+- **Week 1**: Intro to the bootcamp, to AWS and creating a more robust AWS Infrastructure
+  - Show the muyu-invoice application, its current architecture (application and database, everything in the same server), some of the challenges with this architecture.
+  - Start by designing a stronger base infrastructure that will allows us in the following sessions to work better with the different AWS services we are planning to use.
+  - Check AWS VPC, Subnets, Routing tables, security groups, all using **manual steps**. All the participants were able to follow the steps, learn some troubleshooting when things didn't work and had the foundations of a infrastructure we were going to use in the following sessions.
+- **Week 2**: Infrastructure as Code
+  - Show the challenges of using manual steps and why that is not a good idea.
+  - Introduce to the participants the concept of infrastructure as code and the Terraform tool and its benefits.
+  - Re-create the infrastructure made on week 1 but in Terraform
+  - All participants were able to have a reproducible way to create infrastructure thanks to Terraform.
+- **Week 3**: Moving the application to Docker
+  - Introduction to Docker and how it helps us to have reproducible builds of our application.
+  - Run the application locally using docker-compose
+  - See the challenges with big images.
+  - Check the benefits of alpine-based images and possible issues (when there are strong dependencies of glibc code that is not present in musl).
+  - Introduce to multi-stage builds and the importance of the order of layers.
+  - Introduce Trivy to start considering the security and scanning process as part of the software development life cycle.
+  - All participants were able to build the Docker image of the muyu-invoice application and push it to its corresponding ECR repository, which was created with Terraform (applying what we learned previously).
+
+- **Week 4**: Introduction to ECS
+  -
+- **Week 5**: Asynchronous architectures
+- **Week 6**: Observability and monitoring
 
 
 <!-- ## The participants -->
