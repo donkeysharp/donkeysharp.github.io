@@ -1,7 +1,7 @@
 ---
 title: "AWS User Group La Paz - DevOps Bootcamp"
 url: "aws-user-group-la-paz-devops-bootcamp"
-date: 2026-10-18T20:47:12-04:00
+date: 2026-10-14T20:47:12-04:00
 tags: ["aws", "bootcamp", "devops", "ecs", "containers", "observability", "pipelines"]
 draft: true
 ---
@@ -104,3 +104,5 @@ We also prepared a video (it's in Spanish) with some opinions of the participant
 In the same way participants were able to learn more about DevOps and DevSecOps, we (as instructors) learned a lot from the feedback and from all the on-site and virtual sessions: from how to present specific topics to which analogies work better, etc. We also found some knowledge gaps in things we assumed participants already had, e.g. familiarity with Unix systems (most commonly GNU/Linux), networking, etc. Which is great! Because now we know which type of material to prepare for future versions of the DevOps Bootcamp!
 
 So expect a new set of sessions with more specific content, e.g. Linux + AWS, and more about specific AWS services and DevOps. You can learn more about the community's events on [our social networks](https://linktr.ee/aws.user.group.lpz).
+
+Happy Hacking! 👾
