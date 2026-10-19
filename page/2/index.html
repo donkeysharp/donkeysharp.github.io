@@ -9,7 +9,7 @@
 <title>Donkeysharp</title>
 
 <meta name="description" content="Personal Blog - Donkeysharp">
-<meta name="author" content="donkeysharp">
+<meta name="author" content="Sergio Guillen">
 <link rel="canonical" href="https://blog.donkeysharp.xyz/">
 <meta name="google-site-verification" content="G-NE86EKXE5N">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.7f710067e04dcceea91964a3f3e88a29f286096ac5fb3cb6541ffb78d592b3eb.css" integrity="sha256-f3EAZ&#43;BNzO6pGWSj8&#43;iKKfKGCWrF&#43;zy2VB/7eNWSs&#43;s=" rel="preload stylesheet" as="style">
@@ -127,21 +127,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Nuke&#39;em all! Using AWS Nuke to clean your AWS accounts
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>
-Introducing AWS Nuke! In this post I will give you a quick introduction to AWS Nuke, a tool developed in Golang that aims to delete all resources in an AWS account. This tool helped me a lot.
-Use Cases Cleaning Free Tier AWS Account This was a personal use-case, I created a free tier AWS Account some months ago and I’ve been using it for different purposes, some of the resources I created were via Terraform which made it simpler to delete the resources I created after using them, on the other hand, I created other resources manually without tracking them, some of them were costing me money!. So I prefered to delete everything in this account as I use it for learning purposes only. AWS Nuke is a great fit for this task.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-07-13 18:20:13 -0400 -04'>July 13, 2025</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;donkeysharp</footer>
-  <a class="entry-link" aria-label="post link to Nuke&#39;em all! Using AWS Nuke to clean your AWS accounts" href="https://blog.donkeysharp.xyz/intro-to-aws-nuke/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">Using Serverless Framework with AWS SSO
     </h2>
   </header>
@@ -150,7 +135,7 @@ Use Cases Cleaning Free Tier AWS Account This was a personal use-case, I created
 Serverless Framework is one of my favorite tools when I need to work with AWS Lambda and other serverless services, it is an alternative to AWS SAM, but personally, I prefer Serverless Framework due to its support for various cloud providers and plugins. Previously, I had used Serverless to access AWS API by configuring my ~/.aws/credentials file. However this time I was using AWS Single Sign-On to access AWS API from my local computer. Unfortunately, when I wanted to deploy some Lambda functions using the sls CLI, I was not able to do it, it shows a message saying the AWS profile I was using was not configured, even I logged in successfully a couple minutes ago.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-10-22 17:51:02 -0400 -04'>October 22, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;donkeysharp</footer>
+  <footer class="entry-footer"><span title='2023-10-22 17:51:02 -0400 -04'>October 22, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sergio Guillen</footer>
   <a class="entry-link" aria-label="post link to Using Serverless Framework with AWS SSO" href="https://blog.donkeysharp.xyz/serverless-aws-sso/"></a>
 </article>
 
@@ -163,7 +148,7 @@ Serverless Framework is one of my favorite tools when I need to work with AWS La
     <p>Some time ago I was working on creating a local docker-based development environment for some microservices at work so developers can have the necessary infra components on their machines and that will help them with their daily tasks. Initially, the business logic of some microservices were a black box to me. After containerizing the applications and creating the docker-compose setup, some of them started failing and after checking the logs it turns out that the applications were using AWS SDK to get ec2 instance metadata.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-05-28 21:08:04 -0400 -04'>May 28, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;donkeysharp</footer>
+  <footer class="entry-footer"><span title='2023-05-28 21:08:04 -0400 -04'>May 28, 2023</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Sergio Guillen</footer>
   <a class="entry-link" aria-label="post link to Mocking EC2 metadata server locally" href="https://blog.donkeysharp.xyz/mock-ec2-metadata/"></a>
 </article>
 
@@ -177,7 +162,7 @@ Serverless Framework is one of my favorite tools when I need to work with AWS La
 I appreciate your feedback. I am not an expert on this topic as Linux Kernel’s internals are new for me, it was just my curiosity that drove me to get into kernel’s source code, and wanted to share what I learned. If you find something incorrect in this post, please let me know by opening an issue on this blog’s Github repository. I will really appreciate it!.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-03-10 00:00:00 +0000 UTC'>March 10, 2022</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;donkeysharp</footer>
+  <footer class="entry-footer"><span title='2022-03-10 00:00:00 +0000 UTC'>March 10, 2022</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;Sergio Guillen</footer>
   <a class="entry-link" aria-label="post link to What Happens When A Linux Process Goes To Sleep?" href="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/"></a>
 </article>
 
@@ -191,8 +176,22 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel’s
 The previous week a large number of clients from a local ISP received an SMS with a link bit.ly to an MP4 video in Dropbox that was later deleted.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2019-11-26 13:08:36 -0400 -04'>November 26, 2019</span>&nbsp;·&nbsp;16 min&nbsp;·&nbsp;donkeysharp</footer>
+  <footer class="entry-footer"><span title='2019-11-26 13:08:36 -0400 -04'>November 26, 2019</span>&nbsp;·&nbsp;16 min&nbsp;·&nbsp;Sergio Guillen</footer>
   <a class="entry-link" aria-label="post link to Analyzing a Video Looking for Possible Malware" href="https://blog.donkeysharp.xyz/post/analyzing-evo-video/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Automating post-installation setup in my personal Debian machines
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Hi, some time ago I posted about my initial setup in my Debian personal machines that use for work or personal projects. Some of the things I setup are: applications, desktop look and feel, etc. The last months I installed and re-installed my Debian machines so many times in different computers that I use (new computers, new hard drives, etc.) and this taks was repetitive.
+Basically what I was doing was to review my previous blog post and repeat those steps. So far it has worked for me, but as it’s becoming repetitive, I was encouraged to automate this whole process, both installation and configuration of certain applications and the configuration of the look and feel of the desktop (with the setup that I always use).
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-05-13 21:45:39 -0400 -04'>May 13, 2019</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Sergio Guillen</footer>
+  <a class="entry-link" aria-label="post link to Automating post-installation setup in my personal Debian machines" href="https://blog.donkeysharp.xyz/post/debian-post-installation-automated-setup/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

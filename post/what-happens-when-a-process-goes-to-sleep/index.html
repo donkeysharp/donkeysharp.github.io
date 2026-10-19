@@ -10,7 +10,7 @@
 <meta name="description" content="It is possible when you are writing code, at some point you might need to pause the execution of a process by calling the sleep(NUMBER_OF_SECONDS) function depending on the problem you are solving. In this post, I will share what I learned so far while investigating the internal kernel mechanisms that make the sleep function work the way it does.
 
 I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsquo;s internals are new for me, it was just my curiosity that drove me to get into kernel&rsquo;s source code, and wanted to share what I learned. If you find something incorrect in this post, please let me know by opening an issue on this blog&rsquo;s Github repository. I will really appreciate it!.">
-<meta name="author" content="donkeysharp">
+<meta name="author" content="Sergio Guillen">
 <link rel="canonical" href="https://blog.donkeysharp.xyz/post/what-happens-when-a-process-goes-to-sleep/">
 <meta name="google-site-verification" content="G-NE86EKXE5N">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.7f710067e04dcceea91964a3f3e88a29f286096ac5fb3cb6541ffb78d592b3eb.css" integrity="sha256-f3EAZ&#43;BNzO6pGWSj8&#43;iKKfKGCWrF&#43;zy2VB/7eNWSs&#43;s=" rel="preload stylesheet" as="style">
@@ -96,7 +96,7 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
   "dateModified": "2022-03-10T00:00:00Z",
   "author":{
     "@type": "Person",
-    "name": "donkeysharp"
+    "name": "Sergio Guillen"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -177,7 +177,7 @@ I appreciate your feedback. I am not an expert on this topic as Linux Kernel&rsq
     <h1 class="post-title entry-hint-parent">
       What Happens When A Linux Process Goes To Sleep?
     </h1>
-    <div class="post-meta"><span title='2022-03-10 00:00:00 +0000 UTC'>March 10, 2022</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;donkeysharp&nbsp;|&nbsp;Translations:
+    <div class="post-meta"><span title='2022-03-10 00:00:00 +0000 UTC'>March 10, 2022</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;Sergio Guillen&nbsp;|&nbsp;Translations:
 <ul class="i18n_list">
     <li>
         <a href="https://blog.donkeysharp.xyz/es/post/what-happens-when-a-process-goes-to-sleep/">Español</a>

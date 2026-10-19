@@ -9,7 +9,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="En este post, mostraré una solución (que personalmente encuentro bastante limpia) a un problema que encontré con AWS SSO y Serverless Framework.
 Serverless Framework es una de mis herramientas preferidas al trabajar con AWS Lambda y otros servicios serverless. Es una alternativa a AWS SAM, pero personalmente prefiero Serverless Framework debido a su compatibilidad con diversos cloud providers y plugins. Ya he usado Serverless Framework antes para acceder a las API de AWS configurando el archivo ~/.aws/credentials. Sin embargo, esta vez me tocó utilizar AWS Single Sign-On para acceder a las API de AWS desde mi computadora local. Lamentablemente, al intentar hacer deploy de funciones Lambda con la CLI de sls tuve algunos errores. Mostró un mensaje de error que indicaba que el AWS profile que estaba utilizando no estaba configurado, a pesar de haber iniciado sesión con éxito hace unos minutos.">
-<meta name="author" content="donkeysharp">
+<meta name="author" content="Sergio Guillen">
 <link rel="canonical" href="https://blog.donkeysharp.xyz/es/post/serverless-aws-sso/">
 <meta name="google-site-verification" content="G-NE86EKXE5N">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.7f710067e04dcceea91964a3f3e88a29f286096ac5fb3cb6541ffb78d592b3eb.css" integrity="sha256-f3EAZ&#43;BNzO6pGWSj8&#43;iKKfKGCWrF&#43;zy2VB/7eNWSs&#43;s=" rel="preload stylesheet" as="style">
@@ -94,7 +94,7 @@ Serverless Framework es una de mis herramientas preferidas al trabajar con AWS L
   "dateModified": "2023-10-22T17:51:02-04:00",
   "author":{
     "@type": "Person",
-    "name": "donkeysharp"
+    "name": "Sergio Guillen"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -175,7 +175,7 @@ Serverless Framework es una de mis herramientas preferidas al trabajar con AWS L
     <h1 class="post-title entry-hint-parent">
       Usando Serverless Framework con AWS SSO
     </h1>
-    <div class="post-meta"><span title='2023-10-22 17:51:02 -0400 -04'>octubre 22, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;donkeysharp&nbsp;|&nbsp;Traducciones:
+    <div class="post-meta"><span title='2023-10-22 17:51:02 -0400 -04'>octubre 22, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Sergio Guillen&nbsp;|&nbsp;Traducciones:
 <ul class="i18n_list">
     <li>
         <a href="https://blog.donkeysharp.xyz/serverless-aws-sso/">English</a>

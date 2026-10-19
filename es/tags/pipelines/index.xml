@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pipelines on Donkeysharp</title>
+    <link>http://localhost:1313/es/tags/pipelines/</link>
+    <description>Recent content in Pipelines on Donkeysharp</description>
+    <image>
+      <title>Donkeysharp</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>es</language>
+    <copyright>Donkeysharp</copyright>
+    <lastBuildDate>Wed, 14 Oct 2026 20:47:12 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/es/tags/pipelines/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS User Group La Paz - DevOps Bootcamp</title>
+      <link>http://localhost:1313/es/aws-user-group-la-paz-bootcamp-devops/</link>
+      <pubDate>Wed, 14 Oct 2026 20:47:12 -0400</pubDate>
+      <guid>http://localhost:1313/es/aws-user-group-la-paz-bootcamp-devops/</guid>
+      <description>&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/devops-bootcamp/00.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Traducido del artículo original en Inglés&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Durante junio y julio de este 2026, el &lt;a href=&#34;https://www.meetup.com/aws-user-group-la-paz&#34;&gt;AWS User Group La Paz&lt;/a&gt; organizó el primer DevOps Bootcamp en Bolivia, abierto y gratuito para la comunidad! La idea de este bootcamp era llegar a profesionales y estudiantes interesados en aprender más sobre la cultura DevSecOps y sus principios, y ponerlos en práctica, 100% hands-on usando AWS y otras tecnologías utilizadas en la industria.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
