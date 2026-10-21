@@ -1,9 +1,9 @@
 ---
 title: "AWS User Group La Paz - DevOps Bootcamp"
 url: "aws-user-group-la-paz-bootcamp-devops"
-date: 2026-10-18T20:47:12-04:00
+date: 2026-10-28T20:47:12-04:00
 tags: ["aws", "bootcamp", "devops", "ecs", "containers", "observability", "pipelines"]
-draft: true
+draft: false
 ---
 
 ![](/img/devops-bootcamp/00.png)
